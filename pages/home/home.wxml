@@ -74,5 +74,9 @@
 </view>
 
 
+<!-- 悬浮机器人 -->
+<view class="robot" bindtap="goRobot">
+    <image src="http://img.liuyuyang.net/zhxy/jqr.gif" mode="widthFix" class="image"></image>
+</view>
 
 <menu pageX="{{pageX}}"></menu>

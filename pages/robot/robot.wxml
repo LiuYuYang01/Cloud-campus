@@ -1,0 +1,18 @@
+<view class="robot">
+    <image src="http://img.liuyuyang.net/zhxy/jqr.gif" mode="widthFix" class="image"></image>
+</view>
+
+<!-- 聊天框 -->
+<view class="dialogBox">
+    <view class="{{item.role}}" wx:for="{{dialog}}" wx:key="index">
+        <image src="{{item.avatar}}" class="avatar"></image>
+        <view class="info">{{item.info}}</view>
+    </view>
+</view>
+
+<!-- 发送 -->
+<view class="send">
+    <textarea placeholder="你想对小智说什么：" bindinput="content" auto-height class="text"></textarea>
+
+    <button style="background-color: #5d61f0;color:#fff" bindtap="release">发布</button>
+</view>

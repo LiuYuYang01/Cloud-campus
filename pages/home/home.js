@@ -128,22 +128,18 @@ Page({
       homeList: res.data,
     });
   },
+  // 跳转到机器人
+  goRobot() {
+    wx.navigateTo({
+      url: "/pages/robot/robot",
+    });
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   async onLoad(options) {
     this.__getSwiperList();
     this.__getHomeList();
-
-    // 判断有没有Token，没有就代表未登录，跳转到登录页
-    if (getToken()) {
-      console.log("有Tooken");
-    } else {
-      console.log("没有Token");
-      wx.navigateTo({
-        url: "/pages/login/login",
-      });
-    }
   },
 
   /**
@@ -154,7 +150,17 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow() {},
+  onShow() {
+    // 判断有没有Token，没有就代表未登录，跳转到登录页
+    if (getToken()) {
+      console.log("有Tooken");
+    } else {
+      console.log("没有Token");
+      wx.navigateTo({
+        url: "/pages/login/login",
+      });
+    }
+  },
 
   /**
    * 生命周期函数--监听页面隐藏

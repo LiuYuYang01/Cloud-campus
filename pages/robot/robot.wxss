@@ -1,0 +1,93 @@
+page {
+  background-color: #fff;
+}
+
+.robot {
+  width: 500rpx;
+  margin: 0 auto;
+}
+
+.robot .image {
+  width: 100%;
+}
+
+/* 聊天框 */
+.dialogBox {
+  padding: 0 50rpx;
+}
+
+/* 机器人 */
+.dialogBox .XZ,
+.dialogBox .USER {
+  display: flex;
+  margin: 50rpx 0;
+}
+
+/* 机器人头像 */
+.dialogBox .XZ .avatar,
+.dialogBox .USER .avatar {
+  width: 85rpx;
+  height: 85rpx;
+  border-radius: 50%;
+}
+
+/* 机器人聊天框 */
+.dialogBox .XZ .info,
+.dialogBox .USER .info {
+  position: relative;
+  padding: 20rpx;
+  margin-left: 30rpx;
+  color: #fff;
+  border-radius: 10rpx;
+  background-color: #7174f3;
+}
+
+.dialogBox .info::after,
+.dialogBox .info::after {
+  content: "";
+  position: absolute;
+  top: 10rpx;
+  width: 0;
+  height: 0;
+  border: 20rpx solid;
+  border-color: transparent transparent transparent #7174f3;
+}
+
+.dialogBox .XZ .info::after {
+  content: "";
+  left: -13rpx;
+  transform: rotate(-65deg);
+}
+
+/* 用户 */
+.dialogBox .USER {
+  flex-direction: row-reverse;
+}
+
+.dialogBox .USER .info{
+    margin-left: 0;
+    margin-right: 20rpx;
+    background-color: #4fb985;
+}
+
+.dialogBox .USER .info::after{
+    content: "";
+    right: -15rpx;
+    transform: rotate(-105deg);
+    border-color: transparent transparent transparent #4fb985;
+}
+
+/* 底部发送 */
+.send{
+    width: 100%;
+    height: 250rpx;
+    margin-top: 100rpx;
+    border-top: 2rpx solid #eee;
+}
+
+.send .text{
+    width: 100%;
+    height: 200rpx;
+    min-height: 240rpx;
+    padding: 20rpx;
+}

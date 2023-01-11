@@ -58,3 +58,16 @@
     background-color: #fff;
     box-shadow: 0 0 6rpx 2rpx rgb(0 0 0 / 3%);
 }
+
+/* 悬浮机器人 */
+.robot{
+    position: fixed;
+    bottom: 15%;
+    right: 20rpx;
+    z-index: 999;
+}
+
+.robot .image{
+    width: 200rpx;
+    height: 200rpx;
+}

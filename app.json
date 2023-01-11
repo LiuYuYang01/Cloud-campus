@@ -8,7 +8,8 @@
         "pages/register/register",
         "pages/article/article",
         "pages/release/release",
-        "pages/love/love"
+        "pages/love/love",
+        "pages/robot/robot"
     ],
     "window": {
         "backgroundTextStyle": "light",
