@@ -28,6 +28,8 @@ page {
 .dialogBox .USER .avatar {
   width: 85rpx;
   height: 85rpx;
+  min-width: 85rpx;
+  max-height: 85rpx;
   border-radius: 50%;
 }
 

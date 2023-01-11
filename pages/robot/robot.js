@@ -13,6 +13,7 @@ Page({
       },
     ],
     content: "",
+    temp: "",
   },
   // 内容
   content(e) {
@@ -21,10 +22,8 @@ Page({
       content: value,
     });
   },
-  // 发布消息
-  release() {
-    const value = this.__lexicon(this.data.content);
-
+  // 回复消息
+  __reply(value) {
     this.data.dialog.push(
       {
         role: "USER",
@@ -42,16 +41,32 @@ Page({
       dialog: this.data.dialog,
     });
   },
-  // 词库
-  __lexicon(val) {
-    switch (val) {
-      case "你好":
-        console.log("同学，你也好");
-        return "同学，你也好";
-      
+  // 发布消息
+  async release() {
+    const val = this.data.content;
+    let value = ""
+
+    switch (true) {
+      case val.includes("你好"):
+        value = "同学，你也好"
+        break;
+
+      case val.includes("安慰"):
+        const {
+          data: { anwei },
+        } = await wx.$request.get(
+          "https://v.api.aa1.cn/api/api-wenan-anwei/index.php?type=json"
+        );
+
+        value = anwei
+        break;
+
       default:
-          return "让我想想说什么"
+        return "让我想想说什么";
     }
+
+    // 回复消息
+    this.__reply(value)
   },
 
   /**

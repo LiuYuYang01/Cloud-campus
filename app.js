@@ -22,6 +22,10 @@ $http.afterRequest = function () {
     wx.hideLoading()
 }
 
+// 自定义请求
+wx.$request = $http
+wx.$request.baseUrl = ''
+
 // app.js
 App({
     onLaunch() {
