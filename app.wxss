@@ -1,0 +1,19 @@
+/**app.wxss**/
+@import './lib/font/iconfont.wxss';
+
+page{
+    background-color: #f9f9f9;
+}
+
+.container {
+    padding: 0 20rpx;
+}
+
+.custom-class{
+    z-index: 2 !important;
+}
+
+/* 自定义Vant组件库样式 */
+/* page {
+    --button-default-color: red;
+} */

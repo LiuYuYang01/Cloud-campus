@@ -1,0 +1,10 @@
+<swiper class="banner" indicator-dots="{{dots}}" indicator-color="rgba(255, 255, 255, 0.5)" indicator-active-color="#49b984" circular autoplay>
+    <!-- 渲染轮播图数据 -->
+    <swiper-item class="item" wx:for="{{list}}" wx:key="id" data-cid="{{item.cid}}" bindtap="swiperTap">
+        <image src="{{item.image}}" class="image"></image>
+
+        <view class="title">
+            <text class="text">{{item.title}}</text>
+        </view>
+    </swiper-item>
+</swiper>

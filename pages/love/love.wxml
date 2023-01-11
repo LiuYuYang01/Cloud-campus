@@ -1,0 +1,11 @@
+<view class="container">
+    <swiper list="{{swiperList}}" class="swiper"/>
+</view>
+
+<van-notice-bar
+  left-icon="volume-o"
+  scrollable
+  text="喜欢就追嘛，对不对，管他呢，答应就在一起，不答应反正你已经表白了，也不亏。"
+/>
+
+<article list="{{loveList}}" color="#f9abb8" style="margin-top: 20rpx;"/>

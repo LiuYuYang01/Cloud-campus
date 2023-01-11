@@ -1,0 +1,50 @@
+/* 入口导航 */
+.entranceNav {
+    display: flex;
+    /* 水平滚动必加 */
+    white-space: nowrap;
+    width: 100%;
+    /* margin-left: 25rpx; */
+}
+
+.entranceNav ::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+    color: transparent;
+    display: none;
+}
+
+.entranceNav .item {
+    /* 水平滚动必加 */
+    display: inline-block;
+    width: 12%;
+    /* margin-right: 8%; */
+    padding: 0 28rpx;
+    text-align: center;
+}
+
+.entranceNav .item .icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 80rpx;
+    line-height: 80rpx;
+    margin-bottom: 10rpx;
+    border-radius: 40rpx;
+    color: #fff;
+    background-color: #4fb985;
+}
+
+.entranceNav .item .icon .van {
+    font-size: 50rpx !important;
+}
+
+.entranceNav .item .icon .title {
+    font-size: 50rpx;
+}
+
+.entranceNav .item .title {
+    font-size: 24rpx;
+    color: #333;
+    margin-top: 10rpx;
+}

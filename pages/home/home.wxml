@@ -1,0 +1,78 @@
+<!-- 消息提示 -->
+<van-notify id="van-notify" />
+
+<view bindtouchstart="touchStart" bindtouchmove="touchMove" class="home">
+    <view class="container">
+        <!-- 导航 -->
+        <scroll-view class="nav" scroll-x="true">
+            <view class="{{index === 0 ? 'active' : ''}}" data-index="{{0}}" bindtap="navTap">首页</view>
+            <view class="{{index === 1 ? 'active' : ''}}" data-index="{{1}}" bindtap="navTap">前端</view>
+            <view class="{{index === 2 ? 'active' : ''}}" data-index="{{2}}" bindtap="navTap">后端</view>
+            <view class="{{index === 3 ? 'active' : ''}}" data-index="{{3}}" bindtap="navTap">设计</view>
+            <view class="{{index === 4 ? 'active' : ''}}" data-index="{{4}}" bindtap="navTap">音乐</view>
+            <view class="{{index === 5 ? 'active' : ''}}" data-index="{{5}}" bindtap="navTap">摄影</view>
+            <view class="{{index === 6 ? 'active' : ''}}" data-index="{{6}}" bindtap="navTap">跑酷</view>
+            <view class="{{index === 7 ? 'active' : ''}}" data-index="{{7}}" bindtap="navTap">篮球</view>
+            <view class="{{index === 8 ? 'active' : ''}}" data-index="{{8}}" bindtap="navTap">足球</view>
+            <view class="{{index === 9 ? 'active' : ''}}" data-index="{{9}}" bindtap="navTap">羽毛球</view>
+        </scroll-view>
+
+        <!-- 轮播图 -->
+        <swiper list="{{swiperList}}" style="height: 350rpx;margin-top: 20rpx;" />
+
+        <view class="slideNavBox">
+            <circle list="{{entranceNavList}}" />
+        </view>
+
+        <!-- 图片广告 -->
+        <view class="advertising">
+            <image src="https://636c-cloud1-4g0ye7ti0a11181a-1311534260.tcb.qcloud.la/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20221229152558.jpg?sign=8482fe3560c428d6dd3befdc4329cc23&t=1672299138"></image>
+        </view>
+    </view>
+
+    <!-- 主要内容 -->
+    <view class="main">
+        <!-- <view class="item">
+            <view class="header">
+                <view>
+                    <image src="https://s1.ax1x.com/2022/12/29/pSSzPKg.jpg"></image>
+                </view>
+
+                <view class="info">
+                    <view class="title">传智专修学院官方</view>
+                    <view class="date">2022-12-29 15:36</view>
+                </view>
+
+                <view class="attention">关注</view>
+            </view>
+
+            <view class="title">2022年，你的新年flag是什么？</view>
+
+            <view class="content">
+                岁月不居，时节如流，我们在收获和期待中迎来2022年。
+
+                面对新的一年，传智专修学院的同学们早已立下新的flag。有人希望考试不挂科、offer拿到手软、疫情退散；有人打算坚持运动、早睡早起、学习新技能。
+            </view>
+
+            <view class="picture">
+                <image src="https://www.czxy.com/uploads/images/flg.jpg"></image>
+            </view>
+
+            <view class="operate">
+                <view class="praise" bindtap="praiseTap">
+                    <text class="iconfont icon-dianzan_kuai" style="color:{{isPraise}}"> 10</text>
+                </view>
+
+                <view class="collect" bindtap="collectTap">
+                    <text class="iconfont icon-favourited" style="color:{{isCollect}}"> 6</text>
+                </view>
+            </view>
+        </view> -->
+
+        <article list="{{homeList}}"></article>
+    </view>
+</view>
+
+
+
+<menu pageX="{{pageX}}"></menu>

@@ -1,0 +1,11 @@
+{
+    "navigationBarTitleText": "兴趣圈",
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#49b984",
+    "usingComponents": {
+        "menu": "/components/menu/menu",
+        "swiper": "/components/swiper/swiper",
+        "circle": "/components/circle/circle",
+        "article": "/components/article/article"
+    }
+}

@@ -1,0 +1,21 @@
+<view class="container">
+    <!-- 操作栏 -->
+    <view class='toolbar' bindtap="format">
+        <i class="iconfont icon-zitijiacu" data-name="bold"></i>
+        <i class="iconfont icon-zitixieti" data-name="italic"></i>
+        <i class="iconfont icon-zitixiahuaxian" data-name="underline"></i>
+        <i class="iconfont icon-zuoduiqi" data-name="align" data-value="left"></i>
+        <i class="iconfont icon-juzhongduiqi" data-name="align" data-value="center"></i>
+        <i class="iconfont icon-youduiqi" data-name="align" data-value="right"></i>
+        <i class="iconfont icon-undo" bindtap="undo"></i>
+        <i class="iconfont icon-redo" bindtap="redo"></i>
+        <!-- <i class="iconfont icon-charutupian" bindtap="insertImage"></i> -->
+        <i class="iconfont icon-shanchu" bindtap="clear"></i>
+    </view>
+
+    <!-- 文章内容区，富文本编辑器 -->
+    <editor id="editor" class="ql-container" placeholder="写出你的灵感!" showImgSize showImgToolbar showImgResize bindready="onEditorReady">
+    </editor>
+
+    <!-- <button type="primary" size="mini" bindtap="release" class="release">发表</button> -->
+</view>

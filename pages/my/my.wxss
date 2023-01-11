@@ -1,0 +1,68 @@
+/* 用户信息 */
+.header {
+    display: flex;
+    align-items: center;
+    height: 400rpx;
+    padding: 0 40rpx;
+    color: #fff;
+    background-color: #49b984;
+    box-sizing: border-box;
+}
+
+.header .userInfo {
+    display: flex;
+    align-items: center;
+    height: 200rpx;
+}
+
+/* 头像 */
+.header .userInfo .avatar {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 125rpx;
+    height: 125rpx;
+    margin-right: 30rpx;
+    border-radius: 50%;
+    background-color: #fff;
+}
+
+.header .userInfo .avatar image {
+    width: 93%;
+    height: 93%;
+    border-radius: 50%;
+}
+
+/* 信息 */
+.header .userInfo .info .name {
+    font-size: 36rpx;
+    font-weight: 700;
+    margin-bottom: 20rpx;
+}
+
+.header .userInfo .info .autograph {
+    width: 400rpx;
+    font-size: 26rpx;
+}
+
+.container {
+    position: relative;
+}
+
+.entranceNavBox {
+    position: absolute;
+    top: -100rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 90%;
+    padding: 30rpx 20rpx;
+    border-radius: 20rpx;
+    background-color: #fff;
+    box-shadow: 0 0 6rpx 2rpx rgb(0 0 0 / 10%);
+    z-index: 999;
+}
+
+/* 资料设置 */
+.setting {
+    padding-top: 120rpx;
+}

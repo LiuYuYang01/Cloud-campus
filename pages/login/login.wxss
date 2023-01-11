@@ -1,0 +1,63 @@
+page {
+    background-image: linear-gradient(180deg, #fff 0%, #4fb985 120%);
+}
+
+/* 登录框 */
+.loginBox {
+    width: 600rpx;
+    margin: 400rpx auto 20rpx;
+    padding: 40rpx;
+    border-radius: 10rpx;
+    background-color: #fff;
+}
+
+.loginBox .logo{
+    text-align: center;
+    margin: 20rpx 0 40rpx;
+}
+
+.loginBox .logo image{
+    width: 250rpx;
+}
+
+.loginBox input {
+    height: 100rpx;
+    border-bottom: 1px solid #f9f9f9;
+    color: #4fb985;
+}
+
+.loginBox view:nth-child(4) input {
+    color: #333;
+}
+
+.loginBox input .placeholder-style {
+    color: #cbcccf;
+    font-size: 28rpx;
+}
+
+
+/* 登陆按钮 */
+.loginBox .login {
+    height: 100rpx;
+    line-height: 100rpx;
+    margin-top: 40rpx;
+    color: #fff;
+    border-radius: 10rpx;
+    background-color: #4fb985;
+    text-align: center;
+}
+
+.loginBox .login:active{
+    background-color: #73d1a4;
+}
+
+.loginBox .van-notice-bar{
+    padding: 0;
+}
+
+.info{
+    color: #fff;
+    font-size: 26rpx;
+    text-align: end;
+    padding-right: 40rpx;
+}

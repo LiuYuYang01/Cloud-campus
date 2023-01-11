@@ -1,0 +1,27 @@
+/* .hobby{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+} */
+
+.bg{
+    top: 100rpx;
+    position: absolute;
+    width: 100%;
+    height: 280rpx;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+    background-color: #4fb985;
+}
+
+.search .van-search__content {
+    border-radius: 40px;
+}
+
+.circleBox{
+    padding: 10rpx 0;
+    margin-bottom: 20rpx;
+    border-radius: 10rpx;
+    background-color: #fff;
+    box-shadow: 0 0 6rpx 2rpx rgb(0 0 0 / 3%);
+}

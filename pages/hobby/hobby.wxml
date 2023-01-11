@@ -1,0 +1,28 @@
+<view bindtouchstart="touchStart" bindtouchmove="touchMove" class="hobby">
+    <!-- 搜索框 -->
+    <van-search disabled value="{{ value }}" placeholder="搜你所想 搜你喜欢" background="#4fb985" class="search" />
+
+    <view class="bg"></view>
+
+    <view class="container">
+        <!-- 轮播图 -->
+        <swiper list="{{swiperList}}" style="height: 350rpx;margin-bottom: 20rpx;" />
+
+        <!-- 兴趣圈 -->
+        <view class="circleBox">
+            <circle list="{{circleList}}" />
+        </view>
+    </view>
+
+    <article list="{{hobbyList}}"/>
+</view>
+
+<!-- tabBar -->
+<van-tabbar active="{{ active }}" active-color="#49b984" inactive-color="#333" bind:change="selectTabBar">
+    <van-tabbar-item icon="home-o">首页</van-tabbar-item>
+    <van-tabbar-item icon="qr">兴趣圈</van-tabbar-item>
+    <van-tabbar-item icon="flower-o" dot>朋友圈</van-tabbar-item>
+    <van-tabbar-item icon="contact">我的</van-tabbar-item>
+</van-tabbar>
+
+<menu pageX="{{pageX}}" />

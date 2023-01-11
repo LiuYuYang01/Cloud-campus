@@ -1,0 +1,12 @@
+<view class="popup" style="top: {{top}}rpx">
+    <view class="logo">
+        <image src="/assets/logo.png" mode="widthFix" class="image"></image>
+    </view>
+
+    <view class="sentence">{{info}}</view>
+
+    <view class="nav {{sty}}">
+        <van-divider contentPosition="center"> 选择您要发布的内容 </van-divider>
+        <circle list="{{entranceNavList}}" />
+    </view>
+</view>

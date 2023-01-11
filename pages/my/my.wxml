@@ -1,0 +1,109 @@
+<!-- 用户信息 -->
+<view class="header">
+    <view class="userInfo" bindtap="login">
+        <!-- 头像 -->
+        <view class="avatar">
+            <image src="{{userInfo.avatar}}"></image>
+        </view>
+
+        <!-- 信息 -->
+        <view class="info">
+            <view class="name">{{userInfo.name}}</view>
+
+            <view class="autograph" wx:if="{{userInfo.id}}">
+                {{userInfo.signature}}
+                <van-icon name="edit" class="edit" />
+            </view>
+        </view>
+    </view>
+</view>
+
+<view class="container">
+    <!-- 入口导航 -->
+    <view class="entranceNavBox">
+        <slideNav list="{{entranceNavList}}"></slideNav>
+    </view>
+</view>
+
+<!-- 设置 -->
+<view class="setting">
+    <van-cell>
+        <van-icon name="records" color="#49b984" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
+
+        <view slot="title">
+            <view class="van-cell-text">我的资料</view>
+        </view>
+
+        <van-icon name="arrow" class="custom-icon" />
+    </van-cell>
+
+    <van-cell>
+        <van-icon name="smile-o" color="#f7b53e" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
+
+        <view slot="title">
+            <view class="van-cell-text">我的心情</view>
+        </view>
+
+        <van-icon name="arrow" class="custom-icon" />
+    </van-cell>
+
+    <van-cell>
+        <van-icon name="more-o" color="#5a82fd" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
+
+        <view slot="title">
+            <view class="van-cell-text">我的消息</view>
+        </view>
+
+        <van-icon name="arrow" class="custom-icon" />
+    </van-cell>
+
+    <van-cell>
+        <van-icon name="contact" color="#f57062" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
+
+        <view slot="title">
+            <view class="van-cell-text">我的主页</view>
+        </view>
+
+        <van-icon name="arrow" class="custom-icon" />
+    </van-cell>
+
+    <van-cell>
+        <van-icon name="flower-o" color="#7369e2" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
+
+        <view slot="title">
+            <view class="van-cell-text">我的动态</view>
+        </view>
+
+        <van-icon name="arrow" class="custom-icon" />
+    </van-cell>
+
+    <van-cell>
+        <van-icon name="more-o" color="#62bdfc" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
+
+        <view slot="title">
+            <view class="van-cell-text">我的成就</view>
+        </view>
+
+        <van-icon name="arrow" class="custom-icon" />
+    </van-cell>
+
+    <van-cell>
+        <van-icon name="share-o" color="#fa7060" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
+
+        <view slot="title">
+            <view class="van-cell-text">邀请好友</view>
+        </view>
+
+        <van-icon name="arrow" class="custom-icon" />
+    </van-cell>
+
+    <van-cell bindtap="quit">
+        <van-icon name="user-circle-o" color="#666" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
+
+        <view slot="title">
+            <view class="van-cell-text">退出登录</view>
+        </view>
+
+        <van-icon name="arrow" class="custom-icon" />
+    </van-cell>
+</view>

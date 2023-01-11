@@ -1,0 +1,11 @@
+{
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fcabb8",
+    "navigationBarTitleText": "校园表白墙",
+    "navigationBarTextStyle": "white",
+    "usingComponents": {
+        "swiper":"/components/swiper/swiper",
+        "van-notice-bar": "@vant/weapp/notice-bar/index",
+        "article":"/components/article/article"
+    }
+}

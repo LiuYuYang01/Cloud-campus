@@ -1,0 +1,22 @@
+<van-notify id="van-notify" />
+<view class="loginBox">
+    <view class="logo">
+        <image src="https://s1.ax1x.com/2023/01/05/pSAnHsK.png" mode="widthFix"></image>
+    </view>
+
+    <van-notice-bar color="#54b986" background="transparent" left-icon="smile-comment-o" text="登陆即注册  无需注册直接登录!" />
+    <view class="user">
+        <input type="text" placeholder="请输入账号" placeholder-class="placeholder-style" bindinput="userIpt" />
+    </view>
+
+    <view class="pass">
+        <input type="password" placeholder="请输入密码" placeholder-class="placeholder-style" bindinput="passIpt" />
+    </view>
+
+    <view class="login" bindtap="login">登陆 / 注册</view>
+</view>
+
+<view class="info" bindtap="visitor">
+    先随便看看
+    <van-icon name="arrow" />
+</view>

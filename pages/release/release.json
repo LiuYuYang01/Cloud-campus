@@ -1,0 +1,8 @@
+{
+    "usingComponents": {
+        "editor":"/components/editor/editor",
+        "van-field": "@vant/weapp/field/index",
+        "van-picker": "@vant/weapp/picker/index",
+        "van-uploader": "@vant/weapp/uploader/index"
+    }
+}

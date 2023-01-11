@@ -1,0 +1,67 @@
+<wxs module="filter" src="../../filter/formatTime.wxs"></wxs>
+
+<view class="item" wx:for="{{list}}" wx:key="id">
+    <!-- 用户信息 -->
+    <view class="header">
+        <view>
+            <image src="{{item.avatar}}" class="avatar"></image>
+        </view>
+
+        <view class="info">
+            <view class="title">
+                {{item.name}}
+
+                <image src="/assets/svg/certified.svg" class="official" wx:if="{{item.is_topping === 1}}"></image>
+            </view>
+            <view class="date">{{filter.formatTime(item.date)}}</view>
+        </view>
+
+        <view class="attention" style="background-color: {{color}};">关注</view>
+    </view>
+
+    <!-- 标题 -->
+    <view class="title">
+        {{item.title}}
+        
+        <view class="tag">
+            <van-tag type="danger" wx:if="{{item.is_topping === 1}}">置顶</van-tag>
+        </view>
+
+        <view class="tag">
+            <van-tag color="#f7b53e" wx:if="{{item.is_boutique === 1}}">推荐</van-tag>
+        </view>
+    </view>
+
+    <!-- 内容 -->
+    <view class="content">{{item.describe}}</view>
+
+    <!-- 封面 -->
+    <view class="picture {{a.toImgNum(item.cover.length)}}" data-url="{{item.cover}}" bindtap="previewImg">
+        <!-- 根据图片数量显示对应的布局 -->
+        <image src="{{item}}" wx:if="{{item.cover.length !== 0}}" wx:for="{{item.cover}}" wx:key="index" class="image"></image>
+    </view>
+
+    <!-- 操作 -->
+    <view class="operate">
+        <!-- 点赞 -->
+        <view class="praise view" bindtap="praiseTap">
+            <text class="iconfont icon-dianzan_kuai" style="color:{{isPraise}}"> 10</text>
+        </view>
+
+        <!-- 收藏 -->
+        <view class="collect view" bindtap="collectTap">
+            <text class="iconfont icon-favourited" style="color:{{isCollect}}"> 6</text>
+        </view>
+    </view>
+</view>
+
+<wxs module="a">
+    // 根据图片数量显示对应的布局
+    module.exports.toImgNum = function (n) {
+        if (n === 1) return 'img1'
+        if (n === 2) return 'img2'
+        if (n === 3) return 'img3'
+        if (n === 4) return 'img4'
+        if (n >= 4) return ''
+    }
+</wxs>

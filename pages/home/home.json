@@ -1,0 +1,9 @@
+{
+    "navigationBarTitleText": "云上校园",
+    "usingComponents": {
+        "menu":"/components/menu/menu",
+        "swiper":"/components/swiper/swiper",
+        "circle":"/components/circle/circle",
+        "article":"/components/article/article"
+    }
+}

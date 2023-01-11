@@ -1,0 +1,23 @@
+<view bindtouchstart="touchStart" bindtouchmove="touchMove" class="hobby">
+    <view class="cover">
+        <view class="userInfo">
+            <view class="name">方法总比困难多</view>
+            <image src="http://q1.qlogo.cn/g?b=qq&nk=3311118881&s=640"></image>
+        </view>
+
+        <navigator class="replace">更换封面</navigator>
+    </view>
+
+    <!-- 内容 -->
+    <article list="{{dynamicList}}" />
+
+    <!-- tabBar -->
+    <van-tabbar active="{{ active }}" active-color="#49b984" inactive-color="#333" bind:change="selectTabBar">
+        <van-tabbar-item icon="home-o">首页</van-tabbar-item>
+        <van-tabbar-item icon="qr">兴趣圈</van-tabbar-item>
+        <van-tabbar-item icon="flower-o" dot>朋友圈</van-tabbar-item>
+        <van-tabbar-item icon="contact">我的</van-tabbar-item>
+    </van-tabbar>
+
+    <menu pageX="{{pageX}}" />
+</view>

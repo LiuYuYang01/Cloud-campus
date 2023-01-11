@@ -1,0 +1,41 @@
+.tabbar {
+    position: relative;
+}
+
+.tabbar .item-null {
+    width: 60rpx;
+    padding: 0 30rpx;
+}
+
+.tabbar .chatteris {
+    position: absolute;
+    top: -45rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    color: #fff;
+    background-color: #fff;
+    z-index: 999;
+}
+
+.tabbar .chatteris .view {
+    width: 80%;
+    height: 80%;
+    line-height: 72rpx;
+    border-radius: 50%;
+    background-color: #4fb985;
+    font-size: 40rpx;
+    text-align: center;
+}
+
+.tabbar .chatteris .text {
+    position: absolute;
+    top: 52px;
+    color: #333;
+    font-size: 27rpx;
+}

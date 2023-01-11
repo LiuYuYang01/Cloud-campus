@@ -1,0 +1,7 @@
+{
+    "navigationStyle":"custom",
+    "usingComponents": {
+        "article":"/components/article/article",
+        "menu":"/components/menu/menu"
+    }
+}

@@ -1,0 +1,52 @@
+{
+    "pages": [
+        "pages/home/home",
+        "pages/hobby/hobby",
+        "pages/socialize/socialize",
+        "pages/my/my",
+        "pages/login/login",
+        "pages/register/register",
+        "pages/article/article",
+        "pages/release/release",
+        "pages/love/love"
+    ],
+    "window": {
+        "backgroundTextStyle": "light",
+        "navigationBarBackgroundColor": "#49b984",
+        "navigationBarTitleText": "云上校园",
+        "navigationBarTextStyle": "white"
+    },
+    "tabBar": {
+        "custom": true,
+        "color": "#000000",
+        "list": [
+            {
+                "pagePath": "pages/home/home",
+                "text": "首页"
+            },
+            {
+                "pagePath": "pages/hobby/hobby",
+                "text": "兴趣圈"
+            },
+            {
+                "pagePath": "pages/socialize/socialize",
+                "text": "朋友圈"
+            },
+            {
+                "pagePath": "pages/my/my",
+                "text": "我的"
+            }
+        ]
+    },
+    "sitemapLocation": "sitemap.json",
+    "usingComponents": {
+        "van-button": "@vant/weapp/button/index",
+        "van-tabbar": "@vant/weapp/tabbar/index",
+        "van-tabbar-item": "@vant/weapp/tabbar-item/index",
+        "van-icon": "@vant/weapp/icon/index",
+        "van-cell": "@vant/weapp/cell/index",
+        "van-cell-group": "@vant/weapp/cell-group/index",
+        "van-search": "@vant/weapp/search/index",
+        "van-notify": "@vant/weapp/notify/index"
+    }
+}

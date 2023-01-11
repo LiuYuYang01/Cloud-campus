@@ -1,0 +1,67 @@
+.popup {
+    position: fixed;
+    top: 1280rpx;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: #fff;
+    transition: all 0.5s;
+}
+
+/* logo */
+.popup .logo {
+    position: absolute;
+    top: 200rpx;
+    left: 50%;
+    width: 300rpx;
+    transform: translateX(-50%);
+}
+
+.popup .logo .image {
+    width: 100%;
+}
+
+/* 名人名言 */
+.popup .sentence {
+    position: absolute;
+    top: 400rpx;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600rpx;
+    color: #c1c1c1;
+    font-size: 28rpx;
+    text-align: center;
+}
+
+/* 入口导航 */
+.popup .nav {
+    position: absolute;
+    bottom: 260rpx;
+}
+
+.popup .move {
+    animation: navMove 0.5s linear;
+    animation-delay: 0.5s;
+}
+
+@keyframes navMove {
+    0% {
+        bottom: 300rpx;
+    }
+
+    25% {
+        bottom: 260rpx;
+    }
+
+    50% {
+        bottom: 230rpx
+    }
+
+    75% {
+        bottom: 250rpx;
+    }
+
+    100% {
+        bottom: 260rpx;
+    }
+}

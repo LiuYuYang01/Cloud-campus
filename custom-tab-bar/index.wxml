@@ -1,0 +1,21 @@
+<!-- tabBar -->
+<van-tabbar active="{{ active }}" active-color="#49b984" inactive-color="#333" bind:change="selectTabBar" class="tabbar">
+    <van-tabbar-item icon="home-o" bind:change="selectTabBar">首页</van-tabbar-item>
+    <van-tabbar-item icon="qr">兴趣圈</van-tabbar-item>
+
+    <view class="item-null"></view>
+
+    <!-- 发表 -->
+    <view class="chatteris" bindtap="eject">
+        <view class="view">
+            <van-icon name="plus" />
+        </view>
+
+        <view class="text">发布</view>
+    </view>
+
+    <van-tabbar-item icon="flower-o" dot>朋友圈</van-tabbar-item>
+    <van-tabbar-item icon="contact">我的</van-tabbar-item>
+</van-tabbar>
+
+<popup top="{{ top }}" sty="{{sty}}" info="{{info}}" />

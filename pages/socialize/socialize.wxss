@@ -1,0 +1,40 @@
+.cover {
+    position: relative;
+    height: 400rpx;
+    background-color: #4fb985;
+    background: url(https://image.meiye.art/pic_1631337782011fzVAQtNIMg8hWwKy0w-tS) center;
+    background-size: cover;
+}
+
+/* 用户信息 */
+.cover .userInfo {
+    position: absolute;
+    bottom: -20rpx;
+    right: 40rpx;
+    display: flex;
+}
+
+/* 名称 */
+.cover .userInfo .name {
+    color: #fff;
+    margin-top: 15rpx;
+    margin-right: 20rpx;
+}
+
+/* 头像 */
+.cover .userInfo image {
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 10rpx;
+}
+
+/* 更换封面按钮 */
+.cover .replace{
+    position: absolute;
+    bottom: 0rpx;
+    left: 0rpx;
+    padding: 20rpx;
+    color: #fff;
+    font-size: 28rpx;
+    /* opacity: 0.5; */
+}

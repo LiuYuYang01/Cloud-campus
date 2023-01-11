@@ -1,0 +1,121 @@
+<!-- 遮罩层 -->
+<view class="mask" style="display: {{pageX >= 200 ? 'block' : 'none'}}" bindtouchstart="touchStart" bindtouchmove="touchMove"></view>
+
+<!-- 左侧功能栏 -->
+<view class="menu" style="left: {{pageX >= 200 ? '0' : '-400rpx'}}">
+    <!-- 用户信息 -->
+    <view class="header" bindtap="goMy">
+        <view class="avatar">
+            <image src="http://q1.qlogo.cn/g?b=qq&nk=3311118881&s=640" class="image"></image>
+        </view>
+
+        <view class="name">宇阳</view>
+        <view class="identity">
+            <image src="/assets/svg/certified.svg" class="image"></image>
+            <text>计算机社长</text>
+        </view>
+    </view>
+
+    <!-- 设置 -->
+    <view class="setting">
+        <van-cell>
+            <van-icon name="wap-home" color="#4fb985" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
+
+            <view slot="title">
+                <view class="van-cell-text">首页</view>
+            </view>
+
+            <van-icon name="arrow" class="custom-icon" />
+        </van-cell>
+
+        <van-cell>
+            <van-icon name="gem" color="#62bdfc" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
+
+            <view slot="title">
+                <view class="van-cell-text">兴趣圈</view>
+            </view>
+
+            <van-icon name="arrow" class="custom-icon" />
+        </van-cell>
+
+        <van-cell>
+            <van-icon name="like" color="#fa7060" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
+
+            <view slot="title">
+                <view class="van-cell-text">表白墙</view>
+            </view>
+
+            <van-icon name="arrow" class="custom-icon" />
+        </van-cell>
+
+        <van-cell>
+            <van-icon name="gold-coin" color="#f7b53e" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
+
+            <view slot="title">
+                <view class="van-cell-text">校园兼职</view>
+            </view>
+
+            <van-icon name="arrow" class="custom-icon" />
+        </van-cell>
+
+        <van-cell>
+            <van-icon name="map-marked" color="#7369e2" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
+
+            <view slot="title">
+                <view class="van-cell-text">校园跑腿</view>
+            </view>
+
+            <van-icon name="arrow" class="custom-icon" />
+        </van-cell>
+
+        <van-cell>
+            <van-icon name="coupon" color="#62bdfc" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
+
+            <view slot="title">
+                <view class="van-cell-text">校园交易</view>
+            </view>
+
+            <van-icon name="arrow" class="custom-icon" />
+        </van-cell>
+
+        <van-cell>
+            <van-icon name="send-gift" color="#fa7060" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
+
+            <view slot="title">
+                <view class="van-cell-text">代取包裹</view>
+            </view>
+
+            <van-icon name="arrow" class="custom-icon" />
+        </van-cell>
+
+        <van-cell>
+            <van-icon name="gift-card" color="#f7b53e" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
+
+            <view slot="title">
+                <view class="van-cell-text">失物招领</view>
+            </view>
+
+            <van-icon name="arrow" class="custom-icon" />
+        </van-cell>
+
+        <van-cell>
+            <van-icon name="friends" color="#7369e2" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
+
+            <view slot="title">
+                <view class="van-cell-text">校园朋友圈</view>
+            </view>
+
+            <van-icon name="arrow" class="custom-icon" />
+        </van-cell>
+
+        <van-cell>
+            <van-icon name="comment" color="#fa7060" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
+
+            <view slot="title">
+                <view class="van-cell-text">校园匿名信</view>
+            </view>
+
+            <van-icon name="arrow" class="custom-icon" />
+        </van-cell>
+    </view>
+</view>

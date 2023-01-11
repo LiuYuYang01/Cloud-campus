@@ -1,0 +1,6 @@
+{
+    "navigationStyle":"custom",
+    "usingComponents": {
+        "slideNav":"/components/slideNav/slideNav"
+    }
+}

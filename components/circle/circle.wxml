@@ -1,0 +1,9 @@
+<view class="circle">
+    <navigator class="item" url="{{item.url}}" wx:for="{{list}}" wx:key="index">
+        <view class="icon" style="background-color:{{item.color}}">
+            <van-icon name="{{item.icon}}" class="van" />
+        </view>
+
+        <text class="title">{{item.title}}</text>
+    </navigator>
+</view>

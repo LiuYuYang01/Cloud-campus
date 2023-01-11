@@ -1,0 +1,25 @@
+<view class="from">
+    <!-- 文章标题 -->
+    <van-cell-group>
+        <van-field value="{{ article.title }}" label="文章标题" placeholder="一篇好文章要从标题开始" border="{{ false }}" bind:change="title" />
+    </van-cell-group>
+
+    <van-cell-group>
+        <van-field value="{{ article.cate }}" label="文章分类" placeholder="选择你要发布的分类" border="{{ false }}" disabled bind:change="cate" bindtap="pickerShowClick" />
+    </van-cell-group>
+</view>
+
+<!-- 编辑器 -->
+<view class="editor">
+    <editor />
+</view>
+
+<view class="container" style="margin-top: 50rpx;">
+    <van-uploader file-list="{{ fileList }}" bind:after-read="afterRead" preview-size="{{100}}"/>
+
+    <!-- 发布文章 -->
+    <button bindtap="release" style="background-color: #4fb985;color:#fff">发布文章</button>
+</view>
+
+<!-- 分类选择器 -->
+<van-picker columns="{{ columns }}" default-index="{{ 2 }}" show-toolbar bind:change="picker" style="display:{{pickerShow}}" class="picker" bind:cancel="pickerHideClick" bind:confirm="pickerClick" />
