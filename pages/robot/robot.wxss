@@ -79,17 +79,25 @@ page {
     border-color: transparent transparent transparent #4fb985;
 }
 
+.dialogBox .view:last-child{
+    padding-bottom: 200rpx;
+}
+
 /* 底部发送 */
 .send{
+    position: sticky;
+    bottom: 120rpx;
     width: 100%;
     height: 250rpx;
-    margin-top: 100rpx;
     border-top: 2rpx solid #eee;
+    background-color: #fff;
+    z-index: 999;
 }
 
 .send .text{
     width: 100%;
-    height: 200rpx;
+    height: 100%;
     min-height: 240rpx;
     padding: 20rpx;
+    background-color: #fff;
 }

@@ -12,14 +12,8 @@ Page({
         avatar: "http://img.liuyuyang.net/zhxy/XZ.png",
         info: "你好，我叫小智，很高兴认识你！",
       },
-      {
-        role: "XZ",
-        avatar: "http://img.liuyuyang.net/zhxy/XZ.png",
-        info: "我会很多技能哦，你可以对我说讲个笑话、翻译、或者安慰",
-      }
     ],
-    content: "",
-    temp: "",
+    content: ""
   },
   // 内容
   content(e) {
@@ -53,19 +47,44 @@ Page({
     let value = "";
 
     switch (true) {
+      case val === "你都会什么":
+        value = `我会很多技能哦，你可以按照以下序号指令我：
+
+[1] 讲个笑话
+[2] 失恋了求安慰
+[3] 帮我翻译
+[4] 历史上的今天
+我还会继续学习新技能的~~`;
+        break;
+
+
+      // 讲个笑话
+      case val === "1":
+        const res = await wx.p.request({
+          method: "GET",
+          url: "https://v.api.aa1.cn/api/api-wenan-gaoxiao/index.php?aa1=json",
+        });
+
+        if (res.statusCode !== 200) return (value = res.errMsg);
+
+        value = res.data[0].gaoxiao;
+        break;
+
+
       // 安慰
-      case val.includes("安慰"):
-        const {
-          data: { anwei },
-        } = await wx.p.request({
+      case val === "2":
+        const res1 = await wx.p.request({
           method: "GET",
           url: "https://v.api.aa1.cn/api/api-wenan-anwei/index.php?type=json",
         });
 
-        value = anwei;
+        if (res1.statusCode !== 200) return (value = res1.errMsg);
+
+        value = res1.data.anwei;
         break;
 
-      case val.includes("翻译"):
+
+      case val === "3":
         value = `请输入翻译的内容，如下示例：
 翻译 hello 为中文 
 格式：en hello zh 
@@ -87,16 +106,38 @@ Page({
 
         break;
 
-        // 历史上的今天
-        case val.includes("历史上的今天"):
 
-            break;
+      // 历史上的今天
+      case val === "4":
+        let res2 = await wx.p.request({
+          method: "GET",
+          url: "https://zj.v.api.aa1.cn/api/bk/?num=5&type=json",
+        });
+
+        if (res2.statusCode !== 200) return (value = res2.errMsg);
+
+        value =
+          "历史上的今天：" +
+          res2.data.day +
+          "\n" +
+          res2.data.content
+            .map((item, index) => {
+              // 给每一项加上一个序号
+              return index + 1 + "：" + item;
+            })
+            .join("\n"); //最后换行转换为字符串
+        break;
+
       default:
         value = "让我想想说什么";
     }
 
     // 回复消息
     this.__reply(value);
+
+    this.setData({
+        content:""
+    })
   },
 
   /**
