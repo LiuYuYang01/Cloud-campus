@@ -3,7 +3,7 @@
 </view>
 
 <!-- 聊天框 -->
-<view class="dialogBox">
+<view class="dialogBox" style="white-space:pre-wrap">
     <view class="{{item.role}}" wx:for="{{dialog}}" wx:key="index">
         <image src="{{item.avatar}}" class="avatar"></image>
         <view class="info">{{item.info}}</view>

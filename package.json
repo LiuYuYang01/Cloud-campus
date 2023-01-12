@@ -6,6 +6,7 @@
   "dependencies": {
     "@escook/request-miniprogram": "^0.2.1",
     "@vant/weapp": "^1.10.10",
+    "md5": "^2.3.0",
     "miniprogram-api-promise": "^1.0.4",
     "mobx-miniprogram": "^4.13.2",
     "mobx-miniprogram-bindings": "^2.1.5"

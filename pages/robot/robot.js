@@ -1,5 +1,6 @@
 import { createStoreBindings } from "mobx-miniprogram-bindings";
 import store from "../../store/store";
+import { translate } from "../../utils/translate";
 Page({
   /**
    * 页面的初始数据
@@ -11,6 +12,11 @@ Page({
         avatar: "http://img.liuyuyang.net/zhxy/XZ.png",
         info: "你好，我叫小智，很高兴认识你！",
       },
+      {
+        role: "XZ",
+        avatar: "http://img.liuyuyang.net/zhxy/XZ.png",
+        info: "我会很多技能哦，你可以对我说讲个笑话、翻译、或者安慰",
+      }
     ],
     content: "",
     temp: "",
@@ -47,10 +53,6 @@ Page({
     let value = "";
 
     switch (true) {
-      case val.includes("你好"):
-        value = "同学，你也好";
-        break;
-
       // 安慰
       case val.includes("安慰"):
         const {
@@ -64,13 +66,33 @@ Page({
         break;
 
       case val.includes("翻译"):
-        let res = await wx.p.request({
-            method: "GET",
-            url: "https://v.api.aa1.cn/api/api-wenan-anwei/index.php?type=json",
-          });
+        value = `请输入翻译的内容，如下示例：
+翻译 hello 为中文 
+格式：en hello zh 
+
+翻译 你好 为英文
+格式：zh 你好 en`;
         break;
+
+      // 翻译
+      case ["zh", "en"].includes(val.split(" ")[0] || val.split(" ")[2]):
+        // 当前语言
+        const from = val.split(" ")[0];
+        // 内容
+        const content = val.split(" ")[1];
+        // 目标语言
+        const to = val.split(" ")[2];
+
+        value = await translate(from, content, to);
+
+        break;
+
+        // 历史上的今天
+        case val.includes("历史上的今天"):
+
+            break;
       default:
-        return "让我想想说什么";
+        value = "让我想想说什么";
     }
 
     // 回复消息
