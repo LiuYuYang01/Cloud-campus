@@ -17,6 +17,11 @@
   resolved "https://registry.npmmirror.com/@vant/weapp/-/weapp-1.10.10.tgz#4ba8c7ac4fa259a73d777ba8d3dad806d18f347d"
   integrity sha512-rNE38/xO/GChOAlFjSx8lg/h3y3/hCwSk/G6RypOlLGqX69vfwS/+W/plziIOpY9z3VffxmOkacxQTrwfVw1VA==
 
+miniprogram-api-promise@^1.0.4:
+  version "1.0.4"
+  resolved "https://registry.npmmirror.com/miniprogram-api-promise/-/miniprogram-api-promise-1.0.4.tgz#fefe9b72923fd31f88b12463b502cb457c892b4c"
+  integrity sha512-lS2ukj03Ugy8IJUDmdssklLT4kjzyRtVYwErhyDZkzxtqcxaed2xldRgNrsikigeMUBR9gAs7wgnjSKPlyKIYg==
+
 mobx-miniprogram-bindings@^2.1.5:
   version "2.1.5"
   resolved "https://registry.npmmirror.com/mobx-miniprogram-bindings/-/mobx-miniprogram-bindings-2.1.5.tgz#148a9e9bb47b7ef2b4bdc3786dff57666e33a2eb"

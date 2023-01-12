@@ -44,29 +44,37 @@ Page({
   // 发布消息
   async release() {
     const val = this.data.content;
-    let value = ""
+    let value = "";
 
     switch (true) {
       case val.includes("你好"):
-        value = "同学，你也好"
+        value = "同学，你也好";
         break;
 
+      // 安慰
       case val.includes("安慰"):
         const {
           data: { anwei },
-        } = await wx.$request.get(
-          "https://v.api.aa1.cn/api/api-wenan-anwei/index.php?type=json"
-        );
+        } = await wx.p.request({
+          method: "GET",
+          url: "https://v.api.aa1.cn/api/api-wenan-anwei/index.php?type=json",
+        });
 
-        value = anwei
+        value = anwei;
         break;
 
+      case val.includes("翻译"):
+        let res = await wx.p.request({
+            method: "GET",
+            url: "https://v.api.aa1.cn/api/api-wenan-anwei/index.php?type=json",
+          });
+        break;
       default:
         return "让我想想说什么";
     }
 
     // 回复消息
-    this.__reply(value)
+    this.__reply(value);
   },
 
   /**
