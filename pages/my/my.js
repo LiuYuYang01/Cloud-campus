@@ -1,6 +1,6 @@
 import { getUserInfo, setUserInfo } from "../../utils/localStorage";
-import {createStoreBindings} from 'mobx-miniprogram-bindings'
-import store from '../../store/store'
+import { createStoreBindings } from "mobx-miniprogram-bindings";
+import store from "../../store/store";
 
 Page({
   /**
@@ -56,9 +56,13 @@ Page({
   },
   // 登录
   login() {
-    wx.navigateTo({
-      url: "/pages/login/login",
-    });
+    const id = this.data.userInfo.id;
+    
+    if (!id) {
+      wx.navigateTo({
+        url: "/pages/login/login",
+      });
+    }
   },
   // 退出登录
   quit() {
@@ -71,15 +75,15 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    this.storeBindings = createStoreBindings(this,{
-        store,
-        fields:["userInfo"],
-        actions:["updateUserInfo"]
-    })
+    this.storeBindings = createStoreBindings(this, {
+      store,
+      fields: ["userInfo"],
+      actions: ["updateUserInfo"],
+    });
 
     this.setData({
-        userInfo:this.data.userInfo
-    })
+      userInfo: this.data.userInfo,
+    });
   },
 
   /**
