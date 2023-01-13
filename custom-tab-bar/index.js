@@ -46,6 +46,8 @@ Component({
       // e.detail 的值为当前选中项的索引
       this.setData({
         active: e.detail,
+        top: 1460,
+        sty: "",
       });
 
       wx.switchTab({
