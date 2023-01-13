@@ -1,5 +1,6 @@
 import { createStoreBindings } from "mobx-miniprogram-bindings";
 import store from "../../../../store/store";
+import Notify from "@vant/weapp/notify/notify";
 Page({
   /**
    * 页面的初始数据
@@ -36,6 +37,11 @@ Page({
 
   // 头像上传
   async afterRead(e) {
+    // 上传后显示loading效果
+    wx.showLoading({
+      title: "头像正在上传",
+    });
+
     const file = e.detail.file;
 
     // 上传图片
@@ -50,6 +56,9 @@ Page({
         this.setData({
           "info.avatar": avatar,
         });
+
+        // 上传完毕之后关闭loading效果
+        wx.hideLoading()
       },
     });
   },
@@ -58,8 +67,23 @@ Page({
   async updateData() {
     const id = this.data.userInfo.id;
 
-    const res = await wx.$http.post(`/api/user/info/${id}`, this.data.info);
-    this.updateUserInfo(this.data.info);
+    // 修改资料
+    const {
+      data: { code, message },
+    } = await wx.$http.post(`/api/user/info/${id}`, {
+      ...this.data.userInfo,
+      ...this.data.info,
+    });
+    this.updateUserInfo({ ...this.data.userInfo, ...this.data.info });
+
+    if (code !== 200) return Notify({ type: "success", message });
+
+    Notify({ type: "success", message: "修改用户资料成功" });
+
+    // 修改成功后跳转到我的页面
+    wx.switchTab({
+      url: "/pages/my/my",
+    });
   },
 
   /**

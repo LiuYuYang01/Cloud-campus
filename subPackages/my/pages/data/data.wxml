@@ -1,3 +1,6 @@
+<van-notify id="van-notify" />
+
+<!-- 头像 -->
 <view class="avatar" bindtap="updateAvatar">
     <image src="{{info.avatar}}" class="image"></image>
 
@@ -6,6 +9,7 @@
     </van-uploader>
 </view>
 
+<!-- 性别 -->
 <view class="sex">
     <van-radio-group model:value="{{ info.sex }}" bind:change="updateSex" direction="horizontal">
         <van-radio name="{{1}}" checked-color="#4fb985">帅哥</van-radio>
@@ -14,6 +18,7 @@
     </van-radio-group>
 </view>
 
+<!-- 昵称 -->
 <view class="name">
     <van-cell-group>
         <van-field model:value="{{ info.name }}" label="修改昵称" placeholder="请输入你的昵称" bind:change="updateName" />
@@ -23,7 +28,7 @@
 <!-- 签名 -->
 <view class="signature">
     <van-cell-group>
-        <van-field model:value="{{ info.signature }}" label="个性签名" type="textarea" placeholder="请输入你的个性签名" autosize border="{{ false }}" />
+        <van-field model:value="{{ info.signature }}" label="个性签名" type="textarea" placeholder="请输入你的个性签名" autosize border="{{ false }}" bind:change="updateSignature"/>
     </van-cell-group>
 </view>
 
