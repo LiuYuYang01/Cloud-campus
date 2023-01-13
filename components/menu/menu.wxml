@@ -6,13 +6,14 @@
     <!-- 用户信息 -->
     <view class="header" bindtap="goMy">
         <view class="avatar">
-            <image src="http://q1.qlogo.cn/g?b=qq&nk=3311118881&s=640" class="image"></image>
+            <image src="{{userInfo.avatar}}" class="image"></image>
         </view>
 
-        <view class="name">宇阳</view>
+        <view class="name">{{userInfo.name}}</view>
         <view class="identity">
             <image src="/assets/svg/certified.svg" class="image"></image>
-            <text>计算机社长</text>
+            <!-- <text>{{userInfo.identity}}</text> -->
+            <text>暂无身份</text>
         </view>
     </view>
 
