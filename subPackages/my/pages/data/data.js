@@ -4,12 +4,33 @@ Page({
   /**
    * 页面的初始数据
    */
-  data: {},
+  data: {
+    info: {
+      avatar: "", //头像
+      sex: 0, //性别
+      name: "", //用户昵称
+      signature: "", //个性签名
+    },
+  },
 
-  // 图片上传
-  afterRead(e) {
+  // 头像上传
+  async afterRead(e) {
     const file = e.detail.file;
-    wx.$http.post('/api/upload',)
+
+    // 上传图片
+    wx.uploadFile({
+      url: "https://api.tockey.cn/api/upload", // 仅为示例，非真实的接口地址
+      filePath: file.url,
+      name: "file",
+      formData: { file, type: "avatar" },
+      success: (res) => {
+        const avatar = JSON.parse(res.data).data.url;
+
+        this.setData({
+          "info.avatar": avatar,
+        });
+      },
+    });
   },
 
   /**
@@ -20,6 +41,14 @@ Page({
       store,
       fields: ["userInfo"],
       actions: ["updateUserInfo"],
+    });
+
+    setTimeout(() => {
+      this.setData({
+        "info.sex": this.data.userInfo.sex,
+        "info.name": this.data.userInfo.name,
+        "info.signature": this.data.userInfo.signature,
+      });
     });
   },
 

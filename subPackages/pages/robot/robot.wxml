@@ -12,7 +12,7 @@
 
 <!-- 发送 -->
 <view class="send">
-    <textarea placeholder="你想对小智说什么：" bindinput="content" auto-height value="{{content}}" class="text"></textarea>
+    <textarea placeholder="你有什么想对小智说的吗?" bindinput="content" auto-height value="{{content}}" class="text"></textarea>
 
     <button style="background-color: #5d61f0;color:#fff" bindtap="release">发布</button>
 </view>

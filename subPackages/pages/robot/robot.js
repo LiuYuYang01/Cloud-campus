@@ -1,6 +1,6 @@
 import { createStoreBindings } from "mobx-miniprogram-bindings";
-import store from "../../store/store";
-import { translate } from "../../utils/translate";
+import store from "../../../store/store";
+import { translate } from "../../../utils/translate";
 Page({
   /**
    * 页面的初始数据

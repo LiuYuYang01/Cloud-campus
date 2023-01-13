@@ -131,7 +131,7 @@ Page({
   // 跳转到机器人
   goRobot() {
     wx.navigateTo({
-      url: "/pages/robot/robot",
+      url: "/subPackages/pages/robot/robot",
     });
   },
   /**

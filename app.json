@@ -8,14 +8,14 @@
         "pages/register/register",
         "pages/article/article",
         "pages/release/release",
-        "pages/love/love",
-        "pages/robot/robot"
+        "pages/love/love"
     ],
     "subPackages": [
         {
             "root": "subPackages",
             "pages": [
-                "my/pages/data/data"
+                "my/pages/data/data",
+                "pages/robot/robot"
             ]
         }
     ],
