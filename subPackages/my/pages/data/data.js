@@ -13,6 +13,27 @@ Page({
     },
   },
 
+  // 修改性别
+  updateSex(e) {
+    this.setData({
+      "info.sex": e.detail,
+    });
+  },
+
+  // 修改昵称
+  updateName(e) {
+    this.setData({
+      "info.name": e.detail,
+    });
+  },
+
+  // 修改个性签名
+  updateSignature(e) {
+    this.setData({
+      "info.signature": e.detail,
+    });
+  },
+
   // 头像上传
   async afterRead(e) {
     const file = e.detail.file;
@@ -33,6 +54,14 @@ Page({
     });
   },
 
+  // 确认修改
+  async updateData() {
+    const id = this.data.userInfo.id;
+
+    const res = await wx.$http.post(`/api/user/info/${id}`, this.data.info);
+    this.updateUserInfo(this.data.info);
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
@@ -45,6 +74,7 @@ Page({
 
     setTimeout(() => {
       this.setData({
+        "info.avatar": this.data.userInfo.avatar,
         "info.sex": this.data.userInfo.sex,
         "info.name": this.data.userInfo.name,
         "info.signature": this.data.userInfo.signature,

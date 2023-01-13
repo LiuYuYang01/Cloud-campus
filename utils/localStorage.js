@@ -18,6 +18,10 @@ export function setUserInfo(value) {
       signature: "编辑你的个性签名！",
       avatar:
         "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png",
+      sex: 3,
+      cover: "",
+      mood: "",
+      identity: "",
     };
 
     return wx.setStorageSync(userInfoKey, JSON.stringify(userInfo));

@@ -15,6 +15,7 @@
             "root": "subPackages",
             "pages": [
                 "my/pages/data/data",
+                "home/pages/package/package",
                 "pages/robot/robot"
             ]
         }

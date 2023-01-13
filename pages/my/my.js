@@ -1,4 +1,4 @@
-import { getUserInfo, setUserInfo } from "../../utils/localStorage";
+import { getUserInfo, setUserInfo,setToken } from "../../utils/localStorage";
 import { createStoreBindings } from "mobx-miniprogram-bindings";
 import store from "../../store/store";
 
@@ -70,6 +70,8 @@ Page({
     this.setData({
       userInfo: JSON.parse(getUserInfo()),
     });
+    
+    setToken('')
   },
   // 跳转到修改资料页面
   goData() {
