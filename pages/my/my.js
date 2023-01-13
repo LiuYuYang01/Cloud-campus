@@ -1,4 +1,9 @@
-import { getUserInfo, setUserInfo,setToken } from "../../utils/localStorage";
+import {
+  getUserInfo,
+  setUserInfo,
+  setToken,
+  getToken,
+} from "../../utils/localStorage";
 import { createStoreBindings } from "mobx-miniprogram-bindings";
 import store from "../../store/store";
 
@@ -47,12 +52,10 @@ Page({
         color: "#4fb985",
       },
     ],
-    userInfo: {
-      name: "请登录",
-      signature: "编辑你的个性签名！",
-      avatar:
-        "https://cube.elemecdn.com/3/7c/3ea6beec64369c2642b92c6726f1epng.png",
-    },
+    // 用户信息
+    userInfo: {},
+    // 登录后显示退出登录按钮，未登录不显示
+    isQuitShow: false,
   },
   // 登录
   login() {
@@ -70,14 +73,14 @@ Page({
     this.setData({
       userInfo: JSON.parse(getUserInfo()),
     });
-    
-    setToken('')
+
+    setToken("");
   },
   // 跳转到修改资料页面
   goData() {
-      wx.navigateTo({
-        url: '/subPackages/my/pages/data/data',
-      })
+    wx.navigateTo({
+      url: "/subPackages/my/pages/data/data",
+    });
   },
   /**
    * 生命周期函数--监听页面加载
@@ -92,6 +95,17 @@ Page({
     this.setData({
       userInfo: this.data.userInfo,
     });
+
+    // 登录后显示退出登录按钮，未登录不显示
+    if (getToken()) {
+      this.setData({
+        isQuitShow: true,
+      });
+    } else {
+      this.setData({
+        isQuitShow: false,
+      });
+    }
   },
 
   /**

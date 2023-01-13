@@ -71,7 +71,7 @@
         <van-icon name="flower-o" color="#7369e2" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
 
         <view slot="title">
-            <view class="van-cell-text">我的动态</view>
+            <view class="van-cell-text">实名认证</view>
         </view>
 
         <van-icon name="arrow" class="custom-icon" />
@@ -97,7 +97,7 @@
         <van-icon name="arrow" class="custom-icon" />
     </van-cell>
 
-    <van-cell bindtap="quit">
+    <van-cell bindtap="quit" wx:if="{{isQuitShow}}">
         <van-icon name="user-circle-o" color="#666" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
 
         <view slot="title">
