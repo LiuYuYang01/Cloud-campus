@@ -70,6 +70,13 @@
                     "query": "",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "修改用户资料",
+                    "pathName": "subPackages/my/pages/data/data",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }

@@ -57,7 +57,7 @@ Page({
   // 登录
   login() {
     const id = this.data.userInfo.id;
-    
+
     if (!id) {
       wx.navigateTo({
         url: "/pages/login/login",
@@ -70,6 +70,12 @@ Page({
     this.setData({
       userInfo: JSON.parse(getUserInfo()),
     });
+  },
+  // 跳转到修改资料页面
+  goData() {
+      wx.navigateTo({
+        url: '/subPackages/my/pages/data/data',
+      })
   },
   /**
    * 生命周期函数--监听页面加载

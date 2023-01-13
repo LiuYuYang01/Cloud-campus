@@ -11,6 +11,14 @@
         "pages/love/love",
         "pages/robot/robot"
     ],
+    "subPackages": [
+        {
+            "root": "subPackages",
+            "pages": [
+                "my/pages/data/data"
+            ]
+        }
+    ],
     "window": {
         "backgroundTextStyle": "light",
         "navigationBarBackgroundColor": "#49b984",

@@ -1,0 +1,38 @@
+page {
+  background-color: #fff;
+}
+
+/* 头像 */
+.avatar {
+  width: 150rpx;
+  height: 150rpx;
+  margin: 50rpx auto;
+}
+
+.avatar .image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+
+/* 性别 */
+.sex .van-radio-group--horizontal {
+  font-size: 28rpx;
+  width: 420rpx;
+  margin: auto;
+  color: #646566;
+}
+
+/* 昵称 */
+.name {
+  margin-top: 50rpx;
+}
+
+.name .van-field__control {
+  color: #666;
+}
+
+/* 个性签名 */
+.signature .van-field__control {
+  color: #666;
+}
