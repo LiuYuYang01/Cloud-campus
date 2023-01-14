@@ -1,8 +1,11 @@
 {
     "usingComponents": {
-        "editor":"/components/editor/editor",
+        "editor": "/components/editor/editor",
         "van-field": "@vant/weapp/field/index",
         "van-picker": "@vant/weapp/picker/index",
-        "van-uploader": "@vant/weapp/uploader/index"
+        "van-uploader": "@vant/weapp/uploader/index",
+        "van-collapse": "@vant/weapp/collapse/index",
+        "van-collapse-item": "@vant/weapp/collapse-item/index",
+        "van-switch": "@vant/weapp/switch/index"
     }
 }

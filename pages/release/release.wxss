@@ -1,18 +1,46 @@
 page {
-    background-color: #fff;
+  background-color: #fff;
 }
 
-.picker{
-    position: fixed;
-    width: 100%;
-    bottom: 0;
-    border-top: #eee 1px solid;
+.picker {
+  position: fixed;
+  width: 100%;
+  bottom: 0;
+  border-top: #eee 1px solid;
 }
 
-.from .van-field__label--disabled{
-    color: var(--field-label-color,#646566) !important;
+.from .van-field__label--disabled {
+  color: var(--field-label-color, #646566) !important;
 }
 
 .from .van-field__control {
-    color: var(--field-input-text-color,#323233) !important;
+  color: var(--field-input-text-color, #323233) !important;
+}
+
+/* 操作 */
+.operation {
+  display: flex;
+}
+
+.operation > view {
+  display: flex;
+  align-items: center;
+  margin-right: 70rpx;
+}
+
+.operation .text {
+  font-size: 28rpx;
+  color: #646566;
+  margin-right: 20rpx;
+}
+
+.operation .van-switch {
+  margin-top: 10rpx;
+}
+
+/* 发布 */
+.release {
+  background-color: #4fb985;
+  color: #fff;
+  margin-top: 10rpx;
 }

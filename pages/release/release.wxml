@@ -1,25 +1,45 @@
 <view class="from">
     <!-- 文章标题 -->
     <van-cell-group>
-        <van-field value="{{ article.title }}" label="文章标题" placeholder="一篇好文章要从标题开始" border="{{ false }}" bind:change="title" />
+        <van-field value="{{ article.title }}" label="文章标题" placeholder="一篇好文章要从标题开始" border="{{ false }}" bind:change="updateTitle" />
     </van-cell-group>
 
     <van-cell-group>
-        <van-field value="{{ article.cate }}" label="文章分类" placeholder="选择你要发布的分类" border="{{ false }}" disabled bind:change="cate" bindtap="pickerShowClick" />
+        <van-field value="{{ article.cate }}" label="文章分类" placeholder="选择你要发布的分类" border="{{ false }}" disabled bindtap="pickerShowClick" />
     </van-cell-group>
 </view>
 
 <!-- 编辑器 -->
 <view class="editor">
-    <editor />
+    <editor id="editor" />
 </view>
 
 <view class="container" style="margin-top: 50rpx;">
-    <van-uploader file-list="{{ fileList }}" bind:after-read="afterRead" preview-size="{{100}}"/>
+    <van-uploader file-list="{{ previewList }}" bind:after-read="afterRead" preview-size="{{100}}" />
+
+    <!-- 扩展设置 -->
+    <van-collapse value="{{ activeNames }}" bind:change="extend">
+        <van-collapse-item title="扩展设置" name="1" icon="setting-o">
+            <!-- 操作 -->
+            <view class="operation">
+                <!-- 是否置顶文章 -->
+                <view>
+                    <text class="text">置顶</text>
+                    <van-switch checked="{{ article.is_topping }}" active-color="#4fb985" inactive-color="#e6e6e6" active-value="{{1}}" inactive-value="{{0}}" size="36rpx" bind:change="topping"/>
+                </view>
+
+                <!-- 是否精选文章 -->
+                <view>
+                    <text class="text">精选</text>
+                    <van-switch checked="{{ article.is_boutique }}" active-color="#ffb101" inactive-color="#e6e6e6" active-value="{{1}}" inactive-value="{{0}}" size="36rpx" bind:change="boutique"/>
+                </view>
+            </view>
+        </van-collapse-item>
+    </van-collapse>
 
     <!-- 发布文章 -->
-    <button bindtap="release" style="background-color: #4fb985;color:#fff">发布文章</button>
+    <button bindtap="release" class="release">发布文章</button>
 </view>
 
 <!-- 分类选择器 -->
-<van-picker columns="{{ columns }}" default-index="{{ 2 }}" show-toolbar bind:change="picker" style="display:{{pickerShow}}" class="picker" bind:cancel="pickerHideClick" bind:confirm="pickerClick" />
+<van-picker columns="{{ selectCate }}" default-index="{{ 2 }}" show-toolbar bind:change="picker" style="display:{{pickerShow}}" class="picker" bind:cancel="pickerHideClick" bind:confirm="pickerClick" />
