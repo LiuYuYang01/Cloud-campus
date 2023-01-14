@@ -207,10 +207,10 @@ Page({
 
     // 导入用户信息
     setTimeout(() => {
-      const { id, name, sex, avatar } = this.data.userInfo;
+      const { id, name, avatar } = this.data.userInfo;
 
       this.setData({
-        article: { ...this.data.article, userID: id, name, sex, avatar },
+        article: { ...this.data.article, userID: id, name, avatar },
       });
     });
 
