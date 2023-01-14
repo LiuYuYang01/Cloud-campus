@@ -3,5 +3,9 @@
     "navigationBarBackgroundColor": "#ee6051",
     "navigationBarTitleText": "校园跑腿",
     "navigationBarTextStyle": "white",
-    "usingComponents": {}
+    "usingComponents": {
+        "swiper":"/components/swiper/swiper",
+        "van-dialog": "@vant/weapp/dialog/index",
+        "van-notice-bar": "@vant/weapp/notice-bar/index"
+    }
 }

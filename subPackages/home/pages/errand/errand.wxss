@@ -5,7 +5,7 @@ page {
 
 .container-list {
     padding: 20rpx;
-    margin-top: 20rpx;
+    margin-top: 10rpx;
     /* min-height: 480rpx;
     height: auto; */
     background-color: white;
@@ -131,12 +131,18 @@ margin-bottom: 10rpx;
     padding: 20rpx 0;
     margin: 20rpx 0;
 }
+
 .result1 {
     font-weight: 700;
-    color: #00b26a !important;
+    color: #666 !important;
 }
 .result2 {
     font-weight: 700;
+    color: #ffc13a !important;
+}
+.result3 {
+    font-weight: 700;
+    color: #00b26a !important;
 }
 .journey-info>view:nth-child(1),
 .journey-info>view:nth-child(2),

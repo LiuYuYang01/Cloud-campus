@@ -32,43 +32,6 @@
 
     <!-- 主要内容 -->
     <view class="main">
-        <!-- <view class="item">
-            <view class="header">
-                <view>
-                    <image src="https://s1.ax1x.com/2022/12/29/pSSzPKg.jpg"></image>
-                </view>
-
-                <view class="info">
-                    <view class="title">传智专修学院官方</view>
-                    <view class="date">2022-12-29 15:36</view>
-                </view>
-
-                <view class="attention">关注</view>
-            </view>
-
-            <view class="title">2022年，你的新年flag是什么？</view>
-
-            <view class="content">
-                岁月不居，时节如流，我们在收获和期待中迎来2022年。
-
-                面对新的一年，传智专修学院的同学们早已立下新的flag。有人希望考试不挂科、offer拿到手软、疫情退散；有人打算坚持运动、早睡早起、学习新技能。
-            </view>
-
-            <view class="picture">
-                <image src="https://www.czxy.com/uploads/images/flg.jpg"></image>
-            </view>
-
-            <view class="operate">
-                <view class="praise" bindtap="praiseTap">
-                    <text class="iconfont icon-dianzan_kuai" style="color:{{isPraise}}"> 10</text>
-                </view>
-
-                <view class="collect" bindtap="collectTap">
-                    <text class="iconfont icon-favourited" style="color:{{isCollect}}"> 6</text>
-                </view>
-            </view>
-        </view> -->
-
         <article list="{{homeList}}"></article>
     </view>
 </view>

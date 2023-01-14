@@ -35,7 +35,7 @@ Page({
       {
         title: "校园跑腿",
         icon: "map-marked",
-        url: "",
+        url: "/subPackages/home/pages/errand/errand",
         color: "#f3604f",
       },
       {

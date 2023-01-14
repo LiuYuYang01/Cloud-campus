@@ -1,4 +1,13 @@
-<van-tabs active="{{ active }}" color="#e96053" bind:change="onChange">
+<van-dialog id="van-dialog" showCancelButton="{{true}}" />
+
+<van-tabs active="{{ Tab }}" color="#e96053" bind:change="Tab">
+    <!-- 轮播图 -->
+    <swiper list="{{swiperList}}" style="margin: 20rpx;" />
+
+    <view style="margin-top: 60rpx;">
+        <van-notice-bar left-icon="volume-o" text="遇到任何问题请到维权板块进行维权或联系平台管理员"/>
+    </view>
+
     <van-tab title="跑单列表">
         <view class="container-list">
             <!-- 头像/发布时间/金额 -->
@@ -28,9 +37,10 @@
                 </view>
             </view>
 
-            <view class="meet">接单</view>
+            <view class="meet" bindtap="meet">接单</view>
         </view>
     </van-tab>
+
     <van-tab title="我的跑单">
         <view class="container-list container-my">
             <view class="header">
@@ -43,8 +53,9 @@
                 </view>
 
                 <view class="attention">
-                    <!-- <view class="result1">已完成</view> -->
-                    <view class="result2">进行中</view>
+                    <view class="result1">待接单</view>
+                    <!-- <view class="result2">已完成</view> -->
+                    <!-- <view class="result3">进行中</view> -->
                 </view>
             </view>
             <view class="journey-info">
@@ -63,7 +74,7 @@
                 <text>10.5 <text>元</text></text>
             </view>
             <view class="operating-btn">
-                <van-button type="info" size="small" color="#4fb985">送达</van-button>
+                <van-button type="info" size="small" color="#4fb985" bindtap="service">送达</van-button>
                 <!-- <van-button type="danger" size="small">删除</van-button> -->
             </view>
         </view>
