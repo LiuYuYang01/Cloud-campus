@@ -1,3 +1,7 @@
 {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ee6051",
+    "navigationBarTitleText": "校园跑腿",
+    "navigationBarTextStyle": "white",
     "usingComponents": {}
 }

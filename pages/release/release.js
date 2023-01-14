@@ -93,7 +93,7 @@ Page({
   // 新增文章
   async addArticle() {
     const res = await wx.$http.post("/api/hobby/article", this.data.article);
-    console.log(this.data.obj,888);
+    // console.log(this.data.obj,888);
     // const res = await wx.$http.post("/api/hobby/article", this.data.obj);
     console.log(res);
   },

@@ -6,8 +6,8 @@ page {
 .container-list {
     padding: 20rpx;
     margin-top: 20rpx;
-    min-height: 400rpx;
-    height: auto;
+    /* min-height: 480rpx;
+    height: auto; */
     background-color: white;
 }
 
@@ -61,13 +61,15 @@ page {
     width: 90rpx;
     height: 45rpx;
     line-height: 45rpx;
-    color: rgb(255, 136, 0);
+    color: #e96053;
     font-size: 28rpx;
+    font-weight: 700;
 }
 
 /* 备注 */
 .remarks {
     padding: 10rpx;
+    margin-top: 20rpx;
     border: 4rpx dashed gainsboro;
     text-align: center;
 }
@@ -79,18 +81,13 @@ page {
 }
 
 /* 取送/接单按钮 */
-.operation {
-    /* margin-top: 20rpx; */
-    height: 200rpx;
-    /* border: 1px solid red; */
-}
-
 .operation>view {
     height: 100rpx;
     display: flex;
     justify-content: space-around;
     align-items: center;
     font-size: 40rpx;
+    padding: 20rpx 0;
 }
 
 .operation>view>text:nth-child(1) {
@@ -109,10 +106,21 @@ page {
 
 .operation>view>text text {
     font-size: 28rpx;
-    color: gray;
+    color: #fff;
     margin-left: 10rpx;
     padding-bottom: 5rpx;
     /* border-bottom: 1px solid gray; */
+}
+
+.container-list .meet{
+    width: 100%;
+    height: 80rpx;
+    line-height: 80rpx;
+margin-bottom: 10rpx;
+    text-align: center;
+    color: #fff;
+    border-radius: 100rpx;
+    background-color: #ee6051;
 }
 
 /* 我的 */
@@ -142,8 +150,9 @@ page {
     position: absolute;
     right: 20rpx;
     bottom: 20rpx;
-    color: red;
+    color: #e96053;
     font-weight: 700;
+    font-size: 34rpx;
 }
 
 .journey-info>text text {
