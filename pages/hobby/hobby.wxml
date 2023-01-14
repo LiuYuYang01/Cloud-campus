@@ -10,7 +10,7 @@
 
         <!-- 兴趣圈 -->
         <view class="circleBox">
-            <circle list="{{circleList}}" />
+            <circle list="{{cateList}}" />
         </view>
     </view>
 
