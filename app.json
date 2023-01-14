@@ -16,7 +16,8 @@
             "pages": [
                 "my/pages/data/data",
                 "home/pages/package/package",
-                "pages/robot/robot"
+                "pages/robot/robot",
+                "home/pages/errand/errand"
             ]
         }
     ],
@@ -57,6 +58,8 @@
         "van-cell": "@vant/weapp/cell/index",
         "van-cell-group": "@vant/weapp/cell-group/index",
         "van-search": "@vant/weapp/search/index",
-        "van-notify": "@vant/weapp/notify/index"
+        "van-notify": "@vant/weapp/notify/index",
+        "van-tab": "@vant/weapp/tab/index",
+        "van-tabs": "@vant/weapp/tabs/index"
     }
 }

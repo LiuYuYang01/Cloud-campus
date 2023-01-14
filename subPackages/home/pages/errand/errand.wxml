@@ -1,0 +1,72 @@
+<!--subPackages/home/pages/errand/errand.wxml-->
+
+<van-tabs active="{{ active }}" bind:change="onChange">
+    <van-tab title="跑单列表">
+        <view class="container-list">
+            <!-- 头像/发布时间/金额 -->
+            <view class="header">
+                <view>
+                    <image src="https://img.yzcdn.cn/vant/cat.jpeg" class="avatar"></image>
+                </view>
+
+                <view class="info">
+                    <view class="title">
+                        name
+                    </view>
+                    <view class="date">刚刚</view>
+                </view>
+
+                <view class="attention">10.5元</view>
+            </view>
+            <!-- 备注内容 -->
+            <view class="remarks">
+                <text>我是备注我是备注我是备注我是备注我是备注我是备注我是备注我是备注我是备注我是备注我是备注我是备注我是备注我是备注</text>
+            </view>
+            <!-- 取送/接单按钮 -->
+            <view class="operation">
+                <view>
+                    <text>取<text>食堂油泼面</text></text>
+                    <text>送<text>宿舍1号楼</text></text>
+                </view>
+                <van-button round type="primary" block>接单</van-button>
+            </view>
+        </view>
+    </van-tab>
+    <van-tab title="我的跑单">
+        <view class="container-list container-my">
+            <view class="header">
+                <image src="https://img.yzcdn.cn/vant/cat.jpeg" class="avatar"></image>
+                <view class="info">
+                    <view class="title">
+                        黎活銘
+                    </view>
+                    <view class="date">2022-03-31 14:55</view>
+                </view>
+
+                <view class="attention">
+                    <!-- <view class="result1">已完成</view> -->
+                    <view class="result2">进行中</view>
+                </view>
+            </view>
+            <view class="journey-info">
+                <view>
+                    <van-icon name="location" color="#ffa500" style="margin: 0 2rpx 0 10rpx;" />
+                    杂粮煎饼
+                </view>
+                <view>
+                    <van-icon name="location" color="#87ceeb" style="margin: 0 2rpx 0 10rpx;" />
+                    教室 108
+                </view>
+                <view>
+                    <van-icon name="comment" color="gray" style="margin: 0 2rpx 0 10rpx;" />
+                    备注：无
+                </view>
+                <text>10.5 <text>元</text></text>
+            </view>
+            <view class="operating-btn">
+                <van-button type="info" size="small">送达</van-button>
+                <!-- <van-button type="danger" size="small">删除</van-button> -->
+            </view>
+        </view>
+    </van-tab>
+</van-tabs>

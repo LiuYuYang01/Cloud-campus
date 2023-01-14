@@ -44,7 +44,7 @@ Component({
             {
                 title: "跑腿接单",
                 icon: "map-marked",
-                url: "",
+                url: "/subPackages/home/pages/errand/errand",
                 color: "#f3604f"
             },
             {
