@@ -1,212 +1,254 @@
-// pages/release/release.js
+import { createStoreBindings } from "mobx-miniprogram-bindings";
+import store from "../../store/store";
 Page({
+  data: {
+    // 入口导航
+    cateList: [],
+    pickerShow: "none",
+    // 分类选择器
+    selectCate: [],
 
-    /**
-     * 页面的初始数据
-     */
-    data: {
-        content: "",
-        // 入口导航
-        circleList: [{
-                title: "学生会",
-                icon: "manager",
-                url: "",
-                color: "#6d6be4"
-            },
-            {
-                title: "足球社",
-                icon: "gem-o",
-                url: "",
-                color: "#fbb437"
-            },
-            {
-                title: "篮球赛",
-                icon: "fire",
-                url: "",
-                color: "#ed4439"
-            },
-            {
-                title: "摄影社",
-                icon: "photograph",
-                url: "",
-                color: "#78bbfa"
-            },
-            {
-                title: "音乐社",
-                icon: "music",
-                url: "",
-                color: "#4fb985"
-            },
-            {
-                title: "动漫社",
-                icon: "friends",
-                url: "",
-                color: "#fd6dbd"
-            },
-            {
-                title: "计算机",
-                icon: "cashier-o",
-                url: "",
-                color: "#fa6667"
-            },
-            {
-                title: "全部社团",
-                icon: "apps-o",
-                url: "",
-                color: "#797979"
-            }
-        ],
-        pickerShow: 'none',
-        columns: [],
+    // 文章扩展设置
+    activeNames: ["0"],
 
-        // 文章信息
-        article: {
-            title: "",
-            cate: "",
-            content: ""
-        }
+    // 文章信息
+    article: {
+      userID: 0, //作者ID
+      name: "", //作者昵称
+      avatar: "", //作者头像
+      title: "", //文章标题
+      describe: "", //文章描述
+      content: "", //文章内容
+      cover: [], //文章封面
+      cate: "", //文章所属分类
+      views: 0, //文章浏览量
+      is_concern: 0, //是否关注该作者
+      is_like: 0, //是否点赞该文章
+      is_topping: 0, //是否置顶该文章
+      is_boutique: 0, //是否精品该文章
+      is_collection: 0, //是否收藏该文章
+      date: "2023", //文章发布时间
     },
 
-    // 初始化编辑器
-    async release() {
-        // 拿到编辑器组件的实例
-        const editor = this.selectComponent(".editor")
-        // 调用组件的release方法将数据保存到content
-        await editor.release()
-        // 然后拿到组件中content的值（编辑器中的数据）
-        setTimeout(() => {
-            this.setData({
-                content: editor.data.content
-            })
-
-            console.log('编辑器的内容：', this.data.content);
-        })
+    obj: {
+      userID: "37",
+      name: "传智专修学院官方",
+      avatar: "https://s1.ax1x.com/2022/12/29/pSSzPKg.jpg",
+      title: "传智高质量社团活动，哪一个是你的最爱？",
+      describe:
+        "“我们青年要耐得住这寂寞日子。”在这“寂寞日子”里，用丰富多彩的校园活动打破三点一线的日常生活，也能在苦境中找到乐境，给冬日的传智带来不一样的光与热！",
+      content: "文章内容",
+      cover:
+        '["http://app.comiis.com/data/attachment/image/000/00/08/48_500_480.jpg","http://app.comiis.com/data/attachment/image/000/00/08/50_500_480.jpg","http://app.comiis.com/data/attachment/image/000/00/08/49_500_480.jpg","http://app.comiis.com/data/attachment/image/000/00/09/01_500_480.jpg"]',
+      date: "2022-12-29 15:36",
+      is_concern: "0",
+      is_like: "0",
+      is_topping: "0",
+      is_boutique: '0',
+      is_collection: '0',
+      views: '0',
+      cate: "学生会",
     },
 
-    // 获取选中的分类
-    picker(event) {
-        const {
-            picker,
-            value,
-            index
-        } = event.detail;
+    // 是否置顶
+    is_topping: 0,
+    // 是否精选
+    is_boutique: 0,
+
+    // 图片预览
+    previewList: [],
+    // 图片封面
+    coverList: [],
+  },
+
+  // 修改标题
+  updateTitle(e) {
+    this.setData({
+      "article.title": e.detail,
+    });
+  },
+
+  // 初始化编辑器
+  async release() {
+    // // 拿到编辑器组件的实例
+    const editor = this.selectComponent("#editor");
+    // 调用组件的release方法将数据保存到content
+    await editor.release();
+    // 然后拿到组件中content的值（编辑器中的数据）
+    setTimeout(() => {
+      this.setData({
+        "article.content": editor.data.content,
+      });
+
+      this.setData({
+        "article.describe": "21321312",
+      });
+    });
+
+    // 新增文章
+    this.addArticle();
+    console.log("文章数据：", this.data.article, 2222);
+  },
+
+  // 新增文章
+  async addArticle() {
+    const res = await wx.$http.post("/api/hobby/article", this.data.article);
+    console.log(this.data.obj,888);
+    // const res = await wx.$http.post("/api/hobby/article", this.data.obj);
+    console.log(res);
+  },
+
+  // 获取兴趣圈分类数据
+  async cateList() {
+    const {
+      data: { data },
+    } = await wx.$http.get("/api/hobby/cate");
+
+    this.setData({
+      cateList: data,
+      selectCate: data.map((item) => item.title),
+    });
+    console.log(this.data.cateList);
+  },
+
+  // 获取选中的分类
+  picker(event) {
+    const { picker, value, index } = event.detail;
+
+    this.setData({
+      "article.cate": value,
+    });
+
+    console.log(this.data.article.cate, 111);
+    console.log(`当前值：${value}, 当前索引：${index}`);
+  },
+
+  // 打开分类选择器
+  pickerShowClick() {
+    this.setData({
+      pickerShow: "block",
+    });
+  },
+
+  // 关闭分类选择器
+  pickerHideClick() {
+    this.setData({
+      pickerShow: "none",
+    });
+
+    this.setData({
+      "article.cate": "",
+    });
+  },
+
+  // 确认选择分类
+  pickerClick() {
+    this.setData({
+      pickerShow: "none",
+    });
+  },
+
+  // 图片上传
+  afterRead(event) {
+    const { file } = event.detail;
+    // 当设置 mutiple 为 true 时, file 为数组格式，否则为对象格式
+    wx.uploadFile({
+      url: "https://api.tockey.cn/api/upload", // 仅为示例，非真实的接口地址
+      filePath: file.url,
+      name: "file",
+      formData: {
+        file,
+        type: "article",
+      },
+      success: (res) => {
+        this.data.coverList.push(JSON.parse(res.data).data.url);
+
+        // 上传完成需要更新 previewList
+        const { previewList = [] } = this.data;
+        previewList.push({
+          ...file,
+          url: JSON.parse(res.data).url,
+        });
 
         this.setData({
-            'article.cate': value
-        })
+          previewList,
+          "article.cover": this.data.coverList,
+        });
+      },
+    });
+  },
 
-        console.log(this.data.article.cate, 111);
-        console.log(`当前值：${value}, 当前索引：${index}`);
-    },
+  // 扩展设置
+  extend(event) {
+    this.setData({
+      activeNames: event.detail,
+    });
+  },
 
-    // 打开分类选择器
-    pickerShowClick() {
-        this.setData({
-            pickerShow: "block"
-        })
-    },
-    // 关闭分类选择器
-    pickerHideClick() {
-        this.setData({
-            pickerShow: "none"
-        })
+  // 是否置顶
+  topping({ detail }) {
+    this.setData({ "article.is_topping": detail });
+  },
 
-        this.setData({
-            'article.cate': ""
-        })
-    },
-    // 确认选择分类
-    pickerClick() {
-        this.setData({
-            pickerShow: "none"
-        })
-    },
+  // 是否精选
+  boutique({ detail }) {
+    this.setData({ "article.is_boutique": detail });
+  },
 
-    // 图片上传
-    afterRead(event) {
-        const {
-            file
-        } = event.detail;
-        // 当设置 mutiple 为 true 时, file 为数组格式，否则为对象格式
-        wx.uploadFile({
-            url: 'https://example.weixin.qq.com/upload', // 仅为示例，非真实的接口地址
-            filePath: file.url,
-            name: 'file',
-            formData: {
-                user: 'test'
-            },
-            success(res) {
-                // 上传完成需要更新 fileList
-                const {
-                    fileList = []
-                } = this.data;
-                fileList.push({
-                    ...file,
-                    url: res.data
-                });
-                this.setData({
-                    fileList
-                });
-            },
-        })
-    },
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad(options) {
+    this.storeBindings = createStoreBindings(this, {
+      store,
+      fields: ["userInfo"],
+      actions: ["updateUserInfo"],
+    });
 
-    /**
-     * 生命周期函数--监听页面加载
-     */
-    onLoad(options) {
-        this.setData({
-            columns: this.data.circleList.map(item => item.title)
-        })
-        console.log(this.data.columns);
-    },
+    // 导入用户信息
+    setTimeout(() => {
+      const { id, name, sex, avatar } = this.data.userInfo;
 
-    /**
-     * 生命周期函数--监听页面初次渲染完成
-     */
-    onReady() {
+      this.setData({
+        article: { ...this.data.article, userID: id, name, sex, avatar },
+      });
+    });
 
-    },
+    this.cateList();
+  },
 
-    /**
-     * 生命周期函数--监听页面显示
-     */
-    onShow() {
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady() {},
 
-    },
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow() {},
 
-    /**
-     * 生命周期函数--监听页面隐藏
-     */
-    onHide() {
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide() {},
 
-    },
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload() {},
 
-    /**
-     * 生命周期函数--监听页面卸载
-     */
-    onUnload() {
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh() {},
 
-    },
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom() {},
 
-    /**
-     * 页面相关事件处理函数--监听用户下拉动作
-     */
-    onPullDownRefresh() {
-
-    },
-
-    /**
-     * 页面上拉触底事件的处理函数
-     */
-    onReachBottom() {
-
-    },
-
-    /**
-     * 用户点击右上角分享
-     */
-    onShareAppMessage() {
-
-    }
-})
+  /**
+   * 用户点击右上角分享
+   */
+  onShareAppMessage() {},
+});
