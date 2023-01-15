@@ -59,7 +59,7 @@
     border-radius: 20rpx;
     background-color: #fff;
     box-shadow: 0 0 6rpx 2rpx rgb(0 0 0 / 10%);
-    z-index: 999;
+    z-index: 1;
 }
 
 /* 资料设置 */

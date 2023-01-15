@@ -27,10 +27,10 @@
 
 <!-- 设置 -->
 <view class="setting">
-    <van-cell>
+    <van-cell bindtap="goData">
         <van-icon name="records" color="#49b984" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
 
-        <view slot="title" bindtap="goData">
+        <view slot="title">
             <view class="van-cell-text">我的资料</view>
         </view>
 
@@ -38,27 +38,7 @@
     </van-cell>
 
     <van-cell>
-        <van-icon name="smile-o" color="#f7b53e" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
-
-        <view slot="title">
-            <view class="van-cell-text">我的心情</view>
-        </view>
-
-        <van-icon name="arrow" class="custom-icon" />
-    </van-cell>
-
-    <van-cell>
-        <van-icon name="more-o" color="#5a82fd" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
-
-        <view slot="title">
-            <view class="van-cell-text">我的消息</view>
-        </view>
-
-        <van-icon name="arrow" class="custom-icon" />
-    </van-cell>
-
-    <van-cell>
-        <van-icon name="contact" color="#f57062" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
+        <van-icon name="flower-o" color="#f57062" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
 
         <view slot="title">
             <view class="van-cell-text">我的主页</view>
@@ -68,7 +48,17 @@
     </van-cell>
 
     <van-cell>
-        <van-icon name="flower-o" color="#7369e2" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
+        <van-icon name="more-o" color="#f7b53e" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
+
+        <view slot="title">
+            <view class="van-cell-text">我的消息</view>
+        </view>
+
+        <van-icon name="arrow" class="custom-icon" />
+    </van-cell>
+
+    <van-cell>
+        <van-icon name="contact" color="#7369e2" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
 
         <view slot="title">
             <view class="van-cell-text">实名认证</view>
@@ -77,17 +67,7 @@
         <van-icon name="arrow" class="custom-icon" />
     </van-cell>
 
-    <van-cell>
-        <van-icon name="more-o" color="#62bdfc" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
-
-        <view slot="title">
-            <view class="van-cell-text">我的成就</view>
-        </view>
-
-        <van-icon name="arrow" class="custom-icon" />
-    </van-cell>
-
-    <van-cell>
+    <van-cell bindtap="invite">
         <van-icon name="share-o" color="#fa7060" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
 
         <view slot="title">
@@ -107,3 +87,11 @@
         <van-icon name="arrow" class="custom-icon" />
     </van-cell>
 </view>
+
+<van-share-sheet
+  show="{{ showShare }}"
+  title="立即分享给好友"
+  options="{{ options }}"
+  bind:select="inviteSelect"
+  bind:close="inviteClose"
+/>

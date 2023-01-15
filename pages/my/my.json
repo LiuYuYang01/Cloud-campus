@@ -1,6 +1,7 @@
 {
     "navigationStyle":"custom",
     "usingComponents": {
-        "slideNav":"/components/slideNav/slideNav"
+        "slideNav":"/components/slideNav/slideNav",
+        "van-share-sheet": "@vant/weapp/share-sheet/index"
     }
 }

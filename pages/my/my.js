@@ -56,7 +56,18 @@ Page({
     userInfo: {},
     // 登录后显示退出登录按钮，未登录不显示
     isQuitShow: false,
+
+    // 分享面版
+    showShare: false,
+    options: [
+      { name: "微信", icon: "wechat", openType: "share" },
+      { name: "微博", icon: "weibo" },
+      { name: "复制链接", icon: "link" },
+      { name: "分享海报", icon: "poster" },
+      { name: "二维码", icon: "qrcode" },
+    ],
   },
+
   // 登录
   login() {
     const id = this.data.userInfo.id;
@@ -67,6 +78,7 @@ Page({
       });
     }
   },
+
   // 退出登录
   quit() {
     setUserInfo();
@@ -76,12 +88,28 @@ Page({
 
     setToken("");
   },
+
   // 跳转到修改资料页面
   goData() {
     wx.navigateTo({
       url: "/subPackages/my/pages/data/data",
     });
   },
+
+  // 邀请好友
+  invite() {
+    this.setData({ showShare: true });
+  },
+  // 关闭
+  inviteClose() {
+    this.setData({ showShare: false });
+  },
+  // 选择
+  inviteSelect(event) {
+    Toast(event.detail.name);
+    this.onClose();
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */

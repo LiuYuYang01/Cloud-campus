@@ -20,6 +20,7 @@ Page({
       describe: "", //文章描述
       content: "", //文章内容
       cover: [], //文章封面
+    // cover:"['https://liuyuyang.net/usr/uploads/2023/01/129447723.png']",
       cate: "", //文章所属分类
       views: 0, //文章浏览量
       is_concern: 0, //是否关注该作者
@@ -59,7 +60,7 @@ Page({
       this.setData({
         "article.content": editor.data.content,
         "article.describe": "21321312",
-        "article.date": new Date(),
+        "article.date": new Date()
       });
 
       // 新增文章
@@ -70,8 +71,9 @@ Page({
 
   // 新增文章
   async addArticle() {
+      console.log(this.data.article,888);
     const res = await wx.$http.post("/api/hobby/article", this.data.article);
-    console.log(res.data);
+    console.log('相应的结果：',res.data);
   },
 
   // 获取兴趣圈分类数据
@@ -94,9 +96,6 @@ Page({
     this.setData({
       "article.cate": value,
     });
-
-    console.log(this.data.article.cate, 111);
-    console.log(`当前值：${value}, 当前索引：${index}`);
   },
 
   // 打开分类选择器
