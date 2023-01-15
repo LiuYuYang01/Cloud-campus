@@ -43,6 +43,7 @@ Page({
   // 获取兴趣圈数据
   async __getHobbyList() {
     const { data: res } = await wx.$http.get("/api/hobby/article");
+    console.log(res.data);
 
     this.setData({
       hobbyList: res.data,

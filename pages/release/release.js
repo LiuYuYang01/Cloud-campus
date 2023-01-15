@@ -27,27 +27,7 @@ Page({
       is_topping: 0, //是否置顶该文章
       is_boutique: 0, //是否精品该文章
       is_collection: 0, //是否收藏该文章
-      date: "2023", //文章发布时间
-    },
-
-    obj: {
-      userID: "37",
-      name: "传智专修学院官方",
-      avatar: "https://s1.ax1x.com/2022/12/29/pSSzPKg.jpg",
-      title: "传智高质量社团活动，哪一个是你的最爱？",
-      describe:
-        "“我们青年要耐得住这寂寞日子。”在这“寂寞日子”里，用丰富多彩的校园活动打破三点一线的日常生活，也能在苦境中找到乐境，给冬日的传智带来不一样的光与热！",
-      content: "文章内容",
-      cover:
-        '["http://app.comiis.com/data/attachment/image/000/00/08/48_500_480.jpg","http://app.comiis.com/data/attachment/image/000/00/08/50_500_480.jpg","http://app.comiis.com/data/attachment/image/000/00/08/49_500_480.jpg","http://app.comiis.com/data/attachment/image/000/00/09/01_500_480.jpg"]',
-      date: "2022-12-29 15:36",
-      is_concern: "0",
-      is_like: "0",
-      is_topping: "0",
-      is_boutique: '0',
-      is_collection: '0',
-      views: '0',
-      cate: "学生会",
+      date: "", //文章发布时间
     },
 
     // 是否置顶
@@ -78,24 +58,20 @@ Page({
     setTimeout(() => {
       this.setData({
         "article.content": editor.data.content,
-      });
-
-      this.setData({
         "article.describe": "21321312",
+        "article.date": new Date(),
       });
-    });
 
-    // 新增文章
-    this.addArticle();
-    console.log("文章数据：", this.data.article, 2222);
+      // 新增文章
+      this.addArticle();
+      console.log("文章数据：", this.data.article, 2222);
+    });
   },
 
   // 新增文章
   async addArticle() {
     const res = await wx.$http.post("/api/hobby/article", this.data.article);
-    // console.log(this.data.obj,888);
-    // const res = await wx.$http.post("/api/hobby/article", this.data.obj);
-    console.log(res);
+    console.log(res.data);
   },
 
   // 获取兴趣圈分类数据

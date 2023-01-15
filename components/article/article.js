@@ -24,8 +24,7 @@ Component({
 
     lifetimes: {
         created() {
-            // this.data.list.filter(item=>item.date = formatTime(new Date("2022-12-28T16:00:00.000Z")))
-            // console.log(this.data.list);
+            
         }
     },
 
