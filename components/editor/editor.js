@@ -10,7 +10,7 @@ Component({
      * 组件的初始数据
      */
     data: {
-        content: "",
+        delta:{}
     },
 
     /**
@@ -55,10 +55,8 @@ Component({
             this.editorCtx.getContents({
                 success: (res) => {
                     this.setData({
-                        content: res.html
+                        delta:res
                     })
-
-                    // console.log(this.data.content);
                 }
             })
         },

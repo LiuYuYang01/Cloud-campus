@@ -26,6 +26,7 @@ page {
   display: flex;
   align-items: center;
   margin-right: 70rpx;
+  z-index: 0;
 }
 
 .operation .text {

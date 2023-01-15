@@ -1,3 +1,5 @@
+<van-notify id="van-notify" />
+
 <view class="from">
     <!-- 文章标题 -->
     <van-cell-group>
@@ -6,6 +8,10 @@
 
     <van-cell-group>
         <van-field value="{{ article.cate }}" label="文章分类" placeholder="选择你要发布的分类" border="{{ false }}" disabled bindtap="pickerShowClick" />
+    </van-cell-group>
+
+    <van-cell-group>
+        <van-field value="{{ article.describe }}" label="文章摘要" type="textarea" placeholder="简单介绍一下这篇文章" autosize border="{{ false }}" bind:change="updateDescribe"/>
     </van-cell-group>
 </view>
 
@@ -25,13 +31,13 @@
                 <!-- 是否置顶文章 -->
                 <view>
                     <text class="text">置顶</text>
-                    <van-switch checked="{{ article.is_topping }}" active-color="#4fb985" inactive-color="#e6e6e6" active-value="{{1}}" inactive-value="{{0}}" size="36rpx" bind:change="topping"/>
+                    <van-switch checked="{{ article.is_topping }}" active-color="#4fb985" inactive-color="#e6e6e6" active-value="{{1}}" inactive-value="{{0}}" size="36rpx" bind:change="topping" />
                 </view>
 
                 <!-- 是否精选文章 -->
                 <view>
                     <text class="text">精选</text>
-                    <van-switch checked="{{ article.is_boutique }}" active-color="#ffb101" inactive-color="#e6e6e6" active-value="{{1}}" inactive-value="{{0}}" size="36rpx" bind:change="boutique"/>
+                    <van-switch checked="{{ article.is_boutique }}" active-color="#ffb101" inactive-color="#e6e6e6" active-value="{{1}}" inactive-value="{{0}}" size="36rpx" bind:change="boutique" />
                 </view>
             </view>
         </van-collapse-item>

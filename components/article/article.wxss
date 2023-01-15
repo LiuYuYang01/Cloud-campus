@@ -85,6 +85,13 @@
     color: #666;
     margin-top: 10rpx;
     line-height: 40rpx;
+    /* 文章描述超出省略 */
+    display: -webkit-box !important;
+    overflow: hidden;
+    word-break: break-all;
+    text-overflow: ellipsis;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 4;
 }
 
 /* 文章图片 */

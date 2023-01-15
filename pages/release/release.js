@@ -1,5 +1,7 @@
 import { createStoreBindings } from "mobx-miniprogram-bindings";
 import store from "../../store/store";
+
+import Notify from "@vant/weapp/notify/notify";
 Page({
   data: {
     // 入口导航
@@ -20,7 +22,7 @@ Page({
       describe: "", //文章描述
       content: "", //文章内容
       cover: [], //文章封面
-    // cover:"['https://liuyuyang.net/usr/uploads/2023/01/129447723.png']",
+      // cover:"['https://liuyuyang.net/usr/uploads/2023/01/129447723.png']",
       cate: "", //文章所属分类
       views: 0, //文章浏览量
       is_concern: 0, //是否关注该作者
@@ -30,6 +32,9 @@ Page({
       is_collection: 0, //是否收藏该文章
       date: "", //文章发布时间
     },
+
+    // editor编辑器内容
+    delta: {},
 
     // 是否置顶
     is_topping: 0,
@@ -49,31 +54,56 @@ Page({
     });
   },
 
+  // 文章摘要
+  updateDescribe(e) {
+    this.setData({
+      "article.describe": e.detail,
+    });
+  },
+
   // 初始化编辑器
   async release() {
-    // // 拿到编辑器组件的实例
+    // 拿到编辑器组件的实例
     const editor = this.selectComponent("#editor");
+
     // 调用组件的release方法将数据保存到content
     await editor.release();
+
     // 然后拿到组件中content的值（编辑器中的数据）
     setTimeout(() => {
       this.setData({
-        "article.content": editor.data.content,
-        "article.describe": "21321312",
-        "article.date": new Date()
+        "article.content": editor.data.delta.html,
+        "article.describe": this.data.article.describe,
+        "article.date": new Date(),
+        delta: editor.data.delta,
       });
 
       // 新增文章
       this.addArticle();
-      console.log("文章数据：", this.data.article, 2222);
     });
   },
 
   // 新增文章
   async addArticle() {
-      console.log(this.data.article,888);
-    const res = await wx.$http.post("/api/hobby/article", this.data.article);
-    console.log('相应的结果：',res.data);
+    // 如果没有写文章摘要，则默认截取文章内容前100个字
+    if (!this.data.article.describe) {
+      this.setData({
+        "article.describe": this.data.delta.text.slice(0, 100),
+      });
+    }
+
+    const {
+      data: { code, message },
+    } = await wx.$http.post("/api/hobby/article", this.data.article);
+
+    if (code !== 200) return Notify({ type: "danger", message });
+
+    Notify({ type: "success", message: "恭喜你文章发布成功" });
+
+    // 发布文章成功后跳转到兴趣圈页面
+    wx.switchTab({
+      url: "/pages/hobby/hobby",
+    });
   },
 
   // 获取兴趣圈分类数据
@@ -86,7 +116,6 @@ Page({
       cateList: data,
       selectCate: data.map((item) => item.title),
     });
-    console.log(this.data.cateList);
   },
 
   // 获取选中的分类
