@@ -17,3 +17,7 @@ page{
 .prompt image{
     width: 100%;
 }
+
+.van-step__circle-container{
+    height: 0;
+}

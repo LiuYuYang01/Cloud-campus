@@ -6,27 +6,27 @@ Page({
   data: {
     steps: [
       {
-        text: "进行中",
-        desc: "请注意",
-        inactiveIcon: "checked",
+        text: "未开始",
+        desc: "请先提交实名认证资料",
         activeIcon: "success",
       },
       {
-        text: "步骤二",
-        desc: "描述信息",
+        text: "进行中",
+        desc: "请等待认证进度",
         activeIcon: "plus",
       },
       {
-        text: "步骤三",
-        desc: "描述信息",
+        text: "审核中",
+        desc: "请确保提交的资料无误",
         activeIcon: "cross",
       },
       {
-        text: "步骤四",
-        desc: "描述信息",
+        text: "审核成功",
+        desc: "恭喜你实名认证成功！",
         activeIcon: "fail",
       },
     ],
+    stepsActive:1
   },
 
   /**
