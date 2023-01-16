@@ -44,43 +44,8 @@
                     "scene": null
                 },
                 {
-                    "name": "文章页",
-                    "pathName": "pages/article/article",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "发表文章",
-                    "pathName": "pages/release/release",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "表白墙",
-                    "pathName": "pages/love/love",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "机器人",
-                    "pathName": "pages/robot/robot",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "修改用户资料",
-                    "pathName": "subPackages/my/pages/data/data",
-                    "query": "",
-                    "launchMode": "default",
-                    "scene": null
-                },
-                {
-                    "name": "跑腿",
-                    "pathName": "subPackages/home/pages/errand/errand",
+                    "name": "实名认证",
+                    "pathName": "subPackages/my/pages/certified/certified",
                     "query": "",
                     "launchMode": "default",
                     "scene": null

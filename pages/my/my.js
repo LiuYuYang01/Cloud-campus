@@ -95,6 +95,12 @@ Page({
       url: "/subPackages/my/pages/data/data",
     });
   },
+  // 跳转到实名认证页面
+  goCertified() {
+    wx.navigateTo({
+      url: "/subPackages/my/pages/certified/certified",
+    });
+  },
 
   // 邀请好友
   invite() {

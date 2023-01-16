@@ -211,10 +211,10 @@ Page({
 
     // 导入用户信息
     setTimeout(() => {
-      const { id, name, avatar } = this.data.userInfo;
+      const { id, name, avatar,is_realname } = this.data.userInfo;
 
       this.setData({
-        article: { ...this.data.article, userID: id, name, avatar },
+        article: { ...this.data.article, userID: id, name, avatar,is_realname },
       });
     });
 

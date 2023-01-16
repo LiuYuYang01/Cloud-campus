@@ -14,10 +14,11 @@
         {
             "root": "subPackages",
             "pages": [
-                "my/pages/data/data",
-                "home/pages/package/package",
                 "pages/robot/robot",
-                "home/pages/errand/errand"
+                "home/pages/package/package",
+                "home/pages/errand/errand",
+                "my/pages/data/data",
+                "my/pages/certified/certified"
             ]
         }
     ],

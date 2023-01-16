@@ -37,11 +37,20 @@
     font-size: 29rpx;
 }
 
-/* 官方 */
-.item .header .info .title .official{
+/* 实名认证标识 */
+.item .header .info .title .realnameBox{
+    display: flex;
+    align-items: center;
+}
+.item .header .info .title .realnameBox .realname{
     width: 40rpx;
     height: 40rpx;
     margin-left: 5rpx;
+}
+.item .header .info .title .realnameBox .text{
+    color: #666;
+    margin-left: 10rpx;
+    font-size: 24rpx;
 }
 
 /* 时间 */

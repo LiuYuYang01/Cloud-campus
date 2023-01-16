@@ -57,7 +57,7 @@
         <van-icon name="arrow" class="custom-icon" />
     </van-cell>
 
-    <van-cell>
+    <van-cell bindtap="goCertified">
         <van-icon name="contact" color="#7369e2" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
 
         <view slot="title">
@@ -88,10 +88,4 @@
     </van-cell>
 </view>
 
-<van-share-sheet
-  show="{{ showShare }}"
-  title="立即分享给好友"
-  options="{{ options }}"
-  bind:select="inviteSelect"
-  bind:close="inviteClose"
-/>
+<van-share-sheet show="{{ showShare }}" title="立即分享给好友" options="{{ options }}" bind:select="inviteSelect" bind:close="inviteClose" />
