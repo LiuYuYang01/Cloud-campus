@@ -12,6 +12,7 @@ Page({
         cid: "1",
       },
     ],
+    active: 0,
   },
 
   Tab(e) {
@@ -42,6 +43,11 @@ Page({
       .catch(() => {
         // on cancel
       });
+  },
+
+  onChange(event) {
+    // event.detail 的值为当前选中项的索引
+    this.setData({ active: event.detail });
   },
 
   /**

@@ -29,7 +29,7 @@ Page({
       {
         title: "代取包裹",
         icon: "send-gift",
-        url: "",
+        url: "/subPackages/home/pages/package/package",
         color: "#4b84ff",
       },
       {

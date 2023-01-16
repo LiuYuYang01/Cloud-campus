@@ -1,54 +1,92 @@
 <van-dialog id="van-dialog" showCancelButton="{{true}}" />
 
-<van-tabs active="{{ Tab }}" color="#e96053" bind:change="Tab">
+<van-tabs active="{{ Tab }}" color="#5a82fd" bind:change="Tab">
     <!-- 轮播图 -->
     <swiper list="{{swiperList}}" style="margin: 20rpx;" />
 
     <view style="margin-top: 60rpx;">
-        <van-notice-bar left-icon="volume-o" text="遇到任何问题请到维权板块进行维权或联系平台管理员"/>
+        <van-notice-bar left-icon="volume-o" text="遇到任何问题请到维权板块进行维权或联系平台管理员" />
     </view>
 
-    <van-tab title="跑单列表">
+    <van-tab title="抢单">
         <view class="container-list">
             <!-- 头像/发布时间/金额 -->
             <view class="header">
                 <view>
-                    <image src="https://img.yzcdn.cn/vant/cat.jpeg" class="avatar"></image>
+                    <image src="https://tupian.qqw21.com/article/UploadPic/2020-3/202032023341537416.jpg" class="avatar"></image>
                 </view>
 
                 <view class="info">
-                    <view class="title">
-                        name
-                    </view>
+                    <view class="title">张同学</view>
                     <view class="date">刚刚</view>
                 </view>
 
-                <view class="attention">10.5元</view>
+                <view class="attention">1.5元</view>
             </view>
-            <!-- 备注内容 -->
-            <view class="remarks">
-                <text style="color:#666">备注：到了放在教室门口谢谢</text>
-            </view>
-            <!-- 取送/接单按钮 -->
-            <view class="operation">
-                <view>
-                    <text>取<text>食堂油泼面</text></text>
-                    <text>送<text>宿舍1号楼</text></text>
+
+            <view class="box">
+                <view class="take">
+                    <view class="title">取</view>
+                    <view class="info">北校区蜜雪冰城大杯珍珠奶茶</view>
+                </view>
+
+                <view class="give">
+                    <view class="title">送</view>
+                    <view class="info">南校区6号宿舍楼3楼317宿舍</view>
+                </view>
+
+                <view class="remark">
+                    <text>备注：辛苦小哥哥了</text>
                 </view>
             </view>
 
-            <view class="meet" bindtap="meet">接单</view>
+            <view class="meet" bindtap="meet">立即抢单</view>
         </view>
+
+        <view class="container-list">
+            <!-- 头像/发布时间/金额 -->
+            <view class="header">
+                <view>
+                    <image src="https://img13.360buyimg.com/n1/jfs/t1/175752/21/32873/65472/63ab9f55Fe8882446/89719c83f4350f85.jpg" class="avatar"></image>
+                </view>
+
+                <view class="info">
+                    <view class="title">王同学</view>
+                    <view class="date">刚刚</view>
+                </view>
+
+                <view class="attention">2.5元</view>
+            </view>
+
+            <view class="box">
+                <view class="take">
+                    <view class="title">取</view>
+                    <view class="info">取包裹</view>
+                </view>
+
+                <view class="give">
+                    <view class="title">送</view>
+                    <view class="info">北校区6号宿舍楼1楼213宿舍</view>
+                </view>
+
+                <view class="remark">
+                    <text>备注：无备注</text>
+                </view>
+            </view>
+
+            <view class="meet" bindtap="meet">立即抢单</view>
+        </view>
+    </van-tab>
+
+    <van-tab title="待取货">
     </van-tab>
 
     <van-tab title="我的跑单">
         <view class="container-list container-my">
             <view class="header">
-                <image src="https://img.yzcdn.cn/vant/cat.jpeg" class="avatar"></image>
+                <image src="https://tupian.qqw21.com/article/UploadPic/2020-3/202032023341537416.jpg" class="avatar"></image>
                 <view class="info">
-                    <view class="title">
-                        黎活銘
-                    </view>
+                    <view class="title">张同学</view>
                     <view class="date">2022-03-31 14:55</view>
                 </view>
 
@@ -68,15 +106,22 @@
                     教室 108
                 </view>
                 <view>
-                    <van-icon name="comment" color="gray" style="margin: 0 2rpx 0 10rpx;" />
+                    <van-icon name="comment" color="gray" style="margin: 0 10rpx;" />
                     <text>备注：到了放在教室门口谢谢</text>
                 </view>
                 <text>10.5 <text>元</text></text>
             </view>
             <view class="operating-btn">
-                <van-button type="info" size="small" color="#4fb985" bindtap="service">送达</van-button>
+                <van-button type="info" size="small" color="#5a82fd" bindtap="service">送达</van-button>
                 <!-- <van-button type="danger" size="small">删除</van-button> -->
             </view>
         </view>
     </van-tab>
 </van-tabs>
+
+
+<van-tabbar active="{{ active }}" bind:change="onChange">
+    <van-tabbar-item icon="home-o">首页</van-tabbar-item>
+    <van-tabbar-item icon="gold-coin-o">战绩</van-tabbar-item>
+    <van-tabbar-item icon="friends-o">我的</van-tabbar-item>
+</van-tabbar>

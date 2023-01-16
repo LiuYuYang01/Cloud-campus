@@ -1,3 +1,7 @@
 {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#5a82fd",
+    "navigationBarTitleText": "校园代取包裹",
+    "navigationBarTextStyle": "white",
     "usingComponents": {}
 }

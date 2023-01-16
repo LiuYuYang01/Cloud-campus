@@ -52,7 +52,6 @@ Page({
       this.updateUserInfo(userInfo);
       setTimeout(() => {
         setUserInfo(JSON.stringify(this.data.userInfo))
-        console.log(getUserInfo());
       });
 
       // 将Token本地存储
