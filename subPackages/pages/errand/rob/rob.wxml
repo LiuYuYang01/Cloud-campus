@@ -1,5 +1,4 @@
 <van-dialog id="van-dialog" showCancelButton="{{true}}" />
-
 <van-tabs active="{{ Tab }}" color="#5a82fd" bind:change="Tab">
     <!-- 轮播图 -->
     <swiper list="{{swiperList}}" style="margin: 20rpx;" />
@@ -120,8 +119,9 @@
 </van-tabs>
 
 
-<van-tabbar active="{{ active }}" bind:change="onChange">
+<van-tabbar active="{{ active }}" bind:change="selectTabBar">
     <van-tabbar-item icon="home-o">首页</van-tabbar-item>
-    <van-tabbar-item icon="gold-coin-o">战绩</van-tabbar-item>
-    <van-tabbar-item icon="friends-o">我的</van-tabbar-item>
+    <van-tabbar-item icon="gold-coin-o">抢单</van-tabbar-item>
+    <van-tabbar-item icon="medal-o">战绩</van-tabbar-item>
+    <van-tabbar-item icon="manager-o">我的</van-tabbar-item>
 </van-tabbar>

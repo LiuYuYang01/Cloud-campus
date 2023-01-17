@@ -59,7 +59,14 @@
                 },
                 {
                     "name": "校园跑腿",
-                    "pathName": "subPackages/home/pages/errand/errand",
+                    "pathName": "subPackages/pages/errand/home/home",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "抢单",
+                    "pathName": "subPackages/pages/errand/rob/rob",
                     "query": "",
                     "launchMode": "default",
                     "scene": null

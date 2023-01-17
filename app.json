@@ -14,9 +14,11 @@
         {
             "root": "subPackages",
             "pages": [
+                "pages/errand/home/home",
+                "pages/errand/rob/rob",
+                "pages/errand/record/record",
+                "pages/errand/my/my",
                 "pages/robot/robot",
-                "home/pages/package/package",
-                "home/pages/errand/errand",
                 "my/pages/data/data",
                 "my/pages/certified/certified"
             ]

@@ -80,8 +80,6 @@ Page({
       ...this.data.info,
     });
 
-    console.log(code,message);
-
     this.updateUserInfo({ ...this.data.userInfo, ...this.data.info });
 
     if (code !== 200) return Notify({ type: "danger", message });
