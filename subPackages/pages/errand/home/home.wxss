@@ -1,1 +1,66 @@
-/* subPackages/pages/errand/home/home.wxss */
+page{
+    background-color: #fff;
+}
+
+/* 功能列表 */
+.function{
+    margin-bottom: 20rpx;
+}
+
+.function .box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-top: 20rpx;
+}
+
+.function > .title {
+  margin: 30rpx 0;
+  padding-left: 20rpx;
+  font-weight: 700;
+  border-left: 10rpx solid #6680fb;
+}
+
+.function .item {
+  position: relative;
+  width: 49%;
+  height: 200rpx;
+  margin-bottom: 20rpx;
+  border-radius: 10rpx;
+  background-color: #dee4ff;
+}
+
+.function .item .icon {
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  font-size: 150rpx;
+  color: #6680fb;
+}
+
+.function .item .info {
+  padding: 50rpx 0 0 30rpx;
+}
+
+.function .item .info .title {
+  font-weight: 700;
+  margin-bottom: 10rpx;
+  font-size: 38rpx;
+}
+
+.function .item .info .describe {
+  padding: 5rpx 20rpx;
+  color: #fff;
+  border-radius: 7rpx;
+  font-size: 26rpx;
+  background-color: #6680fb;
+}
+
+/* banner */
+.banner{
+    text-align: center;
+}
+
+.banner image{
+    border-radius: 10rpx;
+}
