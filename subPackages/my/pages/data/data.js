@@ -58,7 +58,7 @@ Page({
         });
 
         // 上传完毕之后关闭loading效果
-        wx.hideLoading()
+        wx.hideLoading();
       },
     });
   },
@@ -74,9 +74,17 @@ Page({
       ...this.data.userInfo,
       ...this.data.info,
     });
+
+    console.log({
+      ...this.data.userInfo,
+      ...this.data.info,
+    });
+
+    console.log(code,message);
+
     this.updateUserInfo({ ...this.data.userInfo, ...this.data.info });
 
-    if (code !== 200) return Notify({ type: "success", message });
+    if (code !== 200) return Notify({ type: "danger", message });
 
     Notify({ type: "success", message: "修改用户资料成功" });
 

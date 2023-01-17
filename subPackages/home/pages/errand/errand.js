@@ -8,7 +8,7 @@ Page({
     swiperList: [
       {
         title: "加入校园跑腿 开启你的第二份收入",
-        image: "http://img.liuyuyang.net/zhxy/pt2.jpg",
+        image: "http://img.liuyuyang.net/zhxy/pt.jpg",
         cid: "1",
       },
     ],
