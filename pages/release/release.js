@@ -49,6 +49,7 @@ Page({
     previewList: [],
     // 图片封面
     coverList: [],
+    n: 0,
   },
 
   // 修改标题
@@ -77,13 +78,18 @@ Page({
     setTimeout(() => {
       this.setData({
         "article.content": editor.data.delta.html,
-        "article.describe": this.data.article.describe,
         "article.date": new Date(),
         delta: editor.data.delta,
       });
 
+      console.log(this.data.article.content, 999);
+
       // 新增文章
-      this.addArticle();
+      if (this.data.n) {
+        this.addArticle();
+      }
+
+      this.setData({ n: 1 });
     });
   },
 
@@ -96,29 +102,49 @@ Page({
       });
     }
 
-
+    // 选择发布文章到哪里
     if (this.data.cate === "首页") {
-      var {
+      let {
         data: { code, message },
-      } = await wx.$http.post("/api/home/article", {...this.data.article,cate:"首页"});
+      } = await wx.$http.post("/api/home/article", {
+        ...this.data.article,
+        cate: "首页",
+      });
+
+      if (code !== 200) return Notify({ type: "danger", message });
+
+      // 发布文章成功后跳转到首页
+      wx.switchTab({
+        url: "/pages/home/home",
+      });
     } else if (this.data.cate === "兴趣圈") {
-      var {
+      let {
         data: { code, message },
       } = await wx.$http.post("/api/hobby/article", this.data.article);
+
+      if (code !== 200) return Notify({ type: "danger", message });
+
+      // 发布文章成功后跳转到兴趣圈
+      wx.switchTab({
+        url: "/pages/hobby/hobby",
+      });
     } else if (this.data.cate === "朋友圈") {
-      var {
+      let {
         data: { code, message },
-      } = await wx.$http.post("/api/socialize/article", {...this.data.article,cate:"朋友圈"});
+      } = await wx.$http.post("/api/socialize/article", {
+        ...this.data.article,
+        cate: "朋友圈",
+      });
+
+      if (code !== 200) return Notify({ type: "danger", message });
+
+      // 发布文章成功后跳转到朋友圈
+      wx.switchTab({
+        url: "/pages/socialize/socialize",
+      });
     }
 
-    if (code !== 200) return Notify({ type: "danger", message });
-
     Notify({ type: "success", message: "恭喜你文章发布成功" });
-
-    // 发布文章成功后跳转到兴趣圈页面
-    wx.switchTab({
-      url: "/pages/hobby/hobby",
-    });
   },
 
   // 获取兴趣圈分类数据
@@ -172,7 +198,7 @@ Page({
     const { picker, value, index } = event.detail;
 
     this.setData({
-      'article.cate': value,
+      "article.cate": value,
     });
   },
 
@@ -246,6 +272,13 @@ Page({
   // 是否精选
   boutique({ detail }) {
     this.setData({ "article.is_boutique": detail });
+  },
+
+  click() {
+    if (!this.data.n) {
+      // 初始化编辑器
+      this.release();
+    }
   },
 
   /**

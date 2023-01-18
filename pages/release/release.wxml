@@ -1,6 +1,6 @@
 <van-notify id="van-notify" />
 
-<view class="from">
+<view class="from" bindtap="click">
     <!-- 文章标题 -->
     <van-cell-group>
         <van-field value="{{ article.title }}" label="文章标题" placeholder="一篇好文章要从标题开始" border="{{ false }}" bind:change="updateTitle" />
