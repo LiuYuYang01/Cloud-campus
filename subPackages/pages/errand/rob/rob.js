@@ -26,10 +26,6 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    Tab(e) {
-      console.log(e.detail);
-    },
-
     // 接单
     meet() {
       Dialog.confirm({

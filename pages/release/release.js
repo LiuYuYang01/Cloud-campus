@@ -83,8 +83,6 @@ Page({
         delta: editor.data.delta,
       });
 
-      console.log(this.data.article.content, 999);
-
       // 新增文章
       if (this.data.n) {
         this.addArticle();
@@ -312,7 +310,7 @@ Page({
 
     // 导入用户信息
     setTimeout(() => {
-      const { id, name, avatar, is_realname, is_admin } = this.data.userInfo;
+      const { id, name, avatar, is_admin } = this.data.userInfo;
 
       this.setData({
         article: {
@@ -320,7 +318,6 @@ Page({
           userID: id,
           name,
           avatar,
-          is_realname,
           is_admin,
         },
       });
