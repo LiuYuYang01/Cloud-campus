@@ -18,7 +18,6 @@ export default {
 
   updateUserInfo: action(function (data) {
     this.userInfo = data;
-    console.log(this.userInfo, 333);
     setUserInfo(JSON.stringify(this.userInfo));
   }),
 };

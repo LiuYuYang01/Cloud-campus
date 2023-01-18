@@ -153,9 +153,9 @@ Page({
   onShow() {
     // 判断有没有Token，没有就代表未登录，跳转到登录页
     if (getToken()) {
-      console.log("有Tooken");
+      console.log("已登录");
     } else {
-      console.log("没有Token");
+      console.log("未登录");
       wx.navigateTo({
         url: "/pages/login/login",
       });

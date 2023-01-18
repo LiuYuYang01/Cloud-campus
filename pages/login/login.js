@@ -69,13 +69,6 @@ Page({
           url: "/pages/home/home",
         });
       }, 500);
-
-      console.log({
-        code,
-        message,
-        userInfo,
-        token,
-      });
     } catch (error) {
       console.log(error);
     }

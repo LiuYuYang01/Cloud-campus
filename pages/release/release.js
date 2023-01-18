@@ -5,10 +5,14 @@ import Notify from "@vant/weapp/notify/notify";
 Page({
   data: {
     // 入口导航
-    cateList: [],
-    pickerShow: "none",
+    cateShow: "none",
+    circleShow: "none",
+    circleList: [],
     // 分类选择器
-    selectCate: [],
+    selectCate: ["首页", "兴趣圈", "朋友圈"],
+    // 圈子选择器
+    selectCircle: [],
+    cate: "",
 
     // 文章扩展设置
     activeNames: ["0"],
@@ -83,7 +87,7 @@ Page({
     });
   },
 
-  // 新增文章
+  // 发布文章
   async addArticle() {
     // 如果没有写文章摘要，则默认截取文章内容前100个字
     if (!this.data.article.describe) {
@@ -92,9 +96,20 @@ Page({
       });
     }
 
-    const {
-      data: { code, message },
-    } = await wx.$http.post("/api/hobby/article", this.data.article);
+
+    if (this.data.cate === "首页") {
+      var {
+        data: { code, message },
+      } = await wx.$http.post("/api/home/article", {...this.data.article,cate:"首页"});
+    } else if (this.data.cate === "兴趣圈") {
+      var {
+        data: { code, message },
+      } = await wx.$http.post("/api/hobby/article", this.data.article);
+    } else if (this.data.cate === "朋友圈") {
+      var {
+        data: { code, message },
+      } = await wx.$http.post("/api/socialize/article", {...this.data.article,cate:"朋友圈"});
+    }
 
     if (code !== 200) return Notify({ type: "danger", message });
 
@@ -107,37 +122,37 @@ Page({
   },
 
   // 获取兴趣圈分类数据
-  async cateList() {
+  async circleList() {
     const {
       data: { data },
     } = await wx.$http.get("/api/hobby/cate");
 
     this.setData({
-      cateList: data,
-      selectCate: data.map((item) => item.title),
+      circleList: data,
+      selectCircle: data.map((item) => item.title),
     });
   },
 
   // 获取选中的分类
-  picker(event) {
+  cate(event) {
     const { picker, value, index } = event.detail;
 
     this.setData({
-      "article.cate": value,
+      cate: value,
     });
   },
 
   // 打开分类选择器
-  pickerShowClick() {
+  cateShowClick() {
     this.setData({
-      pickerShow: "block",
+      cateShow: "block",
     });
   },
 
   // 关闭分类选择器
-  pickerHideClick() {
+  cateHideClick() {
     this.setData({
-      pickerShow: "none",
+      cateShow: "none",
     });
 
     this.setData({
@@ -146,9 +161,43 @@ Page({
   },
 
   // 确认选择分类
-  pickerClick() {
+  cateClick() {
     this.setData({
-      pickerShow: "none",
+      cateShow: "none",
+    });
+  },
+
+  // 获取选中的分类
+  circle(event) {
+    const { picker, value, index } = event.detail;
+
+    this.setData({
+      'article.cate': value,
+    });
+  },
+
+  // 打开圈子选择器
+  circleShowClick() {
+    this.setData({
+      circleShow: "block",
+    });
+  },
+
+  // 关闭圈子选择器
+  circleHideClick() {
+    this.setData({
+      circleShow: "none",
+    });
+
+    this.setData({
+      "article.cate": "",
+    });
+  },
+
+  // 确认选择圈子
+  circleClick() {
+    this.setData({
+      circleShow: "none",
     });
   },
 
@@ -211,14 +260,20 @@ Page({
 
     // 导入用户信息
     setTimeout(() => {
-      const { id, name, avatar,is_realname } = this.data.userInfo;
+      const { id, name, avatar, is_realname } = this.data.userInfo;
 
       this.setData({
-        article: { ...this.data.article, userID: id, name, avatar,is_realname },
+        article: {
+          ...this.data.article,
+          userID: id,
+          name,
+          avatar,
+          is_realname,
+        },
       });
     });
 
-    this.cateList();
+    this.circleList();
   },
 
   /**

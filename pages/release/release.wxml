@@ -6,12 +6,19 @@
         <van-field value="{{ article.title }}" label="文章标题" placeholder="一篇好文章要从标题开始" border="{{ false }}" bind:change="updateTitle" />
     </van-cell-group>
 
+    <!-- 选择分类 -->
     <van-cell-group>
-        <van-field value="{{ article.cate }}" label="文章分类" placeholder="选择你要发布的分类" border="{{ false }}" disabled bindtap="pickerShowClick" />
+        <van-field value="{{ cate }}" label="选择分类" placeholder="选择你要发布的分类" border="{{ false }}" disabled bindtap="cateShowClick" />
     </van-cell-group>
 
+    <!-- 选择圈子 -->
     <van-cell-group>
-        <van-field value="{{ article.describe }}" label="文章摘要" type="textarea" placeholder="简单介绍一下这篇文章" autosize border="{{ false }}" bind:change="updateDescribe"/>
+        <van-field value="{{ article.cate }}" label="选择圈子" placeholder="选择你要发布的分类" border="{{ false }}" disabled bindtap="circleShowClick" wx:if="{{cate==='兴趣圈'}}" />
+    </van-cell-group>
+
+    <!-- 文章摘要 -->
+    <van-cell-group>
+        <van-field value="{{ article.describe }}" label="文章摘要" type="textarea" placeholder="简单介绍一下这篇文章" autosize border="{{ false }}" bind:change="updateDescribe" />
     </van-cell-group>
 </view>
 
@@ -48,4 +55,7 @@
 </view>
 
 <!-- 分类选择器 -->
-<van-picker columns="{{ selectCate }}" default-index="{{ 2 }}" show-toolbar bind:change="picker" style="display:{{pickerShow}}" class="picker" bind:cancel="pickerHideClick" bind:confirm="pickerClick" />
+<van-picker columns="{{ selectCate }}" default-index="{{ 2 }}" show-toolbar bind:change="cate" style="display:{{cateShow}}" class="picker" bind:cancel="cateHideClick" bind:confirm="cateClick" />
+
+<!-- 圈子选择器 -->
+<van-picker columns="{{ selectCircle }}" default-index="{{ 2 }}" show-toolbar bind:change="circle" style="display:{{circleShow}}" class="picker" bind:cancel="circleHideClick" bind:confirm="circleClick" />
