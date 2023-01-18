@@ -1,4 +1,5 @@
-<van-dialog id="van-dialog" showCancelButton="{{true}}" />
+<van-dialog id="van-dialog" showCancelButton="{{true}}"  confirm-button-color="#6680fb"/>
+
 <van-tabs active="{{ Tab }}" color="#5a82fd" bind:change="Tab">
     <!-- 轮播图 -->
     <swiper list="{{swiperList}}" style="margin: 20rpx;" />

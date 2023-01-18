@@ -43,7 +43,7 @@ page {
     background-color: #fff;
     box-sizing: border-box;
     transition: all 0.3s;
-    z-index: 999;
+    z-index: 1;
 }
 
 .release{

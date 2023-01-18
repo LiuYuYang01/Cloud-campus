@@ -2,6 +2,7 @@ import { createStoreBindings } from "mobx-miniprogram-bindings";
 import store from "../../store/store";
 
 import Notify from "@vant/weapp/notify/notify";
+import Dialog from "@vant/weapp/dialog/dialog";
 Page({
   data: {
     // 入口导航
@@ -96,14 +97,25 @@ Page({
   // 发布文章
   async addArticle() {
     // 如果没有写文章摘要，则默认截取文章内容前100个字
-    if (!this.data.article.describe) {
-      this.setData({
-        "article.describe": this.data.delta.text.slice(0, 100),
-      });
-    }
+    let describe = () => {
+      if (!this.data.article.describe) {
+        this.setData({
+          "article.describe": this.data.delta.text.slice(0, 100),
+        });
+      }
+    };
 
     // 选择发布文章到哪里
     if (this.data.cate === "首页") {
+    // 判断是否是管理员，首页只有管理员才能发布文章
+      if (this.data.article.is_admin !== 1)
+        return Dialog.alert({
+          title: "暂无权限",
+          message: "首页只有平台管理员可以发布文章",
+        });
+
+      describe();
+
       let {
         data: { code, message },
       } = await wx.$http.post("/api/home/article", {
@@ -118,6 +130,8 @@ Page({
         url: "/pages/home/home",
       });
     } else if (this.data.cate === "兴趣圈") {
+      describe();
+
       let {
         data: { code, message },
       } = await wx.$http.post("/api/hobby/article", this.data.article);
@@ -129,6 +143,8 @@ Page({
         url: "/pages/hobby/hobby",
       });
     } else if (this.data.cate === "朋友圈") {
+      describe();
+
       let {
         data: { code, message },
       } = await wx.$http.post("/api/socialize/article", {
@@ -143,6 +159,9 @@ Page({
         url: "/pages/socialize/socialize",
       });
     }
+
+    if (!this.data.cate)
+      return Notify({ type: "danger", message: "请选择发布到哪个分类" });
 
     Notify({ type: "success", message: "恭喜你文章发布成功" });
   },
@@ -293,7 +312,7 @@ Page({
 
     // 导入用户信息
     setTimeout(() => {
-      const { id, name, avatar, is_realname } = this.data.userInfo;
+      const { id, name, avatar, is_realname, is_admin } = this.data.userInfo;
 
       this.setData({
         article: {
@@ -302,6 +321,7 @@ Page({
           name,
           avatar,
           is_realname,
+          is_admin,
         },
       });
     });

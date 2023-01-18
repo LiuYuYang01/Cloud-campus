@@ -1,4 +1,5 @@
 <van-notify id="van-notify" />
+<van-dialog id="van-dialog" confirm-button-color="#4fb985"/>
 
 <view class="from" bindtap="click">
     <!-- 文章标题 -->
