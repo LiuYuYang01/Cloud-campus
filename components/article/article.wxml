@@ -11,8 +11,13 @@
             <view class="title">
                 {{item.name}}
                 <view wx:if="{{item.is_realname === 1}}" class="realnameBox">
-                    <image src="/assets/svg/certified.svg" class="realname"></image>
+                    <image src="/assets/svg/realname.svg" class="realname"></image>
                     <text class="text">已实名</text>
+                </view>
+                
+                <view wx:if="{{item.is_admin === 1}}" class="realnameBox">
+                    <image src="/assets/svg/certified.svg" class="realname"></image>
+                    <text class="text">管理员</text>
                 </view>
             </view>
             <view class="date">{{filter.formatTime(item.date)}}</view>

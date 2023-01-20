@@ -32,6 +32,7 @@ Component({
         data.forEach((user_item) => {
             if(list_item.userID === user_item.id){
                 list_item.is_realname = user_item.is_realname;
+                list_item.is_admin = user_item.is_admin;
             }
         })
 

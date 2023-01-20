@@ -45,7 +45,7 @@
 .item .header .info .title .realnameBox .realname{
     width: 31rpx;
     height: 34rpx;
-    margin-left: 5rpx;
+    margin-left: 15rpx;
 }
 .item .header .info .title .realnameBox .text{
     color: #666;
