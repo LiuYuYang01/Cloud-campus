@@ -32,6 +32,10 @@
 
     <!-- 主要内容 -->
     <view class="main">
+        <!-- 置顶文章 -->
+        <article list="{{homeToppingList}}"></article>
+
+        <!-- 普通文章 -->
         <article list="{{homeList}}"></article>
     </view>
 </view>

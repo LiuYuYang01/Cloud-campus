@@ -14,7 +14,10 @@
         </view>
     </view>
 
-    <article list="{{hobbyList}}"/>
+    <!-- 置顶文章 -->
+    <article list="{{hobbyToppingList}}"></article>
+
+    <article list="{{hobbyList}}" />
 </view>
 
 <!-- tabBar -->

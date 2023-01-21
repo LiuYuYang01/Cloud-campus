@@ -9,6 +9,7 @@ Page({
     swiperList: [], //轮播图列表
     // 入口导航
     cateList: [],
+    hobbyToppingList: [],
     hobbyList: [],
   },
   // 左侧滑动菜单
@@ -40,6 +41,23 @@ Page({
       swiperList: res.data,
     });
   },
+  // 获取学校动态置顶文章
+  async __getHomeToppingList() {
+    const { data: res } = await wx.$http.get("/api/article/topping", {
+      type: "hobby",
+    });
+
+    // 请求失败提示
+    if (res.code !== 200)
+      Notify({
+        type: "danger",
+        message: res.message,
+      });
+
+    this.setData({
+      hobbyToppingList: res.data,
+    });
+  },
   // 获取兴趣圈数据
   async __getHobbyList() {
     const { data: res } = await wx.$http.get("/api/hobby/article");
@@ -62,6 +80,7 @@ Page({
    */
   onLoad(options) {
     this.__getSwiperList();
+    this.__getHomeToppingList();
     this.__getHobbyList();
     this.cateList();
   },

@@ -6,6 +6,7 @@ Page({
    */
   data: {
     swiperList: [], //轮播图列表
+    homeToppingList: [], // 学校置顶文章
     homeList: [], //学校动态列表
     index: 0,
     isPraise: "#888",
@@ -27,16 +28,16 @@ Page({
         color: "#fbb437",
       },
       {
-        title: "代取包裹",
+        title: "校园外卖",
         icon: "send-gift",
         url: "/subPackages/home/pages/package/package",
-        color: "#4b84ff",
+        color: "#fbd221",
       },
       {
         title: "校园跑腿",
         icon: "map-marked",
         url: "/subPackages/pages/errand/home/home",
-        color: "#f3604f",
+        color: "#5a82fd",
       },
       {
         title: "失物招领",
@@ -113,7 +114,24 @@ Page({
       url: "/pages/my/my",
     });
   },
-  // 获取学校动态数据
+  // 获取学校动态置顶文章
+  async __getHomeToppingList() {
+    const { data: res } = await wx.$http.get("/api/article/topping", {
+      type: "home",
+    });
+
+    // 请求失败提示
+    if (res.code !== 200)
+      Notify({
+        type: "danger",
+        message: res.message,
+      });
+
+    this.setData({
+      homeToppingList: res.data,
+    });
+  },
+  // 获取学校动态文章
   async __getHomeList() {
     const { data: res } = await wx.$http.get("/api/home/article");
 
@@ -139,6 +157,7 @@ Page({
    */
   async onLoad(options) {
     this.__getSwiperList();
+    this.__getHomeToppingList();
     this.__getHomeList();
   },
 
