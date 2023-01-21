@@ -1,4 +1,7 @@
 {
     "navigationBarTitleText": "文章页",
-    "usingComponents": {}
+    "usingComponents": {
+        "article":"/components/article/article",
+        "van-notify": "@vant/weapp/notify/index"
+    }
 }

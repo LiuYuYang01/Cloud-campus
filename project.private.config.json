@@ -77,6 +77,13 @@
                     "query": "",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "文章页",
+                    "pathName": "pages/article/article",
+                    "query": "id=110",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }

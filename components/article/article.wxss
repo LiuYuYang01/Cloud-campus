@@ -72,14 +72,14 @@
 }
 
 /* 文章标题 */
-.item>.title {
+.item>view>.title {
     margin-top: 10rpx;
     color: #333;
     line-height: 50rpx;
 }
 
 /* 标签 */
-.item>.title .tag{
+.item>view>.title .tag{
     display: inline-block;
     margin: 0 5rpx;
 }

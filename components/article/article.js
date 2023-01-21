@@ -30,13 +30,13 @@ Component({
 
       const list = this.data.list.filter((list_item) => {
         data.forEach((user_item) => {
-            if(list_item.userID === user_item.id){
-                list_item.is_realname = user_item.is_realname;
-                list_item.is_admin = user_item.is_admin;
-            }
-        })
+          if (list_item.userID === user_item.id) {
+            list_item.is_realname = user_item.is_realname;
+            list_item.is_admin = user_item.is_admin;
+          }
+        });
 
-        return list_item
+        return list_item;
       });
 
       this.setData({
@@ -49,6 +49,12 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    go(e) {
+      const { id, type } = e.currentTarget.dataset;
+      wx.navigateTo({
+        url: `/pages/article/article?id=${id}&type=${type}`,
+      });
+    },
     // 图片预览
     previewImg(e) {
       wx.previewImage({

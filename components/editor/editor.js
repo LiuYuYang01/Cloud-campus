@@ -41,10 +41,12 @@ Component({
     },
     // 插入图片
     insertImage() {
+      // 选择图片
       wx.chooseImage({
         count: 1,
 
         success: (res) => {
+          // 上传图片
           wx.uploadFile({
             //请求后台的路径
             url: "https://api.tockey.cn/api/upload",
@@ -60,7 +62,6 @@ Component({
 
             success: (res) => {
               //上传成功
-              console.log(JSON.parse(res.data).data.url, 111);
               this.editorCtx.insertImage({
                 src: JSON.parse(res.data).data.url,
                 data: {
@@ -68,13 +69,14 @@ Component({
                   role: "god",
                 },
                 width: "80%",
+                
                 success: function () {
-                  console.log("insert image success");
+                  console.log("图片插入成功！");
                 },
               });
             },
             fail: function (res) {
-              console.log(res, 222);
+              console.log("图片插入失败！");
             },
           });
         },

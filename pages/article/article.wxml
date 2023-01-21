@@ -1,3 +1,25 @@
-<view class="header">
-    <view>冲！这场比赛你一定可以</view>
+<wxs module="filter" src="../../filter/formatTime.wxs"></wxs>
+
+<van-notify id="van-notify" />
+<view class="item">
+    <!-- 用户信息 -->
+    <view class="header">
+        <view>
+            <image src="{{article.avatar}}" class="avatar"></image>
+        </view>
+
+        <view class="info">
+            <view class="title">{{article.name}}</view>
+            <view class="date">{{filter.formatTime(article.date)}}</view>
+        </view>
+
+        <view class="attention" style="background-color: {{color}};">关注</view>
+    </view>
+
+    <!-- 标题 -->
+    <view class="title">{{article.title}}</view>
+
+    <!-- 内容 -->
+    <!-- <view class="content">{{article.content}}</view> -->
+    <rich-text nodes="{{article.content}}"/>
 </view>

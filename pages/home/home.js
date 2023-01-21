@@ -120,13 +120,6 @@ Page({
       type: "home",
     });
 
-    // 请求失败提示
-    if (res.code !== 200)
-      Notify({
-        type: "danger",
-        message: res.message,
-      });
-
     this.setData({
       homeToppingList: res.data,
     });
