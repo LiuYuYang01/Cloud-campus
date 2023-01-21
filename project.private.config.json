@@ -74,7 +74,7 @@
                 {
                     "name": "发布",
                     "pathName": "pages/release/release",
-                    "query": "",
+                    "query": "id=119&type=home",
                     "launchMode": "default",
                     "scene": null
                 },

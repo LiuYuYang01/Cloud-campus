@@ -63,10 +63,10 @@
     width: 90rpx;
     height: 45rpx;
     line-height: 45rpx;
+    padding: 20rpx;
     border-radius: 40rpx;
-    color: #fff;
-    background-color: #4fb985;
-    font-size: 24rpx;
+    color: #4fb985;
+    font-size: 34rpx;
     text-align: center;
 }
 
@@ -110,4 +110,10 @@
 .item .picture .image {
     width: 80%;
     border-radius: 10rpx;
+}
+
+/* 文章内容颜色 */
+rich-text{
+    color: #666;
+    font-size: 28rpx;
 }

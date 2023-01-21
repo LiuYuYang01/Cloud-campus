@@ -1,4 +1,5 @@
 import Notify from "@vant/weapp/notify/notify";
+import { getUserInfo } from "../../utils/localStorage";
 
 Page({
   /**
@@ -6,6 +7,17 @@ Page({
    */
   data: {
     article: [],
+    showUpdate: false,
+    userID: (JSON.parse(getUserInfo()) && JSON.parse(getUserInfo()).id) || 0,
+  },
+
+  // 修改文章
+  update() {
+    const { id, type } = this.data.article;
+
+    wx.navigateTo({
+      url: `/pages/release/release?id=${id}&type=${type}`,
+    });
   },
 
   // 图片预览
@@ -25,9 +37,17 @@ Page({
 
     if (code !== 200) return Notify({ type: "danger", message });
 
+    if (data[0].userID === this.data.userID) {
+      this.setData({
+        showUpdate: true,
+      });
+    }
+
     this.setData({
       article: data[0],
     });
+
+    console.log(this.data.article);
   },
 
   /**

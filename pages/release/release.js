@@ -47,10 +47,15 @@ Page({
     is_boutique: 0,
 
     // 图片预览
-    previewList: [],
+    previewList: [
+      {
+        url: "https://img01.yzcdn.cn/vant/leaf.jpg",
+      },
+    ],
     // 图片封面
     coverList: [],
     n: 0,
+    state: "发布文章",
   },
 
   // 修改标题
@@ -85,83 +90,88 @@ Page({
 
       // 新增文章
       if (this.data.n) {
-        this.addArticle();
+        this.articleIsOk();
       }
 
       this.setData({ n: 1 });
     });
   },
 
-  // 发布文章
-  async addArticle() {
-    // 如果没有写文章摘要，则默认截取文章内容前100个字
-    let describe = () => {
-      if (!this.data.article.describe) {
-        this.setData({
-          "article.describe": this.data.delta.text.slice(0, 100),
+  // 发布 | 编辑文章
+  async articleIsOk() {
+      console.log(11);
+    if (this.data.state === "发布文章") {
+      // 如果没有写文章摘要，则默认截取文章内容前100个字
+      let describe = () => {
+        if (!this.data.article.describe) {
+          this.setData({
+            "article.describe": this.data.delta.text.slice(0, 100),
+          });
+        }
+      };
+
+      // 选择发布文章到哪里
+      if (this.data.cate === "首页") {
+        // 判断是否是管理员，首页只有管理员才能发布文章
+        if (this.data.article.is_admin !== 1)
+          return Dialog.alert({
+            title: "暂无权限",
+            message: "首页只有平台管理员可以发布文章",
+          });
+
+        describe();
+
+        let {
+          data: { code, message },
+        } = await wx.$http.post("/api/home/article", {
+          ...this.data.article,
+          cate: "首页",
+        });
+
+        if (code !== 200) return Notify({ type: "danger", message });
+
+        // 发布文章成功后跳转到首页
+        wx.switchTab({
+          url: "/pages/home/home",
+        });
+      } else if (this.data.cate === "兴趣圈") {
+        describe();
+
+        let {
+          data: { code, message },
+        } = await wx.$http.post("/api/hobby/article", this.data.article);
+
+        if (code !== 200) return Notify({ type: "danger", message });
+
+        // 发布文章成功后跳转到兴趣圈
+        wx.switchTab({
+          url: "/pages/hobby/hobby",
+        });
+      } else if (this.data.cate === "朋友圈") {
+        describe();
+
+        let {
+          data: { code, message },
+        } = await wx.$http.post("/api/socialize/article", {
+          ...this.data.article,
+          cate: "朋友圈",
+        });
+
+        if (code !== 200) return Notify({ type: "danger", message });
+
+        // 发布文章成功后跳转到朋友圈
+        wx.switchTab({
+          url: "/pages/socialize/socialize",
         });
       }
-    };
 
-    // 选择发布文章到哪里
-    if (this.data.cate === "首页") {
-    // 判断是否是管理员，首页只有管理员才能发布文章
-      if (this.data.article.is_admin !== 1)
-        return Dialog.alert({
-          title: "暂无权限",
-          message: "首页只有平台管理员可以发布文章",
-        });
+      if (!this.data.cate)
+        return Notify({ type: "danger", message: "请选择发布到哪个分类" });
 
-      describe();
-
-      let {
-        data: { code, message },
-      } = await wx.$http.post("/api/home/article", {
-        ...this.data.article,
-        cate: "首页",
-      });
-
-      if (code !== 200) return Notify({ type: "danger", message });
-
-      // 发布文章成功后跳转到首页
-      wx.switchTab({
-        url: "/pages/home/home",
-      });
-    } else if (this.data.cate === "兴趣圈") {
-      describe();
-
-      let {
-        data: { code, message },
-      } = await wx.$http.post("/api/hobby/article", this.data.article);
-
-      if (code !== 200) return Notify({ type: "danger", message });
-
-      // 发布文章成功后跳转到兴趣圈
-      wx.switchTab({
-        url: "/pages/hobby/hobby",
-      });
-    } else if (this.data.cate === "朋友圈") {
-      describe();
-
-      let {
-        data: { code, message },
-      } = await wx.$http.post("/api/socialize/article", {
-        ...this.data.article,
-        cate: "朋友圈",
-      });
-
-      if (code !== 200) return Notify({ type: "danger", message });
-
-      // 发布文章成功后跳转到朋友圈
-      wx.switchTab({
-        url: "/pages/socialize/socialize",
-      });
+      Notify({ type: "success", message: "恭喜你文章发布成功" });
+    }else if(this.data.state === "编辑文章"){
+        console.log(this.data.article);
     }
-
-    if (!this.data.cate)
-      return Notify({ type: "danger", message: "请选择发布到哪个分类" });
-
-    Notify({ type: "success", message: "恭喜你文章发布成功" });
   },
 
   // 获取兴趣圈分类数据
@@ -261,10 +271,13 @@ Page({
 
         // 上传完成需要更新 previewList
         const { previewList = [] } = this.data;
+
         previewList.push({
           ...file,
-          url: JSON.parse(res.data).url,
+          url: JSON.parse(res.data).data.url,
         });
+
+        console.log(JSON.parse(res.data).data.url, 123);
 
         this.setData({
           previewList,
@@ -298,10 +311,41 @@ Page({
     }
   },
 
+  // 回显数据
+  async __getArticleData(id, type) {
+    const {
+      data: { code, message, data },
+    } = await wx.$http.get(`/api/${type}/article/get/${id}`);
+
+    if (code !== 200) return Notify({ type: "danger", message });
+
+    // 过滤分类
+    let cate = "";
+    if (data[0].type === "home") {
+      cate = "首页";
+    } else if (data[0].type === "hobby") {
+      cate = "兴趣圈";
+    } else if (data[0].type === "socialize") {
+      cate = "朋友圈";
+    }
+
+    // 回显当前文章数据
+    this.setData({
+      article: data[0],
+      cate,
+      // 回显封面
+      previewList: data[0].cover.map((item) => {
+        return { url: item };
+      }),
+      // 状态
+      state: "编辑文章",
+    });
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
+  onLoad({ id, type }) {
     this.storeBindings = createStoreBindings(this, {
       store,
       fields: ["userInfo"],
@@ -324,6 +368,11 @@ Page({
     });
 
     this.circleList();
+
+    // 有id就是编辑模式
+    if(id){
+        this.__getArticleData(id, type);
+    }
   },
 
   /**

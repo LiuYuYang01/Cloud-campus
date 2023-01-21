@@ -1,5 +1,5 @@
 <van-notify id="van-notify" />
-<van-dialog id="van-dialog" confirm-button-color="#4fb985"/>
+<van-dialog id="van-dialog" confirm-button-color="#4fb985" />
 
 <view class="from" bindtap="click">
     <!-- 文章标题 -->
@@ -51,8 +51,8 @@
         </van-collapse-item>
     </van-collapse>
 
-    <!-- 发布文章 -->
-    <button bindtap="release" class="release">发布文章</button>
+    <!-- 发布 | 编辑文章 -->
+    <button bindtap="release" class="release">{{state}}</button>
 </view>
 
 <!-- 分类选择器 -->
