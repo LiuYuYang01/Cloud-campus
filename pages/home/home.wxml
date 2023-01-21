@@ -36,7 +36,7 @@
         <article list="{{homeToppingList}}"></article>
 
         <!-- 普通文章 -->
-        <article list="{{homeList}}"></article>
+        <article list="{{homeList}}" class="article"></article>
     </view>
 </view>
 

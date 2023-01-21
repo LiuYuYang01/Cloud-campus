@@ -5,10 +5,6 @@
     margin-bottom: 20rpx;
 }
 
-.item:last-child{
-    padding-bottom: 170rpx;
-}
-
 /* 用户信息 */
 .item .header {
     position: relative;

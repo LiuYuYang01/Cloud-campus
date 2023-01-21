@@ -9,7 +9,7 @@
         <i class="iconfont icon-youduiqi" data-name="align" data-value="right"></i>
         <i class="iconfont icon-undo" bindtap="undo"></i>
         <i class="iconfont icon-redo" bindtap="redo"></i>
-        <!-- <i class="iconfont icon-charutupian" bindtap="insertImage"></i> -->
+        <i class="iconfont icon-charutupian" bindtap="insertImage"></i>
         <i class="iconfont icon-shanchu" bindtap="clear"></i>
     </view>
 

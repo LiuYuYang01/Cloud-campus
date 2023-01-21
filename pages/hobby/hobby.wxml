@@ -17,7 +17,7 @@
     <!-- 置顶文章 -->
     <article list="{{hobbyToppingList}}"></article>
 
-    <article list="{{hobbyList}}" />
+    <article class="article" list="{{hobbyList}}" />
 </view>
 
 <!-- tabBar -->
