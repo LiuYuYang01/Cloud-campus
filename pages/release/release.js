@@ -47,11 +47,7 @@ Page({
     is_boutique: 0,
 
     // 图片预览
-    previewList: [
-      {
-        url: "https://img01.yzcdn.cn/vant/leaf.jpg",
-      },
-    ],
+    previewList: [],
     // 图片封面
     coverList: [],
     n: 0,
@@ -99,7 +95,6 @@ Page({
 
   // 发布 | 编辑文章
   async articleIsOk() {
-      console.log(11);
     if (this.data.state === "发布文章") {
       // 如果没有写文章摘要，则默认截取文章内容前100个字
       let describe = () => {
@@ -169,8 +164,23 @@ Page({
         return Notify({ type: "danger", message: "请选择发布到哪个分类" });
 
       Notify({ type: "success", message: "恭喜你文章发布成功" });
-    }else if(this.data.state === "编辑文章"){
-        console.log(this.data.article);
+    } else if (this.data.state === "编辑文章") {
+      const { id, type } = this.data.article;
+
+      const {
+        data: { code, message },
+      } = await wx.$http.post(`/api/${type}/article/${id}`, this.data.article);
+
+      if (code !== 200) return Notify({ type: "danger", message });
+
+      Notify({ type: "success", message: "恭喜你修改文章成功" });
+
+      // 修改成功后跳转
+      setTimeout(() => {
+        wx.switchTab({
+          url: `/pages/${type}/${type}`,
+        });
+      }, 1000);
     }
   },
 
@@ -329,6 +339,10 @@ Page({
       cate = "朋友圈";
     }
 
+    // 回显编辑器中的数据
+    const editor = this.selectComponent("#editor");
+    editor.onEditorReady(data[0].content);
+
     // 回显当前文章数据
     this.setData({
       article: data[0],
@@ -370,8 +384,8 @@ Page({
     this.circleList();
 
     // 有id就是编辑模式
-    if(id){
-        this.__getArticleData(id, type);
+    if (id) {
+      this.__getArticleData(id, type);
     }
   },
 

@@ -16,11 +16,18 @@ Component({
    */
   methods: {
     // 组件初始化
-    onEditorReady() {
+    onEditorReady(html) {
       this.createSelectorQuery()
         .select("#editor")
         .context((res) => {
           this.editorCtx = res.context;
+
+          // 数据回显
+          if (html) {
+            this.editorCtx.setContents({
+              html,
+            });
+          }
         })
         .exec();
     },
@@ -46,6 +53,11 @@ Component({
         count: 1,
 
         success: (res) => {
+          // 图片上传时显示图片上传loading
+          wx.showLoading({
+            title: "图片上传中~",
+          });
+
           // 上传图片
           wx.uploadFile({
             //请求后台的路径
@@ -61,6 +73,9 @@ Component({
             },
 
             success: (res) => {
+              // 图片上传成功后关闭加载loading
+              wx.hideLoading();
+
               //上传成功
               this.editorCtx.insertImage({
                 src: JSON.parse(res.data).data.url,
@@ -69,7 +84,7 @@ Component({
                   role: "god",
                 },
                 width: "80%",
-                
+
                 success: function () {
                   console.log("图片插入成功！");
                 },

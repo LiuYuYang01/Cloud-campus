@@ -12,6 +12,8 @@ page {
 .ql-container{
     overflow: auto;
     padding: 20rpx;
+    /* padding-top: 100rpx; */
+    height: 600rpx;
     background-color: #fff;
 }
 

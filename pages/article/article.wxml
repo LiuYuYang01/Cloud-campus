@@ -1,6 +1,6 @@
 <wxs module="filter" src="../../filter/formatTime.wxs"></wxs>
-
 <van-notify id="van-notify" />
+
 <view class="item">
     <!-- 用户信息 -->
     <view class="header">
@@ -20,6 +20,5 @@
     <view class="title">{{article.title}}</view>
 
     <!-- 内容 -->
-    <!-- <view class="content">{{article.content}}</view> -->
     <rich-text nodes="{{article.content}}"/>
 </view>

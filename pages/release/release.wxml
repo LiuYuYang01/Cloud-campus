@@ -25,11 +25,11 @@
 
 <!-- 编辑器 -->
 <view class="editor">
-    <editor id="editor" />
+    <editor id="editor" style="height:auto" />
 </view>
 
 <view class="container" style="margin-top: 50rpx;">
-    <van-uploader file-list="{{ previewList }}" bind:after-read="afterRead" preview-size="{{100}}" />
+    <van-uploader file-list="{{ previewList }}" deletable="{{ true }}" bind:after-read="afterRead" max-count="4" preview-size="{{100}}" />
 
     <!-- 扩展设置 -->
     <van-collapse value="{{ activeNames }}" bind:change="extend">
