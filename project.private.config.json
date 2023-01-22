@@ -74,14 +74,14 @@
                 {
                     "name": "发布",
                     "pathName": "pages/release/release",
-                    "query": "",
+                    "query": "id=119&type=home",
                     "launchMode": "default",
                     "scene": null
                 },
                 {
                     "name": "文章页",
                     "pathName": "pages/article/article",
-                    "query": "id=110",
+                    "query": "id=119&type=home",
                     "launchMode": "default",
                     "scene": null
                 }

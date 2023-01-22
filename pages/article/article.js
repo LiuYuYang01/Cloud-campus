@@ -1,4 +1,5 @@
 import Notify from "@vant/weapp/notify/notify";
+import Dialog from "@vant/weapp/dialog/dialog";
 import { getUserInfo } from "../../utils/localStorage";
 
 Page({
@@ -6,7 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
-    article: [],
+    article: {},
     showUpdate: false,
     userID: (JSON.parse(getUserInfo()) && JSON.parse(getUserInfo()).id) || 0,
   },
@@ -20,11 +21,18 @@ Page({
     });
   },
 
-  // 图片预览
-  previewImg(e) {
-    wx.previewImage({
-      urls: e.currentTarget.dataset.url,
-    });
+  // 删除评论
+  del() {
+    Dialog.confirm({
+      title: "提醒",
+      message: "你确定要删除该评论吗？",
+    })
+      .then(() => {
+        console.log("已删除");
+      })
+      .catch(() => {
+        console.log("已取消");
+      });
   },
 
   /**

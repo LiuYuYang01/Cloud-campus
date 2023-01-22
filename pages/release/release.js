@@ -84,7 +84,7 @@ Page({
         delta: editor.data.delta,
       });
 
-      // 新增文章
+      // 新增 | 编辑文章
       if (this.data.n) {
         this.articleIsOk();
       }

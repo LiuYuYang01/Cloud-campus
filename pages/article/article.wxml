@@ -1,7 +1,9 @@
 <wxs module="filter" src="../../filter/formatTime.wxs"></wxs>
 <van-notify id="van-notify" />
+<van-dialog id="van-dialog" />
 
-<view class="item">
+<!-- 文章页 -->
+<view class="article">
     <!-- 用户信息 -->
     <view class="header">
         <view>
@@ -20,5 +22,134 @@
     <view class="title">{{article.title}}</view>
 
     <!-- 内容 -->
-    <rich-text nodes="{{article.content}}"/>
+    <rich-text nodes="{{article.content}}" />
+</view>
+
+<!-- 评论框 -->
+<view class="comment">
+    <view class="title">评论框 10</view>
+
+    <view class="item">
+        <!-- 用户信息 -->
+        <view class="header">
+            <!-- 头像 -->
+            <view class="avatar">
+                <image src="https://app.guiigo.com/uc_server/data/avatar/000/00/00/21_avatar_middle.jpg" mode="" />
+            </view>
+
+            <!-- 用户信息 -->
+            <view class="info">
+                <view class="title">独自沉默</view>
+                <view class="date">2022-6-5 17:07:05</view>
+            </view>
+
+            <!-- 操作 -->
+            <view class="operation">
+                <!-- 删除评论 -->
+                <van-icon name="delete-o" class="del" bindtap="del" />
+            </view>
+        </view>
+
+        <!-- 评论内容 -->
+        <view class="content">
+            当你慢下来细细的在这个城市中寻找，依旧可以发现很多线索，让你感受到这座城市的另一面。
+        </view>
+    </view>
+
+    <view class="item">
+        <!-- 用户信息 -->
+        <view class="header">
+            <!-- 头像 -->
+            <view class="avatar">
+                <image src="https://app.guiigo.com/uc_server/data/avatar/000/00/00/21_avatar_middle.jpg" mode="" />
+            </view>
+
+            <!-- 用户信息 -->
+            <view class="info">
+                <view class="title">独自沉默</view>
+                <view class="date">2022-6-5 17:07:05</view>
+            </view>
+
+            <!-- 操作 -->
+            <view class="operation">
+                <!-- 删除评论 -->
+                <van-icon name="delete-o" class="del" bindtap="del" />
+            </view>
+        </view>
+
+        <!-- 评论内容 -->
+        <view class="content">
+            当你慢下来细细的在这个城市中寻找，依旧可以发现很多线索，让你感受到这座城市的另一面。
+        </view>
+    </view>
+
+    <view class="item">
+        <!-- 用户信息 -->
+        <view class="header">
+            <!-- 头像 -->
+            <view class="avatar">
+                <image src="https://app.guiigo.com/uc_server/data/avatar/000/00/00/21_avatar_middle.jpg" mode="" />
+            </view>
+
+            <!-- 用户信息 -->
+            <view class="info">
+                <view class="title">独自沉默</view>
+                <view class="date">2022-6-5 17:07:05</view>
+            </view>
+
+            <!-- 操作 -->
+            <view class="operation">
+                <!-- 删除评论 -->
+                <van-icon name="delete-o" class="del" bindtap="del" />
+            </view>
+        </view>
+
+        <!-- 评论内容 -->
+        <view class="content">
+            当你慢下来细细的在这个城市中寻找，依旧可以发现很多线索，让你感受到这座城市的另一面。
+        </view>
+    </view>
+
+    <view class="item">
+        <!-- 用户信息 -->
+        <view class="header">
+            <!-- 头像 -->
+            <view class="avatar">
+                <image src="https://app.guiigo.com/uc_server/data/avatar/000/00/00/21_avatar_middle.jpg" mode="" />
+            </view>
+
+            <!-- 用户信息 -->
+            <view class="info">
+                <view class="title">独自沉默</view>
+                <view class="date">2022-6-5 17:07:05</view>
+            </view>
+
+            <!-- 操作 -->
+            <view class="operation">
+                <!-- 删除评论 -->
+                <van-icon name="delete-o" class="del" bindtap="del" />
+            </view>
+        </view>
+
+        <!-- 评论内容 -->
+        <view class="content">
+            当你慢下来细细的在这个城市中寻找，依旧可以发现很多线索，让你感受到这座城市的另一面。
+        </view>
+    </view>
+</view>
+
+<!-- 底部功能栏 -->
+<view class="function">
+    <!-- 发布评论 -->
+    <view class="release">
+        <van-icon name="edit" />
+        <input type="text" placeholder="你的态度至关重要..." />
+    </view>
+
+    <!-- 操作 -->
+    <view class="operation">
+        <van-icon name="like-o"/>
+        <van-icon name="star-o"/>
+        <van-icon name="share-o" />
+    </view>
 </view>
