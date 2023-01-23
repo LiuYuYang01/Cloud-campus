@@ -20,7 +20,8 @@
                 "pages/errand/my/my",
                 "pages/robot/robot",
                 "my/pages/data/data",
-                "my/pages/certified/certified"
+                "my/pages/certified/certified",
+                "my/pages/person/person"
             ]
         }
     ],

@@ -25,8 +25,8 @@
     <rich-text nodes="{{article.content}}" />
 </view>
 
-<!-- 评论框 -->
-<view class="comment">
+<!-- 评论列表 -->
+<view class="commentBox">
     <view class="title">评论框 10</view>
 
     <view class="item">
@@ -143,13 +143,24 @@
     <!-- 发布评论 -->
     <view class="release">
         <van-icon name="edit" />
-        <input type="text" placeholder="你的态度至关重要..." />
+        <input type="text" placeholder="你的态度至关重要..." disabled bindtap="comment" />
     </view>
 
     <!-- 操作 -->
     <view class="operation">
-        <van-icon name="like-o"/>
-        <van-icon name="star-o"/>
+        <van-icon name="like-o" />
+        <van-icon name="star-o" />
         <van-icon name="share-o" />
     </view>
 </view>
+
+<!-- 评论框 -->
+<van-popup show="{{ show }}" position="bottom" custom-style="height: 20%;" bind:close="onClose">
+    <view class="comment">
+        <view class="header">回复</view>
+
+        <textarea value="{{commentVal}}" bindinput="commentChange" placeholder="你的态度至关重要" maxlength="{{150}}" auto-height />
+    
+        <text>{{commentVal.length}} / 150</text>
+    </view>
+</van-popup>

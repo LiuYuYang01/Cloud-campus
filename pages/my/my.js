@@ -91,15 +91,15 @@ Page({
 
   // 跳转到修改资料页面
   goData() {
-    wx.navigateTo({
-      url: "/subPackages/my/pages/data/data",
-    });
+    wx.navigateTo({ url: "/subPackages/my/pages/data/data" });
+  },
+  // 跳转到个人资料页面
+  goPerson() {
+    wx.navigateTo({ url: "/subPackages/my/pages/person/person" });
   },
   // 跳转到实名认证页面
   goCertified() {
-    wx.navigateTo({
-      url: "/subPackages/my/pages/certified/certified",
-    });
+    wx.navigateTo({ url: "/subPackages/my/pages/certified/certified" });
   },
 
   // 邀请好友

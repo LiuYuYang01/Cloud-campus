@@ -84,6 +84,13 @@
                     "query": "id=119&type=home",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "个人资料页",
+                    "pathName": "subPackages/my/pages/person/person",
+                    "query": "id=27",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }

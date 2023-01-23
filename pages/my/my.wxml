@@ -37,7 +37,7 @@
         <van-icon name="arrow" class="custom-icon" />
     </van-cell>
 
-    <van-cell>
+    <van-cell bindtap="goPerson">
         <van-icon name="flower-o" color="#f57062" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
 
         <view slot="title">

@@ -10,6 +10,8 @@ Page({
     article: {},
     showUpdate: false,
     userID: (JSON.parse(getUserInfo()) && JSON.parse(getUserInfo()).id) || 0,
+    show: false,
+    commentVal: "", // 发布评论的内容
   },
 
   // 修改文章
@@ -33,6 +35,21 @@ Page({
       .catch(() => {
         console.log("已取消");
       });
+  },
+
+  // 弹出
+  onClose() {
+    this.setData({ show: false });
+  },
+
+  // 打开评论框
+  comment() {
+    this.setData({ show: true });
+  },
+
+  // 评论内容
+  commentChange(e) {
+    this.setData({ commentVal: e.detail.value });
   },
 
   /**
