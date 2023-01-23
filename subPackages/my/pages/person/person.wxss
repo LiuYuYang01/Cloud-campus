@@ -79,8 +79,8 @@
     font-size: 60rpx;
 }
 
-/* 头部 */
-.header {
+/* 背景 */
+.top {
   position: relative;
   width: 100%;
   height: 500rpx;
@@ -89,7 +89,7 @@
 }
 
 /* 用户信息 */
-.header .userInfo {
+.top .userInfo {
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -98,7 +98,7 @@
 }
 
 /* 用户头像 */
-.header .userInfo .avatar {
+.top .userInfo .avatar {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -108,25 +108,25 @@
   background-color: #fff;
 }
 
-.header .userInfo .avatar image {
+.top .userInfo .avatar image {
   width: 92%;
   height: 92%;
   border-radius: 50%;
 }
 
 /* 用户名称 */
-.header .userInfo .name {
+.top .userInfo .name {
   padding: 10rpx 0;
 }
 
 /* 用户签名 */
-.header .userInfo .autograph {
+.top .userInfo .autograph {
   width: 450rpx;
   font-size: 24rpx;
 }
 
 /* 统计 */
-.header .userInfo .statistics {
+.top .userInfo .statistics {
   font-size: 24rpx;
   margin-top: 30rpx;
 }

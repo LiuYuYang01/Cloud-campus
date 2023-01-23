@@ -28,9 +28,9 @@
 
 .item .header .info .title{
     display: flex;
-    /* align-items: center; */
     line-height: 34rpx;
     font-size: 29rpx;
+    color: #444 !important;
 }
 
 /* 实名认证标识 */
@@ -74,8 +74,9 @@
 /* 文章标题 */
 .item>view>.title {
     margin-top: 10rpx;
-    color: #333;
+    color: #333 !important;
     line-height: 50rpx;
+    font-size: 32rpx !important;
 }
 
 /* 标签 */

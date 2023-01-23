@@ -1,6 +1,7 @@
 {
     "navigationStyle": "custom",
     "usingComponents": {
+        "article":"/components/article/article",
         "van-tab": "@vant/weapp/tab/index",
         "van-tabs": "@vant/weapp/tabs/index"
     }

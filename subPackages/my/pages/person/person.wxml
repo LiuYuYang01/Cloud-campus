@@ -1,5 +1,5 @@
 <!-- 头部 -->
-<view class="header">
+<view class="top">
     <!-- 波浪 -->
     <view class="zr">
         <view class="water">
@@ -44,7 +44,7 @@
 
 <van-tabs color="#4fb985" swipeable>
     <van-tab title="内容">
-        <article list="{{articleList}}" />
+        <article list="{{articleList}}" style="margin-top: 20rpx;"/>
     </van-tab>
 
     <van-tab title="个人资料">资料</van-tab>

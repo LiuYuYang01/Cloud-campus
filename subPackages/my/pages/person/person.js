@@ -1,28 +1,48 @@
-// subPackages/my/pages/person/person.js
+import { getUserInfo } from "../../../../utils/localStorage";
+
 Page({
   /**
    * 页面的初始数据
    */
   data: {
     active: 1,
+    userInfo: (getUserInfo() && JSON.parse(getUserInfo())) || {},
     articleList: [],
     socializeList: [],
   },
 
   // 获取兴趣圈数据
-  _getArticleList() {
-      
+  async _getArticleList() {
+    const {
+      data: { code, data },
+    } = await wx.$http.get("/api/hobby/article");
+
+    if (code !== 200) return;
+
+    this.setData({
+      articleList: data.filter((item) => item.userID === this.data.userInfo.id),
+    });
   },
 
   // 获取朋友圈数据
-  _getSocializeList() {},
+  async _getSocializeList() {
+    const {
+        data: { code, data },
+      } = await wx.$http.get("/api/socialize/article");
+  
+      if (code !== 200) return;
+  
+      this.setData({
+        socializeList: data.filter((item) => item.userID === this.data.userInfo.id),
+      });
+  },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-      this._getArticleList()
-      this._getSocializeList()
+    this._getArticleList();
+    this._getSocializeList();
   },
 
   /**
