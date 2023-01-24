@@ -1,0 +1,9 @@
+<van-dialog id="van-dialog" confirm-button-color="#4fb985" />
+
+<view class="container">
+    <van-field value="{{ oldPass }}" type="password" label="旧密码" placeholder="请输入旧密码" required bindinput="oldPassChange"/>
+
+    <van-field value="{{ newPass }}" type="password" label="新密码" placeholder="请输入新密码" required border="{{ false }}" bindinput="newPassChange"/>
+
+    <van-button type="primary" bindtap="isOk">确认修改</van-button>
+</view>

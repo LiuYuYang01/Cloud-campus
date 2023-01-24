@@ -91,6 +91,13 @@
                     "query": "id=27",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "修改密码",
+                    "pathName": "subPackages/my/pages/updatePass/updatePass",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }

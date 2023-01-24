@@ -21,7 +21,8 @@
                 "pages/robot/robot",
                 "my/pages/data/data",
                 "my/pages/certified/certified",
-                "my/pages/person/person"
+                "my/pages/person/person",
+                "my/pages/updatePass/updatePass"
             ]
         }
     ],

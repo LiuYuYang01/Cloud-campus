@@ -1,0 +1,11 @@
+page {
+  background-color: #fff;
+}
+
+.van-button--primary {
+  width: 100%;
+  height: 80rpx !important;
+  margin-top: 20rpx;
+  border-radius: 50rpx !important;
+  background-color: #4fb985 !important;
+}

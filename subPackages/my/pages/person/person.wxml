@@ -24,14 +24,14 @@
     <view class="userInfo">
         <!-- 头像 -->
         <view class="avatar">
-            <image src="http://q1.qlogo.cn/g?b=qq&nk=3311118881&s=640" mode="" />
+            <image src="{{userInfo.avatar}}" mode="" />
         </view>
 
         <!-- 用户名称 -->
-        <view class="name">刘宇阳</view>
+        <view class="name">{{userInfo.name}}</view>
 
         <!-- 用户签名 -->
-        <view class="autograph">互联网从不缺乏天才，而努力才是最终的入场券</view>
+        <!-- <view class="autograph">{{userInfo.signature}}</view> -->
 
         <!-- 统计 -->
         <view class="statistics">
@@ -44,11 +44,27 @@
 
 <van-tabs color="#4fb985" swipeable>
     <van-tab title="内容">
-        <article list="{{articleList}}" style="margin-top: 20rpx;"/>
+        <article list="{{articleList}}" style="margin-top: 20rpx;" />
     </van-tab>
 
-    <van-tab title="个人资料">资料</van-tab>
-    
+    <van-tab title="个人资料">
+        <van-cell-group>
+            <van-field label="用户名称" placeholder="{{userInfo.name}}" readonly/>
+            
+            <van-field label="性别" placeholder="{{userInfo.sex}}" readonly/>
+            
+            <van-field label="身份" placeholder="{{userInfo.identity}}" readonly/>
+
+            <van-field label="心情" placeholder="{{userInfo.mood}}" readonly/>
+            
+            <van-field label="二维码" placeholder="二维码" readonly/>
+
+            <van-field label="访客" placeholder="访客" readonly/>
+
+            <van-field label="个性签名" placeholder="{{userInfo.signature}}" autosize readonly/>
+        </van-cell-group>
+    </van-tab>
+
     <van-tab title="朋友圈">
         <article list="{{socializeList}}" />
     </van-tab>

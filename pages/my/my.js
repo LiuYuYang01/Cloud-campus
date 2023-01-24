@@ -101,7 +101,10 @@ Page({
   goCertified() {
     wx.navigateTo({ url: "/subPackages/my/pages/certified/certified" });
   },
-
+  // 跳转到修改密码页面
+  goUpdatePass(){
+    wx.navigateTo({ url: "/subPackages/my/pages/updatePass/updatePass" });
+  },
   // 邀请好友
   invite() {
     this.setData({ showShare: true });
