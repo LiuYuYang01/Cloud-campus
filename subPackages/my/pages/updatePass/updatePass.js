@@ -1,32 +1,57 @@
 import Dialog from "@vant/weapp/dialog/dialog";
+import Notify from "@vant/weapp/notify/notify";
+import { getUserInfo, delToken } from "../../../../utils/localStorage";
 
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    oldPass: "",
-    newPass: "",
+    oldPwd: "",
+    newPwd: "",
   },
 
   // 旧密码
   oldPassChange({ detail }) {
-    this.setData({ oldPass: detail });
+    this.setData({ oldPwd: detail });
   },
 
   // 新密码
   newPassChange({ detail }) {
-    this.setData({ newPass: detail });
+    this.setData({ newPwd: detail });
   },
 
   // 确定修改
   isOk() {
+    const id = (getUserInfo() && JSON.parse(getUserInfo()).id) || 0;
+
     Dialog.confirm({
-      title: "标题",
-      message: "弹窗内容",
+      title: "提示",
+      message: "你确定要修改密码吗？",
     })
-      .then(() => {
-        // on confirm
+      .then(async () => {
+        const { oldPwd, newPwd } = this.data;
+
+        const {
+          data: { code, message },
+        } = await wx.$http.post(`/api/user/pwd/${id}}`, {
+          oldPwd,
+          newPwd,
+        });
+
+        if (code !== 200) return Notify({ type: "danger", message });
+
+        Notify({ type: "success", message: "恭喜你修改密码成功" });
+
+        setTimeout(() => {
+          // 修改密码成功后删除本地存储的Token
+          delToken();
+
+          // 然后跳转到登录页 重新登录
+          wx.navigateTo({
+            url: "/pages/login/login",
+          });
+        }, 1000);
       })
       .catch(() => {
         // on cancel

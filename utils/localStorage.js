@@ -8,6 +8,9 @@ export function setToken(value) {
 export function getToken() {
   return wx.getStorageSync(TokenKey);
 }
+export function delToken() {
+  return wx.removeStorageSync(TokenKey);
+}
 
 // 将用户信息本地存储
 const userInfoKey = "userInfo";
