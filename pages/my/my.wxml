@@ -37,11 +37,11 @@
         <van-icon name="arrow" class="custom-icon" />
     </van-cell>
 
-    <van-cell bindtap="goPerson">
-        <van-icon name="flower-o" color="#f57062" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
+    <van-cell bindtap="goCertified">
+        <van-icon name="contact" color="#7369e2" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
 
         <view slot="title">
-            <view class="van-cell-text">我的主页</view>
+            <view class="van-cell-text">实名认证</view>
         </view>
 
         <van-icon name="arrow" class="custom-icon" />
@@ -57,11 +57,11 @@
         <van-icon name="arrow" class="custom-icon" />
     </van-cell>
 
-    <van-cell bindtap="goCertified">
-        <van-icon name="contact" color="#7369e2" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
+    <van-cell bindtap="goUpdatePass">
+        <van-icon name="shield-o" color="#5a82fd" style="margin-right: 10rpx;" size="32rpx" slot="icon" />
 
         <view slot="title">
-            <view class="van-cell-text">实名认证</view>
+            <view class="van-cell-text">修改密码</view>
         </view>
 
         <van-icon name="arrow" class="custom-icon" />
@@ -72,15 +72,6 @@
 
         <view slot="title">
             <view class="van-cell-text">邀请好友</view>
-        </view>
-
-        <van-icon name="arrow" class="custom-icon" />
-    </van-cell>
-
-    <van-cell bindtap="goUpdatePass">
-
-        <view slot="title">
-            <view class="van-cell-text">修改密码</view>
         </view>
 
         <van-icon name="arrow" class="custom-icon" />

@@ -16,6 +16,18 @@ Page({
     // 入口导航
     entranceNavList: [
       {
+        title: "我的钱包",
+        icon: "paid",
+        url: "/subPackages/my/pages/wallet/wallet",
+        color: "#f7b53e",
+      },
+      {
+        title: "我的主页",
+        icon: "flower-o",
+        url: "/subPackages/my/pages/person/person",
+        color: "#4fb985",
+      },
+      {
         title: "我的内容",
         icon: "coupon",
         url: "",
@@ -92,10 +104,6 @@ Page({
   // 跳转到修改资料页面
   goData() {
     wx.navigateTo({ url: "/subPackages/my/pages/data/data" });
-  },
-  // 跳转到个人资料页面
-  goPerson() {
-    wx.navigateTo({ url: "/subPackages/my/pages/person/person" });
   },
   // 跳转到实名认证页面
   goCertified() {
