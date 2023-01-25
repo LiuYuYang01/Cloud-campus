@@ -22,7 +22,8 @@
                 "my/pages/data/data",
                 "my/pages/certified/certified",
                 "my/pages/person/person",
-                "my/pages/updatePass/updatePass"
+                "my/pages/updatePass/updatePass",
+                "my/pages/wallet/wallet"
             ]
         }
     ],
@@ -66,6 +67,7 @@
         "van-notify": "@vant/weapp/notify/index",
         "van-tab": "@vant/weapp/tab/index",
         "van-tabs": "@vant/weapp/tabs/index",
-        "van-dialog": "@vant/weapp/dialog/index"
+        "van-dialog": "@vant/weapp/dialog/index",
+        "van-tag": "@vant/weapp/tag/index"
     }
 }
