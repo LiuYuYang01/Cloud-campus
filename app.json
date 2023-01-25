@@ -1,5 +1,6 @@
 {
     "pages": [
+        "pages/start/start",
         "pages/home/home",
         "pages/hobby/hobby",
         "pages/socialize/socialize",
@@ -19,11 +20,13 @@
                 "pages/errand/record/record",
                 "pages/errand/my/my",
                 "pages/robot/robot",
+                "pages/start/start",
                 "my/pages/data/data",
                 "my/pages/certified/certified",
                 "my/pages/person/person",
                 "my/pages/updatePass/updatePass",
-                "my/pages/wallet/wallet"
+                "my/pages/wallet/wallet",
+                "my/pages/content/content"
             ]
         }
     ],

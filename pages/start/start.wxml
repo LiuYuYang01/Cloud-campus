@@ -1,0 +1,4 @@
+<view class="bg"></view>
+
+<!-- 跳过 -->
+<view class="skip" bindtap="goHome">{{time}}s 后跳过</view>

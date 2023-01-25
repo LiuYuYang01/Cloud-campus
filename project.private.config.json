@@ -105,6 +105,20 @@
                     "query": "",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "内容页",
+                    "pathName": "subPackages/my/pages/content/content",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "启动页",
+                    "pathName": "pages/start/start",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }
