@@ -1,0 +1,87 @@
+<!--subPackages/my/pages/wallet/wallet.wxml-->
+<view class="wallet-root">
+
+    <!-- 余额 box -->
+    <view class="balance-box">
+        <!-- 余额 -->
+        <view class="balance">
+            <view>余额</view>
+            <view><text>￥</text>10.05</view>
+        </view>
+        <!-- 提现按钮 -->
+        <van-button size="small" round type="primary" style=" position: absolute; right: 50rpx; top: 75rpx;" custom-style="padding: 35rpx 50rpx; font-size:25rpx;">提现</van-button>
+        <!-- 规则 -->
+        <view class="rule">
+            <view>规则
+                <van-icon name="warning" />
+            </view>
+        </view>
+    </view>
+
+    <!-- 选择充值 -->
+    <view class="pay-box">
+        <!-- title -->
+        <view>
+            <text style="font-size: 26rpx; font-weight: 600; line-height: 40rpx;">选择充值金额</text>
+            <text style="font-size: 23rpx; color: gray; line-height: 40rpx;">充值至我的钱包</text>
+        </view>
+        <!-- 金额 -->
+        <view class="top-up">
+            <view>10<text>元</text></view>
+            <view>10<text>元</text></view>
+            <view>10<text>元</text></view>
+        </view>
+    </view>
+
+    <!-- 充值提现列表 box -->
+    <view style="font-size: 13px; font-weight: 600; line-height: 20px; margin-bottom: 20rpx;">充值提现列表</view>
+    <van-tabs color="#30dbfe" title-inactive-color="black" animated type="card" active="{{ 1 }}" bind:change="onChange">
+        <van-tab title="充值">
+            <van-cell center value="10元" label="2022-11-11 14-10">
+                <view slot="title">
+                    <view class="van-cell-text">充值成功
+                        <!-- <van-tag type="danger">标签</van-tag> -->
+                    </view>
+                </view>
+            </van-cell>
+            <van-cell center value="11元" label="2022-11-11 14-10">
+                <view slot="title">
+                    <view class="van-cell-text">充值中
+                        <van-tag type="warning">点击进入扫码充值</van-tag>
+                    </view>
+                </view>
+            </van-cell>
+            <van-cell center value="12元" label="2022-11-11 14-10">
+                <view slot="title">
+                    <view class="van-cell-text">充值失败
+                        <van-tag type="danger">订单已过期</van-tag>
+                    </view>
+                </view>
+            </van-cell>
+        </van-tab>
+        <van-tab title="提现">
+            <van-cell center value="10元" label="2022-11-11 14-10">
+                <view slot="title">
+                    <view class="van-cell-text">提现完成
+                        <!-- <van-tag type="warning">等待管理员审核</van-tag> -->
+                    </view>
+                </view>
+            </van-cell>
+            <van-cell center value="11元" label="2022-11-11 14-10">
+                <view slot="title">
+                    <view class="van-cell-text">提现中
+                        <van-tag type="warning">等待管理员审核</van-tag>
+                    </view>
+                </view>
+            </van-cell>
+            <van-cell center value="12元" label="2022-11-11 14-10">
+                <view slot="title">
+                    <view class="van-cell-text">提现失败
+                        <van-tag type="danger">审核不通过</van-tag>
+                    </view>
+                </view>
+            </van-cell>
+        </van-tab>
+    </van-tabs>
+
+</view>
