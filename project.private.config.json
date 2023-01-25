@@ -98,6 +98,13 @@
                     "query": "",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "钱包",
+                    "pathName": "subPackages/my/pages/wallet/wallet",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }

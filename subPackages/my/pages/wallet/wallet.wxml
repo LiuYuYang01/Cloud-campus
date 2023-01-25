@@ -22,7 +22,7 @@
     <view class="pay-box">
         <!-- title -->
         <view>
-            <text style="font-size: 26rpx; font-weight: 600; line-height: 40rpx;">选择充值金额</text>
+            <text style="font-size: 26rpx; font-weight: 600; line-height: 40rpx;color:#333">选择充值金额</text>
             <text style="font-size: 23rpx; color: gray; line-height: 40rpx;">充值至我的钱包</text>
         </view>
         <!-- 金额 -->
@@ -34,8 +34,8 @@
     </view>
 
     <!-- 充值提现列表 box -->
-    <view style="font-size: 13px; font-weight: 600; line-height: 20px; margin-bottom: 20rpx;">充值提现列表</view>
-    <van-tabs color="#30dbfe" title-inactive-color="black" animated type="card" active="{{ 1 }}" bind:change="onChange">
+    <view style="font-size: 13px; font-weight: 600; line-height: 20px; margin-bottom: 20rpx;color:#333">充值提现列表</view>
+    <van-tabs color="#4fb985" title-inactive-color="black" animated type="card" active="{{ 1 }}" bind:change="onChange">
         <van-tab title="充值">
             <van-cell center value="10元" label="2022-11-11 14-10">
                 <view slot="title">
