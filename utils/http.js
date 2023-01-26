@@ -7,7 +7,7 @@ import {
 wx.$http = $http
 
 // 配置请求根路径
-// $http.baseUrl = 'http://localhost:3000'
+// $http.baseUrl = 'http://localhost:7001'
 $http.baseUrl = 'https://api.tockey.cn'
 
 // 请求开始之前做一些事情
