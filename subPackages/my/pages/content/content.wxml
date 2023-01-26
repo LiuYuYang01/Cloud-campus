@@ -1,7 +1,7 @@
 <view class="container">
     <view class="box">
         <!-- 列表 -->
-        <view class="item" wx:for="{{list}}" wx:key="id">
+        <view class="item" wx:for="{{list}}" wx:key="id" data-id="{{item.id}}" data-type="{{item.type}}" bindtap="goArticle">
             <!-- 预览图 -->
             <view class="cover">
                 <image src="{{item.cover[0]}}" mode="widthFix" />

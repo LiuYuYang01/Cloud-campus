@@ -7,11 +7,10 @@ Page({
     list: [],
   },
 
-  // 获取文章
-  async getList() {
+  async getList(api) {
     const {
       data: { code, data },
-    } = await wx.$http.get("/api/hobby/article");
+    } = await wx.$http.get(api);
 
     if (code !== 200) return;
 
@@ -26,11 +25,37 @@ Page({
     });
   },
 
+  // 获取我的内容
+  async getContent() {
+    this.getList("/api/hobby/article");
+  },
+
+  // 获取我的说说
+  async getSocialize() {
+    this.getList("/api/socialize/article");
+  },
+
+  // 跳转到文章页
+  goArticle(e) {
+    const { id, type } = e.currentTarget.dataset;
+    
+    wx.navigateTo({
+      url: `/pages/article/article?id=${id}&type=${type}`,
+    });
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
-    this.getList();
+  onLoad({ type }) {
+    switch (type) {
+      case "内容":
+        this.getContent();
+        break;
+      case "说说":
+        this.getSocialize();
+        break;
+    }
   },
 
   /**
