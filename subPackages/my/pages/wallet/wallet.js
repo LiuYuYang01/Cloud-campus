@@ -1,4 +1,5 @@
 // subPackages/my/pages/wallet/wallet.js
+import { $http } from '@escook/request-miniprogram';
 import Dialog from '@vant/weapp/dialog/dialog';
 Page({
 
@@ -6,24 +7,29 @@ Page({
      * 页面的初始数据
      */
     data: {
-        showTopUp: false
+
     },
 
+    // 打开提示框
+    openTopUpDialog(e) {
+        Dialog.confirm({
+            title: '账号充值',
+            message: '即将创建订单，确定后请长按二维码识别付款充值。您有 2 分钟的时间来付款，超时将会自动过期该订单,期间不能再次创建充值订单',
+        })
+            .then(() => {
+                // 确定
+                console.log(e.target.dataset);
+            })
+            .catch(() => {
+                // 取消
+            });
+    },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-        Dialog.confirm({
-            title: '账号充值',
-            message: '即将创建订单，确定后请长按二维码识别付款充值。您有 2 分钟的时间来付款，超时将会自动过期该订单,期间不能再次创建充值订单',
-          })
-            .then(() => {
-              // on confirm
-            })
-            .catch(() => {
-              // on cancel
-            });
+
     },
 
     /**
