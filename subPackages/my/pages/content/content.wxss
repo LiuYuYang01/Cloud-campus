@@ -1,1 +1,30 @@
-/* subPackages/my/pages/content/content.wxss */
+page {
+  background-color: #f9f9f9;
+}
+
+.box {
+  margin-top: 20rpx;
+}
+
+.box .item {
+  display: flex;
+  align-items: center;
+  padding: 20rpx;
+  margin-bottom: 20rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
+}
+
+/* 封面 */
+.box .item .cover image {
+  width: 200rpx;
+  border-radius: 5rpx;
+}
+
+/* 标题 */
+.box .item .title{
+    font-size: 30rpx;
+    margin-left: 20rpx;
+    color: #333;
+    line-height: 50rpx;
+}

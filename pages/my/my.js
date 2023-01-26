@@ -30,7 +30,7 @@ Page({
       {
         title: "我的内容",
         icon: "coupon",
-        url: "",
+        url: "/subPackages/my/pages/content/content?type=内容",
         color: "#4b84ff",
       },
       {
@@ -48,7 +48,7 @@ Page({
       {
         title: "我的说说",
         icon: "chat",
-        url: "",
+        url: "/subPackages/my/pages/content/content?type=说说",
         color: "#6ebcfb",
       },
       {
