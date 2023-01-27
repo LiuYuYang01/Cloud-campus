@@ -1,6 +1,6 @@
 <wxs module="filter" src="../../filter/formatTime.wxs"></wxs>
 <van-notify id="van-notify" />
-<van-dialog id="van-dialog" />
+<van-dialog id="van-dialog" confirm-button-color="#4fb985"/>
 
 <!-- 文章页 -->
 <view class="article">

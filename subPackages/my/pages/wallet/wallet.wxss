@@ -95,6 +95,7 @@
 }
 .top-up > view > text {
   font-weight: normal;
+  pointer-events: none;
 }
 /* ================= */
 /* 覆盖第三方组件样式 */

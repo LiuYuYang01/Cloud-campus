@@ -27,9 +27,9 @@
         </view>
         <!-- 金额 -->
         <view class="top-up">
-            <view>10<text>元</text></view>
-            <view>30<text>元</text></view>
-            <view>50<text>元</text></view>
+            <view data-stage="10" bind:tap="openTopUpDialog">10<text>元</text></view>
+            <view data-stage="30" bind:tap="openTopUpDialog">30<text>元</text></view>
+            <view data-stage="50" bind:tap="openTopUpDialog">50<text>元</text></view>
         </view>
 
     </view>
@@ -90,4 +90,9 @@
     </van-tabs>
 
 </view>
-<van-dialog show="{{showTopUp}}" id="van-dialog" />
+<<<<<<< HEAD:wx_campus/subPackages/my/pages/wallet/wallet.wxml
+
+<van-dialog wx:if="{{showTopUp}}" id="van-dialog" />
+=======
+<van-dialog id="van-dialog" />
+>>>>>>> 4d8a99b2983dffac503d3bb654f34d124aaeec5d:subPackages/my/pages/wallet/wallet.wxml
