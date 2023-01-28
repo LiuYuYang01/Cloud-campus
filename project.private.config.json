@@ -80,7 +80,7 @@
                 },
                 {
                     "name": "跑腿",
-                    "pathName": "subPackages/home/pages/errand/errand",
+                    "pathName": "subPackages/pages/errand/home/home",
                     "query": "",
                     "launchMode": "default",
                     "scene": null
@@ -103,6 +103,13 @@
                     "name": "启动页",
                     "pathName": "pages/start/start",
                     "query": "",
+                    "launchMode": "default",
+                    "scene": null
+                },
+                {
+                    "name": "订单详情",
+                    "pathName": "subPackages/my/pages/orderDetails/orderDetails",
+                    "query": "order_id=167489286311418228",
                     "launchMode": "default",
                     "scene": null
                 }

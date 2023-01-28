@@ -91,6 +91,5 @@
 
 </view>
 
-<van-dialog wx:if="{{showTopUp}}" id="van-dialog" />
-
 <van-dialog id="van-dialog" confirm-button-color="#4fb985"/>
+<van-toast id="van-toast" />
