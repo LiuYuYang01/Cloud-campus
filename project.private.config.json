@@ -105,6 +105,13 @@
                     "query": "",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "订单详情",
+                    "pathName": "subPackages/my/pages/orderDetails/orderDetails",
+                    "query": "order_id=167489286311418228",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }
