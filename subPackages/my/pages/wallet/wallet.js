@@ -1,6 +1,9 @@
 // subPackages/my/pages/wallet/wallet.js
+import { createStoreBindings } from 'mobx-miniprogram-bindings';
+import store from '../../../../store/store';
 import { $http } from '@escook/request-miniprogram';
 import Dialog from '@vant/weapp/dialog/dialog';
+import Toast from '@vant/weapp/toast/toast';
 Page({
 
     /**
@@ -15,21 +18,35 @@ Page({
         Dialog.confirm({
             title: '账号充值',
             message: '即将创建订单，确定后请长按二维码识别付款充值。您有 2 分钟的时间来付款，超时将会自动过期该订单,期间不能再次创建充值订单',
-        })
-            .then(() => {
-                // 确定
-                console.log(e.target.dataset);
+        }).then(() => {
+            // 确定
+            // console.log(e.target.dataset,  store.userInfo.username);
+            $http.post('/api/pay/create', {
+                price: e.target.dataset.stage,
+                username: store.userInfo.username
+            }).then(res => {
+                console.log(res.data);
+                let { code } = res.data;
+                if (code == 400) {
+                    Toast(res.data.message);
+                } else if (code == 200) {
+                    // console.log(res.data.order);
+                    // 跳转页面
+                    wx.navigateTo({
+                        url: `/subPackages/my/pages/orderDetails/orderDetails?order_id=${res.data.order.order_id}`
+                    })
+                }
             })
-            .catch(() => {
-                // 取消
-            });
+        }).catch(() => {
+            // 取消
+        });
     },
 
     /**
      * 生命周期函数--监听页面加载
      */
     onLoad(options) {
-
+        this.storeBindings = createStoreBindings(this, { store });
     },
 
     /**
@@ -57,7 +74,7 @@ Page({
      * 生命周期函数--监听页面卸载
      */
     onUnload() {
-
+        this.storeBindings.destroyStoreBindings()
     },
 
     /**

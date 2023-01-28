@@ -26,7 +26,8 @@
                 "my/pages/person/person",
                 "my/pages/updatePass/updatePass",
                 "my/pages/wallet/wallet",
-                "my/pages/content/content"
+                "my/pages/content/content",
+                "my/pages/orderDetails/orderDetails"
             ]
         }
     ],
@@ -71,6 +72,8 @@
         "van-tab": "@vant/weapp/tab/index",
         "van-tabs": "@vant/weapp/tabs/index",
         "van-dialog": "@vant/weapp/dialog/index",
-        "van-tag": "@vant/weapp/tag/index"
+        "van-tag": "@vant/weapp/tag/index",
+        "van-toast": "@vant/weapp/toast/index",
+        "van-count-down": "@vant/weapp/count-down/index"
     }
 }
