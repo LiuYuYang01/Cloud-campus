@@ -6,7 +6,7 @@
         <!-- 余额 -->
         <view class="balance">
             <view>余额</view>
-            <view><text>￥</text>10.05</view>
+            <view><text>￥</text> {{balance.money}}</view>
         </view>
         <!-- 提现按钮 -->
         <van-button size="small" round type="primary" style=" position: absolute; right: 50rpx; top: 75rpx;" custom-style="padding: 35rpx 50rpx; font-size:25rpx;">提现</van-button>
@@ -27,7 +27,7 @@
         </view>
         <!-- 金额 -->
         <view class="top-up">
-            <view data-stage="10" bind:tap="openTopUpDialog">10<text>元</text></view>
+            <view data-stage="0.01" bind:tap="openTopUpDialog">0.01充100<text>测试</text></view>
             <view data-stage="30" bind:tap="openTopUpDialog">30<text>元</text></view>
             <view data-stage="50" bind:tap="openTopUpDialog">50<text>元</text></view>
         </view>
@@ -91,5 +91,5 @@
 
 </view>
 
-<van-dialog id="van-dialog" confirm-button-color="#4fb985"/>
+<van-dialog id="van-dialog" confirm-button-color="#4fb985" />
 <van-toast id="van-toast" />

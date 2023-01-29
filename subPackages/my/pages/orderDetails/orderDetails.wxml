@@ -2,23 +2,35 @@
 <view class="order-details-root">
     <view>订单详情</view>
     <!-- 待支付 -->
-    <view class="await" wx:if="order.state == 1">
+    <view class="await" wx:if="{{order.state == 1}}">
         <view>等待支付{{order.state}}</view>
-        <view>{{order.username}}--{{order.remarks}}</view>
+        <view>用户：{{order.username}}  {{order.remarks}} {{order.really_price}}元</view>
         <van-count-down millisecond time="{{ expiration_time }}" format="HH:mm:ss:SSS" />
-        <view>将order.payee_code转为二维码</view>
+        <view>二维码
+            <image mode="widthFix" style="width: 400rpx;" src="{{qrcode_base64}}" show-menu-by-longpress="{{true}}"></image>
+        </view>
+        <view>订单号：{{order.order_id}}</view>
+        <view>创建时间：{{order.date}}</view>
+        <view>过期时间：{{order.expiration_time}}</view>
+    </view>
+    <!-- 已过期 -->
+    <view class="expire" wx:if="{{order.state == 0}}">
+        <view>用户：{{order.username}}  {{order.remarks}} {{order.really_price}}元</view>
+        <view>订单已过期{{order.state}}</view>
         <view>订单号：{{order.order_id}}</view>
         <view>创建时间：{{order.date}}</view>
         <view>过期时间：{{order.expiration_time}}</view>
     </view>
 
-    <!-- 已过期 -->
-    <view class="expire" wx:if="{{order.state == 0}}">
-        <view>订单已过期{{order.state}}</view>
-    </view>
-
     <!-- 已完成 -->
     <view class="fufill" wx:if="{{order.state == 2}}">
         <view>订单完成{{order.state}}</view>
+        <view>用户：{{order.username}}  {{order.remarks}} {{order.really_price}}元</view>
+        <view>订单号：{{order.order_id}}</view>
+        <view>创建时间：{{order.date}}</view>
+        <view>支付时间：{{order.pay_time}}</view>
     </view>
 </view>
+
+<canvas type="2d" style="width: 0rpx; height: 0rpx;" id="myQrcode"></canvas>
+<van-toast id="van-toast" />
