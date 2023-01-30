@@ -21,4 +21,6 @@
     <view class="fufill" wx:if="{{order.state == 2}}">
         <view>订单完成{{order.state}}</view>
     </view>
+
+     <image src="https://api.tockey.cn/public/imgs/swiper/167490049108344191wx.jpg" mode=""/>
 </view>
