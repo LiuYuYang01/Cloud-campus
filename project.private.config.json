@@ -109,7 +109,7 @@
                 {
                     "name": "订单详情",
                     "pathName": "subPackages/my/pages/orderDetails/orderDetails",
-                    "query": "order_id=167489286311418228",
+                    "query": "order_id=167474460771414647",
                     "launchMode": "default",
                     "scene": null
                 }

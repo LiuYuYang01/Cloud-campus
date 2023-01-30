@@ -1,1 +1,48 @@
-/* subPackages/my/pages/orderDetails/orderDetails.wxss */
+page{
+    background-color: #fff;
+}
+
+.box{
+    margin-top: 150rpx;
+}
+
+.box .info{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 50rpx;
+}
+
+/* logo */
+.box .info .logo{
+    width: 200rpx;
+}
+
+/* 金额 */
+.box .info .price{
+    font-size: 50rpx;
+    color: #4fb985;
+    font-weight: 700;
+    margin: 20rpx 0;
+}
+
+/* 状态 */
+.box .info .state{
+    font-size: 28rpx;
+    color: #666;
+}
+
+/* 待支付 */
+.await .info .price{
+    color: #fb976c;
+}
+
+/* 已过期 */
+.expire .info .price{
+    color: #e90a28;
+}
+
+/* 已完成 */
+.fufill .info .price{
+    color: #4fb985;
+}

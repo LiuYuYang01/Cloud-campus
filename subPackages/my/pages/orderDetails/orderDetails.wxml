@@ -1,26 +1,118 @@
 <!--subPackages/my/pages/orderDetails/orderDetails.wxml-->
 <view class="order-details-root">
-    <view>订单详情</view>
     <!-- 待支付 -->
-    <view class="await" wx:if="order.state == 1">
-        <view>等待支付{{order.state}}</view>
-        <view>{{order.username}}--{{order.remarks}}</view>
-        <van-count-down millisecond time="{{ expiration_time }}" format="HH:mm:ss:SSS" />
-        <view>将order.payee_code转为二维码</view>
-        <view>订单号：{{order.order_id}}</view>
-        <view>创建时间：{{order.date}}</view>
-        <view>过期时间：{{order.expiration_time}}</view>
+    <view class="box await" wx:if="{{order.state == 1}}">
+        <view style="text-align: center;margin-bottom: 100rpx;">
+            <view>
+                <image mode="widthFix" style="width: 400rpx;" src="{{qrcode_base64}}" show-menu-by-longpress="{{true}}"></image>
+            </view>
+
+            <van-count-down millisecond time="{{ expiration_time }}" format="HH:mm:ss:SSS" />
+        </view>
+
+        <view class="info">
+            <image src="/assets/logo.png" class="logo" mode="widthFix" />
+            <view class="price">{{order.really_price}} 元</view>
+            <view class="state">{{order.remarks}} ~ <text style="color: #fb976c;">待支付</text></view>
+        </view>
+
+        <van-cell value="{{order.username}}" is-link>
+            <view slot="title">
+                <view class="van-cell-text">用户</view>
+            </view>
+        </van-cell>
+
+        <van-cell value="{{order.order_id}}" is-link>
+            <view slot="title">
+                <view class="van-cell-text">订单号：</view>
+            </view>
+        </van-cell>
+
+        <van-cell value="{{order.date}}" is-link>
+            <view slot="title">
+                <view class="van-cell-text">创建时间：</view>
+            </view>
+        </van-cell>
+
+        <van-cell value="{{order.expiration_time}}" is-link>
+            <view slot="title">
+                <view class="van-cell-text">过期时间：</view>
+            </view>
+        </van-cell>
     </view>
 
     <!-- 已过期 -->
-    <view class="expire" wx:if="{{order.state == 0}}">
-        <view>订单已过期{{order.state}}</view>
+    <view class="box expire" wx:if="{{order.state == 0}}">
+        <view class="info">
+            <image src="/assets/logo.png" class="logo" mode="widthFix" />
+            <view class="price">{{order.really_price}} 元</view>
+            <view class="state">{{order.remarks}} ~ <text style="color: #e90a28;">失败</text></view>
+        </view>
+
+        <van-cell value="{{order.username}}" is-link>
+            <view slot="title">
+                <view class="van-cell-text">用户</view>
+            </view>
+        </van-cell>
+
+        <van-cell value="{{order.state}}" is-link>
+            <view slot="title">
+                <view class="van-cell-text">订单已过期</view>
+            </view>
+        </van-cell>
+
+        <van-cell value="{{order.order_id}}" is-link>
+            <view slot="title">
+                <view class="van-cell-text">订单号：</view>
+            </view>
+        </van-cell>
+
+        <van-cell value="{{order.date}}" is-link>
+            <view slot="title">
+                <view class="van-cell-text">创建时间：</view>
+            </view>
+        </van-cell>
+
+        <van-cell value="{{order.expiration_time}}" is-link>
+            <view slot="title">
+                <view class="van-cell-text">过期时间：</view>
+            </view>
+        </van-cell>
     </view>
 
     <!-- 已完成 -->
-    <view class="fufill" wx:if="{{order.state == 2}}">
-        <view>订单完成{{order.state}}</view>
-    </view>
+    <view class="box fufill" wx:if="{{order.state == 2}}">
+        <view class="info">
+            <image src="/assets/logo.png" class="logo" mode="widthFix" />
+            <view class="price">{{order.really_price}} 元</view>
+            <view class="state">{{order.remarks}} ~ <text style="color: #4fb985;">成功</text></view>
+        </view>
 
-     <image src="https://api.tockey.cn/public/imgs/swiper/167490049108344191wx.jpg" mode=""/>
+        <van-cell value="{{order.username}}" is-link>
+            <view slot="title">
+                <view class="van-cell-text">用户</view>
+            </view>
+        </van-cell>
+
+        <van-cell value="{{order.order_id}}" is-link>
+            <view slot="title">
+                <view class="van-cell-text">订单号：</view>
+            </view>
+        </van-cell>
+
+        <van-cell value="{{order.date}}" is-link>
+            <view slot="title">
+                <view class="van-cell-text">创建时间：</view>
+            </view>
+        </van-cell>
+
+        <van-cell value="{{order.expiration_time}}" is-link>
+            <view slot="title">
+                <view class="van-cell-text">过期时间：</view>
+            </view>
+        </van-cell>
+    </view>
 </view>
+
+<canvas type="2d" style="width: 0rpx; height: 0rpx;" id="myQrcode"></canvas>
+<van-toast id="van-toast" />
