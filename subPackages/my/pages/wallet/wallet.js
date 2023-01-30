@@ -46,7 +46,8 @@ Page({
     },
     // 订单列表项跳转订单详情页
     goToOrderDetail(e) {
-        let { oid } = e.target.dataset;
+        let { oid } = e.currentTarget.dataset;
+        // let { oid } = e.target.dataset;
         wx.navigateTo({
             url: `/subPackages/my/pages/orderDetails/orderDetails?order_id=${oid}`,
         })

@@ -33,6 +33,7 @@ Page({
         query.select('#myQrcode')
             .fields({ node: true, size: true })
             .exec((res) => {
+                console.log(res);
                 // 获取 node 节点
                 var canvas = res[0].node
                 // 调用方法 drawQrcode 生成二维码
@@ -45,7 +46,6 @@ Page({
                     text: this.data.order.payee_code,
                 });
 
-                console.log(canvas);
                 // 获取 base64 格式数据赋到本地变量
                 this.setData({
                     qrcode_base64: canvas.toDataURL()
