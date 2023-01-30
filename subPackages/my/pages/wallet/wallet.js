@@ -10,10 +10,12 @@ Page({
      */
     data: {
         balance: {
-            money:0
-        }
+            money: 0
+        },
+        order_list: [], // 充值订单列表
     },
 
+    // methods
     // 打开提示框
     openTopUpDialog(e) {
         Dialog.confirm({
@@ -42,6 +44,13 @@ Page({
             // 取消
         });
     },
+    // 订单列表项跳转订单详情页
+    goToOrderDetail(e) {
+        let { oid } = e.target.dataset;
+        wx.navigateTo({
+            url: `/subPackages/my/pages/orderDetails/orderDetails?order_id=${oid}`,
+        })
+    },
 
     /**
      * 生命周期函数--监听页面加载
@@ -66,8 +75,17 @@ Page({
             .then(res => {
                 // console.log(res.data);
                 let { code, message, balance } = res.data;
-                if ( code == 400) return Toast(message);
-                this.setData({balance:balance})
+                if (code == 400) return Toast(message);
+                this.setData({ balance: balance })
+            });
+        // 获取订单列表
+        $http.get(`/api/pay/orders/${store.userInfo.username}`)
+            .then(res => {
+                let { code, message, orderList } = res.data;
+                if (code == 400) return Toast(message);
+                this.setData({
+                    order_list: orderList
+                })
             });
     },
 

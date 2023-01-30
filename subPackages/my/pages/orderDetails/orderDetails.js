@@ -24,6 +24,7 @@ Page({
         },
         expiration_time: '', // 剩余时间(毫秒)
         qrcode_base64: '', // 二维码 base64 数据
+        times: null, // 用来存储定时器
     },
 
     // 生成二维码
@@ -55,24 +56,24 @@ Page({
         console.log('开始拉取', this.data.order.state == 1);
         // 如果订单为待支付状态则定时向服务器查询是否已支付订单
         if (this.data.order.state == 1) {
-            let times = setInterval(() => {
-                wx.request({
-                    url: `https://api.tockey.cn/api/pay/order/${this.data.order.order_id}`,
-                    success: res => {
-                        // console.log(res.data);
-                        let { code, message, order } = res.data;
-                        let new_order = order;
-                        // console.log(order.state);
-                        if (order.state != 1) {
-                            if (code == 400) return Toast(message);
-                            // console.log(this.setData);
-                            vm.setData({ order: new_order });
-                            // 停止定时器
-                            clearInterval(times);
+            vm.setData({
+                times: setInterval(() => {
+                    wx.request({
+                        url: `https://api.tockey.cn/api/pay/order/${this.data.order.order_id}`,
+                        success: res => {
+                            let { code, message, order } = res.data;
+                            // 订单状态不是待支付状态
+                            if (order.state != 1) {
+                                if (code == 400) return Toast(message);
+                                // console.log(this.setData);
+                                vm.setData({ order: order });
+                                // 停止定时器
+                                clearInterval(vm.data.times);
+                            }
                         }
-                    }
-                });
-            }, 1000);
+                    });
+                }, 1000)
+            })
         }
     },
 
@@ -117,14 +118,13 @@ Page({
      * 生命周期函数--监听页面隐藏
      */
     onHide() {
-
     },
 
     /**
      * 生命周期函数--监听页面卸载
      */
     onUnload() {
-
+        clearInterval(this.data.times)
     },
 
     /**

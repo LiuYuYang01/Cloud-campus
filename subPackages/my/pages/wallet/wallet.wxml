@@ -34,33 +34,37 @@
 
     </view>
 
-    <!-- 充值提现列表 box -->
-    <view style="font-size: 13px; font-weight: 600; line-height: 20px; margin-bottom: 20rpx;color:#333">充值提现列表</view>
+    <!-- 订单列表 box -->
+    <view style="font-size: 13px; font-weight: 600; line-height: 20px; margin-bottom: 20rpx;color:#333">订单列表</view>
     <van-tabs color="#4fb985" title-inactive-color="black" animated type="card" active="{{ active }}" bind:change="onChange">
         <van-tab title="充值">
-            <van-cell center value="10 元" label="2022-11-11 14-10" class="success">
+            <van-cell center value="￥{{item.price}}" label="2022-11-11 14-10" class="{{item.state == 2 ? 'success' : (item.state == 1 ? 'conduct' : 'fail')}}" wx:for="{{order_list}}" wx:key="key" data-oid="{{item.order_id}}" bindtap="goToOrderDetail" wx:if="{{order_list.length >= 1}}">
+                <!-- (已过期：0；待支付：1；已完成：2) -->
                 <view slot="title">
-                    <view class="van-cell-text">充值成功
-                        <!-- <van-tag type="danger">标签</van-tag> -->
+                    <view class="van-cell-text">{{item.remarks}}
+                        <van-tag wx:if="{{item.state == 2}}" type="success">充值成功</van-tag>
+                        <van-tag wx:if="{{item.state == 1}}" type="warning">待支付</van-tag>
+                        <van-tag wx:if="{{item.state == 0}}">已过期</van-tag>
                     </view>
                 </view>
             </van-cell>
+            <view style="text-align: center;margin-top: 100rpx;"  wx:if="{{order_list.length <= 0}}">没有数据</view>
 
-            <van-cell center value="11 元" label="2022-11-11 14-10" class="conduct">
+            <!-- <van-cell center value="11 元" label="2022-11-11 14-10" class="conduct">
                 <view slot="title">
                     <view class="van-cell-text">充值中
                         <van-tag type="warning">点击继续完成充值</van-tag>
                     </view>
                 </view>
-            </van-cell>
+            </van-cell> -->
 
-            <van-cell center value="12 元" label="2022-11-11 14-10" class="fail">
+            <!-- <van-cell center value="12 元" label="2022-11-11 14-10" class="fail">
                 <view slot="title">
                     <view class="van-cell-text">充值失败
                         <van-tag type="danger">订单已过期</van-tag>
                     </view>
                 </view>
-            </van-cell>
+            </van-cell> -->
         </van-tab>
         <van-tab title="提现">
             <van-cell center value="10 元" label="2022-11-11 14-10" class="success">
