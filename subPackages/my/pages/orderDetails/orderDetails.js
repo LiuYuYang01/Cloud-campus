@@ -88,15 +88,17 @@ Page({
                 if (code == 400) {
                     Toast(message);
                 } else {
-                    this.setData({
-                        order: order,
-                        expiration_time: +new Date(order.expiration_time) - +new Date()
-                    });
-                }
-                // 生成二维码
-                this.createQRcode();
-                // 定时拉取订单状态
-                this.pullOrderState();
+                    this.setData({ order: order });
+                };
+                // 如果订单为待支付状态
+                if (order.state == 1) {
+                    // 生成过期倒计时毫秒
+                    this.setData({ expiration_time: +new Date(order.expiration_time) - +new Date() });
+                    // 生成二维码
+                    this.createQRcode();
+                    // 定时拉取订单状态
+                    this.pullOrderState();
+                };
             })
     },
 
