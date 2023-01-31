@@ -4,6 +4,7 @@ import store from '../../../../store/store';
 import { $http } from '@escook/request-miniprogram';
 import Dialog from '@vant/weapp/dialog/dialog';
 import Toast from '@vant/weapp/toast/toast';
+import { formatTime } from '../../../../utils/util';
 Page({
     /**
      * 页面的初始数据
@@ -28,7 +29,7 @@ Page({
                 price: e.target.dataset.stage,
                 username: store.userInfo.username
             }).then(res => {
-                console.log(res.data);
+                // console.log(res.data);
                 let { code } = res.data;
                 if (code == 400) {
                     Toast(res.data.message);
@@ -84,6 +85,12 @@ Page({
             .then(res => {
                 let { code, message, orderList } = res.data;
                 if (code == 400) return Toast(message);
+                orderList.forEach(el => {
+                    if (el.date.length) {
+                        el.date = formatTime(new Date(el.date))
+                        el.date = el.date.slice(0, el.date.length - 3)
+                    }
+                });
                 this.setData({
                     order_list: orderList
                 })
