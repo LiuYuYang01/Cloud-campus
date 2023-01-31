@@ -5,28 +5,60 @@
 } */
 
 .bg {
-  top: 100rpx;
-  position: absolute;
-  width: 100%;
-  height: 280rpx;
-  border-bottom-left-radius: 100%;
-  border-bottom-right-radius: 100%;
-  background-color: #4fb985;
+    top: 100rpx;
+    position: absolute;
+    width: 100%;
+    height: 280rpx;
+    border-bottom-left-radius: 100%;
+    border-bottom-right-radius: 100%;
+    background-color: #4fb985;
 }
 
 .search .van-search__content {
-  border-radius: 40px;
+    border-radius: 40px;
+}
+
+.searchRes {
+    /* position: absolute; */
+    /* top: 80rpx; */
+    min-height: 100rpx;
+    padding: 10rpx 20rpx;
+    box-sizing: border-box;
+    border-radius: 20rpx;
+    margin: 2.5%;
+    width: 95%;
+    background-color: #fff;
+    z-index: 10;
+}
+
+.searchRes>view {
+    height: 80rpx;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.searchRes > view:nth-child(n+2) {
+    border-top: 1px solid gainsboro;
+}
+
+.searchRes>view>view {
+    box-sizing: border-box;
+    height: 100%;
+    /* border: rgb(158, 39, 39) 1px solid; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .circleBox {
-  padding: 10rpx 0;
-  margin-bottom: 20rpx;
-  border-radius: 10rpx;
-  background-color: #fff;
-  box-shadow: 0 0 6rpx 2rpx rgb(0 0 0 / 3%);
+    padding: 10rpx 0;
+    margin-bottom: 20rpx;
+    border-radius: 10rpx;
+    background-color: #fff;
+    box-shadow: 0 0 6rpx 2rpx rgb(0 0 0 / 3%);
 }
 
 /* 最后一个文章设置底部距离 */
 .article .item:last-child {
-  padding-bottom: 170rpx;
+    padding-bottom: 170rpx;
 }

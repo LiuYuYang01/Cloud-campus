@@ -1,6 +1,35 @@
 <view bindtouchstart="touchStart" bindtouchmove="touchMove" class="hobby">
     <!-- 搜索框 -->
-    <van-search disabled value="{{ value }}" placeholder="搜你所想 搜你喜欢" background="#4fb985" class="search" />
+    <van-search input-align="center" value="{{ keyword }}" placeholder="搜你所想 搜你喜欢" background="#4fb985" class="search" bind:change="searchHandler" bind:focus="showSB" bind:blur="hideSB" />
+    <!-- 搜索结果 -->
+    <van-transition style="min-height: 100rpx; width: 100%; position: absolute;z-index: 1;top: 80rpx;" show="{{ showSearchBox }}" custom-class="block" name="fade">
+        <view class="searchRes">
+            <block wx:if="{{searchRes.length >=1}}">
+                <view wx:for="{{searchRes}}" wx:key="key">
+                    <!-- 图标 -->
+                    <view style="width: 10%; margin-right: 10rpx;">
+                        <van-icon style="color: #fff; background-color:{{item.type == 'home'?'#fbb437':(item.type=='hobby'?'#78bbfa':'#4eb985')}}; border-radius: 10px;padding: 15rpx;" name="{{item.type == 'home'?'home-o':(item.type=='hobby'?'qr':'flower-o')}}" />
+                    </view>
+                    <view style="width: 90%; flex-direction: column; align-items: flex-start;">
+                        <!-- 标题 -->
+                        <view style="width: 95%;font-size: 28rpx;overflow: hidden;text-overflow:ellipsis;white-space:nowrap;">{{item.title}}</view>
+                        <!-- 来自/id -->
+                        <view style="width: 100%;font-size: 23rpx;display: flex;justify-content: space-between;color: gray;margin-top: 3rpx;">
+                            <text>来自{{item.type == 'home'?'主页':(item.type=='hobby'?'兴趣圈':'朋友圈')}}的文章</text>
+                            <text>{{item.name}}</text>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <block wx:else>
+                <view style="justify-content: center;">
+                    <van-loading type="spinner" wx:if="{{showSearchLod}}" />
+                    <text wx:else>没有数据</text>
+                </view>
+            </block>
+        </view>
+    </van-transition>
+
 
     <view class="bg"></view>
 
