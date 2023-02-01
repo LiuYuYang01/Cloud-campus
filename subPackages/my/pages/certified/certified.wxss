@@ -6,6 +6,7 @@ page{
   width: 80%;
   margin: 30rpx 0 0 70rpx;
   border-radius: 50rpx;
+  background-color: #4fb985;
 }
 
 .prompt{
@@ -20,4 +21,11 @@ page{
 
 .van-step__circle-container{
     height: 0;
+}
+
+/* 实名已成功 */
+.success{
+    margin: 100rpx auto;
+    text-align: center;
+    color: #333;
 }

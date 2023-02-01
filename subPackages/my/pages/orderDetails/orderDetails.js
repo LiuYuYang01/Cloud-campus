@@ -33,7 +33,6 @@ Page({
         query.select('#myQrcode')
             .fields({ node: true, size: true })
             .exec((res) => {
-                console.log(res);
                 // 获取 node 节点
                 var canvas = res[0].node
                 // 调用方法 drawQrcode 生成二维码
@@ -87,6 +86,8 @@ Page({
         $http.get(`/api/pay/order/${options.order_id}`)
             .then(res => {
                 let { code, message, order } = res.data;
+                console.log(order,999);
+
                 if (code == 400) {
                     Toast(message);
                 } else {

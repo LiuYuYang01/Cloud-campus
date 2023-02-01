@@ -1,43 +1,102 @@
-// subPackages/my/pages/certified/certified.js
+import { getUserInfo } from "../../../../utils/localStorage";
+import Notify from "@vant/weapp/notify/notify";
+import { createStoreBindings } from "mobx-miniprogram-bindings";
+import store from "../../../../store/store";
+
 Page({
   /**
    * 页面的初始数据
    */
   data: {
-    steps: [
-      {
-        text: "未开始",
-        desc: "请先提交实名认证资料",
-        activeIcon: "success",
+    active: 0,
+
+    users: {
+      name: "",
+      phone: "",
+      class: "",
+      teacher: "",
+      type: "",
+    },
+
+    is_realname: "",
+  },
+  upateName({ detail }) {
+    this.setData({
+      "users.name": detail,
+    });
+  },
+  upatePhone({ detail }) {
+    this.setData({
+      "users.phone": detail,
+    });
+  },
+  upateClass({ detail }) {
+    this.setData({
+      "users.class": detail,
+    });
+  },
+  upateTeacher({ detail }) {
+    this.setData({
+      "users.teacher": detail,
+    });
+  },
+  upateType({ detail }) {
+    this.setData({
+      "users.type": detail,
+    });
+  },
+
+  // 提交资料
+  async isOk() {
+    const id = this.data.userInfo.id;
+
+    const {
+      data: { code, message },
+    } = await wx.$http.post(`/api/certified/${id}`, this.data.users);
+
+    if (code !== 200) return Notify({ type: "danger", message });
+
+    Notify({ type: "success", message: "恭喜你实名认证成功" });
+
+    const {
+      data: { data },
+    } = await wx.$http.get(`/api/user/${id}`);
+
+    this.updateUserInfo(data[0]);
+    console.log(data[0]);
+
+    this.setData({
+      // 修改为实名状态
+      is_realname: true,
+      users: {
+        name: "",
+        phone: "",
+        class: "",
+        teacher: "",
+        type: "",
       },
-      {
-        text: "进行中",
-        desc: "请等待认证进度",
-        activeIcon: "plus",
-      },
-      {
-        text: "审核中",
-        desc: "请确保提交的资料无误",
-        activeIcon: "cross",
-      },
-      {
-        text: "审核成功",
-        desc: "恭喜你实名认证成功！",
-        activeIcon: "fail",
-      },
-    ],
-    stepsActive:1
+    });
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {},
+  onLoad(options) {
+    this.storeBindings = createStoreBindings(this, {
+      store,
+      fields: ["userInfo"],
+      actions: ["updateUserInfo"],
+    });
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady() {},
+  onReady() {
+    this.setData({
+      is_realname: this.data.userInfo.certified.name,
+    });
+  },
 
   /**
    * 生命周期函数--监听页面显示
