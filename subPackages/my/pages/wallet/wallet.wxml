@@ -27,7 +27,7 @@
         </view>
         <!-- 金额 -->
         <view class="top-up">
-            <view data-stage="0.01" bind:tap="openTopUpDialog">0.01充100<text>测试</text></view>
+            <view data-stage="0.01" bind:tap="openTopUpDialog">0.01充20<text>测试</text></view>
             <view data-stage="30" bind:tap="openTopUpDialog">30<text>元</text></view>
             <view data-stage="50" bind:tap="openTopUpDialog">50<text>元</text></view>
         </view>
@@ -38,7 +38,7 @@
     <view style="font-size: 13px; font-weight: 600; line-height: 20px; margin-bottom: 20rpx;color:#333">订单列表</view>
     <van-tabs color="#4fb985" title-inactive-color="black" animated type="card" active="{{ active }}" bind:change="onChange">
         <van-tab title="充值">
-            <van-cell center value="￥{{item.price}}" label="2022-11-11 14-10" class="{{item.state == 2 ? 'success' : (item.state == 1 ? 'conduct' : 'fail')}}" wx:for="{{order_list}}" wx:key="key" data-oid="{{item.order_id}}" bindtap="goToOrderDetail" wx:if="{{order_list.length >= 1}}">
+            <van-cell center value="￥{{item.price}}" label="{{item.date}}" class="{{item.state == 2 ? 'success' : (item.state == 1 ? 'conduct' : 'fail')}}" wx:for="{{order_list}}" wx:key="key" data-oid="{{item.order_id}}" bindtap="goToOrderDetail" wx:if="{{order_list.length >= 1}}" is-link>
                 <!-- (已过期：0；待支付：1；已完成：2) -->
                 <view slot="title">
                     <view class="van-cell-text">{{item.remarks}}
@@ -48,7 +48,7 @@
                     </view>
                 </view>
             </van-cell>
-            <view style="text-align: center;margin-top: 100rpx;"  wx:if="{{order_list.length <= 0}}">没有数据</view>
+            <view style="text-align: center;margin-top: 100rpx;" wx:if="{{order_list.length <= 0}}">没有数据</view>
 
             <!-- <van-cell center value="11 元" label="2022-11-11 14-10" class="conduct">
                 <view slot="title">

@@ -16,27 +16,27 @@
             <view class="state">{{order.remarks}} ~ <text style="color: #fb976c;">待支付</text></view>
         </view>
 
-        <van-cell value="{{order.username}}" is-link>
+        <van-cell value="{{order.username}}">
             <view slot="title">
                 <view class="van-cell-text">用户</view>
             </view>
         </van-cell>
 
-        <van-cell value="{{order.order_id}}" is-link>
+        <van-cell value="{{order.order_id}}">
             <view slot="title">
-                <view class="van-cell-text">订单号：</view>
+                <view class="van-cell-text">订单号</view>
             </view>
         </van-cell>
 
-        <van-cell value="{{order.date}}" is-link>
+        <van-cell value="{{order.date}}">
             <view slot="title">
-                <view class="van-cell-text">创建时间：</view>
+                <view class="van-cell-text">创建时间</view>
             </view>
         </van-cell>
 
-        <van-cell value="{{order.expiration_time}}" is-link>
+        <van-cell value="{{order.expiration_time}}">
             <view slot="title">
-                <view class="van-cell-text">过期时间：</view>
+                <view class="van-cell-text">过期时间</view>
             </view>
         </van-cell>
     </view>
@@ -49,33 +49,33 @@
             <view class="state">{{order.remarks}} ~ <text style="color: #e90a28;">失败</text></view>
         </view>
 
-        <van-cell value="{{order.username}}" is-link>
+        <van-cell value="{{order.username}}">
             <view slot="title">
                 <view class="van-cell-text">用户</view>
             </view>
         </van-cell>
 
-        <van-cell value="{{order.state}}" is-link>
+        <van-cell value="{{order.state}}">
             <view slot="title">
                 <view class="van-cell-text">订单已过期</view>
             </view>
         </van-cell>
 
-        <van-cell value="{{order.order_id}}" is-link>
+        <van-cell value="{{order.order_id}}">
             <view slot="title">
-                <view class="van-cell-text">订单号：</view>
+                <view class="van-cell-text">订单号</view>
             </view>
         </van-cell>
 
-        <van-cell value="{{order.date}}" is-link>
+        <van-cell value="{{order.date}}">
             <view slot="title">
-                <view class="van-cell-text">创建时间：</view>
+                <view class="van-cell-text">创建时间</view>
             </view>
         </van-cell>
 
-        <van-cell value="{{order.expiration_time}}" is-link>
+        <van-cell value="{{order.expiration_time}}">
             <view slot="title">
-                <view class="van-cell-text">过期时间：</view>
+                <view class="van-cell-text">过期时间</view>
             </view>
         </van-cell>
     </view>
@@ -88,27 +88,27 @@
             <view class="state">{{order.remarks}} ~ <text style="color: #4fb985;">成功</text></view>
         </view>
 
-        <van-cell value="{{order.username}}" is-link>
+        <van-cell value="{{order.username}}">
             <view slot="title">
                 <view class="van-cell-text">用户</view>
             </view>
         </van-cell>
 
-        <van-cell value="{{order.order_id}}" is-link>
+        <van-cell value="{{order.order_id}}">
             <view slot="title">
-                <view class="van-cell-text">订单号：</view>
+                <view class="van-cell-text">订单号</view>
             </view>
         </van-cell>
 
-        <van-cell value="{{order.date}}" is-link>
+        <van-cell value="{{order.date}}">
             <view slot="title">
-                <view class="van-cell-text">创建时间：</view>
+                <view class="van-cell-text">创建时间</view>
             </view>
         </van-cell>
 
-        <van-cell value="{{order.expiration_time}}" is-link>
+        <van-cell value="{{order.pay_time}}">
             <view slot="title">
-                <view class="van-cell-text">过期时间：</view>
+                <view class="van-cell-text">支付时间</view>
             </view>
         </van-cell>
     </view>

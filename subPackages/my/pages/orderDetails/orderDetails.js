@@ -1,8 +1,8 @@
+// subPackages/my/pages/orderDetails/orderDetails.js
 import { $http } from "@escook/request-miniprogram";
 import Toast from '@vant/weapp/toast/toast';
 import drawQrcode from '../../../../assets/js/weapp.qrcode.min';
-
-// subPackages/my/pages/orderDetails/orderDetails.js
+import { formatTime } from '../../../../utils/util';
 Page({
 
     /**
@@ -91,6 +91,12 @@ Page({
                 if (code == 400) {
                     Toast(message);
                 } else {
+                    for (const key in order) {
+                        if (key == 'date' || key == 'expiration_time'|| key == 'pay_time') {
+                            order[key] = formatTime(new Date(order[key]))
+                            // order[key] = order[key].slice(0, order[key].length - 3)
+                        }
+                    }
                     this.setData({ order: order });
                 };
                 // 如果订单为待支付状态
