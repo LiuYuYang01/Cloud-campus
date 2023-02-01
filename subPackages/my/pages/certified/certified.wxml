@@ -1,25 +1,28 @@
-<van-tabs active="{{ active }}" color="#4fb985" bind:change="onChange">
-    <van-tab title="实名认证">
-        <van-cell-group>
-            <van-field value="{{ user.name }}" label="你的姓名" placeholder="请输入你的真实姓名" border="{{ false }}" bind:change="onChange" />
+<van-notify id="van-notify" />
 
-            <van-field value="{{ user.phone }}" label="你的手机号" placeholder="请输入你的真实手机号" border="{{ false }}" bind:change="onChange" />
+<!-- 如果已提交用户实名认证信息，则不再显示提交框 -->
+<view class="box" hidden="{{is_realname}}">
+    <van-cell-group>
+        <van-field value="{{ users.name }}" label="你的姓名" placeholder="请输入你的真实姓名" border="{{ false }}" bind:change="upateName" />
 
-            <van-field value="{{ user.class }}" label="你的班级" placeholder="如：21级Python全栈3班" border="{{ false }}" bind:change="onChange" />
+        <van-field value="{{ users.phone }}" label="你的手机号" placeholder="请输入你的真实手机号" border="{{ false }}" bind:change="upatePhone" />
 
-            <van-field value="{{ user.teacher }}" label="你的班主任" placeholder="请输入你的班主任姓名" border="{{ false }}" bind:change="onChange" />
+        <van-field value="{{ users.class }}" label="你的班级" placeholder="如：21级Python全栈3班" border="{{ false }}" bind:change="upateClass" />
 
-            <van-field value="{{ user.type }}" label="认证类型" placeholder="请输入你认证的类型" border="{{ false }}" bind:change="onChange" />
-        </van-cell-group>
+        <van-field value="{{ users.teacher }}" label="你的班主任" placeholder="请输入你的班主任姓名" border="{{ false }}" bind:change="upateTeacher" />
 
-        <van-notice-bar color="#4fb985" background="#eafff5" left-icon="info-o" text="注意：实名认证信息一经提交，无法二次更改！" />
+        <van-field value="{{ users.type }}" label="认证类型" placeholder="请输入你认证的类型" border="{{ false }}" bind:change="upateType" />
+    </van-cell-group>
 
-        <van-button type="primary" class="post">提交资料</van-button>
-    </van-tab>
-    <van-tab title="审核进度">
-        <van-steps steps="{{ steps }}" active="{{ stepsActive }}" direction="vertical" active-color="#4fb985" />
-    </van-tab>
-</van-tabs>
+    <van-notice-bar color="#4fb985" background="#eafff5" left-icon="info-o" text="注意：实名认证信息一经提交，无法二次更改！" />
+
+    <van-button type="primary" class="post" bindtap="isOk">提交资料</van-button>
+</view>
+
+<!-- 实名已成功 -->
+<view class="view" wx:if="{{is_realname}}">
+    实名已成功
+</view>
 
 <!-- 提示 -->
 <view class="prompt">
