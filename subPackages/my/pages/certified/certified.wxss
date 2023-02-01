@@ -22,3 +22,10 @@ page{
 .van-step__circle-container{
     height: 0;
 }
+
+/* 实名已成功 */
+.success{
+    margin: 100rpx auto;
+    text-align: center;
+    color: #333;
+}

@@ -56,14 +56,18 @@ Page({
 
     if (code !== 200) return Notify({ type: "danger", message });
 
-    Notify({ type: "success", message: "恭喜你已提交实名资料" });
+    Notify({ type: "success", message: "恭喜你实名认证成功" });
 
     const {
       data: { data },
     } = await wx.$http.get(`/api/user/${id}`);
-    this.updateUserInfo(data);
+
+    this.updateUserInfo(data[0]);
+    console.log(data[0]);
 
     this.setData({
+      // 修改为实名状态
+      is_realname: true,
       users: {
         name: "",
         phone: "",
@@ -90,9 +94,8 @@ Page({
    */
   onReady() {
     this.setData({
-        // 解决一个小bug
-        is_realname:this.data.userInfo.certified && this.data.userInfo.certified.name || this.data.userInfo[0].certified.name
-    })
+      is_realname: this.data.userInfo.certified.name,
+    });
   },
 
   /**

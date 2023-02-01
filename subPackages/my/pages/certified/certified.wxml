@@ -17,14 +17,15 @@
     <van-notice-bar color="#4fb985" background="#eafff5" left-icon="info-o" text="注意：实名认证信息一经提交，无法二次更改！" />
 
     <van-button type="primary" class="post" bindtap="isOk">提交资料</van-button>
+
+    <!-- 提示 -->
+    <view class="prompt">
+        <image src="http://img.liuyuyang.net/zhxy/smrzts.jpg" mode="widthFix" />
+    </view>
 </view>
 
 <!-- 实名已成功 -->
-<view class="view" wx:if="{{is_realname}}">
-    实名已成功
-</view>
-
-<!-- 提示 -->
-<view class="prompt">
-    <image src="http://img.liuyuyang.net/zhxy/smrzts.jpg" mode="widthFix" />
+<view class="success" wx:if="{{is_realname}}">
+    <image src="/assets/svg/realname.svg" class="realname"></image>
+    <view style="margin-top: 50rpx;">实名认证成功</view>
 </view>
