@@ -22,7 +22,7 @@ Page({
     hideSB() { this.setData({ showSearchBox: false }) },
     searchHandler(e) {
         clearTimeout(this.data.times)
-        if (!e.detail.length) return   this.setData({searchRes: ''})
+        if (!e.detail.length) return this.setData({ searchRes: '' })
         this.setData({
             times: setTimeout(() => {
                 this.setData({ showSearchLod: true })
