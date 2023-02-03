@@ -9,7 +9,7 @@ Page({
   data: {
     article: {}, //文章内容
     showUpdate: false,
-    userID: (JSON.parse(getUserInfo()) && JSON.parse(getUserInfo()).id) || 0,
+    userID: (getUserInfo() && JSON.parse(getUserInfo()).id) || 0,
     show: false, // 是否显示评论框
     commentList: [], //评论列表
     comment: {
@@ -54,10 +54,12 @@ Page({
 
   // 新增评论
   async addComment() {
+    const userInfo = getUserInfo() && JSON.parse(getUserInfo())
+
     this.setData({
       "comment.aid": this.data.article.id,
-      "comment.name": this.data.article.name,
-      "comment.avatar": this.data.article.avatar,
+      "comment.name": userInfo.name,
+      "comment.avatar": userInfo.avatar,
     });
 
     const {
@@ -126,6 +128,7 @@ Page({
   async onLoad({ id, type }) {
     await this.getArticleList(id, type);
     this.getCommentList();
+    console.log(JSON.parse(getUserInfo()));
   },
 
   /**
