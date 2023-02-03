@@ -1,4 +1,5 @@
 <wxs module="filter" src="../../filter/formatTime.wxs"></wxs>
+    
 <van-notify id="van-notify" />
 <van-dialog id="van-dialog" confirm-button-color="#4fb985" />
 
@@ -42,7 +43,7 @@
             <!-- 用户信息 -->
             <view class="info">
                 <view class="title">{{item.name}}</view>
-                <view class="date">{{item.date}}</view>
+                <view class="date">{{filter.formatTime(item.date)}}</view>
             </view>
 
             <!-- 操作 -->
