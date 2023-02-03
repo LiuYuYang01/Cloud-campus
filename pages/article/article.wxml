@@ -16,7 +16,7 @@
             <view class="date">{{filter.formatTime(article.date)}}</view>
         </view>
 
-        <view class="attention" wx:if="{{showUpdate}}" bindtap="update">修改</view>
+        <view class="attention" wx:if="{{showUpdate}}" bindtap="updateArticle">修改</view>
     </view>
 
     <!-- 标题 -->
@@ -49,7 +49,7 @@
             <!-- 操作 -->
             <view class="operation">
                 <!-- 删除评论 -->
-                <van-icon name="delete-o" class="del" bindtap="del" />
+                <van-icon name="delete-o" class="del" data-id="{{item.id}}" bindtap="delComment" />
             </view>
         </view>
 
@@ -85,6 +85,6 @@
 
         <text>{{comment.content.length}} / 150</text>
 
-        <view class="send" bindtap="send">发送</view>
+        <view class="send" bindtap="addComment">发送</view>
     </view>
 </van-popup>

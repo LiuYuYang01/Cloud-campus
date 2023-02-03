@@ -16,8 +16,8 @@ Page({
       aid: "",
       name: "",
       avatar: "",
-      content: "11",
-      date:"2022-6-5 17:12:15"
+      content: "",
+      date: "2022-6-5 17:12:15",
     },
   },
   // 获取文章列表
@@ -55,10 +55,10 @@ Page({
   // 新增评论
   async addComment() {
     this.setData({
-        "comment.aid":this.data.article.id,
-        "comment.name":this.data.article.name,
-        "comment.avatar":this.data.article.avatar,
-    })
+      "comment.aid": this.data.article.id,
+      "comment.name": this.data.article.name,
+      "comment.avatar": this.data.article.avatar,
+    });
 
     const {
       data: { code, message },
@@ -66,13 +66,15 @@ Page({
 
     if (code !== 200) return Notify({ type: "danger", message });
 
-    Notify({ type: 'success', message: '发布评论成功' });
+    this.setData({ show: false });
 
-    this.getCommentList()
+    Notify({ type: "success", message: "发布评论成功" });
+
+    this.getCommentList();
   },
 
   // 修改文章
-  update() {
+  updateArticle() {
     const { id, type } = this.data.article;
 
     wx.navigateTo({
@@ -81,13 +83,22 @@ Page({
   },
 
   // 删除评论
-  del() {
+  delComment(e) {
     Dialog.confirm({
       title: "提醒",
       message: "你确定要删除该评论吗？",
     })
-      .then(() => {
-        console.log("已删除");
+      .then(async () => {
+        const id = e.currentTarget.dataset.id;
+        const {
+          data: { code, message },
+        } = await wx.$http.delete(`/api/comment/${id}`);
+
+        if (code !== 200) return Notify({ type: "danger", message });
+
+        Notify({ type: "success", message: "删除评论成功" });
+
+        this.getCommentList();
       })
       .catch(() => {
         console.log("已取消");
@@ -115,7 +126,6 @@ Page({
   async onLoad({ id, type }) {
     await this.getArticleList(id, type);
     this.getCommentList();
-    this.addComment();
   },
 
   /**
