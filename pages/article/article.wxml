@@ -55,87 +55,6 @@
             当你慢下来细细的在这个城市中寻找，依旧可以发现很多线索，让你感受到这座城市的另一面。
         </view>
     </view>
-
-    <view class="item">
-        <!-- 用户信息 -->
-        <view class="header">
-            <!-- 头像 -->
-            <view class="avatar">
-                <image src="https://app.guiigo.com/uc_server/data/avatar/000/00/00/21_avatar_middle.jpg" mode="" />
-            </view>
-
-            <!-- 用户信息 -->
-            <view class="info">
-                <view class="title">独自沉默</view>
-                <view class="date">2022-6-5 17:07:05</view>
-            </view>
-
-            <!-- 操作 -->
-            <view class="operation">
-                <!-- 删除评论 -->
-                <van-icon name="delete-o" class="del" bindtap="del" />
-            </view>
-        </view>
-
-        <!-- 评论内容 -->
-        <view class="content">
-            当你慢下来细细的在这个城市中寻找，依旧可以发现很多线索，让你感受到这座城市的另一面。
-        </view>
-    </view>
-
-    <view class="item">
-        <!-- 用户信息 -->
-        <view class="header">
-            <!-- 头像 -->
-            <view class="avatar">
-                <image src="https://app.guiigo.com/uc_server/data/avatar/000/00/00/21_avatar_middle.jpg" mode="" />
-            </view>
-
-            <!-- 用户信息 -->
-            <view class="info">
-                <view class="title">独自沉默</view>
-                <view class="date">2022-6-5 17:07:05</view>
-            </view>
-
-            <!-- 操作 -->
-            <view class="operation">
-                <!-- 删除评论 -->
-                <van-icon name="delete-o" class="del" bindtap="del" />
-            </view>
-        </view>
-
-        <!-- 评论内容 -->
-        <view class="content">
-            当你慢下来细细的在这个城市中寻找，依旧可以发现很多线索，让你感受到这座城市的另一面。
-        </view>
-    </view>
-
-    <view class="item">
-        <!-- 用户信息 -->
-        <view class="header">
-            <!-- 头像 -->
-            <view class="avatar">
-                <image src="https://app.guiigo.com/uc_server/data/avatar/000/00/00/21_avatar_middle.jpg" mode="" />
-            </view>
-
-            <!-- 用户信息 -->
-            <view class="info">
-                <view class="title">独自沉默</view>
-                <view class="date">2022-6-5 17:07:05</view>
-            </view>
-
-            <!-- 操作 -->
-            <view class="operation">
-                <!-- 删除评论 -->
-                <van-icon name="delete-o" class="del" bindtap="del" />
-            </view>
-        </view>
-
-        <!-- 评论内容 -->
-        <view class="content">
-            当你慢下来细细的在这个城市中寻找，依旧可以发现很多线索，让你感受到这座城市的另一面。
-        </view>
-    </view>
 </view>
 
 <!-- 底部功能栏 -->
@@ -162,5 +81,7 @@
         <textarea value="{{commentVal}}" bindinput="commentChange" placeholder="你的态度至关重要" maxlength="{{150}}" auto-height />
     
         <text>{{commentVal.length}} / 150</text>
+
+        <view class="send">发送</view>
     </view>
 </van-popup>
