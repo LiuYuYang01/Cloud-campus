@@ -29,18 +29,18 @@
 <view class="commentBox">
     <view class="title">评论框 10</view>
 
-    <view class="item">
+    <view class="item" wx:for="{{commentList}}" wx:key="id">
         <!-- 用户信息 -->
         <view class="header">
             <!-- 头像 -->
             <view class="avatar">
-                <image src="https://app.guiigo.com/uc_server/data/avatar/000/00/00/21_avatar_middle.jpg" mode="" />
+                <image src="{{item.avatar}}" mode="" />
             </view>
 
             <!-- 用户信息 -->
             <view class="info">
-                <view class="title">独自沉默</view>
-                <view class="date">2022-6-5 17:07:05</view>
+                <view class="title">{{item.name}}</view>
+                <view class="date">{{item.date}}</view>
             </view>
 
             <!-- 操作 -->
@@ -52,7 +52,7 @@
 
         <!-- 评论内容 -->
         <view class="content">
-            当你慢下来细细的在这个城市中寻找，依旧可以发现很多线索，让你感受到这座城市的另一面。
+            {{item.content}}
         </view>
     </view>
 </view>

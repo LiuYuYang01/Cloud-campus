@@ -7,11 +7,44 @@ Page({
    * 页面的初始数据
    */
   data: {
-    article: {},
+    article: {}, //文章内容
     showUpdate: false,
     userID: (JSON.parse(getUserInfo()) && JSON.parse(getUserInfo()).id) || 0,
-    show: false,
+    show: false, // 是否显示评论框
     commentVal: "", // 发布评论的内容
+    commentList: [], //评论列表
+  },
+  // 获取文章列表
+  async getArticleList(id, type) {
+    const {
+      data: { code, message, data },
+    } = await wx.$http.get(`/api/${type}/article/get/${id}`);
+
+    if (code !== 200) return Notify({ type: "danger", message });
+
+    if (data[0].userID === this.data.userID) {
+      this.setData({
+        showUpdate: true,
+      });
+    }
+
+    this.setData({
+      article: data[0],
+    });
+
+    console.log(this.data.article);
+  },
+
+  // 获取评论列表
+  async getCommentList() {
+    const {
+      data: { code, comments, message },
+    } = await wx.$http.get(`/api/comment/${this.data.article.id}`);
+    console.log(code, comments, message);
+
+    if (code !== 200) return Notify({ type: "danger", message });
+
+    this.setData({ commentList: comments });
   },
 
   // 修改文章
@@ -56,23 +89,8 @@ Page({
    * 生命周期函数--监听页面加载
    */
   async onLoad({ id, type }) {
-    const {
-      data: { code, message, data },
-    } = await wx.$http.get(`/api/${type}/article/get/${id}`);
-
-    if (code !== 200) return Notify({ type: "danger", message });
-
-    if (data[0].userID === this.data.userID) {
-      this.setData({
-        showUpdate: true,
-      });
-    }
-
-    this.setData({
-      article: data[0],
-    });
-
-    console.log(this.data.article);
+    await this.getArticleList(id, type);
+    this.getCommentList();
   },
 
   /**
