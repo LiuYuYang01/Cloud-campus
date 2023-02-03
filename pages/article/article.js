@@ -17,7 +17,7 @@ Page({
       name: "",
       avatar: "",
       content: "",
-      date: "2022-6-5 17:12:15",
+      date: "",
     },
   },
   // 获取文章列表
@@ -37,8 +37,6 @@ Page({
     this.setData({
       article: data[0],
     });
-
-    console.log(this.data.article);
   },
 
   // 获取评论列表
@@ -54,7 +52,7 @@ Page({
 
   // 新增评论
   async addComment() {
-    const userInfo = getUserInfo() && JSON.parse(getUserInfo())
+    const userInfo = getUserInfo() && JSON.parse(getUserInfo());
 
     this.setData({
       "comment.aid": this.data.article.id,
@@ -127,8 +125,13 @@ Page({
    */
   async onLoad({ id, type }) {
     await this.getArticleList(id, type);
+
+    // 文章标题
+    wx.setNavigationBarTitle({
+      title: this.data.article.title,
+    });
+
     this.getCommentList();
-    console.log(JSON.parse(getUserInfo()));
   },
 
   /**

@@ -49,7 +49,7 @@
             <!-- 操作 -->
             <view class="operation">
                 <!-- 删除评论 -->
-                <van-icon name="delete-o" class="del" data-id="{{item.id}}" bindtap="delComment" />
+                <van-icon name="delete-o" data-id="{{item.id}}" bindtap="delComment" />
             </view>
         </view>
 

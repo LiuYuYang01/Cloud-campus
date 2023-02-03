@@ -85,5 +85,24 @@ Component({
         });
       }
     },
+    // 删除文章
+    delArticle(e) {
+      const id = e.currentTarget.dataset.id;
+      console.log(id);
+      console.log(this,888);
+      console.log(this.tiggerEvent,999);
+    //   this.tiggerEvent("delArticle", {id:1});
+
+      //   Dialog.confirm({
+      //     title: "提醒",
+      //     message: "你确定要删除该文章吗？",
+      //   })
+      //     .then(async () => {
+      //       console.log("已删除");
+      //     })
+      //     .catch(() => {
+      //       console.log("已取消");
+      //     });
+    },
   },
 });

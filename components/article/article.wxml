@@ -1,3 +1,4 @@
+<van-dialog id="van-dialog" confirm-button-color="#4fb985" />
 <wxs module="filter" src="../../filter/formatTime.wxs"></wxs>
 
 <view class="item" wx:for="{{list}}" wx:key="id">
@@ -60,6 +61,11 @@
         <!-- 收藏 -->
         <view class="collect view" bindtap="collectTap">
             <text class="iconfont icon-favourited" style="color:{{isCollect}}"> 6</text>
+        </view>
+
+        <!-- 删除 -->
+        <view class="delete" data-id="{{item.id}}" bindtap="delArticle">
+            <van-icon name="delete" size="40rpx" color="#ff7272"/>
         </view>
     </view>
 </view>

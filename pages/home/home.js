@@ -139,6 +139,10 @@ Page({
       homeList: res.data,
     });
   },
+// 删除文章
+  delArticle(id){
+    console.log(id);
+  },
   // 跳转到机器人
   goRobot() {
     wx.navigateTo({

@@ -188,6 +188,7 @@
 
 /* 操作 */
 .item .operate {
+    position: relative;
     display: flex;
     justify-content: flex-end;
 }
@@ -196,4 +197,13 @@
     margin-left: 60rpx;
     padding: 20rpx;
     color: #888;
+}
+
+/* 删除文章 */
+.item .operate .delete{
+    position: absolute;
+    top: 50%;
+    left: 20rpx;
+    transform: translateY(-50%);
+    padding: 20rpx 40rpx;
 }

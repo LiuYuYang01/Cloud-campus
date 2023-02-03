@@ -4,8 +4,8 @@
         "miniprogram": {
             "list": [
                 {
-                    "name": "实名认证",
-                    "pathName": "subPackages/my/pages/certified/certified",
+                    "name": "首页",
+                    "pathName": "pages/home/home",
                     "query": "",
                     "launchMode": "default",
                     "scene": null
