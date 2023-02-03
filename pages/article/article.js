@@ -11,8 +11,14 @@ Page({
     showUpdate: false,
     userID: (JSON.parse(getUserInfo()) && JSON.parse(getUserInfo()).id) || 0,
     show: false, // 是否显示评论框
-    commentVal: "", // 发布评论的内容
     commentList: [], //评论列表
+    comment: {
+      aid: "",
+      name: "",
+      avatar: "",
+      content: "11",
+      date:"2022-6-5 17:07:05"
+    },
   },
   // 获取文章列表
   async getArticleList(id, type) {
@@ -40,11 +46,29 @@ Page({
     const {
       data: { code, comments, message },
     } = await wx.$http.get(`/api/comment/${this.data.article.id}`);
-    console.log(code, comments, message);
 
-    if (code !== 200) return
+    if (code !== 200) return;
 
     this.setData({ commentList: comments });
+  },
+
+  // 新增评论
+  async addComment() {
+    this.setData({
+        "comment.aid":this.data.article.id,
+        "comment.name":this.data.article.name,
+        "comment.avatar":this.data.article.avatar,
+    })
+
+    const {
+      data: { code, message },
+    } = await wx.$http.post("/api/comment", this.data.comment);
+
+    if (code !== 200) return Notify({ type: "danger", message });
+
+    Notify({ type: 'success', message: '发布评论成功' });
+
+    this.getCommentList()
   },
 
   // 修改文章
@@ -82,7 +106,7 @@ Page({
 
   // 评论内容
   commentChange(e) {
-    this.setData({ commentVal: e.detail.value });
+    this.setData({ "comment.content": e.detail.value });
   },
 
   /**
@@ -91,6 +115,7 @@ Page({
   async onLoad({ id, type }) {
     await this.getArticleList(id, type);
     this.getCommentList();
+    this.addComment();
   },
 
   /**

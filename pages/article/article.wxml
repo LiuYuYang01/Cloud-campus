@@ -27,7 +27,7 @@
 
 <!-- 评论列表 -->
 <view class="commentBox">
-    <view class="title">评论框 10</view>
+    <view class="title">评论框 {{commentList.length}}</view>
 
     <van-empty class="custom-image" image="https://img.yzcdn.cn/vant/custom-empty-image.png" description="暂无评论，快抢沙发吧！" wx:if="{{!commentList.length}}"/>
 
@@ -80,10 +80,10 @@
     <view class="comment">
         <view class="header">回复</view>
 
-        <textarea value="{{commentVal}}" bindinput="commentChange" placeholder="你的态度至关重要" maxlength="{{150}}" auto-height />
+        <textarea value="{{comment.content}}" bindinput="commentChange" placeholder="你的态度至关重要" maxlength="{{150}}" auto-height />
 
-        <text>{{commentVal.length}} / 150</text>
+        <text>{{comment.content.length}} / 150</text>
 
-        <view class="send">发送</view>
+        <view class="send" bindtap="send">发送</view>
     </view>
 </van-popup>
