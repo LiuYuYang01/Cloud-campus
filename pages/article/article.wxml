@@ -1,6 +1,6 @@
 <wxs module="filter" src="../../filter/formatTime.wxs"></wxs>
 <van-notify id="van-notify" />
-<van-dialog id="van-dialog" confirm-button-color="#4fb985"/>
+<van-dialog id="van-dialog" confirm-button-color="#4fb985" />
 
 <!-- 文章页 -->
 <view class="article">
@@ -28,6 +28,8 @@
 <!-- 评论列表 -->
 <view class="commentBox">
     <view class="title">评论框 10</view>
+
+    <van-empty class="custom-image" image="https://img.yzcdn.cn/vant/custom-empty-image.png" description="暂无评论，快抢沙发吧！" wx:if="{{!commentList.length}}"/>
 
     <view class="item" wx:for="{{commentList}}" wx:key="id">
         <!-- 用户信息 -->
@@ -79,7 +81,7 @@
         <view class="header">回复</view>
 
         <textarea value="{{commentVal}}" bindinput="commentChange" placeholder="你的态度至关重要" maxlength="{{150}}" auto-height />
-    
+
         <text>{{commentVal.length}} / 150</text>
 
         <view class="send">发送</view>

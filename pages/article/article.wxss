@@ -140,6 +140,19 @@ rich-text {
   border-bottom: 2rpx solid #f9f9f9;
 }
 
+.commentBox .item:last-child{
+    padding-bottom: 150rpx;
+}
+
+.commentBox .custom-image .van-empty{
+    padding-bottom: 100rpx;
+}
+
+.commentBox .custom-image .van-empty__image{
+    width: 200rpx;
+    height: 200rpx;
+}
+
 .commentBox .item .header {
   display: flex;
   align-items: center;

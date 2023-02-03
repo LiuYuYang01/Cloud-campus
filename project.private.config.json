@@ -13,7 +13,7 @@
                 {
                     "name": "文章页",
                     "pathName": "pages/article/article",
-                    "query": "id=121&type=home",
+                    "query": "id=119&type=home",
                     "launchMode": "default",
                     "scene": null
                 }

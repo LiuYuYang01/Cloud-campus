@@ -42,7 +42,7 @@ Page({
     } = await wx.$http.get(`/api/comment/${this.data.article.id}`);
     console.log(code, comments, message);
 
-    if (code !== 200) return Notify({ type: "danger", message });
+    if (code !== 200) return
 
     this.setData({ commentList: comments });
   },

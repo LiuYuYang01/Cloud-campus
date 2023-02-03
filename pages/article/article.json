@@ -3,6 +3,7 @@
     "usingComponents": {
         "article":"/components/article/article",
         "van-notify": "@vant/weapp/notify/index",
-        "van-popup": "@vant/weapp/popup/index"
+        "van-popup": "@vant/weapp/popup/index",
+        "van-empty": "@vant/weapp/empty/index"
     }
 }
