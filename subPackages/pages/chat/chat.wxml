@@ -1,0 +1,2 @@
+<!--subPackages/pages/chat/chat.wxml-->
+<view style="text-align: center;">在线用户</view>
