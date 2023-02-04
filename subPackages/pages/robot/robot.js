@@ -47,7 +47,7 @@ Page({
     let value = "";
 
     switch (true) {
-      case val === "你都会什么":
+      case val === "你会什么？":
         value = `我会很多技能哦，你可以按照以下序号指令我：
 
 [1] 讲个笑话

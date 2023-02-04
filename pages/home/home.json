@@ -4,6 +4,7 @@
         "menu":"/components/menu/menu",
         "swiper":"/components/swiper/swiper",
         "circle":"/components/circle/circle",
-        "article":"/components/article/article"
+        "article":"/components/article/article",
+        "van-dialog": "@vant/weapp/dialog/index"
     }
 }

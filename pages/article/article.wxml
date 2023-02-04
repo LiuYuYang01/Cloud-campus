@@ -1,6 +1,7 @@
 <wxs module="filter" src="../../filter/formatTime.wxs"></wxs>
+    
 <van-notify id="van-notify" />
-<van-dialog id="van-dialog" confirm-button-color="#4fb985"/>
+<van-dialog id="van-dialog" confirm-button-color="#4fb985" />
 
 <!-- 文章页 -->
 <view class="article">
@@ -15,7 +16,7 @@
             <view class="date">{{filter.formatTime(article.date)}}</view>
         </view>
 
-        <view class="attention" wx:if="{{showUpdate}}" bindtap="update">修改</view>
+        <view class="attention" wx:if="{{showUpdate}}" bindtap="updateArticle">修改</view>
     </view>
 
     <!-- 标题 -->
@@ -27,113 +28,34 @@
 
 <!-- 评论列表 -->
 <view class="commentBox">
-    <view class="title">评论框 10</view>
+    <view class="title">评论框 {{commentList.length}}</view>
 
-    <view class="item">
+    <van-empty class="custom-image" image="https://img.yzcdn.cn/vant/custom-empty-image.png" description="暂无评论，快抢沙发吧！" wx:if="{{!commentList.length}}"/>
+
+    <view class="item" wx:for="{{commentList}}" wx:key="id">
         <!-- 用户信息 -->
         <view class="header">
             <!-- 头像 -->
             <view class="avatar">
-                <image src="https://app.guiigo.com/uc_server/data/avatar/000/00/00/21_avatar_middle.jpg" mode="" />
+                <image src="{{item.avatar}}" mode="" />
             </view>
 
             <!-- 用户信息 -->
             <view class="info">
-                <view class="title">独自沉默</view>
-                <view class="date">2022-6-5 17:07:05</view>
+                <view class="title">{{item.name}}</view>
+                <view class="date">{{filter.formatTime(item.date)}}</view>
             </view>
 
             <!-- 操作 -->
             <view class="operation">
                 <!-- 删除评论 -->
-                <van-icon name="delete-o" class="del" bindtap="del" />
+                <van-icon name="delete-o" data-id="{{item.id}}" bindtap="delComment" />
             </view>
         </view>
 
         <!-- 评论内容 -->
         <view class="content">
-            当你慢下来细细的在这个城市中寻找，依旧可以发现很多线索，让你感受到这座城市的另一面。
-        </view>
-    </view>
-
-    <view class="item">
-        <!-- 用户信息 -->
-        <view class="header">
-            <!-- 头像 -->
-            <view class="avatar">
-                <image src="https://app.guiigo.com/uc_server/data/avatar/000/00/00/21_avatar_middle.jpg" mode="" />
-            </view>
-
-            <!-- 用户信息 -->
-            <view class="info">
-                <view class="title">独自沉默</view>
-                <view class="date">2022-6-5 17:07:05</view>
-            </view>
-
-            <!-- 操作 -->
-            <view class="operation">
-                <!-- 删除评论 -->
-                <van-icon name="delete-o" class="del" bindtap="del" />
-            </view>
-        </view>
-
-        <!-- 评论内容 -->
-        <view class="content">
-            当你慢下来细细的在这个城市中寻找，依旧可以发现很多线索，让你感受到这座城市的另一面。
-        </view>
-    </view>
-
-    <view class="item">
-        <!-- 用户信息 -->
-        <view class="header">
-            <!-- 头像 -->
-            <view class="avatar">
-                <image src="https://app.guiigo.com/uc_server/data/avatar/000/00/00/21_avatar_middle.jpg" mode="" />
-            </view>
-
-            <!-- 用户信息 -->
-            <view class="info">
-                <view class="title">独自沉默</view>
-                <view class="date">2022-6-5 17:07:05</view>
-            </view>
-
-            <!-- 操作 -->
-            <view class="operation">
-                <!-- 删除评论 -->
-                <van-icon name="delete-o" class="del" bindtap="del" />
-            </view>
-        </view>
-
-        <!-- 评论内容 -->
-        <view class="content">
-            当你慢下来细细的在这个城市中寻找，依旧可以发现很多线索，让你感受到这座城市的另一面。
-        </view>
-    </view>
-
-    <view class="item">
-        <!-- 用户信息 -->
-        <view class="header">
-            <!-- 头像 -->
-            <view class="avatar">
-                <image src="https://app.guiigo.com/uc_server/data/avatar/000/00/00/21_avatar_middle.jpg" mode="" />
-            </view>
-
-            <!-- 用户信息 -->
-            <view class="info">
-                <view class="title">独自沉默</view>
-                <view class="date">2022-6-5 17:07:05</view>
-            </view>
-
-            <!-- 操作 -->
-            <view class="operation">
-                <!-- 删除评论 -->
-                <van-icon name="delete-o" class="del" bindtap="del" />
-            </view>
-        </view>
-
-        <!-- 评论内容 -->
-        <view class="content">
-            当你慢下来细细的在这个城市中寻找，依旧可以发现很多线索，让你感受到这座城市的另一面。
+            {{item.content}}
         </view>
     </view>
 </view>
@@ -159,8 +81,10 @@
     <view class="comment">
         <view class="header">回复</view>
 
-        <textarea value="{{commentVal}}" bindinput="commentChange" placeholder="你的态度至关重要" maxlength="{{150}}" auto-height />
-    
-        <text>{{commentVal.length}} / 150</text>
+        <textarea value="{{comment.content}}" bindinput="commentChange" placeholder="你的态度至关重要" maxlength="{{150}}" auto-height />
+
+        <text>{{comment.content.length}} / 150</text>
+
+        <view class="send" bindtap="addComment">发送</view>
     </view>
 </van-popup>

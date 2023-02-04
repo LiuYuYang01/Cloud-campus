@@ -1,6 +1,9 @@
+<van-notify id="van-notify" />
+<van-dialog id="van-dialog" confirm-button-color="#4fb985" />
+
 <wxs module="filter" src="../../filter/formatTime.wxs"></wxs>
 
-<view class="item" wx:for="{{list}}" wx:key="id">
+<view class="item" wx:for="{{articleList}}" wx:key="id">
     <view data-id="{{item.id}}" data-type="{{item.type}}" bindtap="go">
         <!-- 用户信息 -->
         <view class="header">
@@ -11,14 +14,14 @@
             <view class="info">
                 <view class="title">
                     {{item.name}}
-                    <view wx:if="{{item.is_realname === 1}}" class="realnameBox">
-                        <image src="/assets/svg/realname.svg" class="realname"></image>
-                        <text class="text">已实名</text>
-                    </view>
-
                     <view wx:if="{{item.is_admin === 1}}" class="realnameBox">
                         <image src="/assets/svg/certified.svg" class="realname"></image>
                         <text class="text">管理员</text>
+                    </view>
+                    
+                    <view wx:if="{{item.is_realname === 1}}" class="realnameBox">
+                        <image src="/assets/svg/realname.svg" class="realname"></image>
+                        <text class="text">已实名</text>
                     </view>
                 </view>
                 <view class="date">{{filter.formatTime(item.date)}}</view>
@@ -60,6 +63,11 @@
         <!-- 收藏 -->
         <view class="collect view" bindtap="collectTap">
             <text class="iconfont icon-favourited" style="color:{{isCollect}}"> 6</text>
+        </view>
+
+        <!-- 删除 -->
+        <view class="delete" data-id="{{item.id}}" data-type="{{item.type}}" bindtap="delArticle">
+            <van-icon name="delete" size="40rpx" color="#ff7272"/>
         </view>
     </view>
 </view>

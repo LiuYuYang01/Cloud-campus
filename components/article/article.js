@@ -1,3 +1,6 @@
+import Dialog from "@vant/weapp/dialog/dialog";
+import Notify from "@vant/weapp/notify/notify";
+
 Component({
   styleIsolation: "shared",
   options: {
@@ -13,6 +16,7 @@ Component({
       type: String,
       value: "#49b984",
     },
+    abc: String,
   },
 
   /**
@@ -20,6 +24,7 @@ Component({
    */
   data: {
     data: [],
+    articleList: [],
   },
 
   lifetimes: {
@@ -37,6 +42,10 @@ Component({
         });
 
         return list_item;
+      });
+
+      this.setData({
+        articleList: this.data.list,
       });
 
       this.setData({
@@ -84,6 +93,45 @@ Component({
           isCollect: "#888",
         });
       }
+    },
+    // 删除文章
+    delArticle(e) {
+      const { id, type } = e.currentTarget.dataset;
+
+      Dialog.confirm({
+        context: this,
+        title: "提醒",
+        message: "你确定要删除该文章吗？",
+      })
+        .then(async () => {
+          const {
+            data: { code, message },
+          } = await wx.$http.delete(`/api/${type}/article/${id}`);
+
+          if (code !== 200)
+            Notify({
+              type: "danger",
+              message,
+            });
+
+          // 获取文章列表
+          (async () => {
+            const {
+              data: { code, data, message },
+            } = await wx.$http.get(`/api/${type}/article`);
+
+            if (code !== 200) return;
+
+            this.setData({
+              articleList: data,
+            });
+          })();
+
+          Notify({ type: "success", message: "恭喜你删除文章成功" });
+        })
+        .catch((e) => {
+          console.log("异常捕获：", e);
+        });
     },
   },
 });
