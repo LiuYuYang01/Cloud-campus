@@ -1,5 +1,6 @@
 import Notify from "@vant/weapp/notify/notify";
 import { getToken } from "../../utils/localStorage";
+
 Page({
   /**
    * 页面的初始数据
@@ -138,10 +139,6 @@ Page({
     this.setData({
       homeList: res.data,
     });
-  },
-// 删除文章
-  delArticle(id){
-    console.log(id);
   },
   // 跳转到机器人
   goRobot() {

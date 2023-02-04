@@ -1,7 +1,9 @@
+<van-notify id="van-notify" />
 <van-dialog id="van-dialog" confirm-button-color="#4fb985" />
+
 <wxs module="filter" src="../../filter/formatTime.wxs"></wxs>
 
-<view class="item" wx:for="{{list}}" wx:key="id">
+<view class="item" wx:for="{{articleList}}" wx:key="id">
     <view data-id="{{item.id}}" data-type="{{item.type}}" bindtap="go">
         <!-- 用户信息 -->
         <view class="header">
@@ -64,7 +66,7 @@
         </view>
 
         <!-- 删除 -->
-        <view class="delete" data-id="{{item.id}}" bindtap="delArticle">
+        <view class="delete" data-id="{{item.id}}" data-type="{{item.type}}" bindtap="delArticle">
             <van-icon name="delete" size="40rpx" color="#ff7272"/>
         </view>
     </view>

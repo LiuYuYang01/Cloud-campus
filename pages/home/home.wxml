@@ -33,7 +33,7 @@
     <!-- 主要内容 -->
     <view class="main">
         <!-- 置顶文章 -->
-        <article list="{{homeToppingList}}" bind:delArticle="delArticle"></article>
+        <article list="{{homeToppingList}}"></article>
 
         <!-- 普通文章 -->
         <article list="{{homeList}}" class="article"></article>
