@@ -26,7 +26,8 @@
                 "my/pages/updatePass/updatePass",
                 "my/pages/wallet/wallet",
                 "my/pages/content/content",
-                "my/pages/orderDetails/orderDetails"
+                "my/pages/orderDetails/orderDetails",
+                "pages/chat/chat"
             ]
         }
     ],
