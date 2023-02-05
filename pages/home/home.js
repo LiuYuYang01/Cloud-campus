@@ -1,5 +1,5 @@
 import Notify from "@vant/weapp/notify/notify";
-import { getToken } from "../../utils/localStorage";
+import { getToken} from "../../utils/localStorage";
 
 Page({
     /**

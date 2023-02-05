@@ -6,7 +6,6 @@
         "pages/socialize/socialize",
         "pages/my/my",
         "pages/login/login",
-        "pages/register/register",
         "pages/article/article",
         "pages/release/release",
         "pages/love/love"
