@@ -2,6 +2,7 @@
     "component": true,
     "usingComponents": {
         "van-tag": "@vant/weapp/tag/index",
-        "van-dialog": "@vant/weapp/dialog/index"
+        "van-dialog": "@vant/weapp/dialog/index",
+        "van-notify": "@vant/weapp/notify/index"
     }
 }

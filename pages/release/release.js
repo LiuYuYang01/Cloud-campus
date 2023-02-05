@@ -1,5 +1,6 @@
 import { createStoreBindings } from "mobx-miniprogram-bindings";
 import store from "../../store/store";
+import { getUserInfo } from "../../utils/localStorage";
 
 import Notify from "@vant/weapp/notify/notify";
 import Dialog from "@vant/weapp/dialog/dialog";
@@ -35,6 +36,8 @@ Page({
       is_topping: 0, //是否置顶该文章
       is_boutique: 0, //是否精品该文章
       is_collection: 0, //是否收藏该文章
+      is_admin: 0, //是否是管理员
+      is_realname: 0, //是否已实名
       date: "", //文章发布时间
     },
 
@@ -104,6 +107,12 @@ Page({
           });
         }
       };
+
+      const userInfo = getUserInfo() && JSON.parse(getUserInfo())
+      this.setData({
+        "article.is_admin": userInfo.is_admin,
+        "article.is_realname": userInfo.is_realname,
+      });
 
       // 选择发布文章到哪里
       if (this.data.cate === "首页") {

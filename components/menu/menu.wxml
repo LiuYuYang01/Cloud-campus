@@ -11,9 +11,14 @@
 
         <view class="name">{{userInfo.name}}</view>
         <view class="identity">
-            <image src="/assets/svg/certified.svg" class="image"></image>
-            <!-- <text>{{userInfo.identity}}</text> -->
-            <text>暂无身份</text>
+            <block wx:if="{{userInfo.is_admin}}">
+                <image src="/assets/svg/certified.svg" class="image"></image>
+                <text>管理员</text>
+            </block>
+
+            <block wx:else>
+                <text>学生</text>
+            </block>
         </view>
     </view>
 

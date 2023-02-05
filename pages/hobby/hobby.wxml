@@ -1,3 +1,6 @@
+<!-- 消息提示 -->
+<van-notify id="van-notify" />
+
 <view bindtouchstart="touchStart" bindtouchmove="touchMove" class="hobby">
     <!-- 搜索框 -->
     <van-search input-align="center" value="{{ keyword }}" placeholder="搜你所想 搜你喜欢" background="#4fb985" class="search" bind:change="searchHandler" bind:focus="showSB" bind:blur="hideSB" />
@@ -46,7 +49,7 @@
     <!-- 置顶文章 -->
     <article list="{{hobbyToppingList}}"></article>
 
-    <article class="article" list="{{hobbyList}}" />
+    <article class="article" list="{{hobbyList}}"  bindgetList="getList"/>
 </view>
 
 <!-- tabBar -->

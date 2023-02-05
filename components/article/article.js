@@ -1,19 +1,19 @@
 import Dialog from "@vant/weapp/dialog/dialog";
 import Notify from "@vant/weapp/notify/notify";
 import { getUserInfo } from "../../utils/localStorage";
-import { storeBindingsBehavior } from 'mobx-miniprogram-bindings';
-import store from '../../store/store';
+import { storeBindingsBehavior } from "mobx-miniprogram-bindings";
+import store from "../../store/store";
 
 Component({
-    behaviors:[storeBindingsBehavior],
-    styleIsolation: "shared",
-    options: {
-        styleIsolation: "apply-shared",
-    },
-    storeBindings:{
-        store,
-        fields: {user: 'userInfo'}
-    },
+  behaviors: [storeBindingsBehavior],
+  styleIsolation: "shared",
+  options: {
+    styleIsolation: "apply-shared",
+  },
+  storeBindings: {
+    store,
+    fields: { user: "userInfo" },
+  },
 
   /**
    * 组件的属性列表
@@ -24,7 +24,6 @@ Component({
       type: String,
       value: "#49b984",
     },
-    abc: String,
   },
 
   /**
@@ -32,36 +31,6 @@ Component({
    */
   data: {
     data: [],
-    // articleList: [],
-    // user: {}, 
-  },
-
-  lifetimes: {
-    async ready() {
-        // console.log(this.data.user);
-    //   let {
-    //     data: { data },
-    //   } = await wx.$http.get("/api/user");
-
-      // 判断用户是否是管理员或者是否实名认证
-    //   const list = this.data.list.filter((list_item) => {
-    //     data.forEach((user_item) => {
-    //       if (list_item.userID === user_item.id) {
-    //         list_item.is_realname = user_item.is_realname;
-    //         list_item.is_admin = user_item.is_admin;
-    //       }
-    //     });
-
-    //     return list_item;
-    //   });
-
-    //   this.setData({
-        // list: list,
-        // articleList: this.data.list,
-        // 拿到当前登录用户的id
-        // user: getUserInfo() && JSON.parse(getUserInfo()),
-    //   });
-    },
   },
 
   /**
@@ -120,22 +89,13 @@ Component({
 
           if (code !== 200)
             Notify({
+              context: this,
               type: "danger",
               message,
             });
 
-          // 获取文章列表
-          (async () => {
-            const {
-              data: { code, data, message },
-            } = await wx.$http.get(`/api/${type}/article`);
-
-            if (code !== 200) return;
-
-            this.setData({
-              articleList: data,
-            });
-          })();
+          // 调用父组件中getList方法重新获取最新的数据
+          this.triggerEvent("getList");
 
           Notify({ type: "success", message: "恭喜你删除文章成功" });
         })

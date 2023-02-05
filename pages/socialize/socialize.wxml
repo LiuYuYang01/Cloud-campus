@@ -1,3 +1,5 @@
+<van-notify id="van-notify" />
+
 <view bindtouchstart="touchStart" bindtouchmove="touchMove" class="hobby">
     <view class="cover">
         <view class="userInfo">
@@ -9,7 +11,7 @@
     </view>
 
     <!-- 内容 -->
-    <article list="{{dynamicList}}" class="article" />
+    <article list="{{dynamicList}}" class="article" bindgetList="getList" />
 
     <!-- tabBar -->
     <van-tabbar active="{{ active }}" active-color="#49b984" inactive-color="#333" bind:change="selectTabBar">
