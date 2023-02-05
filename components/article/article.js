@@ -1,5 +1,6 @@
 import Dialog from "@vant/weapp/dialog/dialog";
 import Notify from "@vant/weapp/notify/notify";
+import { getUserInfo } from "../../utils/localStorage";
 
 Component({
   styleIsolation: "shared",
@@ -25,6 +26,7 @@ Component({
   data: {
     data: [],
     articleList: [],
+    user: {},
   },
 
   lifetimes: {
@@ -33,6 +35,7 @@ Component({
         data: { data },
       } = await wx.$http.get("/api/user");
 
+      // 判断用户是否是管理员或者是否实名认证
       const list = this.data.list.filter((list_item) => {
         data.forEach((user_item) => {
           if (list_item.userID === user_item.id) {
@@ -45,11 +48,10 @@ Component({
       });
 
       this.setData({
-        articleList: this.data.list,
-      });
-
-      this.setData({
         list: list,
+        articleList: this.data.list,
+        // 拿到当前登录用户的id
+        user: getUserInfo() && JSON.parse(getUserInfo()),
       });
     },
   },
@@ -129,8 +131,8 @@ Component({
 
           Notify({ type: "success", message: "恭喜你删除文章成功" });
         })
-        .catch((e) => {
-          console.log("异常捕获：", e);
+        .catch(() => {
+          console.log("已取消删除");
         });
     },
   },

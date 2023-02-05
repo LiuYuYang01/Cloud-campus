@@ -1,5 +1,5 @@
 import Notify from "@vant/weapp/notify/notify";
-import { getToken } from "../../utils/localStorage";
+import { getToken} from "../../utils/localStorage";
 
 Page({
   /**
@@ -165,14 +165,14 @@ Page({
    */
   onShow() {
     // 判断有没有Token，没有就代表未登录，跳转到登录页
-    if (getToken()) {
-      console.log("已登录");
-    } else {
-      console.log("未登录");
-      wx.navigateTo({
-        url: "/pages/login/login",
-      });
-    }
+    // if (getToken()) {
+    //   console.log("已登录");
+    // } else {
+    //   console.log("未登录");
+    //   wx.navigateTo({
+    //     url: "/pages/login/login",
+    //   });
+    // }
   },
 
   /**
@@ -183,7 +183,8 @@ Page({
   /**
    * 生命周期函数--监听页面卸载
    */
-  onUnload() {},
+  onUnload() {
+  },
 
   /**
    * 页面相关事件处理函数--监听用户下拉动作

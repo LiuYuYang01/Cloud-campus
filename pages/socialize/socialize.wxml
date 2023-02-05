@@ -9,7 +9,7 @@
     </view>
 
     <!-- 内容 -->
-    <article list="{{dynamicList}}" />
+    <article list="{{dynamicList}}" class="article" />
 
     <!-- tabBar -->
     <van-tabbar active="{{ active }}" active-color="#49b984" inactive-color="#333" bind:change="selectTabBar">
