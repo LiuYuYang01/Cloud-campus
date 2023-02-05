@@ -1,18 +1,20 @@
 // subPackages/pages/chat/chat.js
+import Toast from '@vant/weapp/toast/toast';
 Page({
 
-    /**
-     * 页面的初始数据
-     */
     data: {
-
+        chatObj: {}, // 聊天对象（指人）
     },
 
-    /**
-     * 生命周期函数--监听页面加载
-     */
+
     onLoad(options) {
-        // console.log(wx.$store,11111);
+        let { uid } = options;
+        wx.$http.get(`/api/user/${uid}`)
+        .then(res => {
+            let {code,message,data} = res.data;
+            if(code == 400) return Toast.fail(message);
+            this.setData({chatObj: data[0]})
+        })
     },
 
     /**
@@ -40,8 +42,7 @@ Page({
      * 生命周期函数--监听页面卸载
      */
     onUnload() {
-        // 删除接收在线用户的事件
-        wx.$socket.removeAllListeners('onlineUser');
+
     },
 
     /**

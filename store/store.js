@@ -2,7 +2,7 @@ import common from "./module/common/common";
 import user from "./module/user/user";
 
 // 导入mobx实例：observable
-import { observable } from "mobx-miniprogram";
+import { observable, action } from "mobx-miniprogram";
 
 // 导出mobx实例
 export default observable({
@@ -10,4 +10,9 @@ export default observable({
   ...common,
   // 用户数据
   ...user,
+
+  onlineUserList: [], // 在线用户
+  upd_online_user: action(function(data){
+      this.onlineUserList = data || [];
+  })
 });

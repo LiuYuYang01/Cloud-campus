@@ -16,11 +16,19 @@
                     "query": "id=119&type=home",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "在线",
+                    "pathName": "subPackages/pages/onlineUser/onlineUser",
+                    "query": "",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }
     },
     "setting": {
-        "urlCheck": false
+        "urlCheck": false,
+        "compileHotReLoad": true
     }
 }

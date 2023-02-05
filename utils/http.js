@@ -8,7 +8,7 @@ import { getToken } from '../utils/localStorage';
 wx.$http = $http
 
 // 配置请求根路径
-// $http.baseUrl = 'http://192.168.0.111:7001'
+// $http.baseUrl = 'http://192.168.0.111:7007'
 $http.baseUrl = 'https://api.tockey.cn'
 
 // 请求开始之前做一些事情

@@ -28,7 +28,8 @@
                 "my/pages/wallet/wallet",
                 "my/pages/content/content",
                 "my/pages/orderDetails/orderDetails",
-                "pages/chat/chat"
+                "pages/chat/chat",
+                "pages/onlineUser/onlineUser"
             ]
         }
     ],
@@ -77,6 +78,7 @@
         "van-toast": "@vant/weapp/toast/index",
         "van-count-down": "@vant/weapp/count-down/index",
         "van-transition": "@vant/weapp/transition/index",
-        "van-loading": "@vant/weapp/loading/index"
+        "van-loading": "@vant/weapp/loading/index",
+        "van-field": "@vant/weapp/field/index"
     }
 }
