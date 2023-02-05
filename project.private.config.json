@@ -21,6 +21,7 @@
         }
     },
     "setting": {
-        "urlCheck": false
+        "urlCheck": false,
+        "compileHotReLoad": false
     }
 }
