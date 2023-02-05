@@ -122,7 +122,7 @@ Page({
         });
 
         this.setData({
-            homeToppingList: res.data,
+            homeToppingList: res.data || [],
         });
     },
     // 获取学校动态文章
