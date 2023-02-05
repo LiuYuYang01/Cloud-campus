@@ -1,12 +1,19 @@
 import Dialog from "@vant/weapp/dialog/dialog";
 import Notify from "@vant/weapp/notify/notify";
 import { getUserInfo } from "../../utils/localStorage";
+import { storeBindingsBehavior } from 'mobx-miniprogram-bindings';
+import store from '../../store/store';
 
 Component({
-  styleIsolation: "shared",
-  options: {
-    styleIsolation: "apply-shared",
-  },
+    behaviors:[storeBindingsBehavior],
+    styleIsolation: "shared",
+    options: {
+        styleIsolation: "apply-shared",
+    },
+    storeBindings:{
+        store,
+        fields: {user: 'userInfo'}
+    },
 
   /**
    * 组件的属性列表
@@ -25,34 +32,35 @@ Component({
    */
   data: {
     data: [],
-    articleList: [],
-    user: {},
+    // articleList: [],
+    // user: {}, 
   },
 
   lifetimes: {
     async ready() {
-      let {
-        data: { data },
-      } = await wx.$http.get("/api/user");
+        // console.log(this.data.user);
+    //   let {
+    //     data: { data },
+    //   } = await wx.$http.get("/api/user");
 
       // 判断用户是否是管理员或者是否实名认证
-      const list = this.data.list.filter((list_item) => {
-        data.forEach((user_item) => {
-          if (list_item.userID === user_item.id) {
-            list_item.is_realname = user_item.is_realname;
-            list_item.is_admin = user_item.is_admin;
-          }
-        });
+    //   const list = this.data.list.filter((list_item) => {
+    //     data.forEach((user_item) => {
+    //       if (list_item.userID === user_item.id) {
+    //         list_item.is_realname = user_item.is_realname;
+    //         list_item.is_admin = user_item.is_admin;
+    //       }
+    //     });
 
-        return list_item;
-      });
+    //     return list_item;
+    //   });
 
-      this.setData({
-        list: list,
-        articleList: this.data.list,
+    //   this.setData({
+        // list: list,
+        // articleList: this.data.list,
         // 拿到当前登录用户的id
-        user: getUserInfo() && JSON.parse(getUserInfo()),
-      });
+        // user: getUserInfo() && JSON.parse(getUserInfo()),
+    //   });
     },
   },
 

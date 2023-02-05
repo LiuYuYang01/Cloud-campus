@@ -3,7 +3,7 @@
 
 <wxs module="filter" src="../../filter/formatTime.wxs"></wxs>
 
-<view class="item" wx:for="{{articleList}}" wx:key="id">
+<view class="item" wx:for="{{list}}" wx:key="id">
     <view data-id="{{item.id}}" data-type="{{item.type}}" bindtap="go">
         <!-- 用户信息 -->
         <view class="header">

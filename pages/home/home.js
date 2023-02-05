@@ -128,7 +128,7 @@ Page({
     // 获取学校动态文章
     async __getHomeList() {
         const { data: res } = await wx.$http.get("/api/home/article");
-
+        console.log('获取homeA');
         // 请求失败提示
         if (res.code !== 200)
             Notify({
@@ -167,6 +167,9 @@ Page({
         // 判断有没有Token，没有就代表未登录，跳转到登录页
         if (getToken()) {
             console.log("已登录");
+            // this.__getHomeList();
+            // let artCom = this.selectComponent('.article');
+            // artCom.setData({list: this.data.homeList});
         } else {
             console.log("未登录");
             wx.navigateTo({

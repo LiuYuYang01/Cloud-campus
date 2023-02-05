@@ -99,6 +99,9 @@ Page({
     });
 
     setToken("");
+    wx.navigateTo({
+      url: '../../pages/login/login',
+    })
   },
 
   // 跳转到修改资料页面
