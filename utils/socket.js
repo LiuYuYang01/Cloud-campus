@@ -1,14 +1,18 @@
 import io from '../assets/js/weapp.socket.io';  // 引入 socket.io
 // const socket = io('http://localhost:7001');
-// const socket = io('http://192.168.0.111:7007');
-const socket = io('https://api.tockey.cn');
+const socket = io('http://192.168.0.111:7001');
+// const socket = io('https://api.tockey.cn');
 
 socket.on('connect', function () {
     // console.log('连接成功', socket.id);
 
-    // 监听私聊信息
-    socket.on(socket.id, res => {
-        console.log('私聊信息:', res);
+    // 接收私聊信息
+    socket.on('message', res => {
+        console.log('私聊信息', res);
+        // 设置未读状态
+        wx.$store.updUnreadList(res.sender_id);
+        wx.$store.updMsgList('more', res);
+        // console.log(wx.$store.msg);
     });
     // 接收公共消息
     socket.on('public', res => {
@@ -18,11 +22,11 @@ socket.on('connect', function () {
     socket.on('err', res => {
         console.log(res);
     });
-    // 监听在线用户
-    wx.$socket.on('onlineUser', res => {
-        console.log(res, 123);
+    // 接收在线用户
+    socket.on('onlineUser', res => {
+        // console.log(res);
         // 将数据存到 store
-        wx.$store.upd_online_user(res.onlineUser);
+        wx.$store.updOnlineUser(res.onlineUser);
     });
     // 更新用户在线状态
     wx.$socket.emit('updUserOnlineState', {

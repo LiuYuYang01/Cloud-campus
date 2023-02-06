@@ -103,7 +103,12 @@ Page({
       url: '../../pages/login/login',
     })
   },
-
+  // 跳转到在线列表
+  goOnlineList(){
+      wx.navigateTo({
+        url: '/subPackages/pages/onlineUser/onlineUser',
+      })
+  },
   // 跳转到修改资料页面
   goData() {
     wx.navigateTo({ url: "/subPackages/my/pages/data/data" });
@@ -136,7 +141,7 @@ Page({
   onLoad(options) {
     this.storeBindings = createStoreBindings(this, {
       store,
-      fields: ["userInfo"],
+      fields: ["userInfo","unreadList"],
       actions: ["updateUserInfo"],
     });
 

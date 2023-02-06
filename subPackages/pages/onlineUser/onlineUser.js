@@ -1,4 +1,5 @@
 // subPackages/pages/onlineUser/onlineUser.js
+import Toast from '@vant/weapp/toast/toast';
 import { storeBindingsBehavior } from 'mobx-miniprogram-bindings';
 import store from '../../../store/store';
 Page({
@@ -11,18 +12,21 @@ Page({
         store,
         fields: {
             // 本地字段 指向 store 中的字段
-            onlineUserList: 'onlineUserList'
+            onlineUserList: 'onlineUserList',
+            unreadList:'unreadList',
+            my:'userInfo'
         }
     },
     // 跳转到聊天页
     goToChat(e){
         // console.log(e.currentTarget.dataset.uid);
+        if(e.currentTarget.dataset.uid == this.data.my.id) return Toast.fail('你不能和自己聊天');
         wx.navigateTo({
           url: `../chat/chat?uid=${e.currentTarget.dataset.uid}`,
         })
     },
     onLoad(options) {
-
+        // console.log(this.data.onlineUserList);
     },
 
     onReady() {

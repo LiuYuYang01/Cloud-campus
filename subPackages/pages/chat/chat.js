@@ -1,20 +1,48 @@
 // subPackages/pages/chat/chat.js
 import Toast from '@vant/weapp/toast/toast';
+import { storeBindingsBehavior } from 'mobx-miniprogram-bindings';
+import store from '../../../store/store';
 Page({
-
+    behaviors: [storeBindingsBehavior],
+    storeBindings: {
+        store,
+        fields: {
+            msgList: 'msgList',
+            my:'userInfo'
+        }
+    },
     data: {
         chatObj: {}, // 聊天对象（指人）
+        msg: '', // 输入的信息
+    },
+    // 发送消息
+    toUserSendMsg(e) {
+        // console.log(this.data.msg);
+        if(!this.data.msg.length) return Toast('请输入内容再发送');
+        wx.$socket.emit('sendMsg', {
+            sid: this.data.chatObj.socket_id, // 接收者的 socketID
+            sender_id: wx.$store.userInfo.id, // 发送者的用户ID
+            receiver_id: this.data.chatObj.id, // 接收者的用户ID
+            message: this.data.msg, // 消息
+        });
+        // 清空输入框
+        this.setData({ msg: '' });
     },
 
-
-    onLoad(options) {
+    async onLoad(options) {
         let { uid } = options;
-        wx.$http.get(`/api/user/${uid}`)
-        .then(res => {
-            let {code,message,data} = res.data;
-            if(code == 400) return Toast.fail(message);
-            this.setData({chatObj: data[0]})
-        })
+        let res1 = await wx.$http.get(`/api/user/${uid}`)
+        let { code, message, data } = res1.data;
+        if (code == 400) return Toast.fail(message);
+        this.setData({ chatObj: data[0] });
+
+        // 客户端进入聊天页时主动获取历史聊天数据
+        let res2 = await wx.$http.post('/api/chatlist', {
+            sender_id: wx.$store.userInfo.id, // 发送者的用户ID
+            receiver_id: this.data.chatObj.id, // 接收者的用户ID
+        });
+        // console.log(res2.data.chatList);
+        wx.$store.updMsgList('more',res2.data.chatList)
     },
 
     /**
@@ -28,7 +56,7 @@ Page({
      * 生命周期函数--监听页面显示
      */
     onShow() {
-
+        // console.log(1);
     },
 
     /**
@@ -42,7 +70,8 @@ Page({
      * 生命周期函数--监听页面卸载
      */
     onUnload() {
-
+        console.log('清空数据');
+        wx.$store.updMsgList('clear')
     },
 
     /**

@@ -11,8 +11,6 @@ export default observable({
   // 用户数据
   ...user,
 
-  onlineUserList: [], // 在线用户
-  upd_online_user: action(function(data){
-      this.onlineUserList = data || [];
-  })
+
+
 });
