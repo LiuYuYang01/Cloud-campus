@@ -8,7 +8,8 @@ Page({
         store,
         fields: {
             msgList: 'msgList',
-            my:'userInfo'
+            my:'userInfo',
+            onlineUserList:'onlineUserList'
         }
     },
     data: {
@@ -19,6 +20,10 @@ Page({
     toUserSendMsg(e) {
         // console.log(this.data.msg);
         if(!this.data.msg.length) return Toast('请输入内容再发送');
+        // 判断对方是否离线
+        let isOffline = this.data.onlineUserList.find(item => item.id == this.data.chatObj.id);
+        if(!isOffline) return Toast.feil('对方已离线!')
+
         wx.$socket.emit('sendMsg', {
             sid: this.data.chatObj.socket_id, // 接收者的 socketID
             sender_id: wx.$store.userInfo.id, // 发送者的用户ID

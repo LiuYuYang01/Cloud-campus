@@ -1,7 +1,7 @@
 import io from '../assets/js/weapp.socket.io';  // 引入 socket.io
 // const socket = io('http://localhost:7001');
-const socket = io('http://192.168.0.111:7001');
-// const socket = io('https://api.tockey.cn');
+// const socket = io('http://192.168.0.111:7001');
+const socket = io('https://api.tockey.cn');
 
 socket.on('connect', function () {
     // console.log('连接成功', socket.id);
@@ -9,8 +9,11 @@ socket.on('connect', function () {
     // 接收私聊信息
     socket.on('message', res => {
         console.log('私聊信息', res);
-        // 设置未读状态
-        wx.$store.updUnreadList(res.sender_id);
+        // 添加未读数据
+        if(wx.$store.userInfo.id != res.sender_id) {
+            // 排除自己的未读数据
+            wx.$store.updUnreadList(res.sender_id);
+        }
         wx.$store.updMsgList('more', res);
         // console.log(wx.$store.msg);
     });
