@@ -90,24 +90,11 @@ Page({
       });
     }
   },
-
-  // 退出登录
-  quit() {
-    setUserInfo();
-    this.setData({
-      userInfo: JSON.parse(getUserInfo()),
-    });
-
-    setToken("");
-    wx.navigateTo({
-      url: '../../pages/login/login',
-    })
-  },
   // 跳转到在线列表
-  goOnlineList(){
-      wx.navigateTo({
-        url: '/subPackages/pages/onlineUser/onlineUser',
-      })
+  goOnlineList() {
+    wx.navigateTo({
+      url: "/subPackages/pages/onlineUser/onlineUser",
+    });
   },
   // 跳转到修改资料页面
   goData() {
@@ -118,7 +105,7 @@ Page({
     wx.navigateTo({ url: "/subPackages/my/pages/certified/certified" });
   },
   // 跳转到修改密码页面
-  goUpdatePass(){
+  goUpdatePass() {
     wx.navigateTo({ url: "/subPackages/my/pages/updatePass/updatePass" });
   },
   // 邀请好友
@@ -134,6 +121,18 @@ Page({
     Toast(event.detail.name);
     this.onClose();
   },
+  // 退出登录
+  quit() {
+    setUserInfo();
+    this.setData({
+      userInfo: JSON.parse(getUserInfo()),
+    });
+
+    setToken("");
+    wx.navigateTo({
+      url: "../../pages/login/login",
+    });
+  },
 
   /**
    * 生命周期函数--监听页面加载
@@ -141,7 +140,7 @@ Page({
   onLoad(options) {
     this.storeBindings = createStoreBindings(this, {
       store,
-      fields: ["userInfo","unreadList"],
+      fields: ["userInfo", "unreadList"],
       actions: ["updateUserInfo"],
     });
 
