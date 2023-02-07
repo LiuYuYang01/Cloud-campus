@@ -1,5 +1,8 @@
+<van-notify id="van-notify" />
+<van-toast id="van-toast" />
+
 <!-- 头部 -->
-<view class="top">
+<view class="top" style="background-image: url({{userInfo.cover}})">
     <!-- 波浪 -->
     <view class="zr">
         <view class="water">
@@ -51,19 +54,19 @@
 
     <van-tab title="个人资料">
         <van-cell-group>
-            <van-field label="用户名称" placeholder="{{userInfo.name}}" readonly/>
-            
-            <van-field label="性别" placeholder="{{userInfo.sex}}" readonly/>
-            
-            <van-field label="身份" placeholder="{{userInfo.identity}}" readonly/>
+            <van-field label="用户名称" placeholder="{{userInfo.name}}" readonly />
 
-            <van-field label="心情" placeholder="{{userInfo.mood}}" readonly/>
-            
-            <van-field label="二维码" placeholder="二维码" readonly/>
+            <van-field label="性别" placeholder="{{userInfo.sex}}" readonly />
 
-            <van-field label="访客" placeholder="访客" readonly/>
+            <van-field label="身份" placeholder="{{userInfo.identity}}" readonly />
 
-            <van-field label="个性签名" placeholder="{{userInfo.signature}}" autosize readonly/>
+            <van-field label="心情" placeholder="{{userInfo.mood}}" readonly />
+
+            <van-field label="二维码" placeholder="二维码" readonly />
+
+            <van-field label="访客" placeholder="访客" readonly />
+
+            <van-field label="个性签名" placeholder="{{userInfo.signature}}" autosize readonly />
         </van-cell-group>
     </van-tab>
 
@@ -72,22 +75,33 @@
     </van-tab>
 </van-tabs>
 
+<!-- 更换背景图片 -->
 <van-popup show="{{ show }}" bind:close="DIYClose">
-    <view class="DIYtitle">选择你喜欢的背景</view>
+    <view style="position: relative;">
+        <view class="DIYtitle">选择你喜欢的背景</view>
 
-    <view class="diy">
-        <view class="item" data-img="https://s1.ax1x.com/2023/02/07/pSgHm5D.jpg" bindtap="selectBg">
-            <image src="https://s1.ax1x.com/2023/02/07/pSgHm5D.jpg" mode="widthFix"/>
+        <!-- 背景图片列表 -->
+        <view class="diy">
+            <!-- 自定义上传图片 -->
+            <view class="item custom">
+                <van-uploader bind:after-read="uploadImage" wx:if="{{!customImage}}">
+                    <view style="width: 600rpx;">
+                        <van-icon name="plus" class="icon" />
+                        <view style="margin-top: 15rpx;">自定义上传</view>
+                    </view>
+                </van-uploader>
+
+                <image src="{{customImage}}" mode="widthFix" data-index="{{10000}}" bindtap="selectBg" class="item {{10000 === select?'select':''}}" wx:else />
+            </view>
+
+            <!-- 背景图片列表 -->
+            <view wx:for="{{bgList}}" wx:key="index" data-img="{{item.img}}" data-index="{{index+1}}" bindtap="selectBg" class="item {{index+1 === select?'select':''}}">
+                <image src="{{item.img}}" mode="widthFix" />
+                <text>{{item.title}}</text>
+            </view>
         </view>
 
-        <view class="item" bindtap="selectBg">
-            <image src="https://s1.ax1x.com/2023/02/07/pSgHm5D.jpg" mode="widthFix"/>
-        </view>
-
-        <view class="item" bindtap="selectBg">
-            <image src="https://s1.ax1x.com/2023/02/07/pSgHm5D.jpg" mode="widthFix"/>
-        </view>
+        <!-- 更换背景图片 -->
+        <view class="updateBG" bindtap="updateImage">更改背景</view>
     </view>
-
-    <view class="updateBG">更改背景</view>
 </van-popup>

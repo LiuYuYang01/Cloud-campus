@@ -71,11 +71,11 @@
 }
 
 .flower {
-    position: absolute;
-    top: 320rpx;
-    right: 0;
-    padding: 20rpx;
-    font-size: 60rpx;
+  position: absolute;
+  top: 320rpx;
+  right: 0;
+  padding: 20rpx;
+  font-size: 60rpx;
 }
 
 /* 背景 */
@@ -83,7 +83,8 @@
   position: relative;
   width: 100%;
   height: 500rpx;
-  background: url(https://img.zmtc.com/2020/0525/20200525104223150.jpg) no-repeat;
+  background: url(https://img.zmtc.com/2020/0525/20200525104223150.jpg)
+    no-repeat;
   background-size: cover;
 }
 
@@ -132,41 +133,83 @@
 }
 
 /* 自定义背景 */
-.DIYtitle{
-    padding-top: 20rpx;
-    text-align: center;
+.DIYtitle {
+  padding-top: 20rpx;
+  text-align: center;
 }
 
-.diy{
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: space-between;
-    width: 700rpx;
-    max-height: 800rpx;
-    padding: 20rpx 20rpx 0;
-    border-radius: 10rpx;
-    box-sizing: border-box;
+.diy {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  width: 700rpx;
+  max-height: 800rpx;
+  padding: 20rpx 20rpx 0;
+  border-radius: 10rpx;
+  box-sizing: border-box;
 }
 
-.diy .item{
-    width: 49%;
-    margin-bottom: 10rpx;
+/* 自定义图片上传 */
+.diy .custom {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100% !important;
+  height: 220rpx;
+  color: #9c9b9b;
+  background-color: #f7f7f7;
 }
 
-.diy .item image{
-    width: 100%;
-    border-radius: 10rpx;
+.diy .custom .icon {
+  font-size: 100rpx;
+}
+
+.diy .item {
+  overflow: hidden;
+  position: relative;
+  width: 49%;
+  margin-bottom: 20rpx;
+  text-align: center;
+  border-radius: 10rpx;
+}
+
+.diy .item image {
+  width: 100%;
+  border-radius: 10rpx;
+  vertical-align: middle;
+}
+
+.diy .item text {
+  font-size: 28rpx;
+  color: #666;
 }
 
 /* 更改背景按钮 */
-.updateBG{
-    width: 95%;
-    height: 80rpx;
-    line-height: 80rpx;
-    margin: 20rpx auto;
-    margin-top: 0;
-    text-align: center;
-    color: #fff;
-    border-radius: 10rpx;
-    background-color: #49b984;
+.updateBG {
+  position: fixed;
+  bottom: 0;
+  width: 95%;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin: 20rpx auto;
+  margin-top: 0;
+  text-align: center;
+  color: #fff;
+  border-radius: 10rpx;
+  background-color: #49b984;
+}
+
+/* 选中样式 */
+.diy .select::after {
+  content: "已远中";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 40rpx;
+  line-height: 40rpx;
+  color: #fff;
+  font-size: 24rpx;
+  background-color: #ea5757;
 }
