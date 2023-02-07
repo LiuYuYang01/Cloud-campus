@@ -20,10 +20,15 @@ Page({
     // 跳转到聊天页
     goToChat(e){
         // console.log(e.currentTarget.dataset.uid);
-        if(e.currentTarget.dataset.uid == this.data.my.id) return Toast.fail('你不能和自己聊天');
+        let targetUid = e.currentTarget.dataset.uid;
+        if(targetUid == this.data.my.id) return Toast.fail('你不能和自己聊天');
+        // 将未读数据移除
+        let newUnreadList = this.data.unreadList.filter(item => item != targetUid);
+        wx.$store.updUnreadList('reset',newUnreadList);
+
         wx.navigateTo({
-          url: `../chat/chat?uid=${e.currentTarget.dataset.uid}`,
-        })
+          url: `../chat/chat?uid=${targetUid}`,
+        });
     },
     onLoad(options) {
         // console.log(this.data.onlineUserList);
