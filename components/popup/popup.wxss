@@ -40,12 +40,14 @@
 }
 
 .popup .move {
-    animation: navMove 0.5s linear;
+    opacity: 0;
+    animation: navMove 0.5s linear forwards;
     animation-delay: 0.5s;
 }
 
 @keyframes navMove {
     0% {
+        opacity: 0;
         bottom: 300rpx;
     }
 
@@ -62,6 +64,7 @@
     }
 
     100% {
+        opacity: 1;
         bottom: 260rpx;
     }
 }

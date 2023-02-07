@@ -5,7 +5,7 @@ export default {
     // 被选中的第几个tabBar
     active: 0,
     onlineUserList: [], // 在线用户
-    unreadList: [27], // 存储未读消息的用户ID
+    unreadList: [], // 存储未读消息的用户ID
     msgList: [], // 存储当前的聊天数据
 
 

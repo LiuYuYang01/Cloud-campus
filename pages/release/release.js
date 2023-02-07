@@ -120,7 +120,7 @@ Page({
         if (this.data.article.is_admin !== 1)
           return Dialog.alert({
             title: "暂无权限",
-            message: "首页只有平台管理员可以发布文章",
+            message: "只有平台管理员可以发布首页文章",
           });
 
         describe();

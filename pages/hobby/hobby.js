@@ -152,10 +152,10 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    this.__getSwiperList();
-    this.__getHomeToppingList();
-    this.__getHobbyList();
-    this.cateList();
+    // this.__getSwiperList();
+    // this.__getHomeToppingList();
+    // this.__getHobbyList();
+    // this.cateList();
   },
 
   /**
@@ -166,7 +166,12 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow() {},
+  onShow() {
+    this.__getSwiperList();
+    this.__getHomeToppingList();
+    this.__getHobbyList();
+    this.cateList();
+  },
 
   /**
    * 生命周期函数--监听页面隐藏
