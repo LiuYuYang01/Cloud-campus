@@ -8,11 +8,11 @@ socket.on('connect', function () {
 
     // 接收私聊信息
     socket.on('message', res => {
-        console.log('私聊信息', res);
-        // 添加未读数据
+        // console.log('私聊信息', res);
+        // 排除自己的未读数据
         if(wx.$store.userInfo.id != res.sender_id) {
-            // 排除自己的未读数据
-            wx.$store.updUnreadList(res.sender_id);
+            // 添加未读数据
+            wx.$store.updUnreadList('add',[res.sender_id]);
         }
         wx.$store.updMsgList('more', res);
         // console.log(wx.$store.msg);
@@ -31,7 +31,7 @@ socket.on('connect', function () {
         // 将数据存到 store
         wx.$store.updOnlineUser(res.onlineUser);
     });
-    // 更新用户在线状态
+    // 更新用户在线状态(我上线了：我要把我的信息发送给服务器和sid关联起来)
     wx.$socket.emit('updUserOnlineState', {
         username: wx.$store.userInfo.username, // 账号
         name: wx.$store.userInfo.name, // 姓名

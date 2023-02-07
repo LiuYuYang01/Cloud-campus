@@ -8,8 +8,9 @@ Page({
         store,
         fields: {
             msgList: 'msgList',
-            my:'userInfo',
-            onlineUserList:'onlineUserList'
+            my: 'userInfo',
+            onlineUserList: 'onlineUserList',
+            unreadList:'unreadList'
         }
     },
     data: {
@@ -19,10 +20,10 @@ Page({
     // 发送消息
     toUserSendMsg(e) {
         // console.log(this.data.msg);
-        if(!this.data.msg.length) return Toast('请输入内容再发送');
+        if (!this.data.msg.length) return Toast('请输入内容再发送');
         // 判断对方是否离线
         let isOffline = this.data.onlineUserList.find(item => item.id == this.data.chatObj.id);
-        if(!isOffline) return Toast.feil('对方已离线!')
+        if (!isOffline) return Toast.fail('对方已离线')
 
         wx.$socket.emit('sendMsg', {
             sid: this.data.chatObj.socket_id, // 接收者的 socketID
@@ -47,7 +48,7 @@ Page({
             receiver_id: this.data.chatObj.id, // 接收者的用户ID
         });
         // console.log(res2.data.chatList);
-        wx.$store.updMsgList('more',res2.data.chatList)
+        wx.$store.updMsgList('more', res2.data.chatList)
     },
 
     /**
@@ -75,8 +76,11 @@ Page({
      * 生命周期函数--监听页面卸载
      */
     onUnload() {
-        console.log('清空数据');
+        // console.log('清空数据');
         wx.$store.updMsgList('clear')
+        // 将未读数据移除
+        let newUnreadList = this.data.unreadList.filter(item => item != this.data.chatObj.id);
+        wx.$store.updUnreadList('reset', newUnreadList);
     },
 
     /**
