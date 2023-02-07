@@ -4,8 +4,8 @@
         "miniprogram": {
             "list": [
                 {
-                    "name": "首页",
-                    "pathName": "pages/home/home",
+                    "name": "兴趣圈",
+                    "pathName": "pages/hobby/hobby",
                     "query": "",
                     "launchMode": "default",
                     "scene": null

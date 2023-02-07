@@ -7,23 +7,28 @@
     <!-- 搜索结果 -->
     <van-transition style="min-height: 100rpx; width: 100%; position: absolute;z-index: 1;top: 80rpx;" show="{{ showSearchBox }}" custom-class="block" name="fade">
         <view class="searchRes">
+            <!-- 搜索列表 -->
             <block wx:if="{{searchRes.length >=1}}">
-                <view wx:for="{{searchRes}}" wx:key="key">
+                <view wx:for="{{searchRes}}" wx:key="key" style="height: 120rpx;"  data-id="{{item.id}}" data-type="{{item.type}}" bindtap="goArticle">
                     <!-- 图标 -->
                     <view style="width: 10%; margin-right: 10rpx;">
-                        <van-icon style="color: #fff; background-color:{{item.type == 'home'?'#fbb437':(item.type=='hobby'?'#78bbfa':'#4eb985')}}; border-radius: 10px;padding: 15rpx;" name="{{item.type == 'home'?'home-o':(item.type=='hobby'?'qr':'flower-o')}}" />
+                        <van-icon style="color: #fff; background-color:{{item.type == 'home'?'#fbb437':(item.type=='hobby'?'#78bbfa':'#4eb985')}}; border-radius: 20rpx;padding: 20rpx;font-size: 36rpx;" name="{{item.type == 'home'?'home-o':(item.type=='hobby'?'qr':'flower-o')}}" />
                     </view>
+
                     <view style="width: 90%; flex-direction: column; align-items: flex-start;">
                         <!-- 标题 -->
-                        <view style="width: 95%;font-size: 28rpx;overflow: hidden;text-overflow:ellipsis;white-space:nowrap;">{{item.title}}</view>
+                        <view style="width: 95%;margin-bottom:20rpx;margin-left:20rpx;font-size: 28rpx;overflow: hidden;text-overflow:ellipsis;white-space:nowrap;">{{item.title}}</view>
+                        
                         <!-- 来自/id -->
                         <view style="width: 100%;font-size: 23rpx;display: flex;justify-content: space-between;color: gray;margin-top: 3rpx;">
-                            <text>来自{{item.type == 'home'?'主页':(item.type=='hobby'?'兴趣圈':'朋友圈')}}的文章</text>
+                            <text style="margin-left:20rpx;">来自 <text style="color:#4fb985">{{item.type == 'home'?'主页':(item.type=='hobby'?'兴趣圈':'朋友圈')}}</text> 的文章</text>
                             <text>{{item.name}}</text>
                         </view>
                     </view>
                 </view>
             </block>
+
+            <!-- 没有数据 -->
             <block wx:else>
                 <view style="justify-content: center;">
                     <van-loading type="spinner" wx:if="{{showSearchLod}}" />
@@ -49,7 +54,7 @@
     <!-- 置顶文章 -->
     <article list="{{hobbyToppingList}}"></article>
 
-    <article class="article" list="{{hobbyList}}"  bindgetList="getList"/>
+    <article class="article" list="{{hobbyList}}" bindgetList="getList" />
 </view>
 
 <!-- tabBar -->

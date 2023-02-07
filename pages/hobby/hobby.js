@@ -16,6 +16,7 @@ Page({
     showSearchBox: false, // 显示搜索结果
     times: null, // 定时器 防抖用
     showSearchLod: false, // 正在搜索
+    keyword:""
   },
   showSB() {
     this.setData({ showSearchBox: true });
@@ -23,6 +24,7 @@ Page({
   hideSB() {
     this.setData({ showSearchBox: false });
   },
+  // 搜索框
   searchHandler(e) {
     clearTimeout(this.data.times);
     if (!e.detail.length) return this.setData({ searchRes: "" });
@@ -41,6 +43,21 @@ Page({
         });
       }, 300),
     });
+  },
+
+  // 跳转文章
+  goArticle(e) {
+    const { id, type } = e.currentTarget.dataset;
+
+    wx.navigateTo({
+      url: `/pages/article/article?id=${id}&&type=${type}`,
+    });
+
+    // 跳转完毕后把搜索的内容与结果都清空
+    this.setData({
+        keyword:"",
+        searchRes:[]
+    })
   },
 
   // 左侧滑动菜单
