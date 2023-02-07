@@ -3,32 +3,32 @@
 <wxs module="filter" src="../../filter/formatTime.wxs"></wxs>
 
 <view class="item" wx:for="{{list}}" wx:key="id">
-    <view data-id="{{item.id}}" data-type="{{item.type}}" bindtap="go">
-        <!-- 用户信息 -->
-        <view class="header">
-            <view>
-                <image src="{{item.avatar}}" class="avatar"></image>
-            </view>
-
-            <view class="info">
-                <view class="title">
-                    {{item.name}}
-                    <view wx:if="{{item.is_admin === 1}}" class="realnameBox">
-                        <image src="/assets/svg/certified.svg" class="realname"></image>
-                        <text class="text">管理员</text>
-                    </view>
-                    
-                    <view wx:if="{{item.is_realname === 1}}" class="realnameBox">
-                        <image src="/assets/svg/realname.svg" class="realname"></image>
-                        <text class="text">已实名</text>
-                    </view>
-                </view>
-                <view class="date">{{filter.formatTime(item.date)}}</view>
-            </view>
-
-            <view class="attention" style="background-color: {{color}};">关注</view>
+    <!-- 用户信息 -->
+    <view class="header" data-id="{{item.userID}}" bindtap="goPerson">
+        <view>
+            <image src="{{item.avatar}}" class="avatar"></image>
         </view>
 
+        <view class="info">
+            <view class="title">
+                {{item.name}}
+                <view wx:if="{{item.is_admin === 1}}" class="realnameBox">
+                    <image src="/assets/svg/certified.svg" class="realname"></image>
+                    <text class="text">管理员</text>
+                </view>
+
+                <view wx:if="{{item.is_realname === 1}}" class="realnameBox">
+                    <image src="/assets/svg/realname.svg" class="realname"></image>
+                    <text class="text">已实名</text>
+                </view>
+            </view>
+            <view class="date">{{filter.formatTime(item.date)}}</view>
+        </view>
+
+        <view class="attention" style="background-color: {{color}};">关注</view>
+    </view>
+
+    <view data-id="{{item.id}}" data-type="{{item.type}}" bindtap="goArticle">
         <!-- 标题 -->
         <view class="title">
             {{item.title}}
@@ -65,8 +65,8 @@
         </view>
 
         <!-- 如果是管理员账号或者自己的文章，就显示删除按钮 -->
-        <view class="delete" data-id="{{item.id}}" data-type="{{item.type}}" bindtap="delArticle"  wx:if="{{user.is_admin || item.userID === user.id}}">
-            <van-icon name="delete" size="40rpx" color="#ff7272"/>
+        <view class="delete" data-id="{{item.id}}" data-type="{{item.type}}" bindtap="delArticle" wx:if="{{user.is_admin || item.userID === user.id}}">
+            <van-icon name="delete" size="40rpx" color="#ff7272" />
         </view>
     </view>
 </view>

@@ -6,43 +6,62 @@ Page({
    */
   data: {
     active: 1,
-    userInfo: (getUserInfo() && JSON.parse(getUserInfo())) || {},
+    userInfo: {},
     articleList: [],
     socializeList: [],
   },
 
-  // 获取兴趣圈数据
-  async _getArticleList() {
+  // 获取用户数据
+  async getUserInfo(id) {
     const {
       data: { code, data },
-    } = await wx.$http.get("/api/hobby/article");
+    } = await wx.$http.get(`/api/user/${id}`);
 
     if (code !== 200) return;
 
     this.setData({
-      articleList: data.filter((item) => item.userID === this.data.userInfo.id),
+      userInfo: data[0],
     });
   },
 
-  // 获取朋友圈数据
-  async _getSocializeList() {
+  // 获取数据
+  async getArticleList(api, type) {
+    console.log(api, type);
+
     const {
-        data: { code, data },
-      } = await wx.$http.get("/api/socialize/article");
-  
-      if (code !== 200) return;
-  
+      data: { code, data },
+    } = await wx.$http.get(`/api/${api}/article`);
+
+    if (code !== 200) return;
+
+    // 兴趣圈数据
+    if (type === "articleList") {
       this.setData({
-        socializeList: data.filter((item) => item.userID === this.data.userInfo.id),
+        articleList: data.filter(
+          (item) => item.userID === this.data.userInfo.id
+        ),
       });
+    // 朋友圈数据
+    } else if (type === "socializeList") {
+      this.setData({
+        socializeList: data.filter(
+          (item) => item.userID === this.data.userInfo.id
+        ),
+      });
+    }
+
+    console.log(type === "articleList",111);
+    console.log(type === "socializeList",222);
+    console.log(this.data.socializeList);
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
-    this._getArticleList();
-    this._getSocializeList();
+  onLoad({ id }) {
+    this.getUserInfo(id);
+    this.getArticleList("hobby", "articleList");
+    this.getArticleList("socialize", "socializeList");
   },
 
   /**

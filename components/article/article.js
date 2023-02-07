@@ -32,12 +32,20 @@ Component({
   data: {
     data: [],
   },
-
   /**
    * 组件的方法列表
    */
   methods: {
-    go(e) {
+    // 跳转到个人主页
+    goPerson(e) {
+      const id = e.currentTarget.dataset.id;
+      
+      wx.navigateTo({
+        url: `/subPackages/my/pages/person/person?id=${id}`,
+      });
+    },
+    // 跳转到文章页
+    goArticle(e) {
       const { id, type } = e.currentTarget.dataset;
       wx.navigateTo({
         url: `/pages/article/article?id=${id}&type=${type}`,
