@@ -133,6 +133,7 @@ Page({
     })
 
     Toast("修改背景图片成功")
+    this.getUserInfo()
   },
 
   // 获取用户数据

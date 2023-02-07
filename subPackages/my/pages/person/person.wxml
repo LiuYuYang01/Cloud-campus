@@ -76,7 +76,7 @@
 </van-tabs>
 
 <!-- 更换背景图片 -->
-<van-popup show="{{ show }}" bind:close="DIYClose">
+<van-popup show="{{ show }}" bind:close="DIYClose" custom-class="upd-bg-box">
     <view style="position: relative;">
         <view class="DIYtitle">选择你喜欢的背景</view>
 
@@ -100,8 +100,7 @@
                 <text>{{item.title}}</text>
             </view>
         </view>
-
-        <!-- 更换背景图片 -->
-        <view class="updateBG" bindtap="updateImage">更改背景</view>
     </view>
 </van-popup>
+<!-- 更换背景图片 -->
+<view class="updateBG" bindtap="updateImage" wx:if="{{show}}">更改背景</view>
