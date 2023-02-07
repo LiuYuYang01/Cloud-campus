@@ -68,6 +68,8 @@ Page({
         wx.switchTab({
           url: "/pages/home/home",
         });
+
+        wx.$store.updateActive(0)
       }, 500);
     } catch (error) {
       console.log(error);

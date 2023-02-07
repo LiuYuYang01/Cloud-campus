@@ -23,6 +23,13 @@
                     "query": "",
                     "launchMode": "default",
                     "scene": null
+                },
+                {
+                    "name": "聊天",
+                    "pathName": "subPackages/pages/chat/chat",
+                    "query": "uid=36",
+                    "launchMode": "default",
+                    "scene": null
                 }
             ]
         }
