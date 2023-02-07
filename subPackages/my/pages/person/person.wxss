@@ -130,3 +130,43 @@
   font-size: 24rpx;
   /* margin-top: 30rpx; */
 }
+
+/* 自定义背景 */
+.DIYtitle{
+    padding-top: 20rpx;
+    text-align: center;
+}
+
+.diy{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    width: 700rpx;
+    max-height: 800rpx;
+    padding: 20rpx 20rpx 0;
+    border-radius: 10rpx;
+    box-sizing: border-box;
+}
+
+.diy .item{
+    width: 49%;
+    margin-bottom: 10rpx;
+}
+
+.diy .item image{
+    width: 100%;
+    border-radius: 10rpx;
+}
+
+/* 更改背景按钮 */
+.updateBG{
+    width: 95%;
+    height: 80rpx;
+    line-height: 80rpx;
+    margin: 20rpx auto;
+    margin-top: 0;
+    text-align: center;
+    color: #fff;
+    border-radius: 10rpx;
+    background-color: #49b984;
+}

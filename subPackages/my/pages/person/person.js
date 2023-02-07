@@ -9,6 +9,7 @@ Page({
     userInfo: {},
     articleList: [],
     socializeList: [],
+    show: true,
   },
 
   // 回退页面
@@ -16,6 +17,22 @@ Page({
     wx.navigateBack({
       delta: 1,
     });
+  },
+
+  // 自定义背景
+  DIY() {
+    this.setData({ show: true });
+  },
+
+  // 关闭
+  DIYClose() {
+    this.setData({ show: false });
+  },
+
+// 选择背景图片
+  selectBg(e){
+    const img = e.currentTarget.dataset.img
+    console.log(img);
   },
 
   // 获取用户数据
@@ -45,14 +62,14 @@ Page({
     if (type === "articleList") {
       this.setData({
         articleList: data.filter(
-          (item) => item.userID === this.data.userInfo.id
+          async (item) => (await item.userID) === this.data.userInfo.id
         ),
       });
       // 朋友圈数据
     } else if (type === "socializeList") {
       this.setData({
         socializeList: data.filter(
-          (item) => item.userID === this.data.userInfo.id
+          async (item) => (await item.userID) === this.data.userInfo.id
         ),
       });
     }

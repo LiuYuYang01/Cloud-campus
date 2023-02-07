@@ -16,7 +16,8 @@
             <van-icon name="arrow-left" />
         </view>
 
-        <view class="flower" bindtap="">
+        <!-- 自定义背景 -->
+        <view class="flower" bindtap="DIY">
             <van-icon name="flower-o" />
         </view>
     </view>
@@ -70,3 +71,23 @@
         <article list="{{socializeList}}" />
     </van-tab>
 </van-tabs>
+
+<van-popup show="{{ show }}" bind:close="DIYClose">
+    <view class="DIYtitle">选择你喜欢的背景</view>
+
+    <view class="diy">
+        <view class="item" data-img="https://s1.ax1x.com/2023/02/07/pSgHm5D.jpg" bindtap="selectBg">
+            <image src="https://s1.ax1x.com/2023/02/07/pSgHm5D.jpg" mode="widthFix"/>
+        </view>
+
+        <view class="item" bindtap="selectBg">
+            <image src="https://s1.ax1x.com/2023/02/07/pSgHm5D.jpg" mode="widthFix"/>
+        </view>
+
+        <view class="item" bindtap="selectBg">
+            <image src="https://s1.ax1x.com/2023/02/07/pSgHm5D.jpg" mode="widthFix"/>
+        </view>
+    </view>
+
+    <view class="updateBG">更改背景</view>
+</van-popup>
