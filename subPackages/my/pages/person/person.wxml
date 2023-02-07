@@ -11,11 +11,12 @@
     </view>
 
     <view class="title">
-        <view class="arrow">
+        <!-- 回退按钮 -->
+        <view class="arrow" bindtap="backPage">
             <van-icon name="arrow-left" />
         </view>
 
-        <view class="flower">
+        <view class="flower" bindtap="">
             <van-icon name="flower-o" />
         </view>
     </view>

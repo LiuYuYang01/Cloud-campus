@@ -11,6 +11,13 @@ Page({
     socializeList: [],
   },
 
+  // 回退页面
+  backPage() {
+    wx.navigateBack({
+      delta: 1,
+    });
+  },
+
   // 获取用户数据
   async getUserInfo(id) {
     const {
@@ -41,7 +48,7 @@ Page({
           (item) => item.userID === this.data.userInfo.id
         ),
       });
-    // 朋友圈数据
+      // 朋友圈数据
     } else if (type === "socializeList") {
       this.setData({
         socializeList: data.filter(
@@ -49,10 +56,6 @@ Page({
         ),
       });
     }
-
-    console.log(type === "articleList",111);
-    console.log(type === "socializeList",222);
-    console.log(this.data.socializeList);
   },
 
   /**

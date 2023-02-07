@@ -67,8 +67,7 @@
 .arrow {
   position: absolute;
   top: 50rpx;
-  left: 20rpx;
-  padding: 20rpx;
+  padding: 20rpx 40rpx;
 }
 
 .flower {
