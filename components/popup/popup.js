@@ -18,10 +18,6 @@ Component({
    * 组件的属性列表
    */
   properties: {
-    top: {
-      type: String,
-      value: 1280,
-    },
     sty: String,
     info: String,
   },
