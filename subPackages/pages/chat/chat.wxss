@@ -1,1 +1,74 @@
-/* subPackages/pages/chat/chat.wxss */
+page {
+  padding-bottom: 300rpx;
+  background-color: #fff;
+}
+
+.content {
+  height: auto;
+  padding: 40rpx 20rpx;
+}
+
+.content .row {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+}
+
+/* 用户头像 */
+.content .row .avatar {
+  width: 120rpx;
+  min-width: 120rpx;
+}
+
+.content .row .avatar image {
+  width: 100%;
+  border-radius: 10rpx;
+}
+
+/* 消息框 */
+.content .row .news {
+  padding: 0 0 0 20rpx;
+}
+/* 用户名称 */
+.content .row .avatar .name {
+  font-size: 24rpx;
+  color: #666;
+  padding-bottom: 10rpx;
+  text-align: center;
+
+  /* 溢出省略 */
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+/* 用户消息 */
+.content .row .news .info {
+  padding: 10rpx 20rpx;
+  color: #fff;
+  border-radius: 50rpx;
+  border-bottom-left-radius: 0;
+  background-color: #4fb985;
+}
+
+/* 右侧用户消息样式 */
+.right {
+  flex-direction: row-reverse;
+}
+.right .news {
+  padding: 0 20rpx 0 0 !important;
+}
+.right .news .info {
+  border-radius: 50rpx !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+/* 发送按钮 */
+.send {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.send .van-button {
+  height: 80rpx !important;
+}

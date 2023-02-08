@@ -1,4 +1,5 @@
-<!--subPackages/pages/onlineUser/onlineUser.wxml-->
+<van-toast id="van-toast" />
+
 <wxs module="u">
     module.exports.unread = function (unreadList, id) {
         return unreadList.filter(function (item) {
@@ -27,5 +28,3 @@
         </view>
     </view>
 </view>
-
-<van-toast id="van-toast" />

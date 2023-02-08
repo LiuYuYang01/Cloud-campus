@@ -1,0 +1,24 @@
+<view class="chat-root" style="height: 100vh;position: relative;">
+    <!-- <view style="text-align: center;">正在与 {{chatObj.name}} 聊天</view> -->
+
+    <scroll-view scroll-y="true" style="border:5rpx dashed gainsboro;margin: 0 10rpx;">
+        <view style="background-color: gainsboro;height: 150rpx;" wx:for="{{msgList}}" wx:key="key">
+            <view style="font-size: 25rpx;{{item.sender_id==chatObj.id?'':'text-align: end;'}}">{{item.timestamp}}</view>
+
+            <view style="display: flex;height: 75%;align-items: center;{{item.sender_id==chatObj.id?'':'flex-direction: row-reverse;'}}">
+                <image round src="{{item.sender_id==chatObj.id?chatObj.avatar:my.avatar}}" style="width: 100rpx;height: 100rpx;" />
+                <text>{{item.message}}</text>
+            </view>
+        </view>
+    </scroll-view>
+
+    <view style="position: absolute; bottom: 0;width: 100%;">
+        <van-cell-group>
+            <van-field model:value="{{ msg }}" center clearable placeholder="请输入" border="{{ false }}" autosize use-button-slot>
+                <van-button slot="button" size="small" type="primary" bindtap="toUserSendMsg">
+                    发送
+                </van-button>
+            </van-field>
+        </van-cell-group>
+    </view>
+</view>
