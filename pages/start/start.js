@@ -18,16 +18,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad(options) {
-    setInterval(() => {
-      this.setData({ time: (this.data.time -= 1) });
+    // setInterval(() => {
+    //   this.setData({ time: (this.data.time -= 1) });
 
-      // 3秒后自动跳转到首页
-      if (this.data.time === 0) {
-        wx.switchTab({
-          url: "/pages/home/home",
-        });
-      }
-    }, 1000);
+    //   // 3秒后自动跳转到首页
+    //   if (this.data.time === 0) {
+    //     wx.switchTab({
+    //       url: "/pages/home/home",
+    //     });
+    //   }
+    // }, 1000);
   },
 
   /**
