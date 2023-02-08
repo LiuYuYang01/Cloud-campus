@@ -32,6 +32,7 @@
   font-size: 28rpx;
   text-align: center;
 
+  /* 文本溢出隐藏 */
   display: -webkit-box !important;
   overflow: hidden;
   word-break: break-all;

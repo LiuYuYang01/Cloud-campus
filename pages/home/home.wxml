@@ -2,6 +2,8 @@
 <van-notify id="van-notify" />
 
 <view bindtouchstart="touchStart" bindtouchmove="touchMove" class="home">
+    <view class="bg"></view>
+
     <view class="container">
         <!-- 导航 -->
         <!-- <scroll-view class="nav" scroll-x="true">
@@ -18,7 +20,7 @@
         </scroll-view> -->
 
         <!-- 轮播图 -->
-        <swiper list="{{swiperList}}" style="height: 350rpx;margin-top: 20rpx;" />
+        <swiper list="{{swiperList}}" style="height: 350rpx;" />
 
         <view class="slideNavBox">
             <circle list="{{entranceNavList}}" />
