@@ -35,7 +35,7 @@
 
 .tabbar .chatteris .text {
     position: absolute;
-    top: 52px;
+    top: 104rpx;
     color: #333;
     font-size: 27rpx;
 }

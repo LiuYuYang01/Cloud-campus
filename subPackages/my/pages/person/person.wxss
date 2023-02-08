@@ -189,7 +189,7 @@
 
 /* 更改背景按钮 */
 .updateBG {
-    z-index: 100;
+  z-index: 100;
   position: fixed;
   bottom: 230rpx;
   left: 5%;

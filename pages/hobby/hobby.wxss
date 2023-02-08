@@ -5,7 +5,7 @@
 } */
 
 .bg {
-    top: 100rpx;
+    /* top: 99rpx; */
     position: absolute;
     width: 100%;
     height: 280rpx;
@@ -38,7 +38,7 @@
     align-items: center;
 }
 .searchRes > view:nth-child(n+2) {
-    border-top: 1px solid gainsboro;
+    border-top: 2rpx solid gainsboro;
 }
 
 .searchRes>view>view {

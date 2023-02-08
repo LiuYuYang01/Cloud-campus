@@ -18,8 +18,8 @@
 
 .banner .item .title {
     position: absolute;
-    bottom: -7px;
-    left: -30px;
+    bottom: -14rpx;
+    left: -60rpx;
     width: 90%;
     line-height: 44rpx;
     padding: 30rpx 100rpx;
