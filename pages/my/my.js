@@ -173,7 +173,14 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow() {},
+  onShow() {
+    // 判断有没有Token，没有就代表未登录，跳转到登录页
+    if (!getToken()) {
+      wx.navigateTo({
+        url: "/pages/login/login",
+      });
+    }
+  },
 
   /**
    * 生命周期函数--监听页面隐藏

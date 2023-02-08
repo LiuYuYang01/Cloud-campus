@@ -1,6 +1,6 @@
 import { createStoreBindings } from "mobx-miniprogram-bindings";
 import store from "../../store/store";
-import { getUserInfo } from "../../utils/localStorage";
+import { getToken, getUserInfo } from "../../utils/localStorage";
 
 import Notify from "@vant/weapp/notify/notify";
 import Dialog from "@vant/weapp/dialog/dialog";
@@ -108,7 +108,7 @@ Page({
         }
       };
 
-      const userInfo = getUserInfo() && JSON.parse(getUserInfo())
+      const userInfo = getUserInfo() && JSON.parse(getUserInfo());
       this.setData({
         "article.is_admin": userInfo.is_admin,
         "article.is_realname": userInfo.is_realname,
@@ -406,7 +406,14 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow() {},
+  onShow() {
+    // 判断有没有Token，没有就代表未登录，跳转到登录页
+    if (!getToken()) {
+      wx.navigateTo({
+        url: "/pages/login/login",
+      });
+    }
+  },
 
   /**
    * 生命周期函数--监听页面隐藏

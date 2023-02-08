@@ -1,70 +1,77 @@
 .popup {
-    position: fixed;
-    top: 1280rpx;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: #fff;
-    transition: all 0.5s;
+  position: fixed;
+  top: 1280rpx;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #fff;
+  transition: all 0.5s;
 }
 
 /* logo */
 .popup .logo {
-    position: absolute;
-    top: 200rpx;
-    left: 50%;
-    width: 300rpx;
-    transform: translateX(-50%);
+  position: absolute;
+  top: 200rpx;
+  left: 50%;
+  width: 300rpx;
+  transform: translateX(-50%);
 }
 
 .popup .logo .image {
-    width: 100%;
+  width: 100%;
 }
 
 /* 名人名言 */
 .popup .sentence {
-    position: absolute;
-    top: 400rpx;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 600rpx;
-    color: #c1c1c1;
-    font-size: 28rpx;
-    text-align: center;
+  position: absolute;
+  top: 400rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 600rpx;
+  color: #c1c1c1;
+  font-size: 28rpx;
+  text-align: center;
+
+  display: -webkit-box !important;
+  overflow: hidden;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 5;
 }
 
 /* 入口导航 */
 .popup .nav {
-    position: absolute;
-    bottom: 260rpx;
+  position: absolute;
+  bottom: 260rpx;
 }
 
 .popup .move {
-    opacity: 0;
-    animation: navMove 0.5s linear forwards;
-    animation-delay: 0.5s;
+  opacity: 0;
+  animation: navMove 0.5s linear forwards;
+  animation-delay: 0.5s;
 }
 
 @keyframes navMove {
-    0% {
-        opacity: 0;
-        bottom: 300rpx;
-    }
+  0% {
+    opacity: 0;
+    bottom: 300rpx;
+  }
 
-    25% {
-        bottom: 260rpx;
-    }
+  25% {
+    bottom: 260rpx;
+  }
 
-    50% {
-        bottom: 230rpx
-    }
+  50% {
+    bottom: 230rpx;
+  }
 
-    75% {
-        bottom: 250rpx;
-    }
+  75% {
+    bottom: 250rpx;
+  }
 
-    100% {
-        opacity: 1;
-        bottom: 260rpx;
-    }
+  100% {
+    opacity: 1;
+    bottom: 260rpx;
+  }
 }
