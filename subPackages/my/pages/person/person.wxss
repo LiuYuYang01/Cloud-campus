@@ -143,9 +143,7 @@
   flex-wrap: wrap;
   justify-content: space-between;
   width: 700rpx;
-  min-height: 800rpx;
-  max-height: 800rpx;
-  /* height: 800rpx; */
+  height: 800rpx;
   padding: 20rpx 20rpx 0;
   border-radius: 10rpx;
   box-sizing: border-box;
@@ -191,7 +189,7 @@
 .updateBG {
     z-index: 100;
   position: fixed;
-  bottom: 230rpx;
+  bottom: 0;
   left: 5%;
   width: 90%;
   height: 80rpx;
