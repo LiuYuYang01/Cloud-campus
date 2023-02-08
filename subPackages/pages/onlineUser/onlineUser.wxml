@@ -7,20 +7,23 @@
     }
 </wxs>
 
-<view class="online-root">
-    <view style="display: flex; justify-content: space-between;align-content: center;background-color: grey;padding: 10rpx;" wx:for="{{onlineUserList}}" wx:key="key">
-        <image src="{{item.avatar}}" style="width: 100rpx; height: 100rpx;" />
-
-        <view style="flex: 1; display: flex;flex-direction: column;">
-            <view>
-                {{item.name}}
-                <van-tag type="danger" wx:if="{{u.unread(unreadList,item.id).length>=1}}">{{u.unread(unreadList,item.id).length}}</van-tag>
-            </view>
-            <text>uname:{{item.username}} - uid:{{item.id}}</text>
+<!-- 在线用户 -->
+<view class="userList">
+    <view class="item" wx:for="{{onlineUserList}}" wx:key="key" data-uid="{{item.id}}" data-name="{{item.name}}" bindtap="goToChat">
+        <!-- 头像 -->
+        <view class="avatar">
+            <image src="{{item.avatar}}" mode="widthFix" />
         </view>
 
-        <view style="width: 100rpx;display: flex;justify-content: center; font-size: 55rpx;" data-uid="{{item.id}}" data-name="{{item.name}}" bindtap="goToChat">
-            <van-icon name="chat-o" />
+        <!-- 信息 -->
+        <view class="info">
+            <!-- 用户名称 -->
+            <view class="name">{{item.name}}</view>
+
+            <!-- 最后一次聊天的消息 -->
+            <view class="last">
+                最后一次聊天的信息，你有时间把这里写一下
+            </view>
         </view>
     </view>
 </view>
