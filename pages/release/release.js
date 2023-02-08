@@ -22,22 +22,14 @@ Page({
     // 文章信息
     article: {
       userID: 0, //作者ID
-      name: "", //作者昵称
-      avatar: "", //作者头像
       title: "", //文章标题
       describe: "", //文章描述
       content: "", //文章内容
       cover: [], //文章封面
     //   cover:"['https://liuyuyang.net/usr/uploads/2023/01/129447723.png']",
       cate: "", //文章所属分类
-      views: 0, //文章浏览量
-      is_concern: 0, //是否关注该作者
-      is_like: 0, //是否点赞该文章
       is_topping: 0, //是否置顶该文章
       is_boutique: 0, //是否精品该文章
-      is_collection: 0, //是否收藏该文章
-      is_admin: 0, //是否是管理员
-      is_realname: 0, //是否已实名
     },
 
     // editor编辑器内容
@@ -106,16 +98,16 @@ Page({
         }
       };
 
-      const userInfo = getUserInfo() && JSON.parse(getUserInfo());
-      this.setData({
-        "article.is_admin": userInfo.is_admin,
-        "article.is_realname": userInfo.is_realname,
-      });
+    //   const userInfo = getUserInfo() && JSON.parse(getUserInfo());
+    //   this.setData({
+    //     "article.is_admin": userInfo.is_admin,
+    //     "article.is_realname": userInfo.is_realname,
+    //   });
 
       // 选择发布文章到哪里
       if (this.data.cate === "首页") {
         // 判断是否是管理员，首页只有管理员才能发布文章
-        if (this.data.article.is_admin !== 1)
+        if (wx.$store.userInfo.is_admin !== 1)
           return Dialog.alert({
             title: "暂无权限",
             message: "只有平台管理员可以发布首页文章",
@@ -383,10 +375,7 @@ Page({
       this.setData({
         article: {
           ...this.data.article,
-          userID: id,
-          name,
-          avatar,
-          is_admin,
+          userID: id
         },
       });
     });
