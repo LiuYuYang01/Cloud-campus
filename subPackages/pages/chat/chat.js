@@ -19,7 +19,6 @@ Page({
     },
     // 发送消息
     toUserSendMsg(e) {
-        // console.log(this.data.msg);
         if (!this.data.msg.length) return Toast('请输入内容再发送');
         // 判断对方是否离线
         let isOffline = this.data.onlineUserList.find(item => item.id == this.data.chatObj.id);
@@ -31,6 +30,7 @@ Page({
             receiver_id: this.data.chatObj.id, // 接收者的用户ID
             message: this.data.msg, // 消息
         });
+        
         // 清空输入框
         this.setData({ msg: '' });
     },

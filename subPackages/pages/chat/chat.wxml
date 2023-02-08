@@ -14,7 +14,7 @@
 
     <view style="position: absolute; bottom: 0;width: 100%;">
         <van-cell-group>
-            <van-field model:value="{{ msg }}" center clearable placeholder="请输入" border="{{ false }}" use-button-slot>
+            <van-field model:value="{{ msg }}" center clearable placeholder="请输入" border="{{ false }}" autosize use-button-slot>
                 <van-button slot="button" size="small" type="primary" bindtap="toUserSendMsg">
                     发送
                 </van-button>
