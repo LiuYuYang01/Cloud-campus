@@ -1,6 +1,6 @@
 <!--subPackages/pages/chat/chat.wxml-->
 <view class="chat-root" style="height: 100vh;position: relative;">
-    <view style="text-align: center;">正在与 {{chatObj.name}} 聊天</view>
+    <!-- <view style="text-align: center;">正在与 {{chatObj.name}} 聊天</view> -->
 
     <scroll-view scroll-y="true" style="height: 85%;border:5rpx dashed gainsboro;margin: 0 10rpx;">
         <view style="background-color: gainsboro;height: 150rpx;" wx:for="{{msgList}}" wx:key="key">

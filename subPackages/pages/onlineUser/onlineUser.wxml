@@ -8,9 +8,9 @@
 </wxs>
 
 <view class="online-root">
-    <view style="text-align: center;">在线用户</view>
     <view style="display: flex; justify-content: space-between;align-content: center;background-color: grey;padding: 10rpx;" wx:for="{{onlineUserList}}" wx:key="key">
         <image src="{{item.avatar}}" style="width: 100rpx; height: 100rpx;" />
+
         <view style="flex: 1; display: flex;flex-direction: column;">
             <view>
                 {{item.name}}
@@ -18,7 +18,8 @@
             </view>
             <text>uname:{{item.username}} - uid:{{item.id}}</text>
         </view>
-        <view style="width: 100rpx;display: flex;justify-content: center; font-size: 55rpx;" data-uid="{{item.id}}" bindtap="goToChat">
+
+        <view style="width: 100rpx;display: flex;justify-content: center; font-size: 55rpx;" data-uid="{{item.id}}" data-name="{{item.name}}" bindtap="goToChat">
             <van-icon name="chat-o" />
         </view>
     </view>
