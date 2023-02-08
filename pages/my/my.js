@@ -174,6 +174,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
+    // 修复tabbar切换时候发布组件显示问题
+    wx.$store.updatePopup(1460);
+
     // 判断有没有Token，没有就代表未登录，跳转到登录页
     if (!getToken()) {
       wx.navigateTo({
