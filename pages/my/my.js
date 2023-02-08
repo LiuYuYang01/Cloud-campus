@@ -81,10 +81,15 @@ Page({
   },
 
   // 登录
-  login() {
+  go() {
     const id = this.data.userInfo.id;
 
-    if (!id) {
+    // 有ID就跳转到个人主页，没有ID就跳转到登录页
+    if (id) {
+      wx.navigateTo({
+        url: `/subPackages/my/pages/person/person?id=${id}`,
+      });
+    } else {
       wx.navigateTo({
         url: "/pages/login/login",
       });

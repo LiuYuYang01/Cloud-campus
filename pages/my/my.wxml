@@ -1,6 +1,6 @@
 <!-- 用户信息 -->
 <view class="header">
-    <view class="userInfo" bindtap="login">
+    <view class="userInfo" bindtap="go">
         <!-- 头像 -->
         <view class="avatar">
             <image src="{{userInfo.avatar}}"></image>
