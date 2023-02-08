@@ -152,17 +152,6 @@ Page({
     this.setData({
       userInfo: this.data.userInfo,
     });
-
-    // 登录后显示退出登录按钮，未登录不显示
-    if (getToken()) {
-      this.setData({
-        isQuitShow: true,
-      });
-    } else {
-      this.setData({
-        isQuitShow: false,
-      });
-    }
   },
 
   /**
@@ -174,6 +163,17 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
+    // 登录后显示退出登录按钮，未登录不显示
+    if (getToken()) {
+      this.setData({
+        isQuitShow: true,
+      });
+    } else {
+      this.setData({
+        isQuitShow: false,
+      });
+    }
+
     // 修复tabbar切换时候发布组件显示问题
     wx.$store.updatePopup(1460);
 
