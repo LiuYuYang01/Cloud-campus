@@ -81,10 +81,15 @@ Page({
   },
 
   // 登录
-  login() {
+  go() {
     const id = this.data.userInfo.id;
 
-    if (!id) {
+    // 有ID就跳转到个人主页，没有ID就跳转到登录页
+    if (id) {
+      wx.navigateTo({
+        url: `/subPackages/my/pages/person/person?id=${id}`,
+      });
+    } else {
       wx.navigateTo({
         url: "/pages/login/login",
       });
@@ -168,7 +173,17 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow() {},
+  onShow() {
+    // 修复tabbar切换时候发布组件显示问题
+    wx.$store.updatePopup(1460);
+
+    // 判断有没有Token，没有就代表未登录，跳转到登录页
+    if (!getToken()) {
+      wx.navigateTo({
+        url: "/pages/login/login",
+      });
+    }
+  },
 
   /**
    * 生命周期函数--监听页面隐藏

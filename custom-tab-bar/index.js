@@ -58,16 +58,12 @@ Component({
     },
     // 弹出层
     eject() {
-      if (this.data.top === 1460) {
-        this.setData({
-          top: 0,
-          sty: "move",
-        });
-      } else if (this.data.top === 0) {
-        this.setData({
-          top: 1460,
-          sty: "",
-        });
+      if (wx.$store.popup === 1460) {
+        wx.$store.updatePopup(0);
+        this.setData({ sty: "move" });
+      } else if (wx.$store.popup === 0) {
+        wx.$store.updatePopup(1460);
+        this.setData({ sty: "" });
       }
 
       // 每次点击就会生成不同的名人名言

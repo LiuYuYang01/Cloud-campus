@@ -176,11 +176,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  async onLoad(options) {
-    // this.__getSwiperList();
-    // this.__getHomeToppingList();
-    // this.__getHomeList();
-  },
+  async onLoad(options) {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -191,20 +187,22 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
-    // 判断有没有Token，没有就代表未登录，跳转到登录页
-    if (getToken()) {
-      console.log("已登录");
-      this.__getSwiperList();
-      this.__getHomeToppingList();
-      this.__getHomeList();
-      // let artCom = this.selectComponent('.article');
-      // artCom.setData({list: this.data.homeList});
-    } else {
-      console.log("未登录");
-      wx.navigateTo({
-        url: "/pages/login/login",
-      });
-    }
+    // 修复tabbar切换时候发布组件显示问题
+    wx.$store.updatePopup(1460);
+
+    this.__getSwiperList();
+    this.__getHomeToppingList();
+    this.__getHomeList();
+
+    // // 判断有没有Token，没有就代表未登录，跳转到登录页
+    // if (getToken()) {
+    //   console.log("已登录");
+    // } else {
+    //   console.log("未登录");
+    //   wx.navigateTo({
+    //     url: "/pages/login/login",
+    //   });
+    // }
   },
 
   /**

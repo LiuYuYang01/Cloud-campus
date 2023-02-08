@@ -2,9 +2,11 @@
 <van-notify id="van-notify" />
 
 <view bindtouchstart="touchStart" bindtouchmove="touchMove" class="home">
+    <view class="bg"></view>
+
     <view class="container">
         <!-- 导航 -->
-        <scroll-view class="nav" scroll-x="true">
+        <!-- <scroll-view class="nav" scroll-x="true">
             <view class="{{index === 0 ? 'active' : ''}}" data-index="{{0}}" bindtap="navTap">首页</view>
             <view class="{{index === 1 ? 'active' : ''}}" data-index="{{1}}" bindtap="navTap">前端</view>
             <view class="{{index === 2 ? 'active' : ''}}" data-index="{{2}}" bindtap="navTap">后端</view>
@@ -15,10 +17,10 @@
             <view class="{{index === 7 ? 'active' : ''}}" data-index="{{7}}" bindtap="navTap">篮球</view>
             <view class="{{index === 8 ? 'active' : ''}}" data-index="{{8}}" bindtap="navTap">足球</view>
             <view class="{{index === 9 ? 'active' : ''}}" data-index="{{9}}" bindtap="navTap">羽毛球</view>
-        </scroll-view>
+        </scroll-view> -->
 
         <!-- 轮播图 -->
-        <swiper list="{{swiperList}}" style="height: 350rpx;margin-top: 20rpx;" />
+        <swiper list="{{swiperList}}" style="height: 350rpx;" />
 
         <view class="slideNavBox">
             <circle list="{{entranceNavList}}" />

@@ -3,8 +3,7 @@
   width: 100%;
   height: 100%;
   background: url(https://s1.ax1x.com/2023/01/25/pStWSYt.jpg);
-  /* background: url(https://s1.ax1x.com/2023/01/25/pStWpfP.jpg); */
-  background-size: cover;
+  background-size: 100% 100%;
 }
 
 /* 跳过 */

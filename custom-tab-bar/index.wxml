@@ -18,4 +18,4 @@
     <van-tabbar-item icon="contact">我的</van-tabbar-item>
 </van-tabbar>
 
-<popup top="{{ top }}" sty="{{sty}}" info="{{info}}" />
+<popup sty="{{sty}}" info="{{info}}" />

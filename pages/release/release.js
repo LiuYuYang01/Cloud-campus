@@ -1,6 +1,6 @@
 import { createStoreBindings } from "mobx-miniprogram-bindings";
 import store from "../../store/store";
-import { getUserInfo } from "../../utils/localStorage";
+import { getToken, getUserInfo } from "../../utils/localStorage";
 
 import Notify from "@vant/weapp/notify/notify";
 import Dialog from "@vant/weapp/dialog/dialog";
@@ -28,7 +28,7 @@ Page({
       describe: "", //文章描述
       content: "", //文章内容
       cover: [], //文章封面
-      // cover:"['https://liuyuyang.net/usr/uploads/2023/01/129447723.png']",
+    //   cover:"['https://liuyuyang.net/usr/uploads/2023/01/129447723.png']",
       cate: "", //文章所属分类
       views: 0, //文章浏览量
       is_concern: 0, //是否关注该作者
@@ -38,7 +38,6 @@ Page({
       is_collection: 0, //是否收藏该文章
       is_admin: 0, //是否是管理员
       is_realname: 0, //是否已实名
-      date: "", //文章发布时间
     },
 
     // editor编辑器内容
@@ -83,7 +82,6 @@ Page({
     setTimeout(() => {
       this.setData({
         "article.content": editor.data.delta.html,
-        "article.date": new Date(),
         delta: editor.data.delta,
       });
 
@@ -108,7 +106,7 @@ Page({
         }
       };
 
-      const userInfo = getUserInfo() && JSON.parse(getUserInfo())
+      const userInfo = getUserInfo() && JSON.parse(getUserInfo());
       this.setData({
         "article.is_admin": userInfo.is_admin,
         "article.is_realname": userInfo.is_realname,
@@ -191,6 +189,9 @@ Page({
         });
       }, 1000);
     }
+
+    // 发布或编辑文章成功后隐藏发布组件
+    wx.$store.updatePopup(1460)
   },
 
   // 获取兴趣圈分类数据
@@ -406,7 +407,14 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow() {},
+  onShow() {
+    // 判断有没有Token，没有就代表未登录，跳转到登录页
+    if (!getToken()) {
+      wx.navigateTo({
+        url: "/pages/login/login",
+      });
+    }
+  },
 
   /**
    * 生命周期函数--监听页面隐藏

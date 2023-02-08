@@ -1,4 +1,4 @@
-<view class="popup" style="top: {{top}}rpx">
+<view class="popup" style="top: {{popup}}rpx">
     <view class="logo">
         <image src="/assets/logo.png" mode="widthFix" class="image"></image>
     </view>

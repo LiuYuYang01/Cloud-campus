@@ -167,6 +167,9 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow() {
+    // 修复tabbar切换时候发布组件显示问题
+    wx.$store.updatePopup(1460);
+    
     this.__getSwiperList();
     this.__getHomeToppingList();
     this.__getHobbyList();
@@ -176,7 +179,9 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide() {},
+  onHide() {
+    
+  },
 
   /**
    * 生命周期函数--监听页面卸载
