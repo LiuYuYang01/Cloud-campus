@@ -147,3 +147,10 @@
 .container-list:last-of-type {
   margin-bottom: 180rpx;
 }
+
+/* 投诉 */
+.complaint{
+    display: flex;
+    align-items: center;
+    padding-top: 10rpx;
+}

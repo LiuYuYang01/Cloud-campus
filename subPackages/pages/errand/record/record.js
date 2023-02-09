@@ -47,6 +47,17 @@ Component({
         price: 4.5, //价格
         state: 3,
       },
+      {
+        id: 4,
+        name: "狸同学", //用户名称
+        avatar:
+          "https://tupian.qqw21.com/article/UploadPic/2021-5/20215291612831349.jpeg", //头像
+        to: "南校区食堂黄焖鸡米饭", //取
+        from: "1号宿舍楼，3楼，317宿舍", //送
+        remarks: "放门口谢谢", //备注
+        price: 4.5, //价格
+        state: 4,
+      }
     ],
   },
 

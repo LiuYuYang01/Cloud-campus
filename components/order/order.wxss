@@ -153,3 +153,18 @@ page {
 .container-list:last-of-type {
   padding-bottom: 190rpx;
 }
+
+/* 确认订单 */
+.confirm{
+    display: flex;
+    justify-content: center;
+}
+.confirm view{
+    width: 200rpx;
+    padding: 20rpx 0;
+    margin: 0 20rpx;
+    border-radius: 10rpx;
+    color: #fff;
+    background-color: #5a82fd;
+    text-align: center;
+}

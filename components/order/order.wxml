@@ -31,9 +31,18 @@
 
     <!-- 订单状态 -->
     <view class="meet" bindtap="meet" wx:if="{{item.state === 0}}">立即抢单</view>
-    <view class="meet" style="background-color: #fa7f53" wx:if="{{item.state === 1}}">待接单</view>
-    <view class="meet" style="background-color: #4fb985;" wx:if="{{item.state === 2}}">进行中</view>
-    <view class="meet" style="background-color: #6680fb;" wx:if="{{item.state === 3}}">已完成</view>
 
-    <slot name="{{index}}"></slot>
+    <view class="meet" style="background-color: #fa7f53" wx:if="{{item.state === 1}}">待接单</view>
+
+    <view class="meet" style="background-color: #4fb985;" wx:if="{{item.state === 2}}">正在进行中</view>
+
+    <!-- 确认订单 -->
+    <view class="confirm" wx:if="{{item.state === 3}}">
+        <view style="background-color: #f55b5b;">投诉订单</view>
+        <view>确认送达</view>
+    </view>
+
+    <view class="meet" style="background-color: #6680fb;" wx:if="{{item.state === 4}}">订单已完成</view>
+
+    <slot name="{{index}}" wx:if="{{item.state === 4}}"></slot>
 </view>
