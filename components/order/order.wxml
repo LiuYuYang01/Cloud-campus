@@ -1,0 +1,48 @@
+<view class="container-list" wx:for="{{list}}" wx:key="id">
+    <!-- 头像/发布时间/金额 -->
+    <view class="header">
+        <view>
+            <image src="{{item.avatar}}" class="avatar"></image>
+        </view>
+
+        <view class="info">
+            <view class="title">{{item.name}}</view>
+            <view class="date">刚刚</view>
+        </view>
+
+        <view class="attention">{{item.price}}元</view>
+    </view>
+
+    <view class="box">
+        <view class="take">
+            <view class="title">取</view>
+            <view class="info">{{item.to}}</view>
+        </view>
+
+        <view class="give">
+            <view class="title">送</view>
+            <view class="info">{{item.from}}</view>
+        </view>
+
+        <view class="remark">
+            <text>备注：{{item.remarks ? item.remarks : "无备注"}}</text>
+        </view>
+    </view>
+
+    <!-- 订单状态 -->
+    <view class="meet" bindtap="meet" wx:if="{{item.state === 0}}">立即抢单</view>
+
+    <view class="meet" style="background-color: #fdc629" wx:if="{{item.state === 1}}">待取货</view>
+
+    <view class="meet" style="background-color: #4fb985;" wx:if="{{item.state === 2}}">正在进行中</view>
+
+    <!-- 确认订单 -->
+    <view class="confirm" wx:if="{{item.state === 3}}">
+        <view style="background-color: #f55b5b;">投诉订单</view>
+        <view>确认送达</view>
+    </view>
+
+    <view class="meet" style="background-color: #6680fb;" wx:if="{{item.state === 4}}">订单已完成</view>
+
+    <slot name="{{index}}" wx:if="{{item.state === 4}}"></slot>
+</view>

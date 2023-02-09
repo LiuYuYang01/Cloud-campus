@@ -1,3 +1,7 @@
+page {
+  background-color: #f0f0f0;
+}
+
 .container-list {
   padding: 20rpx;
   margin-top: 10rpx;
@@ -118,6 +122,8 @@
   background-color: #5a82fd;
 }
 
+/* @name:Liuyuyang */
+/* @date:2023-01-16 15:13 */
 .box > view {
   display: flex;
   align-items: center;
@@ -145,12 +151,20 @@
 }
 
 .container-list:last-of-type {
-  margin-bottom: 180rpx;
+  padding-bottom: 190rpx;
 }
 
-/* 投诉 */
-.complaint{
+/* 确认订单 */
+.confirm{
     display: flex;
-    align-items: center;
-    padding-top: 10rpx;
+    justify-content: center;
+}
+.confirm view{
+    width: 200rpx;
+    padding: 20rpx 0;
+    margin: 0 20rpx;
+    border-radius: 10rpx;
+    color: #fff;
+    background-color: #5a82fd;
+    text-align: center;
 }

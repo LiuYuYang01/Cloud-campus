@@ -1,7 +1,9 @@
 {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#5a82fd",
-    "navigationBarTitleText": "校园跑腿",
+    "navigationBarTitleText": "我的订单",
     "navigationBarTextStyle": "white",
-    "usingComponents": {}
+    "usingComponents": {
+        "order":"/components/order/order"
+    }
 }
