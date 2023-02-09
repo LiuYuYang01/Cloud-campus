@@ -1,6 +1,12 @@
 <van-dialog id="van-dialog" confirm-button-color="#4fb985" />
-
 <wxs module="filter" src="../../filter/formatTime.wxs"></wxs>
+<!-- 判断用户点赞 -->
+<wxs module="checkLike">
+    module.exports.handler = function (a_likes, uid) {
+        if (a_likes.indexOf(uid) != -1) return true
+        return false
+    }
+</wxs>
 
 <view class="item" wx:for="{{list}}" wx:key="id">
     <!-- 用户信息 -->
@@ -55,13 +61,13 @@
     <!-- 操作 -->
     <view class="operate">
         <!-- 点赞 -->
-        <view class="praise view" bindtap="praiseTap">
-            <text class="iconfont icon-dianzan_kuai" style="color:{{isPraise}}"> 10</text>
+        <view data-index="{{index}}" data-islike="{{checkLike.handler(item.likes,user.id)}}" class="praise view" bindtap="praiseTap" style="color: {{checkLike.handler(item.likes,user.id)?'#fa6e70':'#888'}};">
+            <text class="iconfont icon-dianzan_kuai" style="color:{{isPraise}}"> {{item.likes.length}}</text>
         </view>
 
         <!-- 收藏 -->
-        <view class="collect view" bindtap="collectTap">
-            <text class="iconfont icon-favourited" style="color:{{isCollect}}"> 6</text>
+        <view data-index="{{index}}" data-islike="{{checkLike.handler(item.collections,user.id)}}" class="collect view" bindtap="collectTap" style="color: {{checkLike.handler(item.collections,user.id)?'#fa6e70':'#888'}};">
+            <text class="iconfont icon-favourited" style="color:{{isCollect}}"> {{item.collections.length}}</text>
         </view>
 
         <!-- 如果是管理员账号或者自己的文章，就显示删除按钮 -->

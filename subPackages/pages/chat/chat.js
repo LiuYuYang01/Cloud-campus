@@ -42,8 +42,8 @@ Page({
     this.setData({
       name: options.name,
     });
-    console.log(options.name);
-    console.log(this.data.name);
+    // console.log(options.name);
+    // console.log(this.data.name);
 
     let { uid } = options;
     let res1 = await wx.$http.get(`/api/user/${uid}`);
@@ -64,7 +64,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
-    console.log(this.data.name);
+    // console.log(this.data.name);
     wx.setNavigationBarTitle({
       title: this.data.name,
     });
