@@ -10,11 +10,6 @@ Component({
   properties: {
     list: Array,
   },
-  lifetimes: {
-    created() {
-      console.log(this.data.list);
-    },
-  },
   /**
    * 组件的初始数据
    */
