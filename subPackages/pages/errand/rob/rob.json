@@ -1,9 +1,10 @@
 {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#5a82fd",
-    "navigationBarTitleText": "校园跑腿",
+    "navigationBarTitleText": "抢单",
     "navigationBarTextStyle": "white",
     "usingComponents": {
+        "order":"/components/order/order",
         "swiper":"/components/swiper/swiper",
         "van-dialog": "@vant/weapp/dialog/index",
         "van-notice-bar": "@vant/weapp/notice-bar/index"

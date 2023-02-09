@@ -1,4 +1,4 @@
-<van-dialog id="van-dialog" showCancelButton="{{true}}"  confirm-button-color="#6680fb"/>
+<van-dialog id="van-dialog" showCancelButton="{{true}}" confirm-button-color="#6680fb" />
 
 <van-tabs active="{{ Tab }}" color="#5a82fd" bind:change="Tab">
     <!-- 轮播图 -->
@@ -8,73 +8,7 @@
 
 
     <van-tab title="抢单">
-        <view class="container-list">
-            <!-- 头像/发布时间/金额 -->
-            <view class="header">
-                <view>
-                    <image src="https://tupian.qqw21.com/article/UploadPic/2020-3/202032023341537416.jpg" class="avatar"></image>
-                </view>
-
-                <view class="info">
-                    <view class="title">张同学</view>
-                    <view class="date">刚刚</view>
-                </view>
-
-                <view class="attention">1.5元</view>
-            </view>
-
-            <view class="box">
-                <view class="take">
-                    <view class="title">取</view>
-                    <view class="info">北校区蜜雪冰城大杯珍珠奶茶</view>
-                </view>
-
-                <view class="give">
-                    <view class="title">送</view>
-                    <view class="info">南校区6号宿舍楼3楼317宿舍</view>
-                </view>
-
-                <view class="remark">
-                    <text>备注：辛苦小哥哥了</text>
-                </view>
-            </view>
-
-            <view class="meet" bindtap="meet">立即抢单</view>
-        </view>
-
-        <view class="container-list">
-            <!-- 头像/发布时间/金额 -->
-            <view class="header">
-                <view>
-                    <image src="https://img13.360buyimg.com/n1/jfs/t1/175752/21/32873/65472/63ab9f55Fe8882446/89719c83f4350f85.jpg" class="avatar"></image>
-                </view>
-
-                <view class="info">
-                    <view class="title">王同学</view>
-                    <view class="date">刚刚</view>
-                </view>
-
-                <view class="attention">2.5元</view>
-            </view>
-
-            <view class="box">
-                <view class="take">
-                    <view class="title">取</view>
-                    <view class="info">取包裹</view>
-                </view>
-
-                <view class="give">
-                    <view class="title">送</view>
-                    <view class="info">北校区6号宿舍楼1楼213宿舍</view>
-                </view>
-
-                <view class="remark">
-                    <text>备注：无备注</text>
-                </view>
-            </view>
-
-            <view class="meet" bindtap="meet">立即抢单</view>
-        </view>
+        <order list="{{ orderList }}" />
     </van-tab>
 
     <van-tab title="待取货">
@@ -119,9 +53,9 @@
 </van-tabs>
 
 
-<van-tabbar active="{{ active }}" bind:change="selectTabBar">
+<van-tabbar active="{{ 1 }}" bind:change="selectTabBar">
     <van-tabbar-item icon="home-o">首页</van-tabbar-item>
     <van-tabbar-item icon="gold-coin-o">抢单</van-tabbar-item>
-    <van-tabbar-item icon="medal-o">战绩</van-tabbar-item>
+    <van-tabbar-item icon="medal-o">订单</van-tabbar-item>
     <van-tabbar-item icon="manager-o">我的</van-tabbar-item>
 </van-tabbar>

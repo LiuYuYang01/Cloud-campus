@@ -4,6 +4,7 @@ import { action } from "mobx-miniprogram";
 export default {
   // 被选中的第几个tabBar
   active: 0,
+  errandActive: 0,
   popup: 1460, // 发布组件是否显示
   onlineUserList: [], // 在线用户
   unreadList: [], // 存储未读消息的用户ID
@@ -12,6 +13,10 @@ export default {
   // 更新tabbar
   updateActive: action(function (n) {
     this.active = n;
+  }),
+  // 修改跑腿页面tabbar
+  updateErrandActive: action(function (n) {
+    this.errandActive = n;
   }),
   // 更新发布组件是否显示
   updatePopup: action(function (n) {
