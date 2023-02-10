@@ -10,7 +10,7 @@
 
 <van-tabbar active="{{ 2 }}" bind:change="selectTabBar">
     <van-tabbar-item icon="home-o">首页</van-tabbar-item>
-    <van-tabbar-item icon="gold-coin-o">抢单</van-tabbar-item>
+    <van-tabbar-item icon="refund-o">抢单</van-tabbar-item>
     <van-tabbar-item icon="medal-o">订单</van-tabbar-item>
-    <van-tabbar-item icon="manager-o">我的</van-tabbar-item>
+    <van-tabbar-item icon="balance-o">我的</van-tabbar-item>
 </van-tabbar>

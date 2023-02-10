@@ -16,8 +16,8 @@
             "pages": [
                 "pages/errand/home/home",
                 "pages/errand/rob/rob",
-                "pages/errand/record/record",
-                "pages/errand/my/my",
+                "pages/errand/order/order",
+                "pages/errand/wealth/wealth",
                 "pages/robot/robot",
                 "my/pages/data/data",
                 "my/pages/certified/certified",

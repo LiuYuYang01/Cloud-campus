@@ -6,8 +6,8 @@ module.exports = Behavior({
     pageList: [
       "/subPackages/pages/errand/home/home",
       "/subPackages/pages/errand/rob/rob",
-      "/subPackages/pages/errand/record/record",
-      "/subPackages/pages/errand/my/my",
+      "/subPackages/pages/errand/order/order",
+      "/subPackages/pages/errand/wealth/wealth",
     ],
     active: 0,
   },
