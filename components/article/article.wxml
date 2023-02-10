@@ -54,7 +54,7 @@
     </view>
 
     <!-- 封面 -->
-    <view class="picture {{a.toImgNum(item.cover.length)}}" data-url="{{item.cover}}" bindtap="previewImg">
+    <view class="picture {{a.toImgNum(item.cover.length)}}" data-url="{{item.cover}}" bindtap="previewImg" wx:if="{{item.cover.length}}">
         <!-- 根据图片数量显示对应的布局 -->
         <image src="{{item}}" wx:if="{{item.cover.length !== 0}}" wx:for="{{item.cover}}" wx:key="index" class="image"></image>
     </view>
