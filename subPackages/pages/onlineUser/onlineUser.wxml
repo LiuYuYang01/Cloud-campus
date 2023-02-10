@@ -13,7 +13,7 @@
     <view class="item" wx:for="{{onlineUserList}}" wx:key="key" data-uid="{{item.id}}" data-name="{{item.name}}" bindtap="goToChat">
         <!-- 头像 -->
         <view class="avatar">
-            <image src="{{item.avatar}}" mode="widthFix" />
+            <image src="{{item.avatar}}" />
         </view>
 
         <!-- 信息 -->
