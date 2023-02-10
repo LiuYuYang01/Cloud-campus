@@ -3,5 +3,7 @@
     "navigationBarBackgroundColor": "#5a82fd",
     "navigationBarTitleText": "余额提现",
     "navigationBarTextStyle": "white",
-    "usingComponents": {}
+    "usingComponents": {
+        "ec-canvas": "/ec-canvas/ec-canvas"
+    }
 }

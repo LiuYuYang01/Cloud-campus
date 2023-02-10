@@ -8,6 +8,16 @@
     </van-button>
 </view>
 
+<!-- 统计 -->
+<view class="statistics">
+    <view class="title">
+        <van-icon name="bar-chart-o" /> 本周统计
+    </view>
+
+    <ec-canvas id="mychart-dom-bar" canvas-id="mychart-bar" ec="{{ ec }}"></ec-canvas>
+</view>
+
+
 <van-tabbar active="{{ 3 }}" bind:change="selectTabBar">
     <van-tabbar-item icon="home-o">首页</van-tabbar-item>
     <van-tabbar-item icon="gold-coin-o">抢单</van-tabbar-item>
