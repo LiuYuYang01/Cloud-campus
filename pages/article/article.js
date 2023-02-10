@@ -25,7 +25,6 @@ Page({
     const {
       data: { code, message, data },
     } = await wx.$http.get(`/api/${type}/article/get/${id}`);
-    console.log(data[0],666);
 
     if (code !== 200) return Notify({ type: "danger", message });
 
