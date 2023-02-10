@@ -2,17 +2,20 @@
 
 <!-- 聊天内容 -->
 <view class="content">
-    <view class="row {{item.sender_id !== chatObj.id ? 'right' : ''}}" wx:for="{{msgList}}" wx:key="key">
-        <!-- 头像 -->
-        <view class="avatar">
-            <image src="{{item.sender_id == chatObj.id ? chatObj.avatar : my.avatar}}" />
-            <view class="name">{{item.sender_id == chatObj.id ? chatObj.name : my.name}}</view>
+    <view class="row" wx:for="{{msgList}}" wx:key="key">
+        <view class="item {{item.sender_id !== chatObj.id ? 'right' : ''}}">
+            <!-- 头像 -->
+            <view class="avatar">
+                <image src="{{item.sender_id == chatObj.id ? chatObj.avatar : my.avatar}}" />
+            </view>
+
+            <!-- 消息 -->
+            <view class="news">
+                <view class="info">{{item.message}}</view>
+            </view>
         </view>
 
-        <!-- 消息 -->
-        <view class="news">
-            <view class="info">{{item.message}}</view>
-        </view>
+        <view class="name {{item.sender_id !== chatObj.id ? 'right' : ''}}">{{item.sender_id == chatObj.id ? chatObj.name : my.name}}</view>
     </view>
 </view>
 

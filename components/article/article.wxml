@@ -1,5 +1,6 @@
 <van-dialog id="van-dialog" confirm-button-color="#4fb985" />
 <wxs module="filter" src="../../filter/formatTime.wxs"></wxs>
+
 <!-- 判断用户点赞 -->
 <wxs module="checkLike">
     module.exports.handler = function (a_likes, uid) {
