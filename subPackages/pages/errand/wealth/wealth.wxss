@@ -1,0 +1,36 @@
+page {
+  background-color: #fff;
+}
+
+.wealth {
+  text-align: center;
+}
+
+/* 当前余额 */
+.wealth .num {
+  font-size: 100rpx;
+  font-weight: 700;
+  color: #6680fb;
+  margin-top: 100rpx;
+}
+
+/* 提现按钮 */
+.wealth .tx .van-button {
+  height: 70rpx !important;
+  margin-top: 20rpx;
+  color: #fff;
+  border-radius: 50rpx;
+  background-color: #6680fb;
+}
+
+/* 统计 */
+.statistics{
+    height: 700rpx;
+}
+
+.title{
+    color: #6680fb;
+    font-size: 40rpx;
+    text-align: center;
+    margin-top: 90rpx;
+}

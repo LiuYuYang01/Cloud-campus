@@ -18,6 +18,7 @@ page {
 
 .loginBox .logo image{
     width: 250rpx;
+    height: 99rpx;
 }
 
 .loginBox input {

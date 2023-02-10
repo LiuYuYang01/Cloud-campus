@@ -7,26 +7,33 @@
   /* background-color: red; */
 }
 
-.userList .item:hover{
-    background-color: #eeeeee;
+.userList .item:hover {
+  background-color: #eeeeee;
 }
 
 /* 头像 */
 .userList .item .avatar {
   width: 100rpx;
+  min-width: 100rpx;
+  height: 100rpx;
   padding-left: 40rpx;
   padding-right: 20rpx;
 }
 
 .userList .item .avatar image {
   width: 100%;
+  height: 100%;
   border-radius: 10rpx;
 }
 
 /* 用户名称 */
 .userList .item .name {
+  width: 300rpx;
   font-size: 30rpx;
   color: #333;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
 /* 记录最后一次聊天的信息 */

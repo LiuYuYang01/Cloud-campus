@@ -1,7 +1,9 @@
 {
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#5a82fd",
-    "navigationBarTitleText": "个人中心",
+    "navigationBarTitleText": "余额提现",
     "navigationBarTextStyle": "white",
-    "usingComponents": {}
+    "usingComponents": {
+        "ec-canvas": "/ec-canvas/ec-canvas"
+    }
 }

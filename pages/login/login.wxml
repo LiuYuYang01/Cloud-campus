@@ -1,7 +1,7 @@
 <van-notify id="van-notify" />
 <view class="loginBox">
     <view class="logo">
-        <image src="https://s1.ax1x.com/2023/01/05/pSAnHsK.png" mode="widthFix"></image>
+        <image src="https://s1.ax1x.com/2023/01/05/pSAnHsK.png"></image>
     </view>
 
     <van-notice-bar color="#54b986" background="transparent" left-icon="smile-comment-o" text="登陆即注册  无需注册直接登录!" />
