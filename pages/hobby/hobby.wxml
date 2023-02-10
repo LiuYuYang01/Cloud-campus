@@ -52,7 +52,7 @@
     </view>
 
     <!-- 置顶文章 -->
-    <article list="{{hobbyToppingList}}"></article>
+    <article list="{{hobbyToppingList}} " bindgetList="getList"></article>
 
     <article class="article" list="{{hobbyList}}" bindgetList="getList" />
 </view>
