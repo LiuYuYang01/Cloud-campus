@@ -24,7 +24,9 @@ Page({
       {
         title: "我的主页",
         icon: "flower-o",
-        url: "/subPackages/my/pages/person/person",
+        url: `/subPackages/my/pages/person/person?id=${
+          JSON.parse(getUserInfo()).id
+        }`,
         color: "#4fb985",
       },
       {
@@ -150,7 +152,7 @@ Page({
     });
 
     this.setData({
-      userInfo: this.data.userInfo,
+      userInfo: this.data.userInfo
     });
   },
 
