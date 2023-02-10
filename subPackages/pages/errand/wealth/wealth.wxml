@@ -1,3 +1,13 @@
+<view class="wealth">
+    <view class="num">28.50</view>
+    <view style="color:#999;font-size: 28rpx;">当前余额</view>
+
+    <van-button class="tx">
+        <van-icon name="cash-back-record" style="position: relative;top:4rpx;font-size:40rpx;" />
+        去提现
+    </van-button>
+</view>
+
 <van-tabbar active="{{ 3 }}" bind:change="selectTabBar">
     <van-tabbar-item icon="home-o">首页</van-tabbar-item>
     <van-tabbar-item icon="gold-coin-o">抢单</van-tabbar-item>
