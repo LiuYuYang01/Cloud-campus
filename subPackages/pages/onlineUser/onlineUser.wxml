@@ -19,7 +19,7 @@
         <!-- 信息 -->
         <view class="info">
             <!-- 用户名称 -->
-            <view class="name">{{item.name}}</view>
+            <view class="name">{{item.name}} <van-tag type="danger" wx:if="{{u.unread(unreadList,item.id).length>=1}}">{{u.unread(unreadList,item.id).length}}</van-tag></view>
 
             <!-- 最后一次聊天的消息 -->
             <view class="last">
