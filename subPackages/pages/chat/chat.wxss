@@ -9,47 +9,47 @@ page {
 }
 
 .content .row {
+  margin-bottom: 50rpx;
+}
+
+.content .item {
   display: flex;
   align-items: center;
-  margin-bottom: 20rpx;
 }
 
 /* 用户头像 */
-.content .row .avatar {
-  width: 120rpx;
-  min-width: 120rpx;
-  height: 120rpx;
+.content .item .avatar {
+  width: 80rpx;
+  min-width: 80rpx;
+  height: 80rpx;
 }
 
-.content .row .avatar image {
+.content .item .avatar image {
   width: 100%;
   height: 100%;
   border-radius: 10rpx;
 }
 
 /* 消息框 */
-.content .row .news {
+.content .item .news {
   padding: 0 0 0 20rpx;
 }
-/* 用户名称 */
-.content .row .avatar .name {
-  font-size: 24rpx;
-  color: #666;
-  padding-bottom: 10rpx;
-  text-align: center;
 
-  /* 溢出省略 */
-  white-space: nowrap;
-  overflow: hidden;
-  text-overflow: ellipsis;
-}
 /* 用户消息 */
-.content .row .news .info {
+.content .item .news .info {
   padding: 10rpx 20rpx;
   color: #fff;
   border-radius: 50rpx;
   border-bottom-left-radius: 0;
   background-color: #4fb985;
+}
+
+/* 用户名称 */
+.content .name {
+  width: 200rpx;
+  margin-top: 15rpx;
+  color: #666;
+  font-size: 24rpx;
 }
 
 /* 右侧用户消息样式 */
@@ -62,6 +62,11 @@ page {
 .right .news .info {
   border-radius: 50rpx !important;
   border-bottom-right-radius: 0 !important;
+}
+
+.name.right {
+  width: 100%;
+  text-align: end;
 }
 
 /* 发送按钮 */

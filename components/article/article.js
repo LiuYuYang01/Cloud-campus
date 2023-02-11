@@ -30,7 +30,7 @@ Component({
    */
   data: {
     data: [],
-    times:null
+    times: null,
   },
   /**
    * 组件的方法列表
@@ -39,7 +39,7 @@ Component({
     // 跳转到个人主页
     goPerson(e) {
       const id = e.currentTarget.dataset.id;
-      
+
       wx.navigateTo({
         url: `/subPackages/my/pages/person/person?id=${id}`,
       });
@@ -60,55 +60,67 @@ Component({
 
     // 点赞
     async praiseTap(e) {
-                let {index,islike} = e.currentTarget.dataset;
-                let {likes,id,type} = this.data.list[index];
-                let newUserLikes, newArticleLikes;
-                if (islike) { // 取消点赞
-                    // 从文章数据移除uid
-                    newArticleLikes = likes.filter(el => el != this.data.user.id)
-                    // 从用户数据移除aid
-                    newUserLikes = this.data.user.likes.filter(el => el != id);
-                } else { // 点赞
-                    // 将UID存到文章数据
-                    newArticleLikes = likes;
-                    newArticleLikes.push(this.data.user.id);
-                    // 将aid存到用户数据
-                    newUserLikes = this.data.user.likes;
-                    newUserLikes.push(id);
-                };
-                // console.log(newUserLikes, newArticleLikes);
-                await wx.$http.post(`/api/user/info/${this.data.user.id}`,{likes:newUserLikes});
-                await wx.$http.post(`/api/${type}/article/${id}`,{likes:newArticleLikes});
-                this.triggerEvent("getList"); // 更新文章数据
-                // 更新用户数据
-                let newUserInfo = await wx.$http.get(`/api/user/${this.data.user.id}`);
-                wx.$store.updateUserInfo(newUserInfo.data.data[0]);
+      let { index, islike } = e.currentTarget.dataset;
+      let { likes, id, type } = this.data.list[index];
+      let newUserLikes, newArticleLikes;
+      if (islike) {
+        // 取消点赞
+        // 从文章数据移除uid
+        newArticleLikes = likes.filter((el) => el != this.data.user.id);
+        // 从用户数据移除aid
+        newUserLikes = this.data.user.likes.filter((el) => el != id);
+      } else {
+        // 点赞
+        // 将UID存到文章数据
+        newArticleLikes = likes;
+        newArticleLikes.push(this.data.user.id);
+        // 将aid存到用户数据
+        newUserLikes = this.data.user.likes;
+        newUserLikes.push(id);
+      }
+      // console.log(newUserLikes, newArticleLikes);
+      await wx.$http.post(`/api/user/info/${this.data.user.id}`, {
+        likes: newUserLikes,
+      });
+      await wx.$http.post(`/api/${type}/article/${id}`, {
+        likes: newArticleLikes,
+      });
+      this.triggerEvent("getList"); // 更新文章数据
+      // 更新用户数据
+      let newUserInfo = await wx.$http.get(`/api/user/${this.data.user.id}`);
+      wx.$store.updateUserInfo(newUserInfo.data.data[0]);
     },
     // 判断是否收藏
     async collectTap(e) {
-        let {index,islike} = e.currentTarget.dataset;
-        let {collections,id,type} = this.data.list[index];
-        let newUserLikes, newArticleLikes;
-        if (islike) { // 取消点赞
-            // 从文章数据移除uid
-            newArticleLikes = collections.filter(el => el != this.data.user.id)
-            // 从用户数据移除aid
-            newUserLikes = this.data.user.collections.filter(el => el != id);
-        } else { // 点赞
-            // 将UID存到文章数据
-            newArticleLikes = collections;
-            newArticleLikes.push(this.data.user.id);
-            // 将aid存到用户数据
-            newUserLikes = this.data.user.collections;
-            newUserLikes.push(id);
-        };
-        // console.log(newUserLikes, newArticleLikes);
-        await wx.$http.post(`/api/user/info/${this.data.user.id}`,{collections:newUserLikes});
-        await wx.$http.post(`/api/${type}/article/${id}`,{collections:newArticleLikes});
-        this.triggerEvent("getList"); // 更新文章数据
-        // 更新用户数据
-        let newUserInfo = await wx.$http.get(`/api/user/${this.data.user.id}`);
-        wx.$store.updateUserInfo(newUserInfo.data.data[0]);
+      let { index, islike } = e.currentTarget.dataset;
+      let { collections, id, type } = this.data.list[index];
+      let newUserLikes, newArticleLikes;
+      if (islike) {
+        // 取消点赞
+        // 从文章数据移除uid
+        newArticleLikes = collections.filter((el) => el != this.data.user.id);
+        // 从用户数据移除aid
+        newUserLikes = this.data.user.collections.filter((el) => el != id);
+      } else {
+        // 点赞
+        // 将UID存到文章数据
+        newArticleLikes = collections;
+        newArticleLikes.push(this.data.user.id);
+        // 将aid存到用户数据
+        newUserLikes = this.data.user.collections;
+        newUserLikes.push(id);
+      }
+      // console.log(newUserLikes, newArticleLikes);
+      await wx.$http.post(`/api/user/info/${this.data.user.id}`, {
+        collections: newUserLikes,
+      });
+      await wx.$http.post(`/api/${type}/article/${id}`, {
+        collections: newArticleLikes,
+      });
+      this.triggerEvent("getList"); // 更新文章数据
+      // 更新用户数据
+      let newUserInfo = await wx.$http.get(`/api/user/${this.data.user.id}`);
+      wx.$store.updateUserInfo(newUserInfo.data.data[0]);
     },
     // 删除文章
     delArticle(e) {

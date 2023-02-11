@@ -24,7 +24,9 @@ Page({
       {
         title: "我的主页",
         icon: "flower-o",
-        url: "/subPackages/my/pages/person/person",
+        url: `/subPackages/my/pages/person/person?id=${
+          JSON.parse(getUserInfo()).id
+        }`,
         color: "#4fb985",
       },
       {
@@ -36,13 +38,13 @@ Page({
       {
         title: "我的点赞",
         icon: "like",
-        url: "",
+        url: "/subPackages/my/pages/content/content?type=点赞",
         color: "#fa6667",
       },
       {
         title: "我的收藏",
         icon: "star",
-        url: "",
+        url: "/subPackages/my/pages/content/content?type=收藏",
         color: "#fbb437",
       },
       {
@@ -150,7 +152,7 @@ Page({
     });
 
     this.setData({
-      userInfo: this.data.userInfo,
+      userInfo: this.data.userInfo
     });
   },
 
