@@ -26,19 +26,25 @@ Page({
   },
 
   // 获取我的内容
-  async getContent() {
+  getContentArticle() {
     this.getList("/api/hobby/article");
   },
 
   // 获取我的说说
-  async getSocialize() {
+  getSocializeArticle() {
     this.getList("/api/socialize/article");
   },
+
+  // 获取我点赞的文章
+  getLikeArticle() {},
+  
+  // 获取我收藏的文章
+  getCollectionArticle() {},
 
   // 跳转到文章页
   goArticle(e) {
     const { id, type } = e.currentTarget.dataset;
-    
+
     wx.navigateTo({
       url: `/pages/article/article?id=${id}&type=${type}`,
     });
@@ -50,10 +56,16 @@ Page({
   onLoad({ type }) {
     switch (type) {
       case "内容":
-        this.getContent();
+        this.getContentArticle();
         break;
       case "说说":
-        this.getSocialize();
+        this.getSocializeArticle();
+        break;
+      case "点赞":
+        this.getLikeArticle();
+        break;
+      case "收藏":
+        this.getCollectionArticle();
         break;
     }
   },

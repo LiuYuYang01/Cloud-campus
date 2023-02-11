@@ -38,13 +38,13 @@ Page({
       {
         title: "我的点赞",
         icon: "like",
-        url: "",
+        url: "/subPackages/my/pages/content/content?type=点赞",
         color: "#fa6667",
       },
       {
         title: "我的收藏",
         icon: "star",
-        url: "",
+        url: "/subPackages/my/pages/content/content?type=收藏",
         color: "#fbb437",
       },
       {
