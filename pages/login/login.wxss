@@ -1,64 +1,109 @@
 page {
-    background-image: linear-gradient(180deg, #fff 0%, #4fb985 120%);
+  background-image: linear-gradient(180deg, #fff 0%, #4fb985 120%);
 }
-
 /* 登录框 */
 .loginBox {
-    width: 600rpx;
-    margin: 400rpx auto 20rpx;
-    padding: 40rpx;
-    border-radius: 10rpx;
-    background-color: #fff;
+  width: 600rpx;
+  margin: 400rpx auto 20rpx;
+  padding: 40rpx;
+  border-radius: 10rpx;
+  background-color: #fff;
 }
-
-.loginBox .logo{
-    text-align: center;
-    margin: 20rpx 0 40rpx;
+.loginBox .logo {
+  text-align: center;
+  margin: 20rpx 0 40rpx;
 }
-
-.loginBox .logo image{
-    width: 250rpx;
-    height: 99rpx;
+.loginBox .logo image {
+  width: 250rpx;
+  height: 99rpx;
 }
-
 .loginBox input {
-    height: 100rpx;
-    border-bottom: 1px solid #f9f9f9;
-    color: #4fb985;
+  height: 100rpx;
+  border-bottom: 1px solid #f9f9f9;
+  color: #4fb985;
 }
-
 .loginBox view:nth-child(4) input {
-    color: #333;
+  color: #333;
 }
-
 .loginBox input .placeholder-style {
-    color: #cbcccf;
-    font-size: 28rpx;
+  color: #cbcccf;
+  font-size: 28rpx;
 }
-
-
 /* 登陆按钮 */
 .loginBox .login {
-    height: 100rpx;
-    line-height: 100rpx;
-    margin-top: 40rpx;
-    color: #fff;
-    border-radius: 10rpx;
-    background-color: #4fb985;
-    text-align: center;
+  height: 100rpx;
+  line-height: 100rpx;
+  margin-top: 40rpx;
+  color: #fff;
+  border-radius: 10rpx;
+  background-color: #4fb985;
+  text-align: center;
 }
-
-.loginBox .login:active{
-    background-color: #73d1a4;
+.loginBox .login:active {
+  background-color: #73d1a4;
 }
-
-.loginBox .van-notice-bar{
-    padding: 0;
+.loginBox .van-notice-bar {
+  padding: 0;
 }
-
-.info{
-    color: #fff;
-    font-size: 26rpx;
-    text-align: end;
-    padding-right: 40rpx;
+.info {
+  color: #fff;
+  font-size: 26rpx;
+  text-align: end;
+  padding-right: 40rpx;
+}
+.wrapper {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.wrapper .verify {
+  width: 80%;
+  height: 400rpx;
+  background-color: #ffffff;
+  border-radius: 20rpx;
+  padding: 20rpx;
+  box-sizing: border-box;
+  position: relative;
+}
+.wrapper .verify > view {
+  text-align: center;
+}
+.wrapper .verify > view:nth-child(1) {
+  font-weight: 700;
+  margin-top: 20rpx;
+}
+.wrapper .verify > view:nth-child(2) {
+  margin-top: 10rpx;
+  color: gray;
+  font-size: 25rpx;
+}
+.wrapper .verify > view:nth-child(3) {
+  margin-top: 30rpx;
+  height: 90rpx;
+  display: flex;
+}
+.wrapper .verify > view:nth-child(3) input {
+  border: 3rpx solid gainsboro;
+  height: 100%;
+  flex: 1.5;
+  text-align: start;
+  padding-left: 20rpx;
+}
+.wrapper .verify > view:nth-child(3) view {
+  height: 100%;
+  flex: 1;
+  vertical-align: text-top;
+  border: 3rpx solid gainsboro;
+}
+.wrapper .verify .btn {
+  position: absolute;
+  width: 93%;
+  bottom: 20rpx;
+  display: flex;
+  justify-content: space-around;
+}
+.vant-btn {
+  width: 230rpx;
+  border-radius: 15rpx !important;
 }
