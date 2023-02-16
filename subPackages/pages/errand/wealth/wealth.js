@@ -93,6 +93,9 @@ function initChart(canvas, width, height, dpr) {
 Page({
   // 在page中使用behaviors
   behaviors: [tabBarBehaviors],
+  options: {
+    styleIsolation: "isolated",
+  },
   data: {
     ec: {
       onInit: initChart,

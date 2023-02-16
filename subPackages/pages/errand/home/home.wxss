@@ -1,10 +1,14 @@
-page{
-    background-color: #fff;
+page {
+  background-color: #fff !important;
+}
+
+.van-tabs__wrap {
+  height: 0 !important;
 }
 
 /* 功能列表 */
-.function{
-    margin-bottom: 20rpx;
+.function {
+  margin-bottom: 20rpx;
 }
 
 .function .box {
@@ -57,10 +61,10 @@ page{
 }
 
 /* banner */
-.banner{
-    text-align: center;
+.banner {
+  text-align: center;
 }
 
-.banner image{
-    border-radius: 10rpx;
+.banner image {
+  border-radius: 10rpx;
 }

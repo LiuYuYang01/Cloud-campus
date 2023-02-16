@@ -3,6 +3,7 @@ const tabBarBehaviors = require("../../../../behaviors/tabBar-behaviors");
 Component({
   options: {
     multipleSolts: true,
+    styleIsolation: "isolated"
   },
   behaviors: [tabBarBehaviors],
   /**
@@ -58,7 +59,7 @@ Component({
         remarks: "放门口谢谢", //备注
         price: 4.5, //价格
         state: 4,
-      }
+      },
     ],
   },
 

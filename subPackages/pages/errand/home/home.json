@@ -4,6 +4,11 @@
     "navigationBarTitleText": "校园跑腿",
     "navigationBarTextStyle": "white",
     "usingComponents": {
-        "swiper":"/components/swiper/swiper"
+        "swiper": "/components/swiper/swiper",
+        "van-tab": "@vant/weapp/tab/index",
+        "van-tabs": "@vant/weapp/tabs/index",
+        "order": "../order/order",
+        "rob": "../rob/rob",
+        "wealth": "../wealth/wealth"
     }
 }
