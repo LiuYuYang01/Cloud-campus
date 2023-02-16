@@ -1,5 +1,5 @@
 <view class="wealth">
-    <view class="num">28.50</view>
+    <view class="num">{{sumMoney}}</view>
     <view style="color:#999;font-size: 28rpx;">当前余额</view>
 
     <van-button class="tx">
