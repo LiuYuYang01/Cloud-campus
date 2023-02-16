@@ -3,6 +3,7 @@ const tabBarBehaviors = require("../../../../behaviors/tabBar-behaviors");
 import * as echarts from "../../../../ec-canvas/echarts";
 
 let chart = null;
+let nums = [23.5, 54, 41, 13.5, 99, 46.5, 19];
 
 function initChart(canvas, width, height, dpr) {
   chart = echarts.init(canvas, null, {
@@ -56,7 +57,7 @@ function initChart(canvas, width, height, dpr) {
     },
     series: [
       {
-        data: [23, 58, 41, 13, 99, 46, 19],
+        data: nums,
         type: "line",
         smooth: true,
         areaStyle: {
@@ -96,5 +97,11 @@ Page({
     ec: {
       onInit: initChart,
     },
+    sumMoney: 0,
+  },
+  onShow() {
+    this.setData({
+      sumMoney: nums.reduce((sum, item) => (sum += item), 0).toFixed(2),
+    });
   },
 });
