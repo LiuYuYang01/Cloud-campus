@@ -16,7 +16,7 @@ Component({
     pageList: [
       "/pages/home/home",
       "/pages/hobby/hobby",
-      "/pages/socialize/socialize",
+      "/pages/job/job",
       "/pages/my/my",
     ],
     top: 1460,

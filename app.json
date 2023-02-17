@@ -8,7 +8,8 @@
         "pages/login/login",
         "pages/article/article",
         "pages/release/release",
-        "pages/love/love"
+        "pages/love/love",
+        "pages/job/job"
     ],
     "subPackages": [
         {
@@ -50,8 +51,8 @@
                 "text": "兴趣圈"
             },
             {
-                "pagePath": "pages/socialize/socialize",
-                "text": "朋友圈"
+                "pagePath": "pages/job/job",
+                "text": "兼职"
             },
             {
                 "pagePath": "pages/my/my",
