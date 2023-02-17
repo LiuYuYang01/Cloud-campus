@@ -1,1 +1,84 @@
-/* pages/job/job.wxss */
+.item {
+  padding: 30rpx 25rpx;
+  margin-bottom: 20rpx;
+  background-color: #fff;
+}
+
+.item:last-child {
+  padding-bottom: 210rpx;
+}
+
+/* 兼职信息 */
+.item .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.item .header .title {
+  font-size: 37rpx;
+  font-weight: 700;
+  color: #333;
+}
+
+.item .header .price {
+  color: #ee2d45;
+}
+
+/* 工作内容 */
+.item .content {
+  color: #666;
+  font-size: 28rpx;
+  padding: 20rpx 0;
+}
+
+/* 标签 */
+.item .tag {
+  display: flex;
+}
+
+.item .tag text {
+  padding: 7rpx 10rpx;
+  margin-right: 15rpx;
+  border-radius: 10rpx;
+  color: #666;
+  background-color: #f5f5f5;
+  font-size: 26rpx;
+}
+
+/* 联系 */
+.item .contact {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 30rpx;
+}
+
+/* 头像 */
+.item .contact .avatar {
+  display: flex;
+  align-items: center;
+}
+
+.item .contact .avatar image {
+  width: 70rpx;
+  height: 70rpx;
+  border-radius: 50%;
+  margin-right: 20rpx;
+}
+
+.item .contact .avatar text {
+  color: #333;
+  font-size: 30rpx;
+}
+
+/* 立即沟通 */
+.item .contact .connect {
+  width: 180rpx;
+  height: 60rpx;
+  line-height: 60rpx;
+  border-radius: 60rpx;
+  color: #fff;
+  background-color: #ee2d45;
+  text-align: center;
+}

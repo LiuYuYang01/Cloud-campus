@@ -68,7 +68,7 @@ Page({
     });
 
     // 回复消息
-    this.__reply(value);
+    this.__reply(value.split('{br}').join('\n'));
 
     this.setData({
       content: "",
