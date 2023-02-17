@@ -1,5 +1,8 @@
 {
-    "navigationBarBackgroundColor": "#f32d43",
+    "navigationBarBackgroundColor": "#4fb985",
     "navigationBarTitleText": "校园兼职",
-    "usingComponents": {}
+    "usingComponents": {
+        "van-tab": "@vant/weapp/tab/index",
+        "van-tabs": "@vant/weapp/tabs/index"
+    }
 }

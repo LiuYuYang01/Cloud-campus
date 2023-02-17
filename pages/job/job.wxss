@@ -1,43 +1,45 @@
-.item {
+/* 找兼职 */
+.jobList .item {
   padding: 30rpx 25rpx;
   margin-bottom: 20rpx;
   background-color: #fff;
 }
 
-.item:last-child {
+.jobList .item:last-child {
   padding-bottom: 210rpx;
 }
 
 /* 兼职信息 */
-.item .header {
+.jobList .item .header {
   display: flex;
   justify-content: space-between;
   align-items: center;
 }
 
-.item .header .title {
+.jobList .item .header .title {
   font-size: 37rpx;
   font-weight: 700;
   color: #333;
 }
 
-.item .header .price {
-  color: #ee2d45;
+.jobList .item .header .price {
+  color: #fa3e3b;
+  font-weight: 700;
 }
 
 /* 工作内容 */
-.item .content {
+.jobList .item .content {
   color: #666;
   font-size: 28rpx;
   padding: 20rpx 0;
 }
 
 /* 标签 */
-.item .tag {
+.jobList .item .tag {
   display: flex;
 }
 
-.item .tag text {
+.jobList .item .tag text {
   padding: 7rpx 10rpx;
   margin-right: 15rpx;
   border-radius: 10rpx;
@@ -47,7 +49,7 @@
 }
 
 /* 联系 */
-.item .contact {
+.jobList .item .contact {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -55,30 +57,30 @@
 }
 
 /* 头像 */
-.item .contact .avatar {
+.jobList .item .contact .avatar {
   display: flex;
   align-items: center;
 }
 
-.item .contact .avatar image {
+.jobList .item .contact .avatar image {
   width: 70rpx;
   height: 70rpx;
   border-radius: 50%;
   margin-right: 20rpx;
 }
 
-.item .contact .avatar text {
+.jobList .item .contact .avatar text {
   color: #333;
   font-size: 30rpx;
 }
 
 /* 立即沟通 */
-.item .contact .connect {
+.jobList .item .contact .connect {
   width: 180rpx;
   height: 60rpx;
   line-height: 60rpx;
   border-radius: 60rpx;
   color: #fff;
-  background-color: #ee2d45;
+  background-color: #4fb985;
   text-align: center;
 }
