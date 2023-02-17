@@ -16,6 +16,7 @@
             <view class="date">{{filter.formatTime(article.date)}}</view>
         </view>
 
+{{showUpdate}}
         <view class="attention" wx:if="{{showUpdate}}" bindtap="updateArticle">修改</view>
     </view>
 

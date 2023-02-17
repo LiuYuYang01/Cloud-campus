@@ -26,9 +26,9 @@ Page({
       data: { code, message, data },
     } = await wx.$http.get(`/api/${type}/article/get/${id}`);
 
-    if (code !== 200) return Notify({ type: "danger", message });
+    if (code !== 200) return;
 
-    if (data[0].userID === this.data.userID) {
+    if (data[0].userID === wx.$store.userInfo.id || wx.$store.userInfo.id === 1) {
       this.setData({
         showUpdate: true,
       });
@@ -142,7 +142,9 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow() {},
+  onShow() {
+
+  },
 
   /**
    * 生命周期函数--监听页面隐藏
