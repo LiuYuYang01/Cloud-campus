@@ -8,8 +8,8 @@
             <view class="function">
                 <view class="title">想让同学帮你做点什么</view>
 
-                <view class="box">
-                    <view class="item" bindtap="release">
+                <view class="box" bindtap="release">
+                    <view class="item">
                         <view class="info">
                             <view class="title">取快递</view>
                             <text class="describe">足不出户</text>

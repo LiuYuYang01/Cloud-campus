@@ -3,6 +3,7 @@
     "navigationBarBackgroundColor": "#5a82fd",
     "navigationBarTitleText": "发布跑腿",
     "usingComponents": {
-        "van-field": "@vant/weapp/field/index"
+        "van-field": "@vant/weapp/field/index",
+        "van-notify": "@vant/weapp/notify/index"
     }
 }

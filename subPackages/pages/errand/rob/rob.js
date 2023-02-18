@@ -24,30 +24,7 @@ Component({
       },
     ],
     // 抢单列表
-    orderList: [
-      {
-        id: 1,
-        name: "张同学", //用户名称
-        avatar:
-          "https://tupian.qqw21.com/article/UploadPic/2020-3/202032023341537416.jpg", //头像
-        to: "北校区蜜雪冰城大杯珍珠奶茶", //取
-        from: "南校区6号宿舍楼3楼317宿舍", //送
-        remarks: "辛苦小哥哥了", //备注
-        price: 1.5, //价格
-        state: 0,
-      },
-      {
-        id: 2,
-        name: "王同学", //用户名称
-        avatar:
-          "https://img13.360buyimg.com/n1/jfs/t1/175752/21/32873/65472/63ab9f55Fe8882446/89719c83f4350f85.jpg", //头像
-        to: "取包裹", //取
-        from: "北校区6号宿舍楼1楼213宿舍", //送
-        remarks: "到了放在教室门口谢谢", //备注
-        price: 2.5, //价格
-        state: 0,
-      },
-    ],
+    orderList: [],
     // 我的订单
     myOrderList: [
       {
@@ -111,10 +88,29 @@ Component({
     ],
   },
 
+  lifetimes: {
+    created() {
+      this.getOrderList();
+    },
+  },
+
   /**
    * 组件的方法列表
    */
   methods: {
+    // 获取任务列表
+    async getOrderList() {
+      const {
+        data: { code, data },
+      } = await wx.$http.get("/api/tasklist");
+
+      if (code !== 200) return;
+
+      this.setData({
+        orderList: data,
+      });
+    },
+
     // 接单
     meet() {
       Dialog.confirm({
