@@ -15,7 +15,7 @@ Component({
    * 组件的初始数据
    */
   data: {
-    Tab: 0,
+    Tab: 1,
     // 轮播图数据
     swiperList: [
       {
