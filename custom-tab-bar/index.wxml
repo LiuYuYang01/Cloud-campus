@@ -14,7 +14,7 @@
         <view class="text">发布</view>
     </view>
 
-    <van-tabbar-item icon="flower-o" dot>朋友圈</van-tabbar-item>
+    <van-tabbar-item icon="newspaper-o" dot>找兼职</van-tabbar-item>
     <van-tabbar-item icon="contact">我的</van-tabbar-item>
 </van-tabbar>
 

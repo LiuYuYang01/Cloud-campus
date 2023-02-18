@@ -1,56 +1,72 @@
-<!-- 轮播图 -->
-<swiper list="{{swiperList}}" style="margin: 20rpx;" />
+<van-tabs active="{{ active }}">
+    <van-tab title="首页">
+        <!-- 轮播图 -->
+        <swiper list="{{swiperList}}" style="margin: 20rpx;" />
 
-<view class="container">
-    <!-- 功能 -->
-    <view class="function">
-        <view class="title">想让同学帮你做点什么</view>
+        <view class="container">
+            <!-- 功能 -->
+            <view class="function">
+                <view class="title">想让同学帮你做点什么</view>
 
-        <view class="box">
-            <view class="item">
-                <view class="info">
-                    <view class="title">取快递</view>
-                    <text class="describe">足不出户</text>
+                <view class="box">
+                    <view class="item">
+                        <view class="info">
+                            <view class="title">取快递</view>
+                            <text class="describe">足不出户</text>
+                        </view>
+
+                        <van-icon name="send-gift" class="icon" />
+                    </view>
+
+                    <view class="item" style="background-color: #caf3df;">
+                        <view class="info">
+                            <view class="title">寄快递</view>
+                            <text class="describe" style="background-color: #4fb985;">上门取件</text>
+                        </view>
+
+                        <van-icon name="invitation" class="icon" style="color:#4fb985" />
+                    </view>
+
+                    <view class="item" style="background-color: #fff0d4;">
+                        <view class="info">
+                            <view class="title">食堂超市</view>
+                            <text class="describe" style="background-color: #f7b53e;">代买代拿</text>
+                        </view>
+
+                        <van-icon name="shop-collect" class="icon" style="color:#f7b53e" />
+                    </view>
+
+                    <view class="item" style="background-color: #ffeaec;">
+                        <view class="info">
+                            <view class="title">万能任务</view>
+                            <text class="describe" style="background-color: #f9a0a9;">无所不能</text>
+                        </view>
+
+                        <van-icon name="balance-list" class="icon" style="color:#f9a0a9" />
+                    </view>
                 </view>
-
-                <van-icon name="send-gift" class="icon"/>
             </view>
 
-            <view class="item" style="background-color: #caf3df;">
-                <view class="info">
-                    <view class="title">寄快递</view>
-                    <text class="describe" style="background-color: #4fb985;">上门取件</text>
-                </view>
-
-                <van-icon name="invitation" class="icon" style="color:#4fb985"/>
-            </view>
-
-            <view class="item" style="background-color: #fff0d4;">
-                <view class="info">
-                    <view class="title">食堂超市</view>
-                    <text class="describe" style="background-color: #f7b53e;">代买代拿</text>
-                </view>
-
-                <van-icon name="shop-collect" class="icon" style="color:#f7b53e"/>
-            </view>
-
-            <view class="item" style="background-color: #ffeaec;">
-                <view class="info">
-                    <view class="title">万能任务</view>
-                    <text class="describe" style="background-color: #f9a0a9;">无所不能</text>
-                </view>
-
-                <van-icon name="balance-list" class="icon" style="color:#f9a0a9"/>
+            <view class="banner" style="text-align: center;">
+                <image src="http://img.liuyuyang.net/zhxy/jiarupaotui.jpg" mode="widthFix" />
             </view>
         </view>
-    </view>
+    </van-tab>
 
-    <view class="banner" style="text-align: center;">
-        <image src="http://img.liuyuyang.net/zhxy/jiarupaotui.jpg" mode="widthFix"/>
-    </view>
-</view>
+    <van-tab title="抢单">
+        <order />
+    </van-tab>
 
-<van-tabbar active="{{ 0 }}" bind:change="selectTabBar">
+    <van-tab title="订单">
+        <rob />
+    </van-tab>
+
+    <van-tab title="我的">
+        <wealth />
+    </van-tab>
+</van-tabs>
+
+<van-tabbar active="{{ active }}" bind:change="selectTabBar">
     <van-tabbar-item icon="home-o">首页</van-tabbar-item>
     <van-tabbar-item icon="refund-o">抢单</van-tabbar-item>
     <van-tabbar-item icon="medal-o">订单</van-tabbar-item>

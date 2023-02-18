@@ -14,11 +14,15 @@ module.exports = Behavior({
   methods: {
     // tabBar切换
     selectTabBar(e) {
-      wx.navigateTo({
-        url: this.data.pageList[e.detail],
-      });
+      //   wx.navigateTo({
+      //     url: this.data.pageList[e.detail],
+      //   });
 
-      // this.uActive(e.detail);
+      // 优化Tabbar切换功能
+      wx.$store.updateErrandActive(e.detail);
+      this.setData({
+        active: wx.$store.errandActive,
+      });
     },
   },
 });

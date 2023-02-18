@@ -11,7 +11,7 @@ Page({
     circleShow: "none",
     circleList: [],
     // 分类选择器
-    selectCate: ["首页", "兴趣圈", "朋友圈"],
+    selectCate: ["首页", "兴趣圈"],
     // 圈子选择器
     selectCircle: [],
     cate: "",
@@ -26,7 +26,7 @@ Page({
       describe: "", //文章描述
       content: "", //文章内容
       cover: [], //文章封面
-    //   cover:"['https://liuyuyang.net/usr/uploads/2023/01/129447723.png']",
+      //   cover:"['https://liuyuyang.net/usr/uploads/2023/01/129447723.png']",
       cate: "", //文章所属分类
       is_topping: 0, //是否置顶该文章
       is_boutique: 0, //是否精品该文章
@@ -98,12 +98,6 @@ Page({
         }
       };
 
-    //   const userInfo = getUserInfo() && JSON.parse(getUserInfo());
-    //   this.setData({
-    //     "article.is_admin": userInfo.is_admin,
-    //     "article.is_realname": userInfo.is_realname,
-    //   });
-
       // 选择发布文章到哪里
       if (this.data.cate === "首页") {
         // 判断是否是管理员，首页只有管理员才能发布文章
@@ -141,22 +135,6 @@ Page({
         wx.switchTab({
           url: "/pages/hobby/hobby",
         });
-      } else if (this.data.cate === "朋友圈") {
-        describe();
-
-        let {
-          data: { code, message },
-        } = await wx.$http.post("/api/socialize/article", {
-          ...this.data.article,
-          cate: "朋友圈",
-        });
-
-        if (code !== 200) return Notify({ type: "danger", message });
-
-        // 发布文章成功后跳转到朋友圈
-        wx.switchTab({
-          url: "/pages/socialize/socialize",
-        });
       }
 
       if (!this.data.cate)
@@ -167,8 +145,28 @@ Page({
       const { id, type } = this.data.article;
 
       const {
+        userID,
+        title,
+        describe,
+        content,
+        cover,
+        date,
+        is_boutique,
+        views,
+      } = this.data.article;
+
+      const {
         data: { code, message },
-      } = await wx.$http.post(`/api/${type}/article/${id}`, this.data.article);
+      } = await wx.$http.post(`/api/${type}/article/${id}`, {
+        userID,
+        title,
+        describe,
+        content,
+        cover,
+        date,
+        is_boutique,
+        views,
+      });
 
       if (code !== 200) return Notify({ type: "danger", message });
 
@@ -183,7 +181,7 @@ Page({
     }
 
     // 发布或编辑文章成功后隐藏发布组件
-    wx.$store.updatePopup(1460)
+    wx.$store.updatePopup(1460);
   },
 
   // 获取兴趣圈分类数据
@@ -337,8 +335,6 @@ Page({
       cate = "首页";
     } else if (data[0].type === "hobby") {
       cate = "兴趣圈";
-    } else if (data[0].type === "socialize") {
-      cate = "朋友圈";
     }
 
     // 回显编辑器中的数据
@@ -370,12 +366,12 @@ Page({
 
     // 导入用户信息
     setTimeout(() => {
-      const { id, name, avatar, is_admin } = this.data.userInfo;
+      const { id } = this.data.userInfo;
 
       this.setData({
         article: {
           ...this.data.article,
-          userID: id
+          userID: id,
         },
       });
     });
