@@ -3,6 +3,7 @@
     "navigationBarTitleText": "校园兼职",
     "usingComponents": {
         "van-tab": "@vant/weapp/tab/index",
-        "van-tabs": "@vant/weapp/tabs/index"
+        "van-tabs": "@vant/weapp/tabs/index",
+        "van-field": "@vant/weapp/field/index"
     }
 }

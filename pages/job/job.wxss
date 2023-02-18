@@ -9,6 +9,10 @@
   padding-bottom: 210rpx;
 }
 
+.jobList .item:nth-child(-n + 4) {
+  padding-bottom: 30rpx;
+}
+
 /* 兼职信息 */
 .jobList .item .header {
   display: flex;
@@ -83,4 +87,30 @@
   color: #fff;
   background-color: #4fb985;
   text-align: center;
+}
+
+/* 发布兼职 */
+.release {
+  width: 90%;
+  height: 80rpx;
+  line-height: 80rpx;
+  margin: 20rpx auto;
+  color: #fff;
+  border-radius: 40rpx;
+  background-color: #54b986;
+  text-align: center;
+}
+
+/* 我发布的兼职 */
+.myRelease {
+  background-color: #fff;
+}
+.myRelease .title {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 110rpx;
+  color: #54b986;
+  font-size: 40rpx;
 }
