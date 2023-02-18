@@ -7,15 +7,15 @@
     <van-notice-bar left-icon="volume-o" text="遇到任何问题请到维权板块进行维权或联系平台管理员" />
 
     <van-tab title="抢单">
-        <order list="{{ orderList }}" bind:getTaskList="getTaskList" />
+        <order list="{{ orderList }}" type="抢单" bind:getTaskList="getTaskList" />
     </van-tab>
 
     <van-tab title="待取货">
-        <order list="{{ laterOrderList }}" />
+        <order list="{{ laterOrderList }}" type="待取货" bind:getTaskList="getTaskList" />
     </van-tab>
 
     <van-tab title="我的跑单">
-        <order list="{{ myOrderList }}" />
+        <order list="{{ myOrderList }}" type="我的跑单" bind:getTaskList="getTaskList" />
     </van-tab>
 </van-tabs>
 

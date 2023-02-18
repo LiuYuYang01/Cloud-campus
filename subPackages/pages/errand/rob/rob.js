@@ -73,8 +73,20 @@ Component({
     },
 
     // 获取订单列表
-    async getMyOrderList(){
+    async getMyOrderList() {
+      const id = wx.$store.userInfo.id;
 
+      const {
+        data: { code, data },
+      } = await wx.$http.get(`/api/tasklist/receive/${id}`);
+
+      if (code !== 200) return;
+
+      this.setData({
+        myOrderList: data.filter(
+          (item) => item.state !== 0 && item.state !== 1
+        ),
+      });
     },
 
     // 接单
@@ -103,8 +115,11 @@ Component({
         });
     },
 
-    getTaskList() {
+    // 更改订单状态
+    getTaskList(e) {
       this.getOrderList();
+      this.getLaterOrderList();
+      this.getMyOrderList();
     },
   },
 });

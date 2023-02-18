@@ -10,6 +10,8 @@ Component({
    */
   properties: {
     list: Array,
+    type: String,
+    issue_id: String,
   },
   /**
    * 组件的初始数据
@@ -22,26 +24,56 @@ Component({
   methods: {
     // 接单
     meet(e) {
+      let msg = "";
+      let state = 0;
+      let type = e.currentTarget.dataset.type;
+      let issue_id = e.currentTarget.dataset.issue_id;
+
+      if (issue_id === wx.$store.userInfo.id) return Toast("你不能接自己的单");
+
+      if (this.data.type === "抢单") {
+        msg = "你确定要接单吗？";
+        state = 0;
+      } else if (this.data.type === "待取货") {
+        msg = "你确定已取货吗？";
+        state = 1;
+      } else if (this.data.type === "我的跑单") {
+        msg = "你确定你已送达吗？";
+        state = 2;
+      } else if (type === "3") {
+        console.log(666);
+      }
+
+      console.log(type);
+      console.log(type === "3");
+
       Dialog.confirm({
         context: this,
-        message: "你确定要接单吗？",
+        message: msg,
       })
         .then(async () => {
           const oid = e.currentTarget.dataset.oid;
           const receive_id = wx.$store.userInfo.id;
+
+          console.log({
+            oid,
+            receive_id,
+            state,
+          });
+
           const {
             data: { code, message },
           } = await wx.$http.post("/api/task/receice", {
             oid,
             receive_id,
-            state: 0,
+            state,
           });
 
           if (code !== 200) return Toast(message);
 
           Toast(message);
 
-          this.triggerEvent("getTaskList")
+          this.triggerEvent("getTaskList");
         })
         .catch(() => {
           // on cancel
