@@ -3,7 +3,9 @@ page {
 }
 
 .van-tabs__wrap {
-  height: 0 !important;
+  position: absolute;
+  top: -110rpx;
+  width: 100%;
 }
 
 /* 功能列表 */

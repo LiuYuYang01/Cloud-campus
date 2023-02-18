@@ -1,3 +1,6 @@
+<van-dialog id="van-dialog" showCancelButton="{{true}}" confirm-button-color="#6680fb" />
+<van-toast id="van-toast" />
+
 <view class="container-list" wx:for="{{list}}" wx:key="id">
     <!-- 头像/发布时间/金额 -->
     <view class="header">
@@ -30,7 +33,7 @@
     </view>
 
     <!-- 订单状态 -->
-    <view class="meet" bindtap="meet" wx:if="{{item.state === 0}}">立即抢单</view>
+    <view class="meet" data-oid="{{item.oid}}" bindtap="meet" wx:if="{{item.state === 0}}">立即抢单</view>
 
     <view class="meet" style="background-color: #fdc629" wx:if="{{item.state === 1}}">待取货</view>
 

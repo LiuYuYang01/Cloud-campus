@@ -9,6 +9,7 @@
         "van-tabs": "@vant/weapp/tabs/index",
         "order": "../order/order",
         "rob": "../rob/rob",
-        "wealth": "../wealth/wealth"
+        "wealth": "../wealth/wealth",
+        "release": "../release/release"
     }
 }

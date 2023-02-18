@@ -66,11 +66,11 @@
         <van-cell-group>
             <van-field value="{{ title }}" label="标题" placeholder="请输入兼职标题" />
 
-            <van-field value="{{ title }}" label="薪资" placeholder="请输入该岗位的薪资" />
-            <van-field value="{{ title }}" label="描述" placeholder="请输入兼职描述" />
-            <van-field value="{{ title }}" label="标签" placeholder="以逗号分隔，如：工作轻松,管饭" />
-            <van-field value="{{ title }}" label="负责人" placeholder="请输入该兼职的负责人" />
-            <van-field value="{{ title }}" label="联系电话" placeholder="请输入负责人的联系电话" />
+            <van-field value="{{ price }}" label="薪资" placeholder="请输入该岗位的薪资" />
+            <van-field value="{{ describe }}" label="描述" placeholder="请输入兼职描述" />
+            <van-field value="{{ tag }}" label="标签" placeholder="以逗号分隔，如：工作轻松,管饭" />
+            <van-field value="{{ name }}" label="负责人" placeholder="请输入该兼职的负责人" />
+            <van-field value="{{ phone }}" label="联系电话" placeholder="请输入负责人的联系电话" />
         </van-cell-group>
 
         <!-- 发布兼职 -->

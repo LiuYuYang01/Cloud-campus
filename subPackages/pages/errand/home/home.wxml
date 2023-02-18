@@ -8,7 +8,7 @@
             <view class="function">
                 <view class="title">想让同学帮你做点什么</view>
 
-                <view class="box">
+                <view class="box" bindtap="release">
                     <view class="item">
                         <view class="info">
                             <view class="title">取快递</view>
@@ -54,11 +54,11 @@
     </van-tab>
 
     <van-tab title="抢单">
-        <order />
+        <rob />
     </van-tab>
 
     <van-tab title="订单">
-        <rob />
+        <order />
     </van-tab>
 
     <van-tab title="我的">

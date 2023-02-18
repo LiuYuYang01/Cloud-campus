@@ -1,0 +1,13 @@
+<van-notify id="van-notify" />
+
+<van-cell-group>
+    <van-field value="{{ errand.to }}" label="目标地址" placeholder="请输入目标地址" border="{{false}}" bind:change="toChange" />
+
+    <van-field value="{{ errand.from }}" label="送往哪里" placeholder="请输入送往哪里" border="{{false}}" bind:change="fromChange" />
+
+    <van-field value="{{ errand.remarks }}" label="订单备注" placeholder="请输入目标地址" border="{{false}}" bind:change="remarksChange" />
+
+    <van-field value="{{ errand.price }}" label="订单金额" placeholder="请输入订单金额" border="{{false}}" bind:change="priceChange" />
+</van-cell-group>
+
+<view class="release" bindtap="release">发布任务</view>
