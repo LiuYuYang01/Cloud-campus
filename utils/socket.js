@@ -8,9 +8,9 @@ socket.on('connect', function () {
 
     // 接收私聊信息
     socket.on('message', res => {
-        // console.log('私聊信息', res);
         // 排除自己的未读数据
         if(wx.$store.userInfo.id != res.sender_id) {
+            console.log('私聊信息', res);
             // 添加未读数据
             wx.$store.updUnreadList('add',[res.sender_id]);
         }
