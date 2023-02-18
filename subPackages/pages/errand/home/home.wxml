@@ -9,7 +9,7 @@
                 <view class="title">想让同学帮你做点什么</view>
 
                 <view class="box">
-                    <view class="item">
+                    <view class="item" bindtap="release">
                         <view class="info">
                             <view class="title">取快递</view>
                             <text class="describe">足不出户</text>
@@ -54,11 +54,11 @@
     </van-tab>
 
     <van-tab title="抢单">
-        <order />
+        <rob />
     </van-tab>
 
     <van-tab title="订单">
-        <rob />
+        <order />
     </van-tab>
 
     <van-tab title="我的">

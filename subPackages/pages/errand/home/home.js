@@ -33,5 +33,11 @@ Component({
   /**
    * 组件的方法列表
    */
-  methods: {},
+  methods: {
+    release() {
+      wx.navigateTo({
+        url: '/subPackages/pages/errand/release/release',
+      })
+    },
+  },
 });

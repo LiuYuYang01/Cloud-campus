@@ -1,0 +1,13 @@
+<van-cell-group>
+    <van-field value="{{ type }}" label="任务类型" placeholder="请输入任务类型" bind:change="typeChange" border="{{false}}" />
+
+    <van-field value="{{ to }}" label="目标地址" placeholder="请输入目标地址" border="{{false}}" bind:change="toChange" />
+
+    <van-field value="{{ from }}" label="送往哪里" placeholder="请输入送往哪里" border="{{false}}" bind:change="fromChange" />
+
+    <van-field value="{{ remarks }}" label="订单备注" placeholder="请输入目标地址" border="{{false}}" bind:change="remarksChange" />
+
+    <van-field value="{{ price }}" label="订单金额" placeholder="请输入订单金额" border="{{false}}" bind:change="priceChange" />
+</van-cell-group>
+
+<view class="release">发布任务</view>
