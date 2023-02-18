@@ -1,4 +1,5 @@
 import Dialog from "@vant/weapp/dialog/dialog";
+
 const tabBarBehaviors = require("../../../../behaviors/tabBar-behaviors");
 Component({
   options: {
@@ -137,9 +138,8 @@ Component({
         });
     },
 
-    onChange(event) {
-      // event.detail 的值为当前选中项的索引
-      this.setData({ active: event.detail });
-    },
+    getTaskList(){
+        this.getOrderList()
+    }
   },
 });

@@ -1,4 +1,5 @@
 import Dialog from "@vant/weapp/dialog/dialog";
+import Toast from "@vant/weapp/toast/toast";
 
 Component({
   options: {
@@ -20,12 +21,27 @@ Component({
    */
   methods: {
     // 接单
-    meet() {
+    meet(e) {
       Dialog.confirm({
+        context: this,
         message: "你确定要接单吗？",
       })
-        .then(() => {
-          // on confirm
+        .then(async () => {
+          const oid = e.currentTarget.dataset.oid;
+          const receive_id = wx.$store.userInfo.id;
+          const {
+            data: { code, message },
+          } = await wx.$http.post("/api/task/receice", {
+            oid,
+            receive_id,
+            state: 0,
+          });
+
+          if (code !== 200) return Toast(message);
+
+          Toast(message);
+
+          this.triggerEvent("getTaskList")
         })
         .catch(() => {
           // on cancel
