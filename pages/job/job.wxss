@@ -103,14 +103,55 @@
 
 /* 我发布的兼职 */
 .myRelease {
+  margin-top: 100rpx;
   background-color: #fff;
 }
-.myRelease .title {
-  display: flex;
-  justify-content: center;
-  align-items: center;
+.myRelease > .title {
   width: 100%;
-  height: 110rpx;
+  padding-top: 20rpx;
+  text-align: center;
   color: #54b986;
   font-size: 40rpx;
+}
+
+/* 兼职列表 */
+.myRelease .list {
+  padding: 30rpx;
+}
+
+.myRelease .item {
+  height: 100rpx;
+  line-height: 100rpx;
+}
+
+.myRelease .item:last-child{
+    padding-bottom: 150rpx;
+}
+
+.myRelease .item .header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* 标题 */
+.myRelease .item .header .title {
+  font-size: 37rpx;
+  font-weight: 700;
+  color: #333;
+}
+
+/* 价格 */
+.myRelease .item .header .price {
+  color: #fa3e3b;
+  font-weight: 700;
+}
+
+/* 删除兼职按钮 */
+.myRelease .item .del {
+  width: 150rpx;
+  margin-left: 30rpx;
+  color: #fff;
+  background-color: #e90a28;
+  text-align: center;
 }

@@ -78,8 +78,56 @@
 
         <!-- 我发布的 -->
         <view class="myRelease">
-            <view class="title">我的发布</view>
-            <view class="list"></view>
+            <view class="title">
+                <van-icon name="label-o" style="margin-right: 20rpx;" />我的发布
+            </view>
+
+            <!-- 兼职列表 -->
+            <view class="list">
+                <view class="item">
+                    <van-swipe-cell right-width="{{ 95 }}">
+                        <view class="header">
+                            <view class="title">奶茶店兼职</view>
+                            <view class="price">10￥ / 时</view>
+                        </view>
+
+                        <view slot="right" class="del">删除</view>
+                    </van-swipe-cell>
+                </view>
+
+                <view class="item">
+                    <van-swipe-cell right-width="{{ 95 }}">
+                        <view class="header">
+                            <view class="title">奶茶店兼职</view>
+                            <view class="price">10￥ / 时</view>
+                        </view>
+
+                        <view slot="right" class="del">删除</view>
+                    </van-swipe-cell>
+                </view>
+
+                <view class="item">
+                    <van-swipe-cell right-width="{{ 95 }}">
+                        <view class="header">
+                            <view class="title">奶茶店兼职</view>
+                            <view class="price">10￥ / 时</view>
+                        </view>
+
+                        <view slot="right" class="del">删除</view>
+                    </van-swipe-cell>
+                </view>
+
+                <view class="item">
+                    <van-swipe-cell right-width="{{ 95 }}">
+                        <view class="header">
+                            <view class="title">奶茶店兼职</view>
+                            <view class="price">10￥ / 时</view>
+                        </view>
+
+                        <view slot="right" class="del">删除</view>
+                    </van-swipe-cell>
+                </view>
+            </view>
         </view>
     </van-tab>
 </van-tabs>
