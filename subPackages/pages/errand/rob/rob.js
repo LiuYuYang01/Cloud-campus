@@ -72,7 +72,7 @@ Component({
       });
     },
 
-    // 获取订单列表
+    // 获取我的跑单列表
     async getMyOrderList() {
       const id = wx.$store.userInfo.id;
 

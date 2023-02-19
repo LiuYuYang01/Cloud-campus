@@ -12,11 +12,24 @@ Component({
     list: Array,
     type: String,
     issue_id: String,
+    isMyOrder: Boolean,
   },
   /**
    * 组件的初始数据
    */
   data: {},
+
+  lifetimes: {
+    ready() {
+      if (this.data.type === "我的跑单") {
+        this.setData({
+          isMyOrder: true,
+        });
+
+        console.log(this.data.list);
+      }
+    },
+  },
 
   /**
    * 组件的方法列表
@@ -29,8 +42,12 @@ Component({
       let type = e.currentTarget.dataset.type;
       let issue_id = e.currentTarget.dataset.issue_id;
 
-      if (issue_id === wx.$store.userInfo.id) return Toast("你不能接自己的单");
+      // 判断是不是自己发布的订单
+      if (issue_id === wx.$store.userInfo.id) {
+        return Toast("你不能接自己的单");
+      }
 
+      // 订单状态
       if (this.data.type === "抢单") {
         msg = "你确定要接单吗？";
         state = 0;
@@ -43,9 +60,6 @@ Component({
       } else if (type === "3") {
         console.log(666);
       }
-
-      console.log(type);
-      console.log(type === "3");
 
       Dialog.confirm({
         context: this,
@@ -91,11 +105,6 @@ Component({
         .catch(() => {
           // on cancel
         });
-    },
-
-    onChange(event) {
-      // event.detail 的值为当前选中项的索引
-      this.setData({ active: event.detail });
     },
   },
 });
