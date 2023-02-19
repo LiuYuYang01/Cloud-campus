@@ -10,6 +10,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+    active: 0,
     // 轮播图数据
     swiperList: [
       {
@@ -36,8 +37,16 @@ Component({
   methods: {
     release() {
       wx.navigateTo({
-        url: '/subPackages/pages/errand/release/release',
-      })
+        url: "/subPackages/pages/errand/release/release",
+      });
+    },
+
+    selectTabBar(e) {
+      this.setData({ active: e.detail });
+      
+      if(e.detail === 1){
+        this.selectComponent("#rob").resizeTab()
+      }
     },
   },
 });
