@@ -115,6 +115,10 @@ Component({
         });
     },
 
+    resizeTab(){
+        this.selectComponent("#taskTap").resize()
+    },
+
     // 更改订单状态
     getTaskList(e) {
       this.getOrderList();

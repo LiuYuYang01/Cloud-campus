@@ -56,7 +56,7 @@
     </van-tab>
 
     <van-tab title="抢单">
-        <rob />
+        <rob id="rob"/>
     </van-tab>
 
     <van-tab title="订单">
