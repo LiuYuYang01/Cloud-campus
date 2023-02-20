@@ -2,58 +2,28 @@
     <van-tab title="找兼职">
         <!-- 找兼职 -->
         <view class="jobList">
-            <view class="item">
+            <view class="item" wx:for="{{jobList}}" wx:key="key">
                 <!-- 兼职信息 -->
                 <view class="header">
-                    <view class="title">奶茶店兼职</view>
-                    <view class="price">10￥ / 时</view>
+                    <view class="title">{{item.title}}</view>
+                    <view class="price">￥ {{item.price}} / 时</view>
                 </view>
 
                 <!-- 工作内容 -->
                 <view class="content">
-                    主要负责点单，出杯，奶茶制备，后厨备料等相关工作，要求责任心强，干净卫生。
+                    {{item.describe}}
                 </view>
 
                 <!-- 标签 -->
-                <view class="tag">
-                    <text>工作轻松</text>
-                    <text>管饭</text>
+                <view class="tag" >
+                    <text wx:for="{{item.tag}}" wx:key="key">{{item}}</text>
                 </view>
 
                 <!-- 联系 -->
                 <view class="contact">
                     <view class="avatar">
-                        <image src="https://img.bosszhipin.com/boss/avatar/avatar_16.png" />
-                        <text>张老板</text>
-                    </view>
-
-                    <view class="connect">立即沟通</view>
-                </view>
-            </view>
-
-            <view class="item">
-                <!-- 兼职信息 -->
-                <view class="header">
-                    <view class="title">奶茶店兼职</view>
-                    <view class="price">10 / 时</view>
-                </view>
-
-                <!-- 工作内容 -->
-                <view class="content">
-                    主要负责点单，出杯，奶茶制备，后厨备料等相关工作，要求责任心强，干净卫生。
-                </view>
-
-                <!-- 标签 -->
-                <view class="tag">
-                    <text>工作轻松</text>
-                    <text>管饭</text>
-                </view>
-
-                <!-- 联系 -->
-                <view class="contact">
-                    <view class="avatar">
-                        <image src="https://img.bosszhipin.com/boss/avatar/avatar_16.png" />
-                        <text>张老板</text>
+                        <image src="{{item.avatar}}" />
+                        <text>{{item.name}}</text>
                     </view>
 
                     <view class="connect">立即沟通</view>
@@ -64,17 +34,17 @@
 
     <van-tab title="发布兼职">
         <van-cell-group>
-            <van-field value="{{ title }}" label="标题" placeholder="请输入兼职标题" />
+            <van-field model:value="{{ title }}" label="标题" placeholder="请输入兼职标题" />
 
-            <van-field value="{{ price }}" label="薪资" placeholder="请输入该岗位的薪资" />
-            <van-field value="{{ describe }}" label="描述" placeholder="请输入兼职描述" />
-            <van-field value="{{ tag }}" label="标签" placeholder="以逗号分隔，如：工作轻松,管饭" />
-            <van-field value="{{ name }}" label="负责人" placeholder="请输入该兼职的负责人" />
-            <van-field value="{{ phone }}" label="联系电话" placeholder="请输入负责人的联系电话" />
+            <van-field model:value="{{ price }}" label="薪资" placeholder="请输入该岗位的薪资" />
+            <van-field model:value="{{ describe }}" label="描述" placeholder="请输入兼职描述" />
+            <van-field model:value="{{ tag }}" label="标签" placeholder="以逗号分隔，如：工作轻松,管饭" />
+            <!-- <van-field value="{{ name }}" label="负责人" placeholder="请输入该兼职的负责人" /> -->
+            <van-field model:value="{{ phone }}" label="联系电话" placeholder="请输入负责人的联系电话" />
         </van-cell-group>
 
         <!-- 发布兼职 -->
-        <view class="release">发布兼职</view>
+        <view class="release" bindtap="sendJob">发布兼职</view>
 
         <!-- 我发布的 -->
         <view class="myRelease">
@@ -84,44 +54,11 @@
 
             <!-- 兼职列表 -->
             <view class="list">
-                <view class="item">
+                <view class="item"  wx:for="{{myJobList}}" wx:key="key">
                     <van-swipe-cell right-width="{{ 95 }}">
                         <view class="header">
-                            <view class="title">奶茶店兼职</view>
-                            <view class="price">10￥ / 时</view>
-                        </view>
-
-                        <view slot="right" class="del">删除</view>
-                    </van-swipe-cell>
-                </view>
-
-                <view class="item">
-                    <van-swipe-cell right-width="{{ 95 }}">
-                        <view class="header">
-                            <view class="title">奶茶店兼职</view>
-                            <view class="price">10￥ / 时</view>
-                        </view>
-
-                        <view slot="right" class="del">删除</view>
-                    </van-swipe-cell>
-                </view>
-
-                <view class="item">
-                    <van-swipe-cell right-width="{{ 95 }}">
-                        <view class="header">
-                            <view class="title">奶茶店兼职</view>
-                            <view class="price">10￥ / 时</view>
-                        </view>
-
-                        <view slot="right" class="del">删除</view>
-                    </van-swipe-cell>
-                </view>
-
-                <view class="item">
-                    <van-swipe-cell right-width="{{ 95 }}">
-                        <view class="header">
-                            <view class="title">奶茶店兼职</view>
-                            <view class="price">10￥ / 时</view>
+                            <view class="title">{{item.title}}</view>
+                            <view class="price">￥ {{item.price}} / 时</view>
                         </view>
 
                         <view slot="right" class="del">删除</view>
