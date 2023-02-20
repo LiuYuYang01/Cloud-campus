@@ -3,7 +3,6 @@ const tabBarBehaviors = require("../../../../behaviors/tabBar-behaviors");
 Component({
   options: {
     multipleSolts: true,
-    styleIsolation: "isolated",
   },
   behaviors: [tabBarBehaviors],
   /**

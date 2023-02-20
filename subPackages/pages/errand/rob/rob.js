@@ -2,9 +2,7 @@ import Dialog from "@vant/weapp/dialog/dialog";
 
 const tabBarBehaviors = require("../../../../behaviors/tabBar-behaviors");
 Component({
-  options: {
-    styleIsolation: "isolated",
-  },
+  
   behaviors: [tabBarBehaviors],
   /**
    * 组件的属性列表

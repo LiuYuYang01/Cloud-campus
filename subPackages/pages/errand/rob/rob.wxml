@@ -24,5 +24,5 @@
     <van-tabbar-item icon="home-o">首页</van-tabbar-item>
     <van-tabbar-item icon="refund-o">抢单</van-tabbar-item>
     <van-tabbar-item icon="medal-o">订单</van-tabbar-item>
-    <van-tabbar-item icon="balance-o">我的</van-tabbar-item>
+    <van-tabbar-item icon="balance-o">提现</van-tabbar-item>
 </van-tabbar>
