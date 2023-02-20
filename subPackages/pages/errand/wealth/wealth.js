@@ -4,6 +4,7 @@ import * as echarts from "../../../../ec-canvas/echarts";
 
 let chart = null;
 let nums = [23.5, 54, 41, 13.5, 99, 46.5, 19];
+console.log(nums, 666);
 
 function initChart(canvas, width, height, dpr) {
   chart = echarts.init(canvas, null, {
@@ -90,21 +91,24 @@ function initChart(canvas, width, height, dpr) {
   return chart;
 }
 
-Page({
+Component({
   // 在page中使用behaviors
   behaviors: [tabBarBehaviors],
-  options: {
-    styleIsolation: "isolated",
-  },
+
   data: {
     ec: {
       onInit: initChart,
     },
     sumMoney: 0,
   },
-  onShow() {
-    this.setData({
-      sumMoney: nums.reduce((sum, item) => (sum += item), 0).toFixed(2),
-    });
+
+  lifetimes: {
+    ready() {
+      this.setData({
+        sumMoney: nums.reduce((sum, item) => (sum += item), 0).toFixed(2),
+      });
+
+      console.log(this.data.sumMoney);
+    }
   },
 });

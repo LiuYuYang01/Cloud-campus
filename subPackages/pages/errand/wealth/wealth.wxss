@@ -24,13 +24,13 @@ page {
 }
 
 /* 统计 */
-.statistics{
-    height: 700rpx;
+.statistics {
+  height: 700rpx;
 }
 
-.title{
-    color: #6680fb;
-    font-size: 40rpx;
-    text-align: center;
-    margin-top: 90rpx;
+.title {
+  color: #6680fb;
+  font-size: 40rpx;
+  text-align: center;
+  margin-top: 90rpx;
 }

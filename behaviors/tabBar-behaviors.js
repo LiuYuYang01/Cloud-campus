@@ -6,22 +6,21 @@ module.exports = Behavior({
     pageList: [
       "/subPackages/pages/errand/home/home",
       "/subPackages/pages/errand/rob/rob",
-      "/subPackages/pages/errand/order/order",
-      "/subPackages/pages/errand/wealth/wealth",
+      "/subPackages/pages/errand/order/order"
     ],
     active: 0,
   },
   methods: {
     // tabBar切换
     selectTabBar(e) {
-      //   wx.navigateTo({
-      //     url: this.data.pageList[e.detail],
-      //   });
+      const active = wx.$store.errandActive
+
+    //   localStorage.setItem('selectTabBar',1)
 
       // 优化Tabbar切换功能
       wx.$store.updateErrandActive(e.detail);
       this.setData({
-        active: wx.$store.errandActive,
+        active: active,
       });
     },
   },

@@ -1,4 +1,5 @@
 const tabBarBehaviors = require("../../../../behaviors/tabBar-behaviors");
+
 Component({
   behaviors: [tabBarBehaviors],
   /**
@@ -10,7 +11,6 @@ Component({
    * 组件的初始数据
    */
   data: {
-    active: 0,
     // 轮播图数据
     swiperList: [
       {
@@ -43,10 +43,23 @@ Component({
 
     selectTabBar(e) {
       this.setData({ active: e.detail });
-      
-      if(e.detail === 1){
-        this.selectComponent("#rob").resizeTab()
+
+      if (e.detail === 1) {
+        this.selectComponent("#rob").resizeTab();
       }
+
+      // 跳转到提现页面
+      if (e.detail === 3) {
+        return wx.navigateTo({
+          url: "/subPackages/pages/errand/wealth/wealth",
+        });
+      }
+
+      // 点击提现，记录上一次的页面active
+      wx.setStorageSync("selectTabBar", e.detail);
+      this.setData({
+        active: wx.getStorageSync("selectTabBar"),
+      });
     },
   },
 });
