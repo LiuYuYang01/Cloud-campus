@@ -42,10 +42,9 @@
 
     <!-- 确认订单 -->
     <view class="confirm" wx:if="{{item.state === 3}}">
-        <view style="background-color: #f55b5b;" bindtap="complaint">投诉订单</view>
-        <view bindtap="service">确认送达</view>
+        <view style="background-color: #f55b5b;">投诉订单</view>
+        <view>确认送达</view>
     </view>
-    {{isService}}
 
     <view class="meet" style="background-color: #6680fb;" wx:if="{{item.state === 4}}">订单已完成</view>
 

@@ -56,11 +56,11 @@
     </van-tab>
 
     <van-tab title="抢单">
-        <rob id="rob" />
+        <rob id="rob"/>
     </van-tab>
 
     <van-tab title="订单">
-        <order/>
+        <order />
     </van-tab>
 </van-tabs>
 

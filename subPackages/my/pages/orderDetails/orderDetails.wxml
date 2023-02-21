@@ -7,7 +7,7 @@
                 <image mode="widthFix" style="width: 400rpx;" src="{{qrcode_base64}}" show-menu-by-longpress="{{true}}"></image>
             </view>
 
-            <van-count-down millisecond time="{{ expiration_time }}" format="HH:mm:ss:SSS" />
+            <van-count-down millisecond time="{{ expiration_time+1000 }}" format="HH:mm:ss:SSS" bind:finish="timeEnd" />
         </view>
 
         <view class="info">

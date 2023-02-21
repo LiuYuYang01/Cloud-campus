@@ -3,8 +3,16 @@ import { $http } from "@escook/request-miniprogram";
 import Toast from '@vant/weapp/toast/toast';
 import drawQrcode from '../../../../assets/js/weapp.qrcode.min';
 import { formatTime } from '../../../../utils/util';
+import { storeBindingsBehavior } from 'mobx-miniprogram-bindings';
+import store from '../../../../store/store';
 Page({
-
+    behaviors: [storeBindingsBehavior],
+    storeBindings: {
+        store,
+        fields: {
+            userInfo: "userInfo",
+        }
+    },
     /**
      * 页面的初始数据
      */
@@ -51,31 +59,28 @@ Page({
                 });
             })
     },
-    // 定时拉取订单状态
-    pullOrderState() {
-        let vm = this; // 解决定时器里的 this 指向
-        console.log('开始拉取', this.data.order.state == 1);
-        // 如果订单为待支付状态则定时向服务器查询是否已支付订单
-        if (this.data.order.state == 1) {
-            vm.setData({
-                times: setInterval(() => {
-                    wx.request({
-                        url: `https://api.tockey.cn/api/pay/order/${this.data.order.order_id}`,
-                        success: res => {
-                            let { code, message, order } = res.data;
-                            // 订单状态不是待支付状态
-                            if (order.state != 1) {
-                                if (code == 400) return Toast(message);
-                                // console.log(this.setData);
-                                vm.setData({ order: order });
-                                // 停止定时器
-                                clearInterval(vm.data.times);
-                            }
-                        }
-                    });
-                }, 1000)
-            })
-        }
+
+    // 倒计时结束
+    timeEnd() {
+        console.log('倒计时结束');
+        this.getOrderInfo(this.data.order.order_id);
+    },
+    // 获取订单信息
+    getOrderInfo(oid) {
+        wx.request({
+            url: `https://api.tockey.cn/api/pay/order/${oid}`,
+            success: res => {
+                let { code, message, order } = res.data;
+                // 订单状态不是待支付状态
+                if (order.state != 1) {
+                    if (code == 400) return Toast(message);
+                    // console.log(this.setData);
+                    this.setData({ order: order });
+                    // 删除socket监听
+                    wx.$socket.removeAllListeners("payOutcome");
+                }
+            }
+        });
     },
 
     /**
@@ -86,13 +91,12 @@ Page({
         $http.get(`/api/pay/order/${options.order_id}`)
             .then(res => {
                 let { code, message, order } = res.data;
-                console.log(order,999);
 
                 if (code == 400) {
                     Toast(message);
                 } else {
                     for (const key in order) {
-                        if (key == 'date' || key == 'expiration_time'|| key == 'pay_time') {
+                        if (key == 'date' || key == 'expiration_time' || key == 'pay_time') {
                             order[key] = formatTime(new Date(order[key]))
                             // order[key] = order[key].slice(0, order[key].length - 3)
                         }
@@ -106,7 +110,12 @@ Page({
                     // 生成二维码
                     this.createQRcode();
                     // 定时拉取订单状态
-                    this.pullOrderState();
+                    // this.pullOrderState();
+                    // 监听socket支付结果
+                    wx.$socket.on('payOutcome', res => {
+                        console.log(res, '支付完成');
+                        this.getOrderInfo(this.data.order.order_id);
+                    })
                 };
             })
     },
@@ -136,6 +145,8 @@ Page({
      */
     onUnload() {
         clearInterval(this.data.times)
+        // 删除socket监听
+        wx.$socket.removeAllListeners("payOutcome");
     },
 
     /**
