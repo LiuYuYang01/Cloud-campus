@@ -104,7 +104,7 @@ Component({
 
       Dialog.confirm({
         context: this,
-        message: "你确定送达了吗？",
+        message: "你确定已经取到货了吗？",
       })
         .then(() => {
           // on confirm
