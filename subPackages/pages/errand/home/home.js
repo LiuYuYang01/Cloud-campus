@@ -29,6 +29,7 @@ Component({
         cid: "1",
       },
     ],
+    active: 0,
   },
 
   /**

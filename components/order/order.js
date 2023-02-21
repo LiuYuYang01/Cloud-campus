@@ -99,18 +99,26 @@ Component({
     },
 
     // 送达
-    service() {
+    service(e) {
       if (!this.data.isService) return;
 
       Dialog.confirm({
         context: this,
         message: "你确定已经取到货了吗？",
       })
-        .then(() => {
-          // on confirm
+        .then(async () => {
+          const oid = e.currentTarget.dataset.oid;
+          const receive_id = wx.$store.userInfo.id;
+          console.log(oid, receive_id);
+          const { data } = await wx.$http.post("/api/task/issue", {
+            oid,
+            receive_id,
+            state: 4,
+          });
+          console.log(data);
         })
-        .catch(() => {
-          // on cancel
+        .catch((e) => {
+          console.log(e);
         });
     },
   },
