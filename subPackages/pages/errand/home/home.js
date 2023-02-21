@@ -57,9 +57,6 @@ Component({
       // 点击提现，记录上一次的页面active
       wx.setStorageSync("selectTabBar", e.detail);
 
-      console.log(e.detail);
-      console.log(this.data.active);
-
       this.setData({
         active: wx.getStorageSync("selectTabBar"),
       });
