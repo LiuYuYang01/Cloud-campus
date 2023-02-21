@@ -13,6 +13,7 @@ Component({
     type: String,
     issue_id: String,
     isMyOrder: Boolean,
+    isService: Boolean,
   },
   /**
    * 组件的初始数据
@@ -25,8 +26,6 @@ Component({
         this.setData({
           isMyOrder: true,
         });
-
-        console.log(this.data.list);
       }
     },
   },
@@ -105,6 +104,20 @@ Component({
         .catch(() => {
           // on cancel
         });
+    },
+
+    // 投诉
+    complaint() {
+        if(!this.properties.isService) return
+
+        console.log(111);
+    },
+
+    // 送达
+    service() {
+      if(!this.properties.isService) return
+
+      console.log(222);
     },
   },
 });
