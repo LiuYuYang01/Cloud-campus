@@ -42,8 +42,6 @@ Component({
     },
 
     selectTabBar(e) {
-      this.setData({ active: e.detail });
-
       if (e.detail === 1) {
         this.selectComponent("#rob").resizeTab();
       }

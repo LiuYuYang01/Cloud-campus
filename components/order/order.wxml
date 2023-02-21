@@ -1,5 +1,7 @@
 <van-dialog id="van-dialog" showCancelButton="{{true}}" confirm-button-color="#6680fb" />
 
+<wxs src="/filter/formatTime.wxs" module="f"/>
+
 <view class="container-list" wx:for="{{list}}" wx:key="id">
     <!-- 头像/发布时间/金额 -->
     <view class="header">
@@ -9,7 +11,7 @@
 
         <view class="info">
             <view class="title">{{item.name}}</view>
-            <view class="date">刚刚</view>
+            <view class="date">{{f.formatTime(item.issue_time)}}</view>
         </view>
 
         <view class="attention">{{item.price}}元</view>
