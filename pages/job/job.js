@@ -15,7 +15,8 @@ Page({
     tag: "",
   },
 
-  onChange(e) {
+  // tab切换
+  tabChange(e) {
     this.setData({ active: e.detail.index });
   },
 
@@ -49,6 +50,20 @@ Page({
           tag: "",
         });
       });
+  },
+
+  // 删除兼职
+  delJob(e) {
+    const id = e.currentTarget.dataset.id;
+    wx.$http.delete(`/api/job/${id}`).then(({ data: { code, message } }) => {
+      if (code !== 200) return Notify({ type: "danger", message });
+
+      Notify({ type: "success", message: "删除兼职成功！" });
+
+      // 重新渲染数据
+      this.getJobList();
+      this.getMyJobList();
+    });
   },
 
   // 获取兼职列表

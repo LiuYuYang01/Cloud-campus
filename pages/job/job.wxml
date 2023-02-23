@@ -1,6 +1,6 @@
 <van-notify id="van-notify" />
 
-<van-tabs active="{{ active }}" color="#4fb985" bind:change="onChange">
+<van-tabs active="{{ active }}" color="#4fb985" bind:change="tabChange">
     <van-tab title="找兼职">
         <!-- 找兼职 -->
         <view class="jobList">
@@ -63,7 +63,7 @@
                             <view class="price">￥ {{item.price}} / 时</view>
                         </view>
 
-                        <view slot="right" class="del">删除</view>
+                        <view slot="right" class="del" data-id="{{item.id}}" bindtap="delJob">删除</view>
                     </van-swipe-cell>
                 </view>
             </view>
