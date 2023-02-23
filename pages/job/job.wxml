@@ -1,3 +1,5 @@
+<van-notify id="van-notify" />
+
 <van-tabs active="{{ active }}" color="#4fb985" bind:change="onChange">
     <van-tab title="找兼职">
         <!-- 找兼职 -->
@@ -15,7 +17,7 @@
                 </view>
 
                 <!-- 标签 -->
-                <view class="tag" >
+                <view class="tag">
                     <text wx:for="{{item.tag}}" wx:key="key">{{item}}</text>
                 </view>
 
@@ -54,7 +56,7 @@
 
             <!-- 兼职列表 -->
             <view class="list">
-                <view class="item"  wx:for="{{myJobList}}" wx:key="key">
+                <view class="item" wx:for="{{myJobList}}" wx:key="key">
                     <van-swipe-cell right-width="{{ 95 }}">
                         <view class="header">
                             <view class="title">{{item.title}}</view>

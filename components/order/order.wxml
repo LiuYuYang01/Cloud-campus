@@ -46,6 +46,7 @@
     <view class="confirm" wx:if="{{item.state === 3}}">
         <view style="background-color: #f55b5b;" bindtap="complaint">投诉订单</view>
         <view bindtap="service" wx:if="{{!isService}}">确认送达</view>
+        
         <view bindtap="service" style="background-color:#4fb985" data-oid="{{item.oid}}" data-issue_id="{{item.issue_id}}" wx:else>已取到货</view>
     </view>
 

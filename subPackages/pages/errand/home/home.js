@@ -43,6 +43,9 @@ Component({
     },
 
     selectTabBar(e) {
+    // 2023.02.21：解决抢单页面tab栏bug，但是打开后tabbar高亮又出了bug
+    // this.setData({ active: e.detail });
+
       if (e.detail === 1) {
         this.selectComponent("#rob").resizeTab();
       }

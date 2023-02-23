@@ -108,13 +108,19 @@ Component({
       })
         .then(async () => {
           const oid = e.currentTarget.dataset.oid;
-          const receive_id = wx.$store.userInfo.id;
-          console.log(oid, receive_id);
-          const { data } = await wx.$http.post("/api/task/issue", {
+          const issue_id = wx.$store.userInfo.id;
+
+          const {
+            data: { code, messgae },
+          } = await wx.$http.post("/api/task/issue", {
             oid,
-            receive_id,
-            state: 4,
+            issue_id,
+            state: 5,
           });
+
+          if(code !== 200) return
+
+          
           console.log(data);
         })
         .catch((e) => {
