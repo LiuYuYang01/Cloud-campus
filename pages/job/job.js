@@ -55,14 +55,19 @@ Page({
   // 删除兼职
   delJob(e) {
     const id = e.currentTarget.dataset.id;
+
     wx.$http.delete(`/api/job/${id}`).then(({ data: { code, message } }) => {
+      console.log(code, 111);
       if (code !== 200) return Notify({ type: "danger", message });
+      console.log(code, 222);
 
       Notify({ type: "success", message: "删除兼职成功！" });
 
       // 重新渲染数据
       this.getJobList();
       this.getMyJobList();
+
+      console.log(333);
     });
   },
 
@@ -84,8 +89,15 @@ Page({
       let {
         data: { code, data, message },
       } = res;
+
+      console.log(code,444);
       if (code != 200) return console.error(message);
-      this.setData({ myJobList: data });
+      
+      if(data){
+        this.setData({ myJobList: data });
+      }else{
+        this.setData({ myJobList: [] });
+      }
     });
   },
 
