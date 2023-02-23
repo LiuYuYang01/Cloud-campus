@@ -15,7 +15,11 @@ Page({
     tag: "",
   },
 
-  //   发布兼职
+  onChange(e) {
+    this.setData({ active: e.detail.index });
+  },
+
+  // 发布兼职
   sendJob() {
     let { title, describe, phone, price, tag } = this.data;
     wx.$http
@@ -33,8 +37,8 @@ Page({
         Notify({ type: "success", message: "恭喜老板发布兼职成功" });
 
         // 重新渲染数据
-        this.getJobList()
-        this.getMyJobList()
+        this.getJobList();
+        this.getMyJobList();
 
         this.setData({
           active: 0,
