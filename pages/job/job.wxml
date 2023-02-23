@@ -28,7 +28,7 @@
                         <text>{{item.name}}</text>
                     </view>
 
-                    <view class="connect">立即沟通</view>
+                    <view class="connect" data-phone="{{item.phone}}" bindtap="linkUp">立即沟通</view>
                 </view>
             </view>
         </view>

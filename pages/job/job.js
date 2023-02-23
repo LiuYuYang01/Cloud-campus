@@ -96,6 +96,14 @@ Page({
     });
   },
 
+  // 立即沟通
+  linkUp(e) {
+    // 调用小程序电话接口
+    wx.makePhoneCall({
+      phoneNumber: e.currentTarget.dataset.phone,
+    });
+  },
+
   /**
    * 生命周期函数--监听页面加载
    */
