@@ -1,6 +1,8 @@
 {
     "navigationBarBackgroundColor": "#4fb985",
     "navigationBarTitleText": "校园兼职",
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#4fb985",
     "usingComponents": {
         "van-tab": "@vant/weapp/tab/index",
         "van-tabs": "@vant/weapp/tabs/index",

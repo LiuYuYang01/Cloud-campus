@@ -2,6 +2,8 @@
     "navigationBarTitleText": "兴趣圈",
     "backgroundTextStyle": "light",
     "navigationBarBackgroundColor": "#49b984",
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#4fb985",
     "usingComponents": {
         "menu": "/components/menu/menu",
         "swiper": "/components/swiper/swiper",

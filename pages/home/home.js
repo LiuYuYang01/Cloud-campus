@@ -186,13 +186,13 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow() {
+  async onShow() {
     // 修复tabbar切换时候发布组件显示问题
     wx.$store.updatePopup(1460);
 
-    this.__getSwiperList();
-    this.__getHomeToppingList();
-    this.__getHomeList();
+    await this.__getSwiperList();
+    await this.__getHomeToppingList();
+    await this.__getHomeList();
 
     // // 判断有没有Token，没有就代表未登录，跳转到登录页
     // if (getToken()) {
@@ -218,7 +218,14 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh() {},
+  async onPullDownRefresh() {
+    await this.__getSwiperList();
+    await this.__getHomeToppingList();
+    await this.__getHomeList();
+
+    // 关闭下拉刷新
+    wx.stopPullDownRefresh();
+  },
 
   /**
    * 页面上拉触底事件的处理函数

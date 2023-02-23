@@ -1,10 +1,12 @@
 {
     "navigationBarTitleText": "云上校园",
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#4fb985",
     "usingComponents": {
-        "menu":"/components/menu/menu",
-        "swiper":"/components/swiper/swiper",
-        "circle":"/components/circle/circle",
-        "article":"/components/article/article",
+        "menu": "/components/menu/menu",
+        "swiper": "/components/swiper/swiper",
+        "circle": "/components/circle/circle",
+        "article": "/components/article/article",
         "van-dialog": "@vant/weapp/dialog/index"
     }
 }

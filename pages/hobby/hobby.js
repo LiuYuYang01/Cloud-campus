@@ -16,7 +16,7 @@ Page({
     showSearchBox: false, // 显示搜索结果
     times: null, // 定时器 防抖用
     showSearchLod: false, // 正在搜索
-    keyword:""
+    keyword: "",
   },
   showSB() {
     this.setData({ showSearchBox: true });
@@ -55,9 +55,9 @@ Page({
 
     // 跳转完毕后把搜索的内容与结果都清空
     this.setData({
-        keyword:"",
-        searchRes:[]
-    })
+      keyword: "",
+      searchRes: [],
+    });
   },
 
   // 左侧滑动菜单
@@ -151,12 +151,7 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
-    // this.__getSwiperList();
-    // this.__getHomeToppingList();
-    // this.__getHobbyList();
-    // this.cateList();
-  },
+  onLoad(options) {},
 
   /**
    * 生命周期函数--监听页面初次渲染完成
@@ -169,7 +164,7 @@ Page({
   onShow() {
     // 修复tabbar切换时候发布组件显示问题
     wx.$store.updatePopup(1460);
-    
+
     this.__getSwiperList();
     this.__getHomeToppingList();
     this.__getHobbyList();
@@ -179,9 +174,7 @@ Page({
   /**
    * 生命周期函数--监听页面隐藏
    */
-  onHide() {
-    
-  },
+  onHide() {},
 
   /**
    * 生命周期函数--监听页面卸载
@@ -191,7 +184,15 @@ Page({
   /**
    * 页面相关事件处理函数--监听用户下拉动作
    */
-  onPullDownRefresh() {},
+  onPullDownRefresh() {
+    this.__getSwiperList();
+    this.__getHomeToppingList();
+    this.__getHobbyList();
+    this.cateList();
+
+    // 关闭下拉刷新
+    wx.stopPullDownRefresh();
+  },
 
   /**
    * 页面上拉触底事件的处理函数
