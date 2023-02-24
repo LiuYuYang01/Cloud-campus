@@ -4,6 +4,7 @@ page {
 
 .wealth {
   text-align: center;
+  margin-top: 100rpx;
 }
 
 /* 当前余额 */
@@ -11,7 +12,6 @@ page {
   font-size: 100rpx;
   font-weight: 700;
   color: #6680fb;
-  margin-top: 100rpx;
 }
 
 /* 提现按钮 */
