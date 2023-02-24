@@ -52,7 +52,7 @@
             <view bindtap="service" style="background-color:#4fb985" data-oid="{{item.oid}}" data-issue_id="{{item.issue_id}}" wx:else>已取到货</view>
         </view>
 
-        <view class="meet" style="background-color: #6680fb;" wx:if="{{item.state === 4}}">订单已完成</view>
+        <view class="meet" style="background-color: #6680fb;" wx:if="{{item.state === 5}}">订单已完成</view>
 
         <slot name="{{index}}" wx:if="{{item.state === 4}}"></slot>
     </view>

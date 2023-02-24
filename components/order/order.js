@@ -119,11 +119,12 @@ Component({
             state: 5,
           });
 
-          console.log(code, messgae);
           if (code !== 200)
             return Notify({ context: this, type: "danger", message });
 
           Notify({ context: this, type: "success", message: "恭喜你完成订单" });
+          
+          this.triggerEvent("getOrderList");
         })
         .catch((e) => {
           console.log(e);

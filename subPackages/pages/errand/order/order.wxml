@@ -1,6 +1,6 @@
 <van-dialog id="van-dialog" showCancelButton="{{true}}" confirm-button-color="#6680fb" />
 
-<order list="{{ orderList }}" isMyOrder="{{true}}" isService="{{true}}">
+<order list="{{ orderList }}" isMyOrder="{{true}}" isService="{{true}}" bindgetOrderList="getOrderList">
     <!-- 插槽名不能重复，所以要用index索引作为插槽名 -->
     <view slot="{{index}}" wx:for="{{orderList}}" wx:key="index" class="complaint">
         <image src="/assets/svg/complaint.svg" mode="widthFix" style="width:50rpx;" />
