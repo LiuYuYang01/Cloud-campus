@@ -3,7 +3,18 @@ const tabBarBehaviors = require("../../../../behaviors/tabBar-behaviors");
 import * as echarts from "../../../../ec-canvas/echarts";
 
 let chart = null;
-let nums = [23.5, 54, 41, 13.5, 99, 46.5, 19];
+
+// let nums = [23.5, 54, 41, 13.5, 99, 46.5, 19];
+let nums = [];
+
+(async () => {
+  const {
+    data: { balance },
+  } = await wx.$http.get(`/api/pay/balance/${wx.$store.userInfo.id}`);
+
+  nums = balance.weekly_balance;
+  console.log(nums);
+})();
 
 function initChart(canvas, width, height, dpr) {
   chart = echarts.init(canvas, null, {
