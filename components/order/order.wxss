@@ -1,12 +1,10 @@
-page {
-  background-color: #f0f0f0;
+.container-box{
+    background-color: #f0f0f0;
 }
 
 .container-list {
   padding: 20rpx;
   margin-top: 10rpx;
-  /* min-height: 480rpx;
-      height: auto; */
   background-color: white;
 }
 

@@ -25,7 +25,7 @@ Page({
       {
         title: "勤工俭学",
         icon: "gold-coin",
-        url: "",
+        url: "/pages/job/job",
         color: "#fbb437",
       },
       {
