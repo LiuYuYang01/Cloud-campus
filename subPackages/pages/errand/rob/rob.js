@@ -107,6 +107,7 @@ Component({
       })
         .then(() => {
           // on confirm
+
         })
         .catch(() => {
           // on cancel

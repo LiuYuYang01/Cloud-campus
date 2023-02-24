@@ -1,5 +1,6 @@
 import Dialog from "@vant/weapp/dialog/dialog";
 import Toast from "@vant/weapp/toast/toast";
+import Notify from "@vant/weapp/notify/notify";
 
 Component({
   options: {
@@ -118,10 +119,11 @@ Component({
             state: 5,
           });
 
-          if(code !== 200) return
+          console.log(code, messgae);
+          if (code !== 200)
+            return Notify({ context: this, type: "danger", message });
 
-          
-          console.log(data);
+          Notify({ context: this, type: "success", message: "恭喜你完成订单" });
         })
         .catch((e) => {
           console.log(e);

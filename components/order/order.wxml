@@ -1,6 +1,7 @@
-<van-dialog id="van-dialog" showCancelButton="{{true}}" confirm-button-color="#6680fb" />
-
 <wxs src="/filter/formatTime.wxs" module="f" />
+
+<van-dialog id="van-dialog" showCancelButton="{{true}}" confirm-button-color="#6680fb" />
+<van-notify id="van-notify" />
 
 <view class="container-box">
     <view class="container-list" wx:for="{{list}}" wx:key="id">
