@@ -2,7 +2,6 @@
 
 <van-dialog id="van-dialog" showCancelButton="{{true}}" confirm-button-color="#6680fb" />
 <van-notify id="van-notify" />
-<van-popup show="{{ complainShow }}" bind:close="complaintClose">内容</van-popup>
 
 <view class="container-box">
     <view class="container-list" wx:for="{{list}}" wx:key="id">
@@ -48,7 +47,7 @@
         <!-- 确认订单 -->
         <view class="confirm" wx:if="{{item.state === 3}}">
             <view style="background-color: #f55b5b;" data-oid="{{item.oid}}" bindtap="complaint">投诉订单</view>
-            
+
             <view bindtap="service" wx:if="{{!isService}}">确认送达</view>
 
             <view bindtap="service" style="background-color:#4fb985" data-oid="{{item.oid}}" data-issue_id="{{item.issue_id}}" wx:else>已取到货</view>
@@ -59,3 +58,14 @@
         <slot name="{{index}}" wx:if="{{item.state === 5}}"></slot>
     </view>
 </view>
+
+<!-- 投诉框 -->
+<van-popup show="{{ complainShow }}" bind:close="complaintClose">
+    <view class="complainBox">
+        <view class="title">投诉框</view>
+
+        <view class="con">
+            <van-field value="{{ message }}" type="textarea" placeholder="请输入投诉内容" autosize border="{{ false }}" />
+        </view>
+    </view>
+</van-popup>

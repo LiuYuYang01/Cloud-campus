@@ -1,5 +1,5 @@
-.container-box{
-    background-color: #f0f0f0;
+.container-box {
+  background-color: #f0f0f0;
 }
 
 .container-list {
@@ -153,16 +153,37 @@
 }
 
 /* 确认订单 */
-.confirm{
-    display: flex;
-    justify-content: center;
+.confirm {
+  display: flex;
+  justify-content: center;
 }
-.confirm view{
-    width: 200rpx;
-    padding: 20rpx 0;
-    margin: 0 20rpx;
-    border-radius: 10rpx;
-    color: #fff;
-    background-color: #5a82fd;
-    text-align: center;
+.confirm view {
+  width: 200rpx;
+  padding: 20rpx 0;
+  margin: 0 20rpx;
+  border-radius: 10rpx;
+  color: #fff;
+  background-color: #5a82fd;
+  text-align: center;
+}
+
+/* 投诉框 */
+.complainBox {
+  position: relative;
+  width: 600rpx;
+  height: 350rpx;
+  padding-bottom: 20rpx;
+  border-radius: 10rpx;
+}
+
+/* 标题 */
+.complainBox .title {
+  position: sticky;
+  top: 0;
+  height: 80rpx;
+  line-height: 80rpx;
+  color: #fff;
+  background-color: #6680fb;
+  text-align: center;
+  z-index: 999;
 }
