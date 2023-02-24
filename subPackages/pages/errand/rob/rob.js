@@ -87,19 +87,6 @@ Component({
       });
     },
 
-    // 接单
-    meet() {
-      Dialog.confirm({
-        message: "你确定要接单吗？",
-      })
-        .then(() => {
-          // on confirm
-        })
-        .catch(() => {
-          // on cancel
-        });
-    },
-
     // 送达
     service() {
       Dialog.confirm({

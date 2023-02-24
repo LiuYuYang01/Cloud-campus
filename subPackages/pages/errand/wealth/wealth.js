@@ -102,10 +102,17 @@ Component({
   },
 
   lifetimes: {
-    ready() {
+    async ready() {
+      const {
+        data: { balance },
+      } = await wx.$http.get(`/api/pay/balance/${wx.$store.userInfo.id}`);
+
       this.setData({
-        sumMoney: nums.reduce((sum, item) => (sum += item), 0).toFixed(2),
+        nums: balance.weekly_balance,
+        sumMoney: balance.weekly_balance
+          .reduce((sum, item) => (sum += item), 0)
+          .toFixed(2),
       });
-    }
+    },
   },
 });
