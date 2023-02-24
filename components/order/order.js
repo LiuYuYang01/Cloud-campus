@@ -19,7 +19,9 @@ Component({
   /**
    * 组件的初始数据
    */
-  data: {},
+  data: {
+    complainShow: false,
+  },
 
   lifetimes: {
     ready() {
@@ -95,8 +97,18 @@ Component({
     },
 
     // 投诉
-    complaint() {
+    complaint(e) {
       if (!this.data.isService) return;
+
+      const id = e.currentTarget.dataset.oid;
+
+      // 打开投诉框
+      this.setData({ complainShow: true });
+    },
+
+    // 关闭投诉框
+    complaintClose() {
+      this.setData({ complainShow: false });
     },
 
     // 送达
@@ -122,9 +134,10 @@ Component({
           if (code !== 200)
             return Notify({ context: this, type: "danger", message });
 
-          Notify({ context: this, type: "success", message: "恭喜你完成订单" });
-          
+          // 重新获取一下订单页面的数据
           this.triggerEvent("getOrderList");
+
+          Notify({ context: this, type: "success", message: "恭喜你完成订单" });
         })
         .catch((e) => {
           console.log(e);
