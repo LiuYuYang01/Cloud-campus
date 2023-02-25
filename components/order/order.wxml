@@ -4,7 +4,7 @@
 <van-notify id="van-notify" />
 
 <view class="container-box">
-    <view class="container-list" wx:for="{{list}}" wx:key="id">
+    <view class="container-list" wx:for="{{orderList}}" wx:key="id">
         <!-- 头像/发布时间/金额 -->
         <view class="header">
             <view>

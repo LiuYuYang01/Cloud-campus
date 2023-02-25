@@ -20,11 +20,17 @@ Component({
    * 组件的初始数据
    */
   data: {
-    complainShow: true,
+    orderList: [],
+    complainShow: false,
   },
 
   lifetimes: {
     ready() {
+      // 订单排序
+      this.setData({
+        orderList: this.data.list.sort((a, b) => a.state - b.state),
+      });
+
       if (this.data.type === "我的跑单") {
         this.setData({
           isMyOrder: true,

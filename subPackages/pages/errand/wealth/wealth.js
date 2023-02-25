@@ -4,7 +4,6 @@ import * as echarts from "../../../../ec-canvas/echarts";
 
 let chart = null;
 
-// let nums = [23.5, 54, 41, 13.5, 99, 46.5, 19];
 let nums = [];
 
 (async () => {
@@ -12,8 +11,8 @@ let nums = [];
     data: { balance },
   } = await wx.$http.get(`/api/pay/balance/${wx.$store.userInfo.id}`);
 
+  // 动态数据
   nums = balance.weekly_balance;
-  console.log(nums);
 })();
 
 function initChart(canvas, width, height, dpr) {
