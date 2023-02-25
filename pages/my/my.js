@@ -135,6 +135,8 @@ Page({
       userInfo: JSON.parse(getUserInfo()),
     });
 
+    wx.$store.breakSocket();
+
     setToken("");
     wx.navigateTo({
       url: "../../pages/login/login",

@@ -12,5 +12,12 @@ export default observable({
   ...user,
 
 
-
+    breakSocket: action(function(){
+        console.log('正在断开 socket 的连接');
+        wx.$socket.close();
+    }),
+    openSocket: action(function(){
+        console.log('正在重新连接 socket');
+        wx.$socket.connect();
+    })
 });

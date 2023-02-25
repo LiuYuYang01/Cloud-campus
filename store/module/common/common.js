@@ -38,4 +38,14 @@ export default {
     // 清空数据
     if (mode == "clear") this.msgList = [];
   }),
+  // 向 socket.io 服务器发送数据
+  sendDataTosocketServer: action(function(){
+    // 更新用户在线状态(我上线了：我要把我的信息发送给服务器和sid关联起来)
+    wx.$socket.emit('updUserOnlineState', {
+        username: wx.$store.userInfo.username, // 账号
+        name: wx.$store.userInfo.name, // 姓名
+        uid: wx.$store.userInfo.id,
+        sid: wx.$socket.id
+    });
+  })
 };

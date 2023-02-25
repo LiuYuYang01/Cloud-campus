@@ -31,12 +31,12 @@ socket.on('connect', function () {
         // 将数据存到 store
         wx.$store.updOnlineUser(res.onlineUser);
     });
-    // 更新用户在线状态(我上线了：我要把我的信息发送给服务器和sid关联起来)
-    wx.$socket.emit('updUserOnlineState', {
-        username: wx.$store.userInfo.username, // 账号
-        name: wx.$store.userInfo.name, // 姓名
-        uid: wx.$store.userInfo.id,
-        sid: wx.$socket.id
-    });
+    if(wx.$store.userInfo.name != '请登录'){
+        // 更新用户在线状态(我上线了：我要把我的信息发送给服务器和sid关联起来)
+        console.log('socket: 上线 => ', wx.$store.userInfo.name);
+        wx.$store.sendDataTosocketServer();
+    } else {
+        console.log('socket: 没有 userInfo 数据');
+    }
 });
 wx.$socket = socket; // 挂载到全局实例
