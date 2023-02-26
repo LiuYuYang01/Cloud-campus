@@ -33,8 +33,12 @@ socket.on('connect', function () {
     });
     if(wx.$store.userInfo.name != '请登录'){
         // 更新用户在线状态(我上线了：我要把我的信息发送给服务器和sid关联起来)
-        console.log('socket: 上线 => ', wx.$store.userInfo.name);
-        wx.$store.sendDataTosocketServer();
+        socket.emit('updUserOnlineState', {
+            username: wx.$store.userInfo.username, // 账号
+            name: wx.$store.userInfo.name, // 姓名
+            uid: wx.$store.userInfo.id,
+            sid: wx.$socket.id
+        });
     } else {
         console.log('socket: 没有 userInfo 数据');
     }

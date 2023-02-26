@@ -142,7 +142,6 @@ Page({
                 safeAreaInsetTop: true,
             });
             wx.$store.openSocket()
-            wx.$store.sendDataTosocketServer();
             // 登录成功后跳转到首页
             setTimeout(() => {
                 wx.switchTab({
