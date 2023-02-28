@@ -40,7 +40,8 @@ socket.on('connect', function () {
             sid: wx.$socket.id
         });
     } else {
-        console.log('socket: 没有 userInfo 数据');
+        console.log('没有 userInfo 数据, 断开 socket 连接');
+        wx.$socket.close()
     }
 });
 wx.$socket = socket; // 挂载到全局实例
