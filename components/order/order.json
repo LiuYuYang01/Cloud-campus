@@ -5,6 +5,7 @@
         "van-dialog": "@vant/weapp/dialog/index",
         "van-toast": "@vant/weapp/toast/index",
         "van-notify": "@vant/weapp/notify/index",
-        "van-popup": "@vant/weapp/popup/index"
+        "van-popup": "@vant/weapp/popup/index",
+        "van-empty": "@vant/weapp/empty/index"
     }
 }

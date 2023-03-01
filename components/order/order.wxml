@@ -3,7 +3,7 @@
 <van-dialog id="van-dialog" showCancelButton="{{true}}" confirm-button-color="#6680fb" />
 <van-notify id="van-notify" />
 
-<view class="container-box">
+<view class="container-box" wx:if="{{list.length}}">
     <view class="container-list" wx:for="{{list}}" wx:key="id">
         <!-- 头像/发布时间/金额 -->
         <view class="header">
@@ -58,6 +58,8 @@
         <slot name="{{index}}" wx:if="{{item.state === 5}}"></slot>
     </view>
 </view>
+
+<van-empty wx:else />
 
 <!-- 投诉框 -->
 <van-popup show="{{ complainShow }}" bind:close="complaintClose">
