@@ -51,9 +51,6 @@ Component({
     },
 
     selectTabBar(e) {
-      // 2023.02.21：解决抢单页面tab栏bug，但是打开后tabbar高亮又出了bug
-      // this.setData({ active: e.detail });
-
       // 切换tabbar
       wx.$store.updateErrandActive(e.detail);
 

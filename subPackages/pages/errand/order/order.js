@@ -40,6 +40,11 @@ Component({
       this.setData({
         orderList: data,
       });
+
+      // 订单排序: 完成的订单排在最后，未完成的订单排在前面
+    //   this.setData({
+    //     orderList: this.data.list.sort((a, b) => a.state - b.state),
+    //   });
     },
   },
 });

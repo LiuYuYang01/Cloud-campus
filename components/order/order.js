@@ -26,11 +26,6 @@ Component({
 
   lifetimes: {
     ready() {
-      // 订单排序
-      this.setData({
-        orderList: this.data.list.sort((a, b) => a.state - b.state),
-      });
-
       if (this.data.type === "我的跑单") {
         this.setData({
           isMyOrder: true,
@@ -65,8 +60,6 @@ Component({
       } else if (this.data.type === "我的跑单") {
         msg = "你确定你已送达吗？";
         state = 2;
-      } else if (type === "3") {
-        console.log(666);
       }
 
       Dialog.confirm({
@@ -76,12 +69,6 @@ Component({
         .then(async () => {
           const oid = e.currentTarget.dataset.oid;
           const receive_id = wx.$store.userInfo.id;
-
-          console.log({
-            oid,
-            receive_id,
-            state,
-          });
 
           const {
             data: { code, message },

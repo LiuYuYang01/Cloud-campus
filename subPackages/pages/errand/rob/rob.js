@@ -2,7 +2,6 @@ import Dialog from "@vant/weapp/dialog/dialog";
 
 const tabBarBehaviors = require("../../../../behaviors/tabBar-behaviors");
 Component({
-  
   behaviors: [tabBarBehaviors],
   /**
    * 组件的属性列表
@@ -94,22 +93,14 @@ Component({
       })
         .then(() => {
           // on confirm
-
         })
         .catch(() => {
           // on cancel
         });
     },
 
-    resizeTab(){
-        this.selectComponent("#taskTap").resize()
-    },
-
-    Tab(){
-        this.getTaskList()
-        console.log(this.data.orderList,111);
-        console.log(this.data.myOrderList,222);
-        console.log(this.data.laterOrderList,3333);
+    resizeTab() {
+      this.selectComponent("#taskTap").resize();
     },
 
     // 更改订单状态
