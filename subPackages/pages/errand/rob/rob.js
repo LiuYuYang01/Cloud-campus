@@ -79,10 +79,11 @@ Component({
 
       if (code !== 200) return;
 
+      const list = data.filter((item) => item.state !== 0 && item.state !== 1);
+      
+      // 订单排序: 完成的订单排在最后，未完成的订单排在前面
       this.setData({
-        myOrderList: data.filter(
-          (item) => item.state !== 0 && item.state !== 1
-        ),
+        myOrderList: list.sort((a, b) => a.state - b.state),
       });
     },
 
