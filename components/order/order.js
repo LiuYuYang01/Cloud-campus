@@ -97,8 +97,8 @@ Component({
 
           this.triggerEvent("getTaskList");
         })
-        .catch(() => {
-          // on cancel
+        .catch((err) => {
+          console.log(err);
         });
     },
 

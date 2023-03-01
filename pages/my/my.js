@@ -1,3 +1,4 @@
+import Toast from "@vant/weapp/toast/toast";
 import {
   getUserInfo,
   setUserInfo,
@@ -126,7 +127,6 @@ Page({
   // 选择
   inviteSelect(event) {
     Toast(event.detail.name);
-    this.onClose();
   },
   // 退出登录
   quit() {

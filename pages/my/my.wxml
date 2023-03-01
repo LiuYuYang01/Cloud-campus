@@ -1,3 +1,5 @@
+<van-toast id="van-toast" />
+
 <!-- 用户信息 -->
 <view class="header">
     <view class="userInfo" bindtap="go">

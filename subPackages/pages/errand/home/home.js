@@ -54,11 +54,13 @@ Component({
       // 2023.02.21：解决抢单页面tab栏bug，但是打开后tabbar高亮又出了bug
       // this.setData({ active: e.detail });
 
-    // 切换tabbar
+      // 切换tabbar
       wx.$store.updateErrandActive(e.detail);
 
       if (e.detail === 1) {
-        this.selectComponent("#rob").resizeTab();
+        setTimeout(() => {
+          this.selectComponent("#rob").resizeTab();
+        }, 0);
       }
 
       // 跳转到提现页面

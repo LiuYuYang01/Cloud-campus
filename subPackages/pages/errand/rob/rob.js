@@ -105,11 +105,18 @@ Component({
         this.selectComponent("#taskTap").resize()
     },
 
+    Tab(){
+        this.getTaskList()
+        console.log(this.data.orderList,111);
+        console.log(this.data.myOrderList,222);
+        console.log(this.data.laterOrderList,3333);
+    },
+
     // 更改订单状态
-    getTaskList(e) {
-      this.getOrderList();
-      this.getLaterOrderList();
-      this.getMyOrderList();
+    async getTaskList(e) {
+      await this.getOrderList();
+      await this.getLaterOrderList();
+      await this.getMyOrderList();
     },
   },
 });
