@@ -70,3 +70,7 @@ page {
 .banner image {
   border-radius: 10rpx;
 }
+
+/* .van-tabs--line {
+  margin-top: 120rpx;
+} */

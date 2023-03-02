@@ -25,7 +25,7 @@ Component({
       this.setData({
         "errand.issue_id": wx.$store.userInfo.id,
       });
-    },
+    }
   },
 
   /**

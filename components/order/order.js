@@ -4,7 +4,7 @@ import Notify from "@vant/weapp/notify/notify";
 
 Component({
   options: {
-    multipleSlots: true,
+    multipleSlots: true
   },
   /**
    * 组件的属性列表
@@ -47,8 +47,8 @@ Component({
       let receive_id = wx.$store.userInfo.id;
 
       // 判断是不是自己发布的订单
-      if (issue_id === wx.$store.userInfo.id && !this.data.isMyOrder) {
-        return Toast("你不能接自己的单");
+      if (issue_id === wx.$store.userInfo.id && !cancel) {
+        return Toast("无法操作自己发布的订单");
       }
 
       // 订单状态

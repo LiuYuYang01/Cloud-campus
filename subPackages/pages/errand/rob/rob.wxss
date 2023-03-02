@@ -1,13 +1,17 @@
 /* subPackages/home/pages/errand/errand.wxss */
 page {
-  background-color: #f0f0f0;
+  background-color: #fff !important;
+}
+
+.van-tabs__wrap {
+  top: 0rpx !important;
 }
 
 /* 我的 */
 .journey-info {
   position: relative;
-  border-top: 1.5px dashed gainsboro;
-  border-bottom: 1.5px dashed gainsboro;
+  border-top: 3rpx dashed gainsboro;
+  border-bottom: 3rpx dashed gainsboro;
   padding: 20rpx 0;
   margin: 20rpx 0;
 }
