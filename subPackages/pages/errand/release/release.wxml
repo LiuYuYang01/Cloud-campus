@@ -10,4 +10,5 @@
     <van-field value="{{ errand.price }}" label="订单金额" placeholder="请输入订单金额" border="{{false}}" bind:change="priceChange" />
 </van-cell-group>
 
+<view class="release" bindtap="pay">下单</view>
 <view class="release" bindtap="release">下单</view>

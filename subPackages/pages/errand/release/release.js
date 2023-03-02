@@ -1,4 +1,4 @@
-import Notify from '@vant/weapp/notify/notify';
+import Notify from "@vant/weapp/notify/notify";
 
 Component({
   /**
@@ -52,26 +52,28 @@ Component({
         "errand.price": e.detail,
       });
     },
-    onChange(event) {
-      const { picker, value, index } = event.detail;
-      Toast(`当前值：${value}, 当前索引：${index}`);
+
+    // 订单支付
+    pay() {
+      console.log(this.data.errand.price, 666);
     },
+
     // 发布任务
     async release() {
       const {
         data: { code, message },
       } = await wx.$http.post("/api/task", this.data.errand);
-      
-      if(code !== 200) return Notify({ type: 'danger', message });
 
-      Notify({ type: 'success', message: '恭喜你，发布任务成功' });
+      if (code !== 200) return Notify({ type: "danger", message });
 
-    // 发布成功后跳转到任务列表页面
-      setTimeout(()=>{
+      Notify({ type: "success", message: "恭喜你，发布任务成功" });
+
+      // 发布成功后跳转到任务列表页面
+      setTimeout(() => {
         wx.navigateTo({
-          url: '/subPackages/pages/errand/rob/rob',
-        })
-      },1000)
+          url: "/subPackages/pages/errand/rob/rob",
+        });
+      }, 1000);
     },
   },
 });

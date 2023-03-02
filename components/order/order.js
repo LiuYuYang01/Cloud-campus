@@ -42,11 +42,12 @@ Component({
     meet(e) {
       let msg = "";
       let state = 0;
-      let type = e.currentTarget.dataset.type;
+      let cancel = e.currentTarget.dataset.cancel;
       let issue_id = e.currentTarget.dataset.issue_id;
+      let receive_id = wx.$store.userInfo.id;
 
       // 判断是不是自己发布的订单
-      if (issue_id === wx.$store.userInfo.id) {
+      if (issue_id === wx.$store.userInfo.id && !this.data.isMyOrder) {
         return Toast("你不能接自己的单");
       }
 
@@ -60,6 +61,9 @@ Component({
       } else if (this.data.type === "我的跑单") {
         msg = "你确定你已送达吗？";
         state = 2;
+      } else if (cancel) {
+        msg = "你确定取消订单吗？";
+        state = 4;
       }
 
       Dialog.confirm({
@@ -68,15 +72,24 @@ Component({
       })
         .then(async () => {
           const oid = e.currentTarget.dataset.oid;
-          const receive_id = wx.$store.userInfo.id;
 
-          const {
-            data: { code, message },
-          } = await wx.$http.post("/api/task/receice", {
-            oid,
-            receive_id,
-            state,
-          });
+          if (cancel) {
+            var {
+              data: { code, message },
+            } = await wx.$http.post("/api/task/issue", {
+              oid,
+              issue_id,
+              state: 4,
+            });
+          } else {
+            var {
+              data: { code, message },
+            } = await wx.$http.post("/api/task/receice", {
+              oid,
+              receive_id,
+              state,
+            });
+          }
 
           if (code !== 200) return Toast(message);
 
