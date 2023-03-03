@@ -3,10 +3,6 @@ page {
   background-color: #fff !important;
 }
 
-.van-tabs__wrap {
-  top: 0rpx !important;
-}
-
 /* 我的 */
 .journey-info {
   position: relative;

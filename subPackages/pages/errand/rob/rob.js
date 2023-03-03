@@ -13,6 +13,7 @@ Component({
    */
   data: {
     Tab: 0,
+    tabBottom: 0,
     // 轮播图数据
     swiperList: [
       {
@@ -34,6 +35,12 @@ Component({
       this.getOrderList();
       this.getLaterOrderList();
       this.getMyOrderList();
+    },
+    // 解决下单后tabbar布局异常bug
+    ready() {
+      this.setData({
+        tabBottom: wx.$store.tabBottom,
+      });
     },
   },
 
@@ -80,7 +87,7 @@ Component({
       if (code !== 200) return;
 
       const list = data.filter((item) => item.state !== 0 && item.state !== 1);
-      
+
       // 订单排序: 完成的订单排在最后，未完成的订单排在前面
       this.setData({
         myOrderList: list.sort((a, b) => a.state - b.state),

@@ -1,6 +1,6 @@
 <van-toast id="van-toast" />
 
-<van-tabs active="{{ active }}" style="height: 0;">
+<van-tabs active="{{ active }}">
     <van-tab title="首页">
         <!-- 轮播图 -->
         <swiper list="{{swiperList}}" style="margin: 20rpx;" />

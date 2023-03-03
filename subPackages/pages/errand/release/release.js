@@ -68,6 +68,9 @@ Component({
 
       Notify({ type: "success", message: "恭喜你，发布任务成功" });
 
+    // 解决下单后tabbar布局异常bug
+      wx.$store.updTabBottom(0)
+
       // 发布成功后跳转到任务列表页面
       setTimeout(() => {
         wx.navigateTo({
