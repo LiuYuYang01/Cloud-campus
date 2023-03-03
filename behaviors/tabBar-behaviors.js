@@ -11,18 +11,6 @@ module.exports = Behavior({
     active: 0,
   },
   methods: {
-    // tabBar切换
-    selectTabBar(e) {
-      const active = wx.$store.errandActive;
 
-      localStorage.setItem("selectTabBar", active);
-
-      // 优化Tabbar切换功能
-      wx.$store.updateErrandActive(e.detail);
-      
-      this.setData({
-        active: active,
-      });
-    },
   },
 });

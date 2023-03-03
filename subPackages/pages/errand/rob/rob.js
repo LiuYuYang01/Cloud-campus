@@ -116,6 +116,6 @@ Component({
       await this.getOrderList();
       await this.getLaterOrderList();
       await this.getMyOrderList();
-    },
+    }
   },
 });

@@ -9,7 +9,6 @@ export default {
   onlineUserList: [], // 在线用户
   unreadList: [], // 存储未读消息的用户ID
   msgList: [], // 存储当前的聊天数据
-  tabBottom: 120,
 
   // 更新tabbar
   updateActive: action(function (n) {
@@ -38,9 +37,5 @@ export default {
     if (mode == "more") this.msgList = this.msgList.concat(list);
     // 清空数据
     if (mode == "clear") this.msgList = [];
-  }),
-  // 解决下单后tabbar布局异常bug
-  updTabBottom: action(function (n) {
-    this.tabBottom = n;
-  }),
+  })
 };

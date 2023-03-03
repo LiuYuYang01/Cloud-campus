@@ -69,6 +69,7 @@ Component({
 
       // 点击提现，记录上一次的页面active
       wx.setStorageSync("selectTabBar", e.detail);
+      
       this.setData({
         active: wx.getStorageSync("selectTabBar"),
       });
