@@ -189,7 +189,8 @@
 .updateBG {
   z-index: 100;
   position: fixed;
-  bottom: 0;
+  /* bottom: 0; */
+  bottom: 220rpx;
   left: 5%;
   width: 90%;
   height: 80rpx;

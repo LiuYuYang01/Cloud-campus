@@ -10,6 +10,7 @@ Component({
    * 组件的初始数据
    */
   data: {
+    payShow: false,
     errand: {
       // 发布者ID
       issue_id: "",
@@ -32,6 +33,15 @@ Component({
    * 组件的方法列表
    */
   methods: {
+    // 订单支付
+    pay() {
+      this.setData({ payShow: true });
+      console.log(this.data.errand.price, 666);
+    },
+    // 关闭支付框
+    payClose() {
+      this.setData({ payShow: false });
+    },
     toChange(e) {
       this.setData({
         "errand.to": e.detail,
@@ -51,11 +61,6 @@ Component({
       this.setData({
         "errand.price": e.detail,
       });
-    },
-
-    // 订单支付
-    pay() {
-      console.log(this.data.errand.price, 666);
     },
 
     // 发布任务

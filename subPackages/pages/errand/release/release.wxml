@@ -1,4 +1,13 @@
 <van-notify id="van-notify" />
+<van-popup show="{{ payShow }}" round bind:close="payClose">
+    <view class="pay">
+        <view class="title">订单支付</view>
+
+        <view class="price">￥2.5</view>
+
+        <van-button type="primary" class="define">确定支付</van-button>
+    </view>
+</van-popup>
 
 <van-cell-group>
     <van-field value="{{ errand.to }}" label="目标地址" placeholder="请输入目标地址" border="{{false}}" bind:change="toChange" />
@@ -11,4 +20,4 @@
 </van-cell-group>
 
 <view class="release" bindtap="pay">下单</view>
-<view class="release" bindtap="release">下单</view>
+<!-- <view class="release" bindtap="release">支付并下单</view> -->
