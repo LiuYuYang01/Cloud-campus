@@ -11,6 +11,7 @@ Component({
    */
   data: {
     payShow: false,
+    price: 0,
     errand: {
       // 发布者ID
       issue_id: "",
@@ -50,7 +51,8 @@ Component({
     },
     priceChange(e) {
       this.setData({
-        "errand.price": e.detail,
+        "errand.price": Number(e.detail),
+        price: Number(e.detail).toFixed(2),
       });
     },
 
@@ -79,20 +81,20 @@ Component({
       } = await wx.$http.post("/api/task", this.data.errand);
 
       if (code !== 200) {
-        Notify({ type: "danger", message })
-        this.setData({ payShow: false })
-        return
-      };
+        Notify({ type: "danger", message });
+        this.setData({ payShow: false });
+        return;
+      }
 
       Notify({ type: "success", message: "恭喜你，发布任务成功" });
 
-      this.setData({ payShow: false })
+      this.setData({ payShow: false });
 
       wx.showToast({
-        title: '支付成功',
-        icon: 'success',
-        duration: 1500
-      })
+        title: "支付成功",
+        icon: "success",
+        duration: 1500,
+      });
 
       // 发布成功后跳转到任务列表页面
       setTimeout(() => {
