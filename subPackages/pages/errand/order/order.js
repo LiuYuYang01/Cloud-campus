@@ -42,5 +42,12 @@ Component({
         orderList: data.sort((a, b) => a.state - b.state),
       });
     },
+
+    // 删除订单
+    async delOrder(e){
+        const oid = e.currentTarget.dataset.oid
+        
+        
+    }
   },
 });

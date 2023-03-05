@@ -2,9 +2,19 @@
 
 <order list="{{ orderList }}" isMyOrder="{{true}}" isService="{{true}}" bindgetOrderList="getOrderList">
     <!-- 插槽名不能重复，所以要用index索引作为插槽名 -->
-    <view slot="{{index}}" wx:for="{{orderList}}" wx:key="index" class="complaint">
+    
+    <!-- 订单评价 -->
+    <!-- <view slot="{{index}}" wx:for="{{orderList}}" wx:key="index" class="complaint">
         <image src="/assets/svg/complaint.svg" mode="widthFix" style="width:50rpx;" />
         <text style="padding-left: 10rpx;color:#333">期待你的评价！</text>
+    </view> -->
+
+    <!-- 删除订单 -->
+    <view slot="{{index}}" wx:for="{{orderList}}" wx:key="index" class="complaint">
+        <view style="display: flex; justify-content: flex-end; width:100%;color: #da4444" data-oid="{{item.oid}}" bindtap="delOrder"> 
+            <van-icon name="delete-o" style="font-size: 50rpx;margin-right: 15rpx;" />
+            <text>删除订单</text>
+        </view>
     </view>
 </order>
 
