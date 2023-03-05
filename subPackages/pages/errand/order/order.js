@@ -44,10 +44,27 @@ Component({
     },
 
     // 删除订单
-    async delOrder(e){
-        const oid = e.currentTarget.dataset.oid
-        
-        
-    }
+    async delOrder(e) {
+      const oid = e.currentTarget.dataset.oid;
+
+      const {
+        data: { code, message },
+      } = await wx.$http.delete(`/api/task/${oid}`);
+
+      if (code !== 200)
+        return wx.showToast({
+          title: message,
+          icon: "success",
+          duration: 2000,
+        });
+
+      wx.showToast({
+        title: "删除成功",
+        icon: "success",
+        duration: 2000,
+      });
+
+      this.getOrderList()
+    },
   },
 });
