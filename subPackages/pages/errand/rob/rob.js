@@ -56,8 +56,11 @@ Component({
 
       if (code !== 200) return;
 
+      //   this.sortOrderList(data);
+
       this.setData({
-        orderList: data,
+        // orderList: data,
+        orderList: this.sortOrderList(data),
       });
     },
 
@@ -72,7 +75,10 @@ Component({
       if (code !== 200) return;
 
       this.setData({
-        laterOrderList: data.filter((item) => item.state === 1),
+        // laterOrderList: data.filter((item) => item.state === 1),
+        laterOrderList: this.sortOrderList(
+          data.filter((item) => item.state === 1)
+        ),
       });
     },
 
@@ -92,6 +98,12 @@ Component({
       this.setData({
         myOrderList: list.sort((a, b) => a.state - b.state),
       });
+    },
+
+    // 根据下单时间进行排序
+    sortOrderList(list) {
+      list.sort((b, a) => a.price - b.price);
+      return list;
     },
 
     // 送达
@@ -116,6 +128,6 @@ Component({
       await this.getOrderList();
       await this.getLaterOrderList();
       await this.getMyOrderList();
-    }
+    },
   },
 });
