@@ -10,7 +10,7 @@ Page({
       {
         role: "XZ",
         avatar: "http://img.liuyuyang.net/zhxy/XZ.png",
-        info: "你好，我叫小智，很高兴认识你！",
+        info: "你好，我是AI人工智能机器人，很高兴认识你！",
       },
     ],
     content: "",
@@ -54,25 +54,26 @@ Page({
     });
 
     await new Promise((resolve, reject) => {
+      this.setData({
+        content: "",
+      });
+
       return wx.request({
         method: "GET",
-        url: `http://api.qingyunke.com/api.php?key=free&appid=0&msg=${val}`,
-        success: (res) => {
-          if (res.statusCode !== 200) return;
-
-          value = res.data.content;
-
+        url: `https://v1.apigpt.cn/?q=${val}&apitype=sql`,
+        success: ({ data }) => {
+          value = data.ChatGPT_Answer;
           resolve(value);
         },
       });
     });
 
     // 回复消息
-    this.__reply(value.split('{br}').join('\n'));
+    this.__reply(value.trim());
 
-    this.setData({
-      content: "",
-    });
+    // this.setData({
+    //   content: "",
+    // });
 
     wx.hideLoading();
   },

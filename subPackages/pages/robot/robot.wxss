@@ -41,7 +41,7 @@ page {
   margin-left: 30rpx;
   color: #fff;
   border-radius: 10rpx;
-  background-color: #7174f3;
+  background-color: #1b2d47;
 }
 
 .dialogBox .info::after,
@@ -52,7 +52,7 @@ page {
   width: 0;
   height: 0;
   border: 20rpx solid;
-  border-color: transparent transparent transparent #7174f3;
+  border-color: transparent transparent transparent #1b2d47;
 }
 
 .dialogBox .XZ .info::after {
