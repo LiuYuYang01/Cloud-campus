@@ -33,15 +33,6 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    // 订单支付
-    pay() {
-      this.setData({ payShow: true });
-      console.log(this.data.errand.price, 666);
-    },
-    // 关闭支付框
-    payClose() {
-      this.setData({ payShow: false });
-    },
     toChange(e) {
       this.setData({
         "errand.to": e.detail,
@@ -61,6 +52,24 @@ Component({
       this.setData({
         "errand.price": e.detail,
       });
+    },
+
+    // 打开订单支付框
+    pay() {
+      let b = true;
+
+      // 如果有一项为空就不弹出支付框
+      for (let k in this.data.errand) {
+        if (this.data.errand[k] === "") b = false;
+      }
+
+      if (b) return this.setData({ payShow: true });
+
+      Notify({ type: "danger", message: "请确保每一项不能为空!" });
+    },
+    // 关闭支付框
+    payClose() {
+      this.setData({ payShow: false });
     },
 
     // 发布任务

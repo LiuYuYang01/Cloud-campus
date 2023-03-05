@@ -5,7 +5,7 @@
 
         <view class="price">￥2.5</view>
 
-        <van-button type="primary" class="define">确定支付</van-button>
+        <van-button type="primary" class="define" bindtap="release">确定支付</van-button>
     </view>
 </van-popup>
 
@@ -19,5 +19,4 @@
     <van-field value="{{ errand.price }}" label="订单金额" placeholder="请输入订单金额" border="{{false}}" bind:change="priceChange" />
 </van-cell-group>
 
-<view class="release" bindtap="pay">下单</view>
-<!-- <view class="release" bindtap="release">支付并下单</view> -->
+<view class="release" bindtap="pay">支付并下单</view>
