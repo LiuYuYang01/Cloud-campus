@@ -141,15 +141,16 @@ Page({
   },
   // 重新获取最新数据
   async getList() {
+    console.log(1111);
     const {
       data: { code, data },
     } = await wx.$http.get(`/api/home/article`);
 
-    if (code !== 200) return;
-
-    this.setData({
-      homeList: data,
-    });
+    if (data) {
+      this.setData({ homeList: data });
+    } else {
+      this.setData({ homeList: [] });
+    }
 
     // 置顶文章
     (async () => {

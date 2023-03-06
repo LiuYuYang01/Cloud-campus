@@ -133,23 +133,18 @@ Component({
       })
         .then(async () => {
           const {
-            data: { code, message },
+            data: { code },
           } = await wx.$http.delete(`/api/${type}/article/${id}`);
 
-          if (code !== 200)
-            Notify({
-              context: this,
-              type: "danger",
-              message,
-            });
+          if (code !== 200) return;
 
           // 调用父组件中getList方法重新获取最新的数据
           this.triggerEvent("getList");
 
           Notify({ type: "success", message: "恭喜你删除文章成功" });
         })
-        .catch(() => {
-          console.log("已取消删除");
+        .catch((err) => {
+          console.log(err);
         });
     },
   },
