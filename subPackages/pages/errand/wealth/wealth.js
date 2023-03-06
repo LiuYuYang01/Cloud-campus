@@ -104,13 +104,6 @@ Component({
   // 在page中使用behaviors
   behaviors: [tabBarBehaviors],
 
-  data: {
-    ec: {
-      onInit: initChart,
-    },
-    sumMoney: 0,
-  },
-
   lifetimes: {
     async ready() {
       const {
@@ -122,6 +115,20 @@ Component({
         sumMoney: balance.weekly_balance
           .reduce((sum, item) => (sum += item), 0)
           .toFixed(2),
+      });
+    },
+  },
+  data: {
+    ec: {
+      onInit: initChart,
+    },
+    sumMoney: 0,
+  },
+  methods: {
+    // 跳转到我的钱包页面
+    goBill() {
+      wx.navigateTo({
+        url: "/subPackages/my/pages/wallet/wallet",
       });
     },
   },

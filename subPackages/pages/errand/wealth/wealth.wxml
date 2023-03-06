@@ -1,6 +1,8 @@
 <view class="wealth">
     <view style="color:#999;font-size: 28rpx;">本周赚了多少钱</view>
-    <view class="num">{{sumMoney}}</view>
+    <view class="num" style="margin-bottom: 20rpx;">{{sumMoney}}</view>
+
+    <van-button icon="balance-o" type="info" size="small" color="#6680fb" round bindtap="goBill">我的钱包</van-button>
 </view>
 
 <!-- 统计 -->
