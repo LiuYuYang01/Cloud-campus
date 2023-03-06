@@ -121,6 +121,7 @@ rich-text {
 /* 评论框 */
 .commentBox {
   padding: 0 20rpx;
+  padding-bottom: 90rpx;
   margin-top: 20rpx;
   background-color: #fff;
 }
@@ -140,9 +141,9 @@ rich-text {
   border-bottom: 2rpx solid #f9f9f9;
 }
 
-.commentBox .item:last-child{
+/* .commentBox .item:last-child{
     padding-bottom: 150rpx;
-}
+} */
 
 .commentBox .custom-image .van-empty{
     padding-bottom: 100rpx;
