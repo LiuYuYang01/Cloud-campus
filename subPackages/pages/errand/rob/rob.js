@@ -106,19 +106,6 @@ Component({
       return list;
     },
 
-    // 送达
-    service() {
-      Dialog.confirm({
-        message: "你确定送达了吗？",
-      })
-        .then(() => {
-          // on confirm
-        })
-        .catch(() => {
-          // on cancel
-        });
-    },
-
     resizeTab() {
       this.selectComponent("#taskTap").resize();
     },

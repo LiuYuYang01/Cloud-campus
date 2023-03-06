@@ -58,13 +58,13 @@ Component({
           duration: 2000,
         });
 
+      this.getOrderList();
+
       wx.showToast({
         title: "删除成功",
         icon: "success",
         duration: 2000,
       });
-
-      this.getOrderList()
     },
   },
 });
