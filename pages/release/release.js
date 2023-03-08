@@ -77,6 +77,8 @@ Page({
         delta: editor.data.delta,
       });
 
+      console.log(this.data.article.content);
+
       // 新增 | 编辑文章
       if (this.data.n) {
         this.articleIsOk();
@@ -107,40 +109,96 @@ Page({
             message: "只有平台管理员可以发布首页文章",
           });
 
-        describe();
+        // 文章内容
+        let content = this.data.article.content;
 
-        let {
-          data: { code, message },
-        } = await wx.$http.post("/api/home/article", {
-          ...this.data.article,
-          cate: "首页",
-        });
+        // 过滤敏感字
+        wx.request({
+          url: "https://api.wordscheck.com/check",
+          data: {
+            key: "aQprzN0lqqxQeW67Qg6qHBUnfJ7W4C6N",
+            content: content,
+          },
+          success: async ({ data }) => {
+            if (data.word_list.length)
+              return Notify({
+                type: "danger",
+                message: "检测到你的内容不合法",
+              });
 
-        if (code !== 200) return Notify({ type: "danger", message });
+            this.setData({
+              "article.content": data.return_str,
+            });
 
-        // 发布文章成功后跳转到首页
-        wx.switchTab({
-          url: "/pages/home/home",
+            // 截取前100个字作为文章摘要
+            describe();
+
+            let {
+              data: { code, message },
+            } = await wx.$http.post("/api/home/article", {
+              ...this.data.article,
+              cate: "首页",
+            });
+
+            if (code !== 200) return Notify({ type: "danger", message });
+
+            Notify({ type: "success", message: "恭喜你文章发布成功" });
+
+            // 发布文章成功后跳转到首页
+            setTimeout(() => {
+              wx.switchTab({
+                url: "/pages/home/home",
+              });
+            }, 1000);
+          },
         });
       } else if (this.data.cate === "兴趣圈") {
-        describe();
+        // 文章内容
+        let content = this.data.article.content;
 
-        let {
-          data: { code, message },
-        } = await wx.$http.post("/api/hobby/article", this.data.article);
+        // 过滤敏感字
+        wx.request({
+          url: "https://api.wordscheck.com/check",
+          data: {
+            key: "aQprzN0lqqxQeW67Qg6qHBUnfJ7W4C6N",
+            content,
+          },
+          success: async ({ data }) => {
+            if (data.word_list.length)
+              return Notify({
+                type: "danger",
+                message: "检测到你的内容不合法",
+              });
 
-        if (code !== 200) return Notify({ type: "danger", message });
+            this.setData({
+              "article.content": data.return_str,
+            });
 
-        // 发布文章成功后跳转到兴趣圈
-        wx.switchTab({
-          url: "/pages/hobby/hobby",
+            // 截取前100个字作为文章摘要
+            describe();
+
+            let {
+              data: { code, message },
+            } = await wx.$http.post("/api/hobby/article", this.data.article);
+
+            if (code !== 200) return Notify({ type: "danger", message });
+
+            Notify({ type: "success", message: "恭喜你文章发布成功" });
+
+            // 发布文章成功后跳转到首页
+            setTimeout(() => {
+              wx.switchTab({
+                url: "/pages/hobby/hobby",
+              });
+            }, 1000);
+          },
         });
       }
 
       if (!this.data.cate)
         return Notify({ type: "danger", message: "请选择发布到哪个分类" });
 
-      Notify({ type: "success", message: "恭喜你文章发布成功" });
+      // Notify({ type: "success", message: "恭喜你文章发布成功" });
     } else if (this.data.state === "编辑文章") {
       const { id, type } = this.data.article;
 
@@ -387,7 +445,8 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady() {},
+  onReady() {
+  },
 
   /**
    * 生命周期函数--监听页面显示
