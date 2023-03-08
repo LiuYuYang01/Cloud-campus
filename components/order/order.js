@@ -137,8 +137,10 @@ Component({
             state: 5,
           });
 
-          if (code !== 200)
-            return Notify({ context: this, type: "danger", message });
+          //   if (code !== 200)
+          //     return Notify({ context: this, type: "danger", message });
+
+          if (code !== 200) Notify({ context: this, type: "danger" });
 
           // 重新获取一下订单页面的数据
           this.triggerEvent("getOrderList");
