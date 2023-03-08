@@ -29,7 +29,8 @@
                 "my/pages/content/content",
                 "my/pages/orderDetails/orderDetails",
                 "pages/chat/chat",
-                "pages/onlineUser/onlineUser"
+                "pages/onlineUser/onlineUser",
+                "my/pages/withdraw/withdraw"
             ]
         }
     ],
