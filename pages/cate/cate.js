@@ -8,7 +8,7 @@ Page({
   },
 
   // 重新获取最新数据
-  async getList() {
+  async getList(type) {
     // 普通文章
     const {
       data: { code, data },
@@ -18,7 +18,7 @@ Page({
 
     this.setData({
       cateList: data.filter((item) => {
-        return item.cate === "足球社";
+        return item.cate === type;
       }),
     });
 
@@ -28,8 +28,8 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
-    this.getList();
+  onLoad({type}) {
+    this.getList(type);
   },
 
   /**
@@ -57,7 +57,7 @@ Page({
    */
   onPullDownRefresh() {
     this.getList()
-    
+
     // 关闭下拉刷新
     wx.stopPullDownRefresh();
   },

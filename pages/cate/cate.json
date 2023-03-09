@@ -2,6 +2,7 @@
     "enablePullDownRefresh": true,
     "backgroundColor": "#4fb985",
     "usingComponents": {
-        "article": "/components/article/article"
+        "article": "/components/article/article",
+        "van-empty": "@vant/weapp/empty/index"
     }
 }
