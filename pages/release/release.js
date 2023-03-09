@@ -69,6 +69,7 @@ Page({
 
     // 调用组件的release方法将数据保存到content
     await editor.release();
+    console.log(editor.data.delta.html, 111);
 
     // 然后拿到组件中content的值（编辑器中的数据）
     setTimeout(() => {
@@ -77,7 +78,8 @@ Page({
         delta: editor.data.delta,
       });
 
-      console.log(this.data.article.content);
+      // 解决方案：该方法需要触发两次才能获取值
+      console.log(editor.data.delta.html, 111);
 
       // 新增 | 编辑文章
       if (this.data.n) {
@@ -446,6 +448,7 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady() {
+
   },
 
   /**
