@@ -1,2 +1,2 @@
-<!--pages/cate/cate.wxml-->
-<text>pages/cate/cate.wxml</text>
+<article list="{{cateList}}" bindgetList="getList"></article>
+{{cateList}}

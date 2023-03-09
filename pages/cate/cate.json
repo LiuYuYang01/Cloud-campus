@@ -1,3 +1,7 @@
 {
-    "usingComponents": {}
+    "enablePullDownRefresh": true,
+    "backgroundColor": "#4fb985",
+    "usingComponents": {
+        "article": "/components/article/article"
+    }
 }
