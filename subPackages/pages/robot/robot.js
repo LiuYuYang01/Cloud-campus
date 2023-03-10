@@ -78,19 +78,11 @@ Page({
     wx.hideLoading();
   },
   // 内容复制
-  viewCopyTextClick() {
-    var _this = this;
+  viewCopyTextClick(e) {
+    // 使用复制文本API
     wx.setClipboardData({
-      data: _this.data.viewCopyMsg,
-      success: function (res) {
-        wx.getClipboardData({
-          success: function (res) {
-            wx.showToast({
-              title: "复制成功",
-            });
-          },
-        });
-      },
+      data: e.currentTarget.dataset.info,
+      title: "消息已复制",
     });
   },
 
