@@ -1,0 +1,3 @@
+<article list="{{cateList}}" bindgetList="getList" wx:if="{{cateList.length}}"></article>
+
+<van-empty description="空空如也" wx:else/>

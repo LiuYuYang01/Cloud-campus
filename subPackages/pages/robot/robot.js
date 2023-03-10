@@ -59,10 +59,20 @@ Page({
       });
 
       return wx.request({
-        method: "GET",
-        url: `https://v1.apigpt.cn/?q=${val}&apitype=sql`,
+        method: "POST",
+        url: `https://eolink.o.apispace.com/chatgpt-turbo/create`,
+        header: {
+          "X-APISpace-Token": "gh4pxcmf0181tfb0pivhuqnofuvwen80",
+          "Authorization-Type": "apikey",
+          "Content-Type": "",
+        },
+        data: {
+          system: "你是一个小助手",
+          message: [`user:${val}`],
+          temperature: "0.9",
+        },
         success: ({ data }) => {
-          value = data.ChatGPT_Answer;
+          value = data.result;
           resolve(value);
         },
       });
@@ -71,11 +81,15 @@ Page({
     // 回复消息
     this.__reply(value.trim());
 
-    // this.setData({
-    //   content: "",
-    // });
-
     wx.hideLoading();
+  },
+  // 内容复制
+  viewCopyTextClick(e) {
+    // 使用复制文本API
+    wx.setClipboardData({
+      data: e.currentTarget.dataset.info,
+      title: "消息已复制",
+    });
   },
 
   /**

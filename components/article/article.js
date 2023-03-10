@@ -1,6 +1,7 @@
 import Dialog from "@vant/weapp/dialog/dialog";
 import Notify from "@vant/weapp/notify/notify";
 import { storeBindingsBehavior } from "mobx-miniprogram-bindings";
+import {getUserInfo} from '../../utils/localStorage'
 import store from "../../store/store";
 
 Component({
@@ -71,6 +72,15 @@ Component({
         newUserLikes = this.data.user.likes.filter((el) => el != id);
       } else {
         // 点赞
+
+        // 如果未登录就跳转到登录页
+        if(!getUserInfo()){
+            wx.navigateTo({
+              url: '/pages/login/login',
+            })
+            return 
+        }
+
         // 将UID存到文章数据
         newArticleLikes = likes;
         newArticleLikes.push(this.data.user.id);
