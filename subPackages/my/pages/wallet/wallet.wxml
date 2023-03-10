@@ -67,16 +67,16 @@
             </van-cell> -->
         </van-tab>
         <van-tab title="提现">
-            <van-cell center value="{{item.withdrawal_money}} 元" label="{{item.application_time}}" class="{{item.state==1?'success':(item.state==0?'conduct':'fail')}}" wx:for="{{withdrawal_list}}" wx:key="oid">
+            <van-cell center value="{{item.withdrawal_money}} 元" label="{{item.application_time}}" class="{{item.state==1?'success':(item.state==0?'conduct':'fail')}}" wx:for="{{withdrawal_list}}" wx:key="oid" title-width="520rpx">
                 <view slot="title">
                     <view class="van-cell-text" wx:if="{{item.state == 1}}">提现完成
-                        <!-- <van-tag type="warning">等待管理员审核</van-tag> -->
+                        <van-tag type="success">处理:{{item.remark}}</van-tag>
                     </view>
                     <view class="van-cell-text" wx:if="{{item.state == 0}}">提现中
                         <van-tag type="warning">等待审核</van-tag>
                     </view>
                     <view class="van-cell-text" wx:if="{{item.state == 2}}">提现失败
-                        <van-tag type="danger">审核不通过</van-tag>
+                        <van-tag type="danger">原因: {{item.remark}}</van-tag>
                     </view>
                 </view>
             </van-cell>
