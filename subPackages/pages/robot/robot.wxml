@@ -6,7 +6,7 @@
 <view class="dialogBox" style="white-space:pre-wrap">
     <view class="{{item.role}} view" wx:for="{{dialog}}" wx:key="index">
         <image src="{{item.avatar}}" class="avatar"></image>
-        <view class="info">{{item.info}}</view>
+        <view class="info" bindtap='viewCopyTextClick'>{{item.info}}</view>
     </view>
 </view>
 
