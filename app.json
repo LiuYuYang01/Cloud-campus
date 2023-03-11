@@ -22,6 +22,9 @@
                 "pages/errand/wealth/wealth",
                 "pages/errand/release/release",
                 "pages/robot/robot",
+                "pages/chat/chat",
+                "pages/onlineUser/onlineUser",
+                "pages/laboratory/laboratory",
                 "my/pages/data/data",
                 "my/pages/certified/certified",
                 "my/pages/person/person",
@@ -29,8 +32,6 @@
                 "my/pages/wallet/wallet",
                 "my/pages/content/content",
                 "my/pages/orderDetails/orderDetails",
-                "pages/chat/chat",
-                "pages/onlineUser/onlineUser",
                 "my/pages/withdraw/withdraw"
             ]
         }

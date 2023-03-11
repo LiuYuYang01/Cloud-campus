@@ -125,6 +125,12 @@ Page({
       url: "/pages/my/my",
     });
   },
+  // 跳转到校园实验室
+  goLaboratory(){
+    wx.navigateTo({
+      url: '/subPackages/pages/laboratory/laboratory',
+    })
+  },
   // 获取学校动态置顶文章
   async __getHomeToppingList() {
     const { data: res } = await wx.$http.get("/api/article/topping", {
