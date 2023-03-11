@@ -17,9 +17,9 @@
             <image src="https://636c-cloud1-4g0ye7ti0a11181a-1311534260.tcb.qcloud.la/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20221229152558.jpg?sign=8482fe3560c428d6dd3befdc4329cc23&t=1672299138"></image>
         </view> -->
 
-        <!-- 校园实验室 -->
-        <view class="laboratory" style="margin: 20rpx 0;" bindtap="goLaboratory">
-            <swiper list="{{laboratory}}" style="height: 350rpx;" />
+        <!-- 校园海报 -->
+        <view class="bill" style="margin: 20rpx 0">
+            <swiper list="{{bill}}" style="height: 350rpx;" />
         </view>
     </view>
 

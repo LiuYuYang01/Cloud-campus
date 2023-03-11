@@ -8,6 +8,16 @@ Page({
     startPoint: 0,
     active: 1,
     swiperList: [], //轮播图列表
+    laboratory: [
+      {
+        cid: 1,
+        id: 1,
+        image:
+          "https://campus-1312676635.cos.ap-shanghai.myqcloud.com/swiper/%E5%BE%AE%E4%BF%A1%E6%94%AF%E6%8C%81%E6%B5%8F%E8%A7%88%E6%9C%8B%E5%8F%8B%E5%9C%88%E7%83%AD%E7%82%B9%E5%85%AC%E4%BC%97%E5%8F%B7%E9%A6%96%E5%9B%BE.jpg",
+        title: "校园科技馆 - 快来体验高科技吧",
+        type: "home",
+      },
+    ], //实验室
     // 入口导航
     cateList: [],
     hobbyToppingList: [],
@@ -57,6 +67,12 @@ Page({
     this.setData({
       keyword: "",
       searchRes: [],
+    });
+  },
+  // 跳转到校园科技馆
+  goLaboratory() {
+    wx.navigateTo({
+      url: "/subPackages/pages/laboratory/laboratory",
     });
   },
 

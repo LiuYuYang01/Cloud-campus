@@ -7,16 +7,16 @@ Page({
    */
   data: {
     swiperList: [], //轮播图列表
-    laboratory: [
+    bill: [
       {
         cid: 1,
         id: 1,
         image:
-          "https://campus-1312676635.cos.ap-shanghai.myqcloud.com/swiper/%E5%BE%AE%E4%BF%A1%E6%94%AF%E6%8C%81%E6%B5%8F%E8%A7%88%E6%9C%8B%E5%8F%8B%E5%9C%88%E7%83%AD%E7%82%B9%E5%85%AC%E4%BC%97%E5%8F%B7%E9%A6%96%E5%9B%BE.jpg",
-        title: "校园实验室 - 快来体验高科技吧",
+          "https://campus-1312676635.cos.ap-shanghai.myqcloud.com/swiper/%E8%88%AA%E5%A4%A9%E8%88%AA%E7%A9%BA%E7%A7%91%E6%8A%80%E9%A3%8E%E8%9E%8D%E5%AA%92%E4%BD%93%E5%85%AC%E4%BC%97%E5%8F%B7%E9%A6%96%E5%9B%BE%281%29.jpg",
+        title: "科技改变你我，代码改变世界 -云上校园",
         type: "home",
       },
-    ], //实验室
+    ],
     homeToppingList: [], // 学校置顶文章
     homeList: [], //学校动态列表
     index: 0,
@@ -124,12 +124,6 @@ Page({
     wx.switchTab({
       url: "/pages/my/my",
     });
-  },
-  // 跳转到校园实验室
-  goLaboratory(){
-    wx.navigateTo({
-      url: '/subPackages/pages/laboratory/laboratory',
-    })
   },
   // 获取学校动态置顶文章
   async __getHomeToppingList() {
