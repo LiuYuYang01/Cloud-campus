@@ -8,8 +8,8 @@ Page({
       {
         icon: "/assets/svg/rengongzhinong.svg",
         title: "AI人工智能",
-        info:
-          "AI人工智能机器人能够模拟人类的语言行为，与用户进行自然的交互",
+        info: "AI人工智能机器人能够模拟人类的语言行为，与用户进行自然的交互",
+        page: "/subPackages/pages/robot/robot",
       },
       {
         icon: "/assets/svg/image.svg",
@@ -37,10 +37,16 @@ Page({
       {
         icon: "/assets/svg/meishi.svg",
         title: "今天吃什么",
-        info:
-          "随机返回一顿美味食物，解决你今天吃什么的难题",
+        info: "随机返回一顿美味食物，解决你今天吃什么的难题",
       },
     ],
+  },
+
+  // 页面跳转
+  goPage(e) {
+      wx.navigateTo({
+        url: e.currentTarget.dataset.page,
+      })
   },
 
   /**

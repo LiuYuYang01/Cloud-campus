@@ -1,9 +1,9 @@
 <van-divider contentPosition="center" custom-style="font-size:35rpx; color:#666">欢迎来到校园科技馆</van-divider>
 
 <view class="main">
-    <view class="item" wx:for="{{list}}">
+    <view class="item" wx:for="{{list}}" wx:key="index" data-page="{{item.page}}" bindtap="goPage">
         <view class="icon">
-            <image src="{{item.icon}}"/>
+            <image src="{{item.icon}}" />
         </view>
 
         <view class="title">{{item.title}}</view>
