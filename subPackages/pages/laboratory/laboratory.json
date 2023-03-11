@@ -1,5 +1,5 @@
 {
-    "navigationBarTitleText": "校园实验室",
+    "navigationBarTitleText": "校园科技馆",
     "navigationBarTextStyle": "white",
     "usingComponents": {
         "van-divider": "@vant/weapp/divider/index"
