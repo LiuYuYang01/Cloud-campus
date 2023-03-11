@@ -1,2 +1,43 @@
-<!--subPackages/pages/laboratory/laboratory.wxml-->
-<text>subPackages/pages/laboratory/laboratory.wxml</text>
+<van-divider contentPosition="center" custom-style="font-size:35rpx; color:#666">欢迎来到校园科技馆</van-divider>
+
+<view class="main">
+    <view class="item">
+        <view class="icon">
+            <image src="/assets/svg/image.svg"/>
+        </view>
+
+        <view class="title">图片转文本</view>
+
+        <view class="info">高精度的图片文字检测和识别，可识别中、英、日、韩、法、德多种语言</view>
+    </view>
+
+    <view class="item">
+        <view class="icon">
+            <image src="/assets/svg/image.svg"/>
+        </view>
+
+        <view class="title">照片转漫画</view>
+
+        <view class="info">将你的照片转换成漫画风格</view>
+    </view>
+
+    <view class="item">
+        <view class="icon">
+            <image src="/assets/svg/image.svg"/>
+        </view>
+
+        <view class="title">图片转文本</view>
+
+        <view class="info">多场景、多语种、高精度的整图文字检测和识别服务，多项指标行业领先，可识别中、英、日、韩、法、德多种语言</view>
+    </view>
+
+    <view class="item">
+        <view class="icon">
+            <image src="/assets/svg/image.svg"/>
+        </view>
+
+        <view class="title">图片转文本</view>
+
+        <view class="info">多场景、多语种、高精度的整图文字检测和识别服务，多项指标行业领先，可识别中、英、日、韩、法、德多种语言</view>
+    </view>
+</view>

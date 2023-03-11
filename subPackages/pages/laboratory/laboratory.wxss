@@ -1,1 +1,57 @@
-/* subPackages/pages/laboratory/laboratory.wxss */
+page {
+  background-color: #fff;
+}
+
+.main{
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 20rpx;
+    margin-top: 40rpx;
+}
+
+.main .item {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 48.5%;
+  height: 400rpx;
+  margin: 0 20rpx 20rpx 0;
+  border-radius: 10rpx;
+  background-color: #fff;
+  box-shadow: rgba(0, 0, 0, 0.1) 0rpx 3rpx 9rpx 0rpx;
+}
+
+.main .item:nth-child(2n){
+    margin-right: 0;
+}
+
+/* 图标 */
+.main .item .icon {
+  width: 130rpx;
+  height: 130rpx;
+}
+
+.main .item .icon image {
+  width: 100%;
+  height: 100%;
+}
+
+/* 标题 */
+.main .item .title{
+    padding: 20rpx 0;
+    color: #333;
+}
+
+/* 描述 */
+.main .item .info {
+  display: -webkit-box !important;
+  overflow: hidden;
+  word-break: break-all;
+  text-overflow: ellipsis;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+
+  width: 300rpx;
+  color: #999;
+}

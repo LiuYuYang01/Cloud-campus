@@ -1,6 +1,7 @@
 {
-    "navigationBarBackgroundColor": "#fae101",
     "navigationBarTitleText": "校园实验室",
     "navigationBarTextStyle": "white",
-    "usingComponents": {}
+    "usingComponents": {
+        "van-divider": "@vant/weapp/divider/index"
+    }
 }
