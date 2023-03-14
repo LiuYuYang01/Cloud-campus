@@ -35,6 +35,7 @@ page {
     min-height: 100rpx;
     padding: 20rpx;
     margin: 30rpx auto;
-    color: #333;
+    color: #555;
     background-color: #f9f9f9;
+    font-size: 30rpx;
 }
