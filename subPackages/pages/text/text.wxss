@@ -1,0 +1,40 @@
+page {
+  background-color: #fff;
+}
+
+/* 头部 */
+.header{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width: 600rpx;
+    margin: 50rpx auto;
+}
+
+.header .title{
+    font-size: 40rpx;
+    color: #333;
+}
+
+.header .info{
+    font-size: 26rpx;
+    color: #666;
+    padding-top: 20rpx;
+}
+
+/* 图片 */
+.image{
+    display: flex;
+    justify-content: center;
+    margin-top: 50rpx;
+}
+
+/* 文本框 */
+.content{
+    width: 85%;
+    min-height: 100rpx;
+    padding: 20rpx;
+    margin: 30rpx auto;
+    color: #333;
+    background-color: #f9f9f9;
+}

@@ -25,6 +25,7 @@
                 "pages/chat/chat",
                 "pages/onlineUser/onlineUser",
                 "pages/laboratory/laboratory",
+                "pages/text/text",
                 "my/pages/data/data",
                 "my/pages/certified/certified",
                 "my/pages/person/person",

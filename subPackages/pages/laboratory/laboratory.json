@@ -1,4 +1,5 @@
 {
+    "navigationBarBackgroundColor": "#18C8FF",
     "navigationBarTitleText": "校园科技馆",
     "navigationBarTextStyle": "white",
     "usingComponents": {

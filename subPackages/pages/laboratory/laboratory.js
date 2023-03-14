@@ -16,6 +16,7 @@ Page({
         title: "图片文本识别",
         info:
           "高精度的图片文字检测和识别，可识别中、英、日、韩、法、德多种语言",
+        page: "/subPackages/pages/text/text",
       },
       {
         icon: "/assets/svg/huahua.svg",
@@ -44,9 +45,9 @@ Page({
 
   // 页面跳转
   goPage(e) {
-      wx.navigateTo({
-        url: e.currentTarget.dataset.page,
-      })
+    wx.navigateTo({
+      url: e.currentTarget.dataset.page,
+    });
   },
 
   /**

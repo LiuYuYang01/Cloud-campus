@@ -1,0 +1,16 @@
+<!-- 介绍 -->
+<view class="header">
+    <view class="title">图片转文本</view>
+
+    <view class="info">多场景、多语种、高精度的整图文字检测和识别服务，多项指标行业领先，可识别中、英、日、韩、法、德多种语言</view>
+</view>
+
+<!-- 图片预览 -->
+<view class="image">
+    <van-uploader file-list="{{ fileList }}" bind:after-read="afterRead" />
+</view>
+
+<!-- 文本识别 -->
+<view class="content">
+12312
+</view>
