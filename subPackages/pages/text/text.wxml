@@ -7,10 +7,14 @@
 
 <!-- 图片预览 -->
 <view class="image">
-    <van-uploader file-list="{{ fileList }}" bind:after-read="afterRead" />
+    <van-uploader file-list="{{ fileList }}" bind:after-read="afterRead" max-count="{{1}}" />
 </view>
 
 <!-- 文本识别 -->
 <view class="content">
-图片中的内容将会在此处显示哦！
+    <view wx:if="{{!content.length}}">识别的文本内容将会在此处显示哦！</view>
+
+    <view wx:for="{{contentList}}" wx:key="index">{{item.word}}</view>
+
+    <button wx:if="{{content.length}}" style="margin-top: 30rpx;" bindtap="duplicate">一键复制</button>
 </view>
