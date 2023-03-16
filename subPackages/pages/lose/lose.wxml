@@ -1,0 +1,7 @@
+<view class="container">
+    <swiper list="{{swiperList}}" class="swiper" style="height:303rpx" />
+</view>
+
+<van-notice-bar left-icon="volume-o" scrollable text="主人在哪里? 你见，或者不见我，我就在失物招领点乖乖等你" />
+
+<article list="{{loveList}}" color="#83b8e7" style="margin-top: 20rpx;" />

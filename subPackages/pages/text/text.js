@@ -46,8 +46,6 @@ Page({
           duration: 1500,
         });
 
-        console.log(data.data.url, 222);
-
         // 上传完成需要更新 fileList
         const { fileList = [] } = this.data;
 

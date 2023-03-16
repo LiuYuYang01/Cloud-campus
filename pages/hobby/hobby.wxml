@@ -53,7 +53,7 @@
 
     <!-- 校园实验室 -->
     <view class="laboratory" style="margin: 20rpx 0; padding: 0 20rpx;" bindtap="goLaboratory">
-        <swiper list="{{laboratory}}" style="height: 350rpx;" />
+        <swiper list="{{laboratory}}" style="height: 260rpx;" />
     </view>
 
     <!-- 置顶文章 -->

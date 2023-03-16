@@ -53,7 +53,7 @@ Page({
       {
         title: "失物招领",
         icon: "gift-card",
-        url: "",
+        url: "/subPackages/pages/lose/lose",
         color: "#6d6be4",
       },
       {
