@@ -14,6 +14,10 @@ Page({
       title: "上传中",
     });
 
+    this.setData({
+      contentList: [{ word: "文本正在识别中，请稍后..." }],
+    });
+
     const { file } = event.detail;
     // 当设置 mutiple 为 true 时, file 为数组格式，否则为对象格式
     wx.uploadFile({
@@ -78,7 +82,7 @@ Page({
 
   duplicate() {
     wx.setClipboardData({
-      data: this.data.content
+      data: this.data.content,
     });
   },
 

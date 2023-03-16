@@ -16,5 +16,5 @@
 
     <view wx:for="{{contentList}}" wx:key="index">{{item.word}}</view>
 
-    <button wx:if="{{content.length}}" style="margin-top: 30rpx;" bindtap="duplicate">一键复制</button>
+    <button wx:if="{{content.length}}" style="margin-top: 30rpx;color:#fff;background-color: #4fb985;" bindtap="duplicate">一键复制</button>
 </view>
