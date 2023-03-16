@@ -19,6 +19,12 @@ Page({
         page: "/subPackages/pages/text/text",
       },
       {
+        icon: "/assets/svg/xie.svg",
+        title: "手写字识别",
+        info:
+          "对学生日常作业及考试试卷中的手写内容进行自动识别，实现学生作业、考卷的线上批阅及教学数据的自动分析，提升教职人员工作效率，促进教学管理的数字化和智能化",
+      },
+      {
         icon: "/assets/svg/huahua.svg",
         title: "AI作画",
         info:
@@ -28,12 +34,6 @@ Page({
         icon: "/assets/svg/manhua.svg",
         title: "图片转漫画",
         info: "将你的照片一键转换成漫画风格",
-      },
-      {
-        icon: "/assets/svg/xie.svg",
-        title: "手写字识别",
-        info:
-          "对学生日常作业及考试试卷中的手写内容进行自动识别，实现学生作业、考卷的线上批阅及教学数据的自动分析，提升教职人员工作效率，促进教学管理的数字化和智能化",
       },
       {
         icon: "/assets/svg/meishi.svg",
