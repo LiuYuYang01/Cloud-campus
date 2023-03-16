@@ -1,0 +1,12 @@
+page{
+    background-color: #f9f9f9;
+}
+
+.container{
+    background-color: #fff;
+}
+
+.swiper{
+    height: 350rpx;
+    padding: 20rpx 0;
+}

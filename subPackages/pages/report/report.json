@@ -1,0 +1,8 @@
+{
+    "navigationBarTitleText": "校园维权中心",
+    "usingComponents": {
+        "swiper":"/components/swiper/swiper",
+        "van-notice-bar": "@vant/weapp/notice-bar/index",
+        "article":"/components/article/article"
+    }
+}

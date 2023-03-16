@@ -69,10 +69,10 @@ Page({
         color: "#fa6667",
       },
       {
-        title: "诉说墙",
+        title: "维权中心",
         icon: "comment",
-        url: "",
-        color: "#6d6be4",
+        url: "/subPackages/pages/report/report",
+        color: "#4fb985",
       },
     ],
   },

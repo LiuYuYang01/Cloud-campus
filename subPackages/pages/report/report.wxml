@@ -1,0 +1,7 @@
+<view class="container">
+    <swiper list="{{swiperList}}" class="swiper" style="height:303rpx" />
+</view>
+
+<van-notice-bar left-icon="volume-o" scrollable text="在这里，任何让你不爽的事情你都可以倾诉！" />
+
+<!-- <article list="{{loveList}}" color="#83b8e7" style="margin-top: 20rpx;" /> -->
