@@ -1,4 +1,5 @@
 {
+    "navigationBarBackgroundColor": "#8abdfc",
     "navigationBarTitleText": "校园维权中心",
     "usingComponents": {
         "swiper":"/components/swiper/swiper",
