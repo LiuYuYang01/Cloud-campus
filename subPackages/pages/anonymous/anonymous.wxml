@@ -1,0 +1,17 @@
+<view class="header">
+    <image src="/assets/svg/xuexiao.svg" />
+</view>
+
+<view class="info">
+    <van-icon name="records" /> 说你想说的，没有人会知道是你。我们会认真核实每一个信息并解决。
+</view>
+
+<view class="content">
+    <van-cell-group>
+        <van-field value="{{ message }}" type="textarea" placeholder="请输入留言" autosize border="{{ false }}" />
+    </van-cell-group>
+</view>
+
+<view style="display: flex;justify-content: center;margin-top: 20rpx;">
+    <van-button type="default" color="#91bcfb">提交匿名信</van-button>
+</view>

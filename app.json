@@ -28,6 +28,7 @@
                 "pages/text/text",
                 "pages/lose/lose",
                 "pages/report/report",
+                "pages/anonymous/anonymous",
                 "my/pages/data/data",
                 "my/pages/certified/certified",
                 "my/pages/person/person",

@@ -78,9 +78,6 @@ Page({
         delta: editor.data.delta,
       });
 
-      // 解决方案：该方法需要触发两次才能获取值
-      console.log(editor.data.delta.html, 111);
-
       // 新增 | 编辑文章
       if (this.data.n) {
         this.articleIsOk();
@@ -346,8 +343,6 @@ Page({
           ...file,
           url: JSON.parse(res.data).data.url,
         });
-
-        console.log(JSON.parse(res.data).data.url, 123);
 
         this.setData({
           previewList,

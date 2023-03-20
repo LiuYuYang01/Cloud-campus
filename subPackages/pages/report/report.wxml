@@ -2,13 +2,15 @@
     <swiper list="{{swiperList}}" class="swiper" style="height:303rpx" />
 </view>
 
-<van-notice-bar left-icon="volume-o" scrollable text="在这里，任何让你不爽的事情你都可以倾诉！" />
-
-<!-- <article list="{{loveList}}" color="#83b8e7" style="margin-top: 20rpx;" /> -->
+<van-notice-bar left-icon="volume-o" scrollable text="校园维权中心 - 专为解决平台纠纷以及校园倾诉" />
 
 <view class="main">
     <view class="item" wx:for="{{functionList}}" wx:key="index">
-        <view class="title">{{item.title}}</view>
-        <image src="{{item.svg}}" />
+        <navigator url="{{item.url}}">
+            <view class="title">{{item.title}}</view>
+            <image src="{{item.svg}}" />
+        </navigator>
     </view>
 </view>
+
+<!-- <article list="{{loveList}}" color="#83b8e7" style="margin-top: 20rpx;" /> -->

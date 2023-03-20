@@ -1,0 +1,18 @@
+.header{
+    display: flex;
+    justify-content: center;
+}
+
+.content{
+    overflow: hidden;
+    width: 550rpx;
+    margin: 30rpx auto 0;
+    border: 4rpx solid #91bcfb;
+    border-radius: 15rpx;
+}
+
+.info{
+    width: 90%;
+    margin: 10rpx auto 50rpx;
+    color: #666;
+}
