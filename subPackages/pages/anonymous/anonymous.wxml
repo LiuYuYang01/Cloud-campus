@@ -8,10 +8,10 @@
 
 <view class="content">
     <van-cell-group>
-        <van-field value="{{ message }}" type="textarea" placeholder="请输入留言" autosize border="{{ false }}" />
+        <van-field model:value="{{ content }}" type="textarea" placeholder="请输入匿名信息" autosize border="{{ false }}" />
     </van-cell-group>
 </view>
 
 <view style="display: flex;justify-content: center;margin-top: 20rpx;">
-    <van-button type="default" color="#91bcfb">提交匿名信</van-button>
+    <van-button type="default" color="#91bcfb" bindtap="submit">提交匿名信</van-button>
 </view>
