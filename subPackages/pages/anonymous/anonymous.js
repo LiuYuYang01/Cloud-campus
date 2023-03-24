@@ -1,4 +1,5 @@
-// subPackages/pages/anonymous/anonymous.js
+import Dialog from "@vant/weapp/dialog/dialog";
+
 Page({
   /**
    * 页面的初始数据
@@ -16,13 +17,13 @@ Page({
       success: async (res) => {
         if (res.confirm) {
           const {
-            data: { status, message },
+            data: { code, message },
           } = await wx.$http.post("/api/maintain", {
             info: this.data.content,
             type: 1,
           });
 
-          if (status !== 200) {
+          if (code !== 200) {
             return wx.showToast({
               title: message,
               icon: "success",
@@ -37,6 +38,8 @@ Page({
             icon: "success",
             duration: 2000,
           });
+
+          this.getMyInfoList();
         }
       },
     });
@@ -47,10 +50,43 @@ Page({
     const {
       data: { data },
     } = await wx.$http.get("/api/maintain");
-
+    console.log(data, 222);
     this.setData({
       myInfoList: data,
     });
+  },
+
+  // 长按删除
+  del(e) {
+    Dialog.confirm({
+      message: "你确定要删除吗？",
+    })
+      .then(async () => {
+        const id = e.currentTarget.dataset.id;
+
+        const {
+          data: { code, message },
+        } = await wx.$http.delete(`/api/maintain/${id}`);
+
+        if (code !== 200) {
+          return wx.showToast({
+            title: message,
+            icon: "success",
+            duration: 2000,
+          });
+        }
+
+        wx.showToast({
+          title: "删除成功",
+          icon: "success",
+          duration: 2000,
+        });
+
+        this.getMyInfoList();
+      })
+      .catch(() => {
+        // on cancel
+      });
   },
 
   /**

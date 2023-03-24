@@ -1,3 +1,5 @@
+<van-dialog id="van-dialog" confirm-button-color="#3b88f8" />
+
 <view class="header">
     <image src="/assets/svg/xuexiao.svg" />
 </view>
@@ -21,7 +23,7 @@
 <view class="main">
     <van-divider contentPosition="center">我的提交</van-divider>
 
-    <view wx:for="{{myInfoList}}" wx:key="id" class="item">
+    <view wx:for="{{myInfoList}}" wx:key="id" class="item" data-id="{{item.id}}" bindlongpress="del">
         <text>{{item.info}}</text>
 
         <van-tag wx:if="{{item.state === 1}}">待处理</van-tag>
