@@ -5,38 +5,60 @@ Page({
    */
   data: {
     content: "",
+    myInfoList: [],
   },
 
   // 提交
-  async submit() {
-    console.log(this.data.content, 222);
+  submit() {
+    wx.showModal({
+      title: "提示",
+      content: "你确定要提交该匿名信吗？",
+      success: async (res) => {
+        if (res.confirm) {
+          const {
+            data: { status, message },
+          } = await wx.$http.post("/api/maintain", {
+            info: this.data.content,
+            type: 1,
+          });
 
-    const {
-      data: { status, message },
-    } = await wx.$http.post("/api/maintain", {
-      info: this.data.content,
-      type: 1,
+          if (status !== 200) {
+            return wx.showToast({
+              title: message,
+              icon: "success",
+              duration: 2000,
+            });
+          }
+
+          this.setData({ content: "" });
+
+          wx.showToast({
+            title: "提交成功",
+            icon: "success",
+            duration: 2000,
+          });
+        }
+      },
     });
+  },
 
-    if (status !== 200) {
-      return wx.showToast({
-        title: message,
-        icon: "success",
-        duration: 2000,
-      });
-    }
+  // 获取我提交的匿名信
+  async getMyInfoList() {
+    const {
+      data: { data },
+    } = await wx.$http.get("/api/maintain");
 
-    wx.showToast({
-      title: "提交成功",
-      icon: "success",
-      duration: 2000,
+    this.setData({
+      myInfoList: data,
     });
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {},
+  onLoad(options) {
+    this.getMyInfoList();
+  },
 
   /**
    * 生命周期函数--监听页面初次渲染完成
