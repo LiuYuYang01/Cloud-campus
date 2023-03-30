@@ -6,7 +6,7 @@
 
 <view class="main">
     <view class="item" wx:for="{{functionList}}" wx:key="index">
-        <navigator url="{{item.url}}?index={{item.index}}">
+        <navigator url="/subPackages/pages/anonymous/anonymous?index={{item.active}}">
             <view class="title">{{item.title}}</view>
             <image src="{{item.svg}}" />
         </navigator>
