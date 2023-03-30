@@ -1,6 +1,5 @@
 {
     "navigationBarBackgroundColor": "#8abdfc",
-    "navigationBarTitleText": "校园匿名信",
     "usingComponents": {
         "report":"/components/report/report"
     }
