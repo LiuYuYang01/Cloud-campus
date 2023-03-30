@@ -1,13 +1,9 @@
 <van-dialog id="van-dialog" confirm-button-color="#3b88f8" />
 
 <van-tabs active="{{ active }}" bind:change="onChange">
-    <van-tab title="校园匿名信">
-        <report />
+    <van-tab title="{{item.title}}" wx:for="{{reportList}}">
+        <report data="{{item}}" />
     </van-tab>
-
-    <van-tab title="跑腿维权">内容 2</van-tab>
-    <van-tab title="兼职维权">内容 3</van-tab>
-    <van-tab title="其他维权">内容 4</van-tab>
 </van-tabs>
 
 <!-- 我的提交列表 -->

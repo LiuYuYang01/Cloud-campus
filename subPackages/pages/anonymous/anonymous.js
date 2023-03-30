@@ -8,6 +8,32 @@ Page({
     active: 0,
     content: "",
     myInfoList: [],
+    reportList: [
+      {
+        active: 0,
+        title: "校园匿名信",
+        svg: "/assets/svg/xuexiao.svg",
+        info: "说你想说的，没有人会知道是你。我们会认真核实每一个信息并解决",
+      },
+      {
+        active: 1,
+        title: "跑腿订单投诉",
+        svg: "/assets/svg/paotui.svg",
+        info: "跑腿中的任何订单问题都可以在这里进行维权",
+      },
+      {
+        active: 2,
+        title: "校园兼职投诉",
+        svg: "/assets/svg/jianzhi.svg",
+        info: "任何校园兼职问题都可以在这里进行维权",
+      },
+      {
+        active: 3,
+        title: "其他投诉",
+        svg: "/assets/svg/qita.svg",
+        info: "任何问题都可以在这里进行维权",
+      },
+    ],
   },
 
   // 提交
@@ -51,7 +77,7 @@ Page({
     const {
       data: { data },
     } = await wx.$http.get("/api/maintain");
-    console.log(data, 222);
+
     this.setData({
       myInfoList: data,
     });

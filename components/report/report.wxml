@@ -1,9 +1,9 @@
 <view class="header">
-    <image src="/assets/svg/xuexiao.svg" />
+    <image src="{{data.svg}}" />
 </view>
 
 <view class="info">
-    <van-icon name="records" /> 说你想说的，没有人会知道是你。我们会认真核实每一个信息并解决。
+    <van-icon name="records" /> {{data.info}}
 </view>
 
 <view class="content">
