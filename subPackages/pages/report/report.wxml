@@ -6,11 +6,9 @@
 
 <view class="main">
     <view class="item" wx:for="{{functionList}}" wx:key="index">
-        <navigator url="{{item.url}}">
+        <navigator url="{{item.url}}?index={{item.index}}">
             <view class="title">{{item.title}}</view>
             <image src="{{item.svg}}" />
         </navigator>
     </view>
 </view>
-
-<!-- <article list="{{loveList}}" color="#83b8e7" style="margin-top: 20rpx;" /> -->

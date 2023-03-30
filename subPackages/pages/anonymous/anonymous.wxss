@@ -2,9 +2,14 @@ page {
   background-color: #fff;
 }
 
+.van-tabs__wrap{
+    margin-top: -150rpx;
+}
+
 .header {
   display: flex;
   justify-content: center;
+  margin-top: 60rpx;
 }
 
 .content {
@@ -23,7 +28,7 @@ page {
 
 .main {
   padding: 10rpx 40rpx;
-  margin-top: 50rpx;
+  margin-top: 10rpx;
 }
 
 .main .item {

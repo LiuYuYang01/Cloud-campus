@@ -22,21 +22,25 @@ Page({
     loveList: [],
     functionList: [
       {
+        index: 0,
         title: "校园匿名信",
         svg: "/assets/svg/xuexiao.svg",
         url: "/subPackages/pages/anonymous/anonymous",
       },
       {
-        title: "校园兼职投诉",
-        svg: "/assets/svg/jianzhi.svg",
-        url: "/subPackages/pages/anonymous/anonymous",
-      },
-      {
+        index: 1,
         title: "跑腿订单投诉",
         svg: "/assets/svg/paotui.svg",
         url: "/subPackages/pages/anonymous/anonymous",
       },
       {
+        index: 2,
+        title: "校园兼职投诉",
+        svg: "/assets/svg/jianzhi.svg",
+        url: "/subPackages/pages/anonymous/anonymous",
+      },
+      {
+        index: 3,
         title: "其他投诉",
         svg: "/assets/svg/qita.svg",
         url: "/subPackages/pages/anonymous/anonymous",

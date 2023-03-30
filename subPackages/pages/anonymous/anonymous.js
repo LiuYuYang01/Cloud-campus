@@ -5,6 +5,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    active: 0,
     content: "",
     myInfoList: [],
   },
@@ -92,7 +93,13 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad(options) {
+  onLoad({ index }) {
+    this.setData({
+      active: Number(index),
+    });
+
+    console.log(this.data.active);
+
     this.getMyInfoList();
   },
 
