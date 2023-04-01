@@ -82,11 +82,7 @@ Component({
               success: () => {
                 this.setData({ content: "" });
 
-                // setTimeout(() => {
-                //   this.getMyInfoList();
-                // }, 500);
-
-               this.triggerEvent("getMyInfoList")
+                this.triggerEvent("getMyInfoList");
               },
             });
           }
