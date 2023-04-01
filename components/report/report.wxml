@@ -10,12 +10,12 @@
 
 <view class="content">
     <van-cell-group>
-        <van-field model:value="{{ content }}" type="textarea" placeholder="请输入匿名信息" autosize border="{{ false }}" wx:if="{{data.title === '校园匿名信'}}" />
-
-        <van-field model:value="{{ content }}" type="textarea" autosize border="{{ false }}" wx:if="{{data.title === '跑腿订单投诉'}}" />
+        <van-field model:value="{{ content }}" type="textarea" autosize border="{{ false }}" />
     </van-cell-group>
 </view>
 
 <view style="display: flex;justify-content: center;margin-top: 20rpx;">
-    <van-button type="default" color="#91bcfb" bindtap="submit">提交匿名信</van-button>
+    <van-button type="default" color="#91bcfb" bindtap="submit" wx:if="{{data.title === '校园匿名信'}}">提交匿名信</van-button>
+
+    <van-button type="default" color="#91bcfb" bindtap="submit" wx:else>提交投诉</van-button>
 </view>

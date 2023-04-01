@@ -24,15 +24,24 @@ Component({
       const currentPage = pages[pages.length - 1];
 
       const title = currentPage.options.title;
+      console.log(title);
 
-      this.setData({
-        title,
-      });
+      this.setData({ title });
 
       // 拿到他的跳转参数：option.title 来动态设置每个页面的名称
       wx.setNavigationBarTitle({
         title,
       });
+
+      if (title === "校园匿名信") {
+        this.setData({ content: "请填写校园匿名信" });
+      } else if (title === "跑腿订单投诉") {
+        this.setData({ content: "订单号：\n投诉类型：\n投诉内容：" });
+      } else if (title === "校园兼职投诉") {
+        this.setData({ content: "兼职编号：\n兼职负责人：\n投诉内容：" });
+      } else if (title === "其他投诉") {
+        this.setData({ content: "这里可以填写任何投诉信息" });
+      }
     },
   },
 
