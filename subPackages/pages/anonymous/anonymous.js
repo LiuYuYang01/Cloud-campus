@@ -6,8 +6,6 @@ Page({
    */
   data: {
     active: 0,
-    content: "",
-    myInfoList: [],
     reportList: [
       {
         active: 0,
@@ -34,53 +32,6 @@ Page({
         info: "任何问题都可以在这里进行维权",
       },
     ],
-  },
-
-  // 提交
-  submit() {
-    wx.showModal({
-      title: "提示",
-      content: "你确定要提交该匿名信吗？",
-      success: async (res) => {
-        if (res.confirm) {
-          const {
-            data: { code, message },
-          } = await wx.$http.post("/api/maintain", {
-            info: this.data.content,
-            type: 1,
-          });
-
-          if (code !== 200) {
-            return wx.showToast({
-              title: message,
-              icon: "success",
-              duration: 2000,
-            });
-          }
-
-          this.setData({ content: "" });
-
-          wx.showToast({
-            title: "提交成功",
-            icon: "success",
-            duration: 2000,
-          });
-
-          this.getMyInfoList();
-        }
-      },
-    });
-  },
-
-  // 获取我提交的匿名信
-  async getMyInfoList() {
-    const {
-      data: { data },
-    } = await wx.$http.get("/api/maintain");
-
-    this.setData({
-      myInfoList: data,
-    });
   },
 
   // 长按删除
@@ -123,10 +74,6 @@ Page({
     this.setData({
       active: Number(index),
     });
-
-    console.log(this.data.active);
-
-    this.getMyInfoList();
   },
 
   /**
@@ -137,7 +84,9 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow() {},
+  onShow() {
+
+  },
 
   /**
    * 生命周期函数--监听页面隐藏
