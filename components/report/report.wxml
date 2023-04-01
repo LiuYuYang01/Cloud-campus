@@ -19,5 +19,3 @@
 <view style="display: flex;justify-content: center;margin-top: 20rpx;">
     <van-button type="default" color="#91bcfb" bindtap="submit">提交匿名信</van-button>
 </view>
-
-{{active}}

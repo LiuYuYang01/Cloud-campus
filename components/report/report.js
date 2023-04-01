@@ -11,14 +11,11 @@ Component({
    * 组件的初始数据
    */
   data: {
+    title: "",
     content: "",
-    myInfoList: [],
   },
 
   lifetimes: {
-    created() {
-      this.getMyInfoList();
-    },
     ready() {
       // 拿到小程序的上级所有页面
       const pages = getCurrentPages();
@@ -26,9 +23,15 @@ Component({
       // 然后找到最后一个，也就是刚刚跳转过来的页面
       const currentPage = pages[pages.length - 1];
 
+      const title = currentPage.options.title;
+
+      this.setData({
+        title,
+      });
+
       // 拿到他的跳转参数：option.title 来动态设置每个页面的名称
       wx.setNavigationBarTitle({
-        title: currentPage.options.title,
+        title,
       });
     },
   },
@@ -37,28 +40,31 @@ Component({
    * 组件的方法列表
    */
   methods: {
-    // 获取我提交的匿名信
-    async getMyInfoList() {
-      const {
-        data: { data },
-      } = await wx.$http.get("/api/maintain");
-
-      this.setData({
-        myInfoList: data,
-      });
-    },
     // 提交
     submit() {
       wx.showModal({
         title: "提示",
         content: "你确定要提交该匿名信吗？",
         success: async (res) => {
+          const title = this.data.title;
+          let type = 0;
+
+          if (title === "校园匿名信") {
+            type = 1;
+          } else if (title === "跑腿订单投诉") {
+            type = 2;
+          } else if (title === "校园兼职投诉") {
+            type = 3;
+          } else if (title === "其他投诉") {
+            type = 4;
+          }
+
           if (res.confirm) {
             const {
               data: { code, message },
             } = await wx.$http.post("/api/maintain", {
               info: this.data.content,
-              type: 1,
+              type,
             });
 
             if (code !== 200) {
@@ -76,9 +82,11 @@ Component({
               success: () => {
                 this.setData({ content: "" });
 
-                setTimeout(() => {
-                  this.getMyInfoList();
-                }, 500);
+                // setTimeout(() => {
+                //   this.getMyInfoList();
+                // }, 500);
+
+               this.triggerEvent("getMyInfoList")
               },
             });
           }

@@ -1,6 +1,8 @@
+<van-dialog id="van-dialog" confirm-button-color="#3b88f8" />
+
 <van-tabs active="{{ active }}" bind:change="onChange">
     <van-tab title="{{item.title}}" wx:for="{{reportList}}" wx:key="index">
-        <report data="{{item}}" />
+        <report data="{{item}}" bind:getMyInfoList="getMyInfoList"/>
     </van-tab>
 </van-tabs>
 

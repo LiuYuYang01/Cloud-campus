@@ -32,6 +32,21 @@ Page({
         info: "任何问题都可以在这里进行维权",
       },
     ],
+    myInfoList: [],
+  },
+
+  async getMyInfoList() {
+    const type = this.data.active + 1;
+
+    const {
+      data: { data },
+    } = await wx.$http.get("/api/maintain");
+
+    const newData = data.filter((item) => +item.type === type);
+
+    this.setData({
+      myInfoList: newData,
+    });
   },
 
   // 长按删除
@@ -74,6 +89,8 @@ Page({
     this.setData({
       active: Number(index),
     });
+
+    this.getMyInfoList();
   },
 
   /**
@@ -84,9 +101,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  onShow() {
-
-  },
+  onShow() {},
 
   /**
    * 生命周期函数--监听页面隐藏

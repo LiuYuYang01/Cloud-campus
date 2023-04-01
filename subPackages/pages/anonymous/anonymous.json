@@ -1,6 +1,8 @@
 {
     "navigationBarBackgroundColor": "#8abdfc",
     "usingComponents": {
-        "report":"/components/report/report"
+        "report":"/components/report/report",
+        "van-divider": "@vant/weapp/divider/index",
+        "van-dialog": "@vant/weapp/dialog/index"
     }
 }
