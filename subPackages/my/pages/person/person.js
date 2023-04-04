@@ -153,7 +153,6 @@ Page({
       data: { code, data, message },
     } = await wx.$http.get(`/api/${api}/article`);
 
-    console.log(message);
     if (code !== 200)
       return wx.showToast({
         title: message,
@@ -172,7 +171,7 @@ Page({
     } else if (type === "socializeList") {
       this.setData({
         socializeList: data.filter(
-          async (item) => (await item.userID) === this.data.userInfo.id
+          (item) => (item.userID) === this.data.userInfo.id
         ),
       });
     }
@@ -181,11 +180,11 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad({ id }) {
-    this.setData({ id });
-    this.getUserInfo();
-    this.getArticleList("hobby", "articleList");
-    // this.getArticleList("socialize", "socializeList");
+  async onLoad({ id }) {
+    await this.setData({ id });
+    await this.getUserInfo();
+    await this.getArticleList("hobby", "articleList");
+    await this.getArticleList("socialize", "socializeList");
   },
 
   /**
