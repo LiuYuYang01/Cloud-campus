@@ -53,7 +53,7 @@ Component({
     submit() {
       wx.showModal({
         title: "提示",
-        content: "你确定要提交该匿名信吗？",
+        content: "你确定要提交吗？",
         success: async (res) => {
           const title = this.data.title;
           let type = 0;

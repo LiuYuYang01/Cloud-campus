@@ -71,10 +71,10 @@ Component({
         color: "#4b84ff",
       },
       {
-        title: "我要诉说",
+        title: "我要维权",
         icon: "comment",
-        url: "",
-        color: "#6d6be4",
+        url: "/subPackages/pages/report/report",
+        color: "#54b986",
       },
     ],
   },

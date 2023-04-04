@@ -104,8 +104,6 @@ Page({
 
         if (code !== 200) return Notify({ type: "danger", message });
 
-        console.log(data.url);
-
         this.setData({
           bgImage: data.url,
           customImage: data.url,
@@ -126,14 +124,14 @@ Page({
       cover: this.data.bgImage,
     });
 
-    if(code !== 200) return Toast(message)
+    if (code !== 200) return Toast(message);
 
     this.setData({
-        show:false
-    })
+      show: false,
+    });
 
-    Toast("修改背景图片成功")
-    this.getUserInfo()
+    Toast("修改背景图片成功");
+    this.getUserInfo();
   },
 
   // 获取用户数据
@@ -151,13 +149,17 @@ Page({
 
   // 获取数据
   async getArticleList(api, type) {
-    console.log(api, type);
-
     const {
-      data: { code, data },
+      data: { code, data, message },
     } = await wx.$http.get(`/api/${api}/article`);
 
-    if (code !== 200) return;
+    console.log(message);
+    if (code !== 200)
+      return wx.showToast({
+        title: message,
+        icon: "error",
+        duration: 2000,
+      });
 
     // 兴趣圈数据
     if (type === "articleList") {
@@ -183,7 +185,7 @@ Page({
     this.setData({ id });
     this.getUserInfo();
     this.getArticleList("hobby", "articleList");
-    this.getArticleList("socialize", "socializeList");
+    // this.getArticleList("socialize", "socializeList");
   },
 
   /**
