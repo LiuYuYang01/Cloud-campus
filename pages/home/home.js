@@ -27,24 +27,6 @@ Page({
     // 入口导航
     entranceNavList: [
       {
-        title: "闲置二手",
-        icon: "coupon",
-        url: "",
-        color: "#24cd62",
-      },
-      {
-        title: "勤工俭学",
-        icon: "gold-coin",
-        url: "/pages/job/job",
-        color: "#fbb437",
-      },
-      {
-        title: "校园外卖",
-        icon: "send-gift",
-        url: "/subPackages/home/pages/package/package",
-        color: "#fbd221",
-      },
-      {
         title: "校园跑腿",
         icon: "map-marked",
         url: "/subPackages/pages/errand/home/home",
@@ -54,25 +36,19 @@ Page({
         title: "失物招领",
         icon: "gift-card",
         url: "/subPackages/pages/lose/lose",
-        color: "#6d6be4",
+        color: "#f4be29",
       },
       {
         title: "朋友圈",
         icon: "friends",
         url: "",
-        color: "#6ebcfb",
-      },
-      {
-        title: "表白墙",
-        icon: "like",
-        url: "/pages/love/love",
-        color: "#fa6667",
+        color: "#4fb985",
       },
       {
         title: "维权中心",
         icon: "comment",
         url: "/subPackages/pages/report/report",
-        color: "#4fb985",
+        color: "#78bbfa",
       },
     ],
   },
