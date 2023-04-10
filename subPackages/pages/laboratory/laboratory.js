@@ -34,12 +34,7 @@ Page({
         icon: "/assets/svg/manhua.svg",
         title: "图片转漫画",
         info: "将你的照片一键转换成漫画风格",
-      },
-      {
-        icon: "/assets/svg/meishi.svg",
-        title: "今天吃什么",
-        info: "随机返回一顿美味食物，解决你今天吃什么的难题",
-      },
+      }
     ],
   },
 
