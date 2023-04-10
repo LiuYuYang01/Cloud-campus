@@ -33,11 +33,10 @@ Page({
         color: "#5a82fd",
       },
       {
-        title: "校园兼职",
-        icon: "gold-coin",
-        url: "/pages/job/job",
-        color: "#f3b644",
-        type: true,
+        title: "校园科技馆",
+        icon: "gem",
+        url: "/subPackages/pages/laboratory/laboratory",
+        color: "#7369e2",
       },
       {
         title: "AI机器人",

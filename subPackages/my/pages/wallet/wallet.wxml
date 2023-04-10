@@ -36,7 +36,8 @@
 
     <!-- 订单列表 box -->
     <view style="font-size: 13px; font-weight: 600; line-height: 20px; margin-bottom: 20rpx;color:#333">订单列表</view>
-    <van-tabs color="#4fb985" title-inactive-color="black" animated type="card" active="{{ 1 }}" bind:change="onChange">
+
+    <van-tabs color="#4fb985" title-inactive-color="black" animated type="card" active="{{ 0 }}" bind:change="onChange">
         <van-tab title="充值">
             <van-cell center value="￥{{item.price}}" label="{{item.date}}" class="{{item.state == 2 ? 'success' : (item.state == 1 ? 'conduct' : 'fail')}}" wx:for="{{order_list}}" wx:key="key" data-oid="{{item.order_id}}" bindtap="goToOrderDetail" wx:if="{{order_list.length >= 1}}" is-link>
                 <!-- (已过期：0；待支付：1；已完成：2) -->
