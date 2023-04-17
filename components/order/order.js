@@ -15,6 +15,7 @@ Component({
     issue_id: String,
     isMyOrder: Boolean,
     isService: Boolean,
+    isReceiving: Boolean, // 是否是接到的订单
   },
   /**
    * 组件的初始数据
@@ -31,6 +32,8 @@ Component({
           isMyOrder: true,
         });
       }
+
+      console.log(this.data.orderList);
     },
   },
 

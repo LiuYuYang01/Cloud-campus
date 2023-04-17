@@ -9,8 +9,8 @@ wx.$http = $http
 
 // 配置请求根路径
 // $http.baseUrl = 'http://192.168.95.84:7001'
-$http.baseUrl = 'http://127.0.0.1:7001'
-// $http.baseUrl = 'https://api.tockey.cn'
+// $http.baseUrl = 'http://127.0.0.1:7001'
+$http.baseUrl = 'https://api.tockey.cn'
 
 // 请求开始之前做一些事情
 $http.beforeRequest = function (options) {

@@ -33,24 +33,22 @@ Page({
             .then(() => {
                 // 确定
                 // console.log(e.target.dataset,  store.userInfo.username);
-                $http
-                    .post("/api/pay/create", {
-                        price: e.target.dataset.stage,
-                        username: store.userInfo.username,
-                    })
-                    .then((res) => {
-                        // console.log(res.data);
-                        let { code } = res.data;
-                        if (code == 400) {
-                            Toast(res.data.message);
-                        } else if (code == 200) {
-                            // console.log(res.data.order);
-                            // 跳转页面
-                            wx.navigateTo({
-                                url: `/subPackages/my/pages/orderDetails/orderDetails?order_id=${res.data.order.order_id}`,
-                            });
-                        }
-                    });
+                $http.post("/api/pay/create", {
+                    price: e.target.dataset.stage,
+                    username: store.userInfo.username,
+                }).then((res) => {
+                    // console.log(res.data);
+                    let { code } = res.data;
+                    if (code == 400) {
+                        Toast(res.data.message);
+                    } else if (code == 200) {
+                        // console.log(res.data.order);
+                        // 跳转页面
+                        wx.navigateTo({
+                            url: `/subPackages/my/pages/orderDetails/orderDetails?order_id=${res.data.order.order_id}`,
+                        });
+                    }
+                });
             })
             .catch(() => {
                 // 取消
