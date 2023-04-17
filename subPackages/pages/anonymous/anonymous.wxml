@@ -1,17 +1,20 @@
-<view class="header">
-    <image src="/assets/svg/xuexiao.svg" />
-</view>
+<van-dialog id="van-dialog" confirm-button-color="#3b88f8" />
 
-<view class="info">
-    <van-icon name="records" /> 说你想说的，没有人会知道是你。我们会认真核实每一个信息并解决。
-</view>
+<van-tabs active="{{ active }}" bind:change="onChange">
+    <van-tab title="{{item.title}}" wx:for="{{reportList}}" wx:key="index">
+        <report data="{{item}}" bind:getMyInfoList="getMyInfoList"/>
+    </van-tab>
+</van-tabs>
 
-<view class="content">
-    <van-cell-group>
-        <van-field model:value="{{ content }}" type="textarea" placeholder="请输入匿名信息" autosize border="{{ false }}" />
-    </van-cell-group>
-</view>
+<!-- 我的提交列表 -->
+<view class="main">
+    <van-divider contentPosition="center">我的提交</van-divider>
 
-<view style="display: flex;justify-content: center;margin-top: 20rpx;">
-    <van-button type="default" color="#91bcfb" bindtap="submit">提交匿名信</van-button>
+    <view wx:for="{{myInfoList}}" wx:key="id" class="item" data-id="{{item.id}}" bindlongpress="del">
+        <text>{{item.info}}</text>
+
+        <van-tag wx:if="{{item.state === 1}}">待处理</van-tag>
+        <van-tag type="primary" wx:if="{{item.state === 2}}">处理中</van-tag>
+        <van-tag type="success" wx:if="{{item.state === 3}}">已处理</van-tag>
+    </view>
 </view>

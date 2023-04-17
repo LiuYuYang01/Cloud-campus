@@ -1,0 +1,51 @@
+page {
+    background-color: #fff;
+  }
+  
+  .van-tabs__wrap{
+      margin-top: -150rpx;
+  }
+  
+  .header {
+    display: flex;
+    justify-content: center;
+    margin-top: 60rpx;
+  }
+  
+  .content {
+    overflow: hidden;
+    width: 550rpx;
+    margin: 30rpx auto 0;
+    border: 4rpx solid #91bcfb;
+    border-radius: 15rpx;
+  }
+  
+  .info {
+    width: 90%;
+    margin: 10rpx auto 50rpx;
+    color: #666;
+  }
+  
+  .main {
+    padding: 10rpx 40rpx;
+    margin-top: 10rpx;
+  }
+  
+  .main .item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 60rpx;
+    padding-bottom: 10rpx;
+    padding: 10rpx 0;
+    color: #666;
+    border-bottom: 2rpx solid #f9f9f9;
+    font-size: 30rpx;
+  }
+  
+  .main .item text {
+    width: 540rpx;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }

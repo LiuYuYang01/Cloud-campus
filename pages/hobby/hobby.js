@@ -1,4 +1,6 @@
 import Notify from "@vant/weapp/notify/notify";
+import { getToken } from "../../utils/localStorage";
+
 Page({
   /**
    * 页面的初始数据
@@ -201,6 +203,15 @@ Page({
     this.__getHomeToppingList();
     this.__getHobbyList();
     this.cateList();
+
+    if (getToken()) {
+      console.log("已登录");
+    } else {
+      console.log("未登录");
+      wx.navigateTo({
+        url: "/pages/login/login",
+      });
+    }
   },
 
   /**

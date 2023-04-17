@@ -14,5 +14,5 @@
 <view class="send">
     <textarea placeholder="发送消息给AI机器人" bindinput="content" auto-height value="{{content}}" class="text"></textarea>
 
-    <button style="background-color: #1b2d47;color:#fff" bindtap="release">发布</button>
+    <button style="background-color: #4fb985;color:#fff" bindtap="release">发布</button>
 </view>

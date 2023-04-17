@@ -1,0 +1,21 @@
+<van-dialog id="van-dialog" confirm-button-color="#3b88f8" />
+
+<view class="header">
+    <image src="{{data.svg}}" />
+</view>
+
+<view class="info">
+    <van-icon name="records" /> {{data.info}}
+</view>
+
+<view class="content">
+    <van-cell-group>
+        <van-field model:value="{{ content }}" type="textarea" autosize border="{{ false }}" />
+    </van-cell-group>
+</view>
+
+<view style="display: flex;justify-content: center;margin-top: 20rpx;">
+    <van-button type="default" color="#91bcfb" bindtap="submit" wx:if="{{data.title === '校园匿名信'}}">提交匿名信</van-button>
+
+    <van-button type="default" color="#91bcfb" bindtap="submit" wx:else>提交投诉</van-button>
+</view>

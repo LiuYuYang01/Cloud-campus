@@ -49,14 +49,20 @@
 
 <van-tabs color="#4fb985" swipeable>
     <van-tab title="内容">
-        <article list="{{articleList}}" style="margin-top: 20rpx;" />
+        <article list="{{articleList}}" wx:if="{{articleList.length}}" style="margin-top: 20rpx;" />
+
+        <view wx:else>
+            <van-empty description="该用户没有发布过文章" />
+        </view>
     </van-tab>
 
     <van-tab title="个人资料">
         <van-cell-group>
             <van-field label="用户名称" placeholder="{{userInfo.name}}" readonly />
 
-            <van-field label="性别" placeholder="{{userInfo.sex}}" readonly />
+            <van-field label="性别" placeholder="男" wx:if="{{userInfo.sex === 1}}" readonly />
+            <van-field label="性别" placeholder="女" wx:if="{{userInfo.sex === 2}}" readonly />
+            <van-field label="性别" placeholder="未知" wx:if="{{userInfo.sex === 3}}" readonly />
 
             <van-field label="身份" placeholder="{{userInfo.identity}}" readonly />
 
@@ -71,7 +77,11 @@
     </van-tab>
 
     <van-tab title="朋友圈">
-        <article list="{{socializeList}}" />
+        <article list="{{socializeList}}" wx:if="{{socializeList.length}}" style="margin-top: 20rpx;" />
+
+        <view wx:else>
+            <van-empty description="该用户没有发布过朋友圈" />
+        </view>
     </van-tab>
 </van-tabs>
 

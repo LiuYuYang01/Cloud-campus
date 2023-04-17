@@ -27,46 +27,22 @@ Page({
     // 入口导航
     entranceNavList: [
       {
-        title: "闲置二手",
-        icon: "coupon",
-        url: "",
-        color: "#24cd62",
-      },
-      {
-        title: "勤工俭学",
-        icon: "gold-coin",
-        url: "/pages/job/job",
-        color: "#fbb437",
-      },
-      {
-        title: "校园外卖",
-        icon: "send-gift",
-        url: "/subPackages/home/pages/package/package",
-        color: "#fbd221",
-      },
-      {
         title: "校园跑腿",
         icon: "map-marked",
         url: "/subPackages/pages/errand/home/home",
         color: "#5a82fd",
       },
       {
-        title: "失物招领",
-        icon: "gift-card",
-        url: "/subPackages/pages/lose/lose",
-        color: "#6d6be4",
+        title: "校园科技馆",
+        icon: "gem",
+        url: "/subPackages/pages/laboratory/laboratory",
+        color: "#7369e2",
       },
       {
-        title: "朋友圈",
-        icon: "friends",
-        url: "",
-        color: "#6ebcfb",
-      },
-      {
-        title: "表白墙",
-        icon: "like",
-        url: "/pages/love/love",
-        color: "#fa6667",
+        title: "AI机器人",
+        icon: "fire",
+        url: "/subPackages/pages/robot/robot",
+        color: "#e8443b",
       },
       {
         title: "维权中心",
@@ -205,15 +181,15 @@ Page({
     await this.__getHomeToppingList();
     await this.__getHomeList();
 
-    // // 判断有没有Token，没有就代表未登录，跳转到登录页
-    // if (getToken()) {
-    //   console.log("已登录");
-    // } else {
-    //   console.log("未登录");
-    //   wx.navigateTo({
-    //     url: "/pages/login/login",
-    //   });
-    // }
+    // 判断有没有Token，没有就代表未登录，跳转到登录页
+    if (getToken()) {
+      console.log("已登录");
+    } else {
+      console.log("未登录");
+      wx.navigateTo({
+        url: "/pages/login/login",
+      });
+    }
   },
 
   /**

@@ -69,7 +69,6 @@ Page({
 
     // 调用组件的release方法将数据保存到content
     await editor.release();
-    console.log(editor.data.delta.html, 111);
 
     // 然后拿到组件中content的值（编辑器中的数据）
     setTimeout(() => {
@@ -110,6 +109,7 @@ Page({
 
         // 文章内容
         let content = this.data.article.content;
+        console.log(content, 999);
 
         // 过滤敏感字
         wx.request({
@@ -442,9 +442,7 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady() {
-
-  },
+  onReady() {},
 
   /**
    * 生命周期函数--监听页面显示
