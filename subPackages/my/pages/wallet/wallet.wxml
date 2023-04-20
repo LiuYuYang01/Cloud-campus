@@ -27,7 +27,7 @@
         </view>
         <!-- 金额 -->
         <view class="top-up">
-            <view data-stage="0.01" bind:tap="openTopUpDialog">1分充20元<text>测试</text></view>
+            <view data-stage="0.01" bind:tap="openTopUpDialog"><text>测试</text></view>
             <view data-stage="10" bind:tap="openTopUpDialog">10<text>元</text></view>
             <view data-stage="30" bind:tap="openTopUpDialog">30<text>元</text></view>
             <view data-stage="50" bind:tap="openTopUpDialog">50<text>元</text></view>
