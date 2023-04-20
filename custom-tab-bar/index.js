@@ -71,6 +71,7 @@ Component({
         url:
           "https://v.api.aa1.cn/api/api-wenan-mingrenmingyan/index.php?aa1=json",
         success: ({ data: res }) => {
+          console.log(res, 999);
           this.setData({
             info: res[0].mingrenmingyan,
           });
