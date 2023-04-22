@@ -105,7 +105,7 @@ Page({
           content: "",
         });
       }, 1000);
-    } else if (val === "帮我生成一篇关于计算机的论文，要求100~300字左右") {
+    } else if (val === "写一篇关于计算机的论文，要求100~300字左右") {
       setTimeout(() => {
         wx.showLoading({
           title: "请稍后...",
@@ -127,7 +127,7 @@ Page({
           content: "",
         });
       }, 2000);
-    } else if (val === "在帮我生成一篇") {
+    } else if (val === "在帮我写一篇") {
       setTimeout(() => {
         wx.showLoading({
           title: "请稍后...",
