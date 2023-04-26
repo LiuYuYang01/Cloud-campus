@@ -12,7 +12,7 @@ Page({
         cid: 1,
         id: 1,
         image:
-          "https://campus-1312676635.cos.ap-shanghai.myqcloud.com/swiper/%E8%88%AA%E5%A4%A9%E8%88%AA%E7%A9%BA%E7%A7%91%E6%8A%80%E9%A3%8E%E8%9E%8D%E5%AA%92%E4%BD%93%E5%85%AC%E4%BC%97%E5%8F%B7%E9%A6%96%E5%9B%BE%281%29.jpg",
+          "https://img.tockey.cn/campus/test/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20230426111500.jpg",
         title: "科技改变你我，代码改变世界 -云上校园",
         type: "home",
       },
