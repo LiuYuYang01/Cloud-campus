@@ -1,13 +1,11 @@
-<view>余额：{{balance}}</view>
 <van-cell-group>
-    <van-field label="金额" maxlength="5" model:value="{{ withdrawVal }}" type="number" placeholder="请输入提现金额" border="{{ false }}" />
+    <van-field label="余额" maxlength="5" model:value="{{ balance }}" type="number" placeholder="请输入提现金额" border="{{ false }}" />
+    <van-field label="提现" maxlength="5" model:value="{{ withdrawVal }}" type="number" placeholder="请输入提现金额" border="{{ false }}" />
     <van-field label="手机号" maxlength="11" model:value="{{ phone }}" type="number" placeholder="请输入手机号" border="{{ false }}" />
     <van-field label="微信名称" maxlength="11" model:value="{{ wx_name }}" type="number" placeholder="请输入微信名" border="{{ false }}" />
 </van-cell-group>
-<van-button type="info" bindtap="withdrawCommit">提现</van-button>
 
-
+<view style="height: 40px;background-color: #4fb985;text-align: center;line-height: 40px;color: #fff;margin: 20rpx 40rpx;border-radius: 5px;" bindtap="withdrawCommit">提现</view>
 
 <van-toast id="van-toast" />
 <van-dialog id="van-dialog" />
-

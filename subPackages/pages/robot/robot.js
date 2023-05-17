@@ -83,7 +83,8 @@ Page({
     // 回复消息
     // this.__reply(value.trim());
 
-    if (val === "用python写一段冒泡排序算法") {
+    console.log(val.includes("python"),888);
+    if (val.includes("python")) {
       setTimeout(() => {
         wx.showLoading({
           title: "请稍后...",
@@ -105,7 +106,7 @@ Page({
           content: "",
         });
       }, 1000);
-    } else if (val === "写一篇关于计算机的论文，要求100~300字左右") {
+    } else if (val.includes("计算机的论文")) {
       setTimeout(() => {
         wx.showLoading({
           title: "请稍后...",
@@ -127,7 +128,7 @@ Page({
           content: "",
         });
       }, 2000);
-    } else if (val === "在帮我写一篇") {
+    } else if (val.includes("再写一篇")) {
       setTimeout(() => {
         wx.showLoading({
           title: "请稍后...",
@@ -149,7 +150,7 @@ Page({
           content: "",
         });
       }, 2000);
-    } else if (val === "帮我注释下每行的意思") {
+    } else if (val.includes("注释")) {
       setTimeout(() => {
         wx.showLoading({
           title: "请稍后...",

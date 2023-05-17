@@ -8,14 +8,14 @@ Page({
         id: 1,
         title: "云上校园 - 维权中心",
         image:
-          "https://campus-1312676635.cos.ap-shanghai.myqcloud.com/test/jubao.jpg",
+          "https://img.tockey.cn/campus/test/jubao.jpg",
         cid: "",
       },
       {
         id: 1,
         title: "云上校园 - 维权中心",
         image:
-          "https://campus-1312676635.cos.ap-shanghai.myqcloud.com/test/jubao.jpg",
+          "https://img.tockey.cn/campus/test/jubao.jpg",
         cid: "",
       },
     ],
