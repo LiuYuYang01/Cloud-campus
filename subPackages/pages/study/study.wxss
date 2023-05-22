@@ -1,1 +1,46 @@
-/* subPackages/pages/study/study.wxss */
+page{
+    background-image: linear-gradient(to right, #d3ede8, #f0f0f0)
+}
+
+.day{
+    text-align: center;
+    margin-top: 150rpx;
+    margin: 150rpx 0 100rpx;
+}
+
+.day view{
+    margin-top: 30rpx;
+    font-size: 100rpx;
+    font-weight: 900;
+}
+
+.schedule{
+    width: 90%;
+    padding: 50rpx;
+    margin: 0 auto;
+    background-color: #fff;
+    box-sizing: border-box;
+    border-radius: 30rpx;
+}
+
+.schedule .zuijin{
+    font-size: 26rpx;
+}
+
+.schedule .title{
+    margin-top: 10rpx;
+    padding-bottom: 40rpx;
+    font-weight: 900;
+}
+
+.btn{
+    width: 80%;
+    height: 100rpx;
+    line-height: 100rpx;
+    margin: 0 auto;
+    margin-top: 150rpx;
+    text-align: center;
+    color: #fff;
+    border-radius: 50rpx;
+    background-color: #4fb985;
+}

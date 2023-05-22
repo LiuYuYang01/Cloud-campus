@@ -1,2 +1,21 @@
-<!--subPackages/pages/study/study.wxml-->
-<text>subPackages/pages/study/study.wxml</text>
+<!-- 天数 -->
+<view class="day">
+    <text>已打卡天数</text>
+    <view>629</view>
+</view>
+
+<!-- 进度 -->
+<view class="schedule">
+    <text class="zuijin">最近在学：</text>
+
+    <view class="title">2023考验英语词汇大纲</view>
+
+    <view class="box">
+        <van-progress percentage="92.6" color="#4fb985"/>
+    </view>
+</view>
+
+<!-- 开始学习 -->
+<view class="btn">
+    开始学习
+</view>
