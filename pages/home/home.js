@@ -50,6 +50,18 @@ Page({
         url: "/subPackages/pages/report/report",
         color: "#4fb985",
       },
+      {
+        title: "学习中心",
+        icon: "comment",
+        url: "/subPackages/pages/report/report",
+        color: "#4fb985",
+      },
+      {
+        title: "反诈中心",
+        icon: "comment",
+        url: "/subPackages/pages/report/report",
+        color: "#4fb985",
+      },
     ],
   },
   // 顶部滚动导航

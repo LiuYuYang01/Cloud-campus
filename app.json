@@ -36,7 +36,9 @@
                 "my/pages/wallet/wallet",
                 "my/pages/content/content",
                 "my/pages/orderDetails/orderDetails",
-                "my/pages/withdraw/withdraw"
+                "my/pages/withdraw/withdraw",
+                "pages/study/study",
+                "pages/fraud/fraud"
             ]
         }
     ],
