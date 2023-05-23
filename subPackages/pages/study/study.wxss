@@ -75,3 +75,7 @@ page{
     background-color: #4fb985;
     font-size: 30rpx;
 }
+
+.add:active{
+    background-color: #1da363;
+}
