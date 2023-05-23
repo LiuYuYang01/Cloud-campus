@@ -2,6 +2,12 @@ page{
     background-image: linear-gradient(to right, #d3ede8, #f0f0f0)
 }
 
+.van-tabs__wrap{
+    position: relative;
+    top: -100rpx;
+}
+
+/* 打卡 */
 .day{
     text-align: center;
     margin-top: 150rpx;
@@ -43,4 +49,17 @@ page{
     color: #fff;
     border-radius: 50rpx;
     background-color: #4fb985;
+}
+
+/* 单词卡 */
+.danci{
+    position: relative;
+    top: -50rpx;
+    margin: 50rpx 0 10rpx;
+    text-align: center;
+    font-size: 50rpx;
+}
+
+.schedule{
+    margin-bottom: 40rpx;
 }
