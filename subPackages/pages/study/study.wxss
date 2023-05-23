@@ -63,3 +63,15 @@ page{
 .schedule{
     margin-bottom: 40rpx;
 }
+
+.add{
+    width: 80%;
+    height: 80rpx;
+    line-height: 80rpx;
+    margin: 0 auto;
+    margin-top: 40rpx;
+    color: #fff;
+    border-radius: 40rpx;
+    background-color: #4fb985;
+    font-size: 30rpx;
+}

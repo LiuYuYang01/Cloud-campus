@@ -27,6 +27,8 @@
         <view class="danci">
             <view>我的单词卡</view>
             <view style="font-size: 28rpx;color: #666;padding-top: 20rpx;">知识改变命运</view>
+
+            <view class="add">创建单词卡</view>
         </view>
 
         <!-- 单词卡 -->
