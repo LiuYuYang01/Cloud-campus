@@ -18,37 +18,37 @@ Page({
     bgList: [
       {
         img:
-          "https://api.tockey.cn/public/imgs/test/167576589402339327tSPfjvL7P5va47e8dc923face9c825ecb348ebbcf37a.webp",
+          "http://127.0.0.1:7001/public/imgs/test/167576589402339327tSPfjvL7P5va47e8dc923face9c825ecb348ebbcf37a.webp",
         title: "风景",
       },
       {
         img:
-          "https://api.tockey.cn/public/imgs/test/167576587331059423uOUwramHpshl41dfb0ee86b68f3a7a567eb9434d12b4.webp",
+          "http://127.0.0.1:7001/public/imgs/test/167576587331059423uOUwramHpshl41dfb0ee86b68f3a7a567eb9434d12b4.webp",
         title: "日落",
       },
       {
         img:
-          "https://api.tockey.cn/public/imgs/test/167576573037887718HCMZW3UdEwF6fc2e595f15db3491113782a1d3c1f833.webp",
+          "http://127.0.0.1:7001/public/imgs/test/167576573037887718HCMZW3UdEwF6fc2e595f15db3491113782a1d3c1f833.webp",
         title: "治愈",
       },
       {
         img:
-          "https://api.tockey.cn/public/imgs/test/167576578200301844t78WtKTwKe3D913bac104b8a28c78b7c0553e67e494a.webp",
+          "http://127.0.0.1:7001/public/imgs/test/167576578200301844t78WtKTwKe3D913bac104b8a28c78b7c0553e67e494a.webp",
         title: "城市",
       },
       {
         img:
-          "https://api.tockey.cn/public/imgs/test/167576583942692349NLb7HQe9WXLlc786894e493cc19969484199d26a7e6f.webp",
+          "http://127.0.0.1:7001/public/imgs/test/167576583942692349NLb7HQe9WXLlc786894e493cc19969484199d26a7e6f.webp",
         title: "色彩",
       },
       {
         img:
-          "https://api.tockey.cn/public/imgs/test/167576592480041973WYupfwRmQpCI7777b45441bad7f38683afc943f21b5f.webp",
+          "http://127.0.0.1:7001/public/imgs/test/167576592480041973WYupfwRmQpCI7777b45441bad7f38683afc943f21b5f.webp",
         title: "狼",
       },
       {
         img:
-          "https://api.tockey.cn/public/imgs/test/167576562825138379e89XXSTC1rL0ed732c8ff22983f3313d0deb438e3977.webp",
+          "http://127.0.0.1:7001/public/imgs/test/167576562825138379e89XXSTC1rL0ed732c8ff22983f3313d0deb438e3977.webp",
         title: "代码",
       },
     ],
@@ -89,7 +89,7 @@ Page({
     const file = e.detail.file;
 
     wx.uploadFile({
-      url: "https://api.tockey.cn/api/upload", // 仅为示例，非真实的接口地址
+      url: "http://127.0.0.1:7001/api/upload", // 仅为示例，非真实的接口地址
       filePath: file.url,
       name: "file",
       formData: {

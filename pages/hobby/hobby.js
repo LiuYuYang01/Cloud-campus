@@ -52,7 +52,7 @@ Page({
       times: setTimeout(() => {
         this.setData({ showSearchLod: true });
         wx.request({
-          url: `https://api.tockey.cn/api/search`,
+          url: `http://127.0.0.1:7001/api/search`,
           method: "post",
           data: { value: e.detail },
           success: (res) => {

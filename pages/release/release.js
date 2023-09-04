@@ -326,7 +326,7 @@ Page({
     const { file } = event.detail;
     // 当设置 mutiple 为 true 时, file 为数组格式，否则为对象格式
     wx.uploadFile({
-      url: "https://api.tockey.cn/api/upload", // 仅为示例，非真实的接口地址
+      url: "http://127.0.0.1:7001/api/upload", // 仅为示例，非真实的接口地址
       filePath: file.url,
       name: "file",
       formData: {

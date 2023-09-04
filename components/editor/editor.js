@@ -61,7 +61,7 @@ Component({
           // 上传图片
           wx.uploadFile({
             //请求后台的路径
-            url: "https://api.tockey.cn/api/upload",
+            url: "http://127.0.0.1:7001/api/upload",
             //小程序本地的路径
             filePath: res.tempFilePaths[0],
             //后台获取我们图片的key

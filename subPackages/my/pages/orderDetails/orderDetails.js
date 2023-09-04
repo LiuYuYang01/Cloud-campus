@@ -68,7 +68,7 @@ Page({
     // 获取订单信息
     getOrderInfo(oid) {
         wx.request({
-            url: `https://api.tockey.cn/api/pay/order/${oid}`,
+            url: `http://127.0.0.1:7001/api/pay/order/${oid}`,
             success: res => {
                 let { code, message, order } = res.data;
                 // 订单状态不是待支付状态

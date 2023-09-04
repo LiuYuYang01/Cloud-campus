@@ -1,7 +1,7 @@
 import io from '../assets/js/weapp.socket.io';  // 引入 socket.io
 // const socket = io('http://localhost:7001');
 // const socket = io('http://192.168.0.111:7001');
-const socket = io('https://api.tockey.cn');
+const socket = io('http://127.0.0.1:7001');
 
 socket.on('connect', function () {
     // console.log('连接成功', socket.id);
